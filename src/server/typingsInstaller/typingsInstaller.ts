@@ -93,10 +93,10 @@ namespace ts.server.typingsInstaller {
         abstract readonly typesRegistry: Map<void>;
 
         constructor(
-            readonly installTypingHost: InstallTypingHost,
-            readonly globalCachePath: string,
-            readonly safeListPath: Path,
-            readonly throttleLimit: number,
+            protected readonly installTypingHost: InstallTypingHost,
+            private readonly globalCachePath: string,
+            private readonly safeListPath: Path,
+            private readonly throttleLimit: number,
             protected readonly log = nullLog) {
             if (this.log.isEnabled()) {
                 this.log.writeLine(`Global cache location '${globalCachePath}', safe file path '${safeListPath}'`);
@@ -145,6 +145,7 @@ namespace ts.server.typingsInstaller {
 
             const discoverTypingsResult = JsTyping.discoverTypings(
                 this.installTypingHost,
+                this.log.isEnabled() ? this.log.writeLine : undefined,
                 req.fileNames,
                 req.projectRootPath,
                 this.safeListPath,
@@ -389,7 +390,7 @@ namespace ts.server.typingsInstaller {
                         this.log.writeLine(`Got FS notification for ${f}, handler is already invoked '${isInvoked}'`);
                     }
                     if (!isInvoked) {
-                        this.sendResponse({ projectName: projectName, kind: server.ActionInvalidate });
+                        this.sendResponse({ projectName, kind: server.ActionInvalidate });
                         isInvoked = true;
                     }
                 }, /*pollingInterval*/ 2000);
@@ -434,5 +435,4 @@ namespace ts.server.typingsInstaller {
     export function typingsName(packageName: string): string {
         return `@types/${packageName}@ts${versionMajorMinor}`;
     }
-    const versionMajorMinor = version.split(".").slice(0, 2).join(".");
 }

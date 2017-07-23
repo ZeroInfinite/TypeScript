@@ -5,7 +5,7 @@ namespace ts {
         if (!expected === !actual) {
             if (expected) {
                 assert.isTrue(expected.resolvedFileName === actual.resolvedFileName, `'resolvedFileName': expected '${expected.resolvedFileName}' to be equal to '${actual.resolvedFileName}'`);
-                assert.isTrue(expected.extension === actual.extension, `'ext': expected '${Extension[expected.extension]}' to be equal to '${Extension[actual.extension]}'`);
+                assert.isTrue(expected.extension === actual.extension, `'ext': expected '${expected.extension}' to be equal to '${actual.extension}'`);
                 assert.isTrue(expected.isExternalLibraryImport === actual.isExternalLibraryImport, `'isExternalLibraryImport': expected '${expected.isExternalLibraryImport}' to be equal to '${actual.isExternalLibraryImport}'`);
             }
             return true;
@@ -56,7 +56,7 @@ namespace ts {
         else {
             return { readFile, fileExists: path => map.has(path) };
         }
-        function readFile(path: string): string {
+        function readFile(path: string): string | undefined {
             const file = map.get(path);
             return file && file.content;
         }
@@ -144,18 +144,16 @@ namespace ts {
 
                 const resolution = nodeModuleNameResolver("b", containingFile.name, {}, createModuleResolutionHost(hasDirectoryExists, containingFile, packageJson, moduleFile, indexFile));
 
-                checkResolvedModule(resolution.resolvedModule, createResolvedModule(indexPath, /*isExternalLibraryImport*/true));
+                checkResolvedModule(resolution.resolvedModule, createResolvedModule(indexPath, /*isExternalLibraryImport*/ true));
             }
         }
 
         it("module name as directory - handle invalid 'typings'", () => {
             testTypingsIgnored(["a", "b"]);
             testTypingsIgnored({ "a": "b" });
-            testTypingsIgnored(true);
-            /* tslint:disable no-null-keyword */
-            testTypingsIgnored(null);
-            /* tslint:enable no-null-keyword */
-            testTypingsIgnored(undefined);
+            testTypingsIgnored(/*typings*/ true);
+            testTypingsIgnored(/*typings*/ null); // tslint:disable-line no-null-keyword
+            testTypingsIgnored(/*typings*/ undefined);
         });
         it("module name as directory - load index.d.ts", () => {
             test(/*hasDirectoryExists*/ false);
@@ -532,7 +530,7 @@ import b = require("./moduleB");
                 check("m1", main, m1);
                 check("m2", main, m2);
                 check("m3", main, m3Typings);
-                check("m4", main, m4, /*isExternalLibraryImport*/true);
+                check("m4", main, m4, /*isExternalLibraryImport*/ true);
 
                 function check(name: string, caller: File, expected: File, isExternalLibraryImport = false) {
                     const result = resolveModuleName(name, caller.name, options, host);
@@ -952,8 +950,8 @@ import b = require("./moduleB");
             {
                 const f1 = { name: "/root/src/app.ts" };
                 const f2 = { name: "/root/src/types/lib/typings/lib.d.ts" };
-                const package = { name: "/root/src/types/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
-                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ true, f1, f2, package);
+                const packageFile = { name: "/root/src/types/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
+                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ true, f1, f2, packageFile);
             }
             {
                 const f1 = { name: "/root/src/app.ts" };
@@ -963,8 +961,8 @@ import b = require("./moduleB");
             {
                 const f1 = { name: "/root/src/app.ts" };
                 const f2 = { name: "/root/src/node_modules/lib/typings/lib.d.ts" };
-                const package = { name: "/root/src/node_modules/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
-                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, package);
+                const packageFile = { name: "/root/src/node_modules/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
+                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, packageFile);
             }
             {
                 const f1 = { name: "/root/src/app.ts" };
@@ -974,8 +972,8 @@ import b = require("./moduleB");
             {
                 const f1 = { name: "/root/src/app.ts" };
                 const f2 = { name: "/root/src/node_modules/@types/lib/typings/lib.d.ts" };
-                const package = { name: "/root/src/node_modules/@types/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
-                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, package);
+                const packageFile = { name: "/root/src/node_modules/@types/lib/package.json", content: JSON.stringify({ types: "typings/lib.d.ts" }) };
+                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, packageFile);
             }
         });
         it("Can be resolved from secondary location", () => {
@@ -992,8 +990,8 @@ import b = require("./moduleB");
             {
                 const f1 = { name: "/root/src/app.ts" };
                 const f2 = { name: "/root/node_modules/lib/typings/lib.d.ts" };
-                const package = { name: "/root/node_modules/lib/package.json", content: JSON.stringify({ typings: "typings/lib.d.ts" }) };
-                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, package);
+                const packageFile = { name: "/root/node_modules/lib/package.json", content: JSON.stringify({ typings: "typings/lib.d.ts" }) };
+                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, packageFile);
             }
             {
                 const f1 = { name: "/root/src/app.ts" };
@@ -1003,8 +1001,8 @@ import b = require("./moduleB");
             {
                 const f1 = { name: "/root/src/app.ts" };
                 const f2 = { name: "/root/node_modules/@types/lib/typings/lib.d.ts" };
-                const package = { name: "/root/node_modules/@types/lib/package.json", content: JSON.stringify({ typings: "typings/lib.d.ts" }) };
-                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, package);
+                const packageFile = { name: "/root/node_modules/@types/lib/package.json", content: JSON.stringify({ typings: "typings/lib.d.ts" }) };
+                test(/*typesRoot*/"/root/src/types", /* typeDirective */"lib", /*primary*/ false, f1, f2, packageFile);
             }
         });
         it("Primary resolution overrides secondary resolutions", () => {
@@ -1044,7 +1042,7 @@ import b = require("./moduleB");
             assert.equal(diagnostics1.length, 1, "expected one diagnostic");
 
             createProgram(names, {}, compilerHost, program1);
-            assert.isTrue(program1.structureIsReused);
+            assert.isTrue(program1.structureIsReused === StructureIsReused.Completely);
             const diagnostics2 = program1.getFileProcessingDiagnostics().getDiagnostics();
             assert.equal(diagnostics2.length, 1, "expected one diagnostic");
             assert.equal(diagnostics1[0].messageText, diagnostics2[0].messageText, "expected one diagnostic");

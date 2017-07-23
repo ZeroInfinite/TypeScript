@@ -54,7 +54,7 @@ namespace ts.formatting {
                 let current = position;
                 while (current > 0) {
                     const char = sourceFile.text.charCodeAt(current);
-                    if (!isWhiteSpace(char)) {
+                    if (!isWhiteSpaceLike(char)) {
                         break;
                     }
                     current--;
@@ -328,7 +328,7 @@ namespace ts.formatting {
             const containingList = getContainingList(node, sourceFile);
             return containingList ? getActualIndentationFromList(containingList) : Value.Unknown;
 
-            function getActualIndentationFromList(list: Node[]): number {
+            function getActualIndentationFromList(list: ReadonlyArray<Node>): number {
                 const index = indexOf(list, node);
                 return index !== -1 ? deriveActualIndentationFromList(list, index, sourceFile, options) : Value.Unknown;
             }
@@ -341,10 +341,7 @@ namespace ts.formatting {
                 return Value.Unknown;
             }
 
-            if (node.parent && (
-                node.parent.kind === SyntaxKind.CallExpression ||
-                node.parent.kind === SyntaxKind.NewExpression) &&
-                (<CallExpression>node.parent).expression !== node) {
+            if (node.parent && isCallOrNewExpression(node.parent) && (<CallExpression>node.parent).expression !== node) {
 
                 const fullCallOrNewExpression = (<CallExpression | NewExpression>node.parent).expression;
                 const startingExpression = getStartingExpression(fullCallOrNewExpression);
@@ -381,7 +378,7 @@ namespace ts.formatting {
             }
         }
 
-        function deriveActualIndentationFromList(list: Node[], index: number, sourceFile: SourceFile, options: EditorSettings): number {
+        function deriveActualIndentationFromList(list: ReadonlyArray<Node>, index: number, sourceFile: SourceFile, options: EditorSettings): number {
             Debug.assert(index >= 0 && index < list.length);
             const node = list[index];
 

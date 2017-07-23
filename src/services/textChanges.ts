@@ -157,7 +157,7 @@ namespace ts.textChanges {
         private changes: Change[] = [];
         private readonly newLineCharacter: string;
 
-        public static fromCodeFixContext(context: CodeFixContext) {
+        public static fromCodeFixContext(context: { newLineCharacter: string, rulesProvider: formatting.RulesProvider }) {
             return new ChangeTracker(context.newLineCharacter === "\n" ? NewLineKind.LineFeed : NewLineKind.CarriageReturnLineFeed, context.rulesProvider);
         }
 
@@ -202,7 +202,7 @@ namespace ts.textChanges {
                 return this;
             }
             if (index !== containingList.length - 1) {
-                const nextToken = getTokenAtPosition(sourceFile, node.end);
+                const nextToken = getTokenAtPosition(sourceFile, node.end, /*includeJsDocComment*/ false);
                 if (nextToken && isSeparator(node, nextToken)) {
                     // find first non-whitespace position in the leading trivia of the node
                     const startPosition = skipTrivia(sourceFile.text, getAdjustedStartPosition(sourceFile, node, {}, Position.FullStart), /*stopAfterLineBreak*/ false, /*stopAtComments*/ true);
@@ -214,7 +214,7 @@ namespace ts.textChanges {
                 }
             }
             else {
-                const previousToken = getTokenAtPosition(sourceFile, containingList[index - 1].end);
+                const previousToken = getTokenAtPosition(sourceFile, containingList[index - 1].end, /*includeJsDocComment*/ false);
                 if (previousToken && isSeparator(node, previousToken)) {
                     this.deleteNodeRange(sourceFile, previousToken, node);
                 }
@@ -242,7 +242,7 @@ namespace ts.textChanges {
         }
 
         public insertNodeAt(sourceFile: SourceFile, pos: number, newNode: Node, options: InsertNodeOptions = {}) {
-            this.changes.push({ sourceFile, options, node: newNode, range: { pos: pos, end: pos } });
+            this.changes.push({ sourceFile, options, node: newNode, range: { pos, end: pos } });
             return this;
         }
 
@@ -254,9 +254,9 @@ namespace ts.textChanges {
 
         public insertNodeAfter(sourceFile: SourceFile, after: Node, newNode: Node, options: InsertNodeOptions & ConfigurableEnd = {}) {
             if ((isStatementButNotDeclaration(after)) ||
-                 after.kind === SyntaxKind.PropertyDeclaration ||
-                 after.kind === SyntaxKind.PropertySignature ||
-                 after.kind === SyntaxKind.MethodSignature) {
+                after.kind === SyntaxKind.PropertyDeclaration ||
+                after.kind === SyntaxKind.PropertySignature ||
+                after.kind === SyntaxKind.MethodSignature) {
                 // check if previous statement ends with semicolon
                 // if not - insert semicolon to preserve the code from changing the meaning due to ASI
                 if (sourceFile.text.charCodeAt(after.end - 1) !== CharacterCodes.semicolon) {
@@ -292,7 +292,7 @@ namespace ts.textChanges {
             if (index !== containingList.length - 1) {
                 // any element except the last one
                 // use next sibling as an anchor
-                const nextToken = getTokenAtPosition(sourceFile, after.end);
+                const nextToken = getTokenAtPosition(sourceFile, after.end, /*includeJsDocComment*/ false);
                 if (nextToken && isSeparator(after, nextToken)) {
                     // for list
                     // a, b, c
@@ -415,19 +415,18 @@ namespace ts.textChanges {
         }
 
         public getChanges(): FileTextChanges[] {
-            const changesPerFile = createFileMap<Change[]>();
+            const changesPerFile = createMap<Change[]>();
             // group changes per file
             for (const c of this.changes) {
                 let changesInFile = changesPerFile.get(c.sourceFile.path);
                 if (!changesInFile) {
                     changesPerFile.set(c.sourceFile.path, changesInFile = []);
-                };
+                }
                 changesInFile.push(c);
             }
             // convert changes
             const fileChangesList: FileTextChanges[] = [];
-            changesPerFile.forEachValue(path => {
-                const changesInFile = changesPerFile.get(path);
+            changesPerFile.forEach(changesInFile => {
                 const sourceFile = changesInFile[0].sourceFile;
                 const fileTextChanges: FileTextChanges = { fileName: sourceFile.fileName, textChanges: [] };
                 for (const c of ChangeTracker.normalize(changesInFile)) {
@@ -465,7 +464,7 @@ namespace ts.textChanges {
                 change.options.indentation !== undefined
                     ? change.options.indentation
                     : change.useIndentationFromFile
-                        ? formatting.SmartIndenter.getIndentation(change.range.pos, sourceFile, formatOptions, posStartsLine || (change.options.prefix == this.newLineCharacter))
+                        ? formatting.SmartIndenter.getIndentation(change.range.pos, sourceFile, formatOptions, posStartsLine || (change.options.prefix === this.newLineCharacter))
                         : 0;
             const delta =
                 change.options.delta !== undefined
@@ -481,7 +480,7 @@ namespace ts.textChanges {
             return (options.prefix || "") + text + (options.suffix || "");
         }
 
-        private static normalize(changes: Change[]) {
+        private static normalize(changes: Change[]): Change[] {
             // order changes by start position
             const normalized = stableSort(changes, (a, b) => a.range.pos - b.range.pos);
             // verify that change intervals do not overlap, except possibly at end points.
@@ -497,8 +496,8 @@ namespace ts.textChanges {
         readonly node: Node;
     }
 
-    export function getNonformattedText(node: Node, sourceFile: SourceFile, newLine: NewLineKind): NonFormattedText {
-        const options = { newLine, target: sourceFile.languageVersion };
+    export function getNonformattedText(node: Node, sourceFile: SourceFile | undefined, newLine: NewLineKind): NonFormattedText {
+        const options = { newLine, target: sourceFile && sourceFile.languageVersion };
         const writer = new Writer(getNewLineCharacter(options));
         const printer = createPrinter(options, writer);
         printer.writeNode(EmitHint.Unspecified, node, sourceFile, writer);
@@ -512,7 +511,7 @@ namespace ts.textChanges {
             lineMap,
             getLineAndCharacterOfPosition: pos => computeLineAndCharacterOfPosition(lineMap, pos)
         };
-        const changes = formatting.formatNode(nonFormattedText.node, file, sourceFile.languageVariant, initialIndentation, delta, rulesProvider);
+        const changes = formatting.formatNodeGivenIndentation(nonFormattedText.node, file, sourceFile.languageVariant, initialIndentation, delta, rulesProvider);
         return applyChanges(nonFormattedText.text, changes);
     }
 
@@ -527,26 +526,6 @@ namespace ts.textChanges {
     function isTrivia(s: string) {
         return skipTrivia(s, 0) === s.length;
     }
-
-    const nullTransformationContext: TransformationContext = {
-        enableEmitNotification: noop,
-        enableSubstitution: noop,
-        endLexicalEnvironment: () => undefined,
-        getCompilerOptions: notImplemented,
-        getEmitHost: notImplemented,
-        getEmitResolver: notImplemented,
-        hoistFunctionDeclaration: noop,
-        hoistVariableDeclaration: noop,
-        isEmitNotificationEnabled: notImplemented,
-        isSubstitutionEnabled: notImplemented,
-        onEmitNode: noop,
-        onSubstituteNode: notImplemented,
-        readEmitHelpers: notImplemented,
-        requestEmitHelper: noop,
-        resumeLexicalEnvironment: noop,
-        startLexicalEnvironment: noop,
-        suspendLexicalEnvironment: noop
-    };
 
     function assignPositionsToNode(node: Node): Node {
         const visited = visitEachChild(node, assignPositionsToNode, nullTransformationContext, assignPositionsToNodeArray, assignPositionsToNode);
@@ -580,6 +559,8 @@ namespace ts.textChanges {
         public readonly onEmitNode: PrintHandlers["onEmitNode"];
         public readonly onBeforeEmitNodeArray: PrintHandlers["onBeforeEmitNodeArray"];
         public readonly onAfterEmitNodeArray: PrintHandlers["onAfterEmitNodeArray"];
+        public readonly onBeforeEmitToken: PrintHandlers["onBeforeEmitToken"];
+        public readonly onAfterEmitToken: PrintHandlers["onAfterEmitToken"];
 
         constructor(newLine: string) {
             this.writer = createTextWriter(newLine);
@@ -602,13 +583,23 @@ namespace ts.textChanges {
                     setEnd(nodes, this.lastNonTriviaPosition);
                 }
             };
+            this.onBeforeEmitToken = node => {
+                if (node) {
+                    setPos(node, this.lastNonTriviaPosition);
+                }
+            };
+            this.onAfterEmitToken = node => {
+                if (node) {
+                    setEnd(node, this.lastNonTriviaPosition);
+                }
+            };
         }
 
         private setLastNonTriviaPosition(s: string, force: boolean) {
             if (force || !isTrivia(s)) {
                 this.lastNonTriviaPosition = this.writer.getTextPos();
                 let i = 0;
-                while (isWhiteSpace(s.charCodeAt(s.length - i - 1))) {
+                while (isWhiteSpaceLike(s.charCodeAt(s.length - i - 1))) {
                     i++;
                 }
                 // trim trailing whitespaces

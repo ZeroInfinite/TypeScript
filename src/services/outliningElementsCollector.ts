@@ -10,7 +10,7 @@ namespace ts.OutliningElementsCollector {
                     textSpan: createTextSpanFromBounds(startElement.pos, endElement.end),
                     hintSpan: createTextSpanFromNode(hintSpanNode, sourceFile),
                     bannerText: collapseText,
-                    autoCollapse: autoCollapse
+                    autoCollapse,
                 };
                 elements.push(span);
             }
@@ -22,7 +22,7 @@ namespace ts.OutliningElementsCollector {
                     textSpan: createTextSpanFromBounds(commentSpan.pos, commentSpan.end),
                     hintSpan: createTextSpanFromBounds(commentSpan.pos, commentSpan.end),
                     bannerText: collapseText,
-                    autoCollapse: autoCollapse
+                    autoCollapse,
                 };
                 elements.push(span);
             }
@@ -71,7 +71,7 @@ namespace ts.OutliningElementsCollector {
                 const multipleSingleLineComments: CommentRange = {
                     kind: SyntaxKind.SingleLineCommentTrivia,
                     pos: start,
-                    end: end,
+                    end,
                 };
 
                 addOutliningSpanComments(multipleSingleLineComments, /*autoCollapse*/ false);
@@ -146,7 +146,7 @@ namespace ts.OutliningElementsCollector {
                         });
                         break;
                     }
-                // Fallthrough.
+                    // falls through
 
                 case SyntaxKind.ModuleBlock: {
                     const openBrace = findChildOfKind(n, SyntaxKind.OpenBraceToken, sourceFile);

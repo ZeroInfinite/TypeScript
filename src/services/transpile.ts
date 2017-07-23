@@ -5,6 +5,7 @@ namespace ts {
         reportDiagnostics?: boolean;
         moduleName?: string;
         renamedDependencies?: MapLike<string>;
+        transformers?: CustomTransformers;
     }
 
     export interface TranspileOutput {
@@ -103,7 +104,7 @@ namespace ts {
             addRange(/*to*/ diagnostics, /*from*/ program.getOptionsDiagnostics());
         }
         // Emit
-        program.emit();
+        program.emit(/*targetSourceFile*/ undefined, /*writeFile*/ undefined, /*cancellationToken*/ undefined, /*emitOnlyDtsFiles*/ undefined, transpileOptions.transformers);
 
         Debug.assert(outputText !== undefined, "Output generation failed");
 
@@ -129,7 +130,7 @@ namespace ts {
         commandLineOptionsStringToEnum = commandLineOptionsStringToEnum || <CommandLineOptionOfCustomType[]>filter(optionDeclarations, o =>
             typeof o.type === "object" && !forEachEntry(o.type, v => typeof v !== "number"));
 
-        options = clone(options);
+        options = cloneCompilerOptions(options);
 
         for (const opt of commandLineOptionsStringToEnum) {
             if (!hasProperty(options, opt.name)) {

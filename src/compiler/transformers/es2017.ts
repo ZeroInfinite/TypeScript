@@ -47,7 +47,7 @@ namespace ts {
         return transformSourceFile;
 
         function transformSourceFile(node: SourceFile) {
-            if (isDeclarationFile(node)) {
+            if (node.isDeclarationFile) {
                 return node;
             }
 
@@ -222,7 +222,7 @@ namespace ts {
 
             if (!isArrowFunction) {
                 const statements: Statement[] = [];
-                const statementOffset = addPrologueDirectives(statements, (<Block>node.body).statements, /*ensureUseStrict*/ false, visitor);
+                const statementOffset = addPrologue(statements, (<Block>node.body).statements, /*ensureUseStrict*/ false, visitor);
                 statements.push(
                     createReturn(
                         createAwaiterHelper(
@@ -369,7 +369,7 @@ namespace ts {
         function substitutePropertyAccessExpression(node: PropertyAccessExpression) {
             if (node.expression.kind === SyntaxKind.SuperKeyword) {
                 return createSuperAccessInAsyncMethod(
-                    createLiteral(node.name.text),
+                    createLiteral(unescapeLeadingUnderscores(node.name.text)),
                     node
                 );
             }
