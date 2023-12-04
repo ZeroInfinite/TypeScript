@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unknownSymbols2.ts] ////
+
 //// [unknownSymbols2.ts]
 module M {
     var x: asdf;
@@ -42,7 +44,7 @@ var M;
     }
     try {
     }
-    catch (asdf) {
+    catch (asdf) { // no error
     }
     switch (asdf) {
         case qwerty:

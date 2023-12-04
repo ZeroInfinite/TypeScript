@@ -19,6 +19,7 @@ foo(import("./0"));
 //// [0.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.B = void 0;
 class B {
     print() { return "I am B"; }
 }
@@ -31,4 +32,4 @@ function foo(x) {
         b.print();
     });
 }
-foo(Promise.resolve().then(function () { return require("./0"); }));
+foo(Promise.resolve().then(() => require("./0")));

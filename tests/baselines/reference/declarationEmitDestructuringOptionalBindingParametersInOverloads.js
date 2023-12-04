@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declarationEmitDestructuringOptionalBindingParametersInOverloads.ts] ////
+
 //// [declarationEmitDestructuringOptionalBindingParametersInOverloads.ts]
 function foo([x, y, z] ?: [string, number, boolean]);
 function foo(...rest: any[]) {
@@ -25,7 +27,7 @@ function foo2() {
 
 //// [declarationEmitDestructuringOptionalBindingParametersInOverloads.d.ts]
 declare function foo([x, y, z]?: [string, number, boolean]): any;
-declare function foo2({x, y, z}?: {
+declare function foo2({ x, y, z }?: {
     x: string;
     y: number;
     z: boolean;

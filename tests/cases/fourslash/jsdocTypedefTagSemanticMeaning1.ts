@@ -4,9 +4,9 @@
 // @Filename: a.js
 
 /////** @typedef {number} */
-////const [|{| "isWriteAccess": true, "isDefinition": true |}T|] = 1;
+/////*1*/const /*2*/T = 1;
 
-/////** @type {[|T|]} */
-////const n = [|T|];
+/////** @type {/*3*/T} */
+////const n = /*4*/T;
 
-verify.singleReferenceGroup("type T = number\nconst T: 1");
+verify.baselineFindAllReferences('1', '2', '3', '4');

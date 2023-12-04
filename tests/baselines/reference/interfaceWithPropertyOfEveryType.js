@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithPropertyOfEveryType.ts] ////
+
 //// [interfaceWithPropertyOfEveryType.ts]
 class C { foo: string; }
 function f1() { }
@@ -43,7 +45,7 @@ var a: Foo = {
 }
 
 //// [interfaceWithPropertyOfEveryType.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

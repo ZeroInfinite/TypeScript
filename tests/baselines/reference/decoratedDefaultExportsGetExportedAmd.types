@@ -1,7 +1,8 @@
-=== tests/cases/conformance/es6/moduleExportsAmd/a.ts ===
+//// [tests/cases/conformance/es6/moduleExportsAmd/decoratedDefaultExportsGetExportedAmd.ts] ////
+
+=== a.ts ===
 var decorator: ClassDecorator;
 >decorator : ClassDecorator
->ClassDecorator : ClassDecorator
 
 @decorator
 >decorator : ClassDecorator
@@ -9,10 +10,9 @@ var decorator: ClassDecorator;
 export default class Foo {}
 >Foo : Foo
 
-=== tests/cases/conformance/es6/moduleExportsAmd/b.ts ===
+=== b.ts ===
 var decorator: ClassDecorator;
 >decorator : ClassDecorator
->ClassDecorator : ClassDecorator
 
 @decorator
 >decorator : ClassDecorator

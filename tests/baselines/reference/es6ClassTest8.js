@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es6ClassTest8.ts] ////
+
 //// [es6ClassTest8.ts]
 function f1(x:any) {return x;}
 
@@ -42,7 +44,7 @@ class Camera {
 
 //// [es6ClassTest8.js]
 function f1(x) { return x; }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         var bar = (function () {
             return bar; // 'bar' should be resolvable
@@ -51,7 +53,7 @@ var C = (function () {
     }
     return C;
 }());
-var Vector = (function () {
+var Vector = /** @class */ (function () {
     function Vector(x, y, z) {
         this.x = x;
         this.y = y;
@@ -64,7 +66,7 @@ var Vector = (function () {
     Vector.dot = function (v1, v2) { return null; };
     return Vector;
 }());
-var Camera = (function () {
+var Camera = /** @class */ (function () {
     function Camera(pos, lookAt) {
         this.pos = pos;
         var down = new Vector(0.0, -1.0, 0.0);

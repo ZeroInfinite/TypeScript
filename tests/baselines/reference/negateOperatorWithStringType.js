@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/negateOperator/negateOperatorWithStringType.ts] ////
+
 //// [negateOperatorWithStringType.ts]
 // - operator on string type
 var STRING: string;
@@ -45,7 +47,7 @@ var ResultIsNumber12 = -STRING.charAt(0);
 var STRING;
 var STRING1 = ["", "abc"];
 function foo() { return "abc"; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return ""; };

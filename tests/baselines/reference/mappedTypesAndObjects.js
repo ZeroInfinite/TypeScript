@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/mapped/mappedTypesAndObjects.ts] ////
+
 //// [mappedTypesAndObjects.ts]
 function f1<T>(x: Partial<T>, y: Readonly<T>) {
     let obj: {};
@@ -59,7 +61,7 @@ function f3(x) {
 }
 ;
 // Repro from #13747
-var Form = (function () {
+var Form = /** @class */ (function () {
     function Form() {
         this.values = {};
     }

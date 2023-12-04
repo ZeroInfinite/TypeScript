@@ -1,13 +1,15 @@
-=== tests/cases/conformance/decorators/class/accessor/decoratorOnClassAccessor5.ts ===
+//// [tests/cases/conformance/decorators/class/accessor/decoratorOnClassAccessor5.ts] ////
+
+=== decoratorOnClassAccessor5.ts ===
 declare function dec<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T>;
 >dec : Symbol(dec, Decl(decoratorOnClassAccessor5.ts, 0, 0))
 >T : Symbol(T, Decl(decoratorOnClassAccessor5.ts, 0, 21))
 >target : Symbol(target, Decl(decoratorOnClassAccessor5.ts, 0, 24))
 >propertyKey : Symbol(propertyKey, Decl(decoratorOnClassAccessor5.ts, 0, 36))
 >descriptor : Symbol(descriptor, Decl(decoratorOnClassAccessor5.ts, 0, 57))
->TypedPropertyDescriptor : Symbol(TypedPropertyDescriptor, Decl(lib.d.ts, --, --))
+>TypedPropertyDescriptor : Symbol(TypedPropertyDescriptor, Decl(lib.es5.d.ts, --, --))
 >T : Symbol(T, Decl(decoratorOnClassAccessor5.ts, 0, 21))
->TypedPropertyDescriptor : Symbol(TypedPropertyDescriptor, Decl(lib.d.ts, --, --))
+>TypedPropertyDescriptor : Symbol(TypedPropertyDescriptor, Decl(lib.es5.d.ts, --, --))
 >T : Symbol(T, Decl(decoratorOnClassAccessor5.ts, 0, 21))
 
 class C {

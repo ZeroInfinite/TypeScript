@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/mapped/mappedTypeErrors.ts] ////
+
 //// [mappedTypeErrors.ts]
 interface Shape {
     name: string;
@@ -143,6 +145,16 @@ let f: Foo2<O, 'x'> = {
     pt: {x: 7, y: false},
 };
 
+// Repro from #28170
+
+function test1<T, K extends keyof T>(obj: Pick<T, K>) {
+    let x = obj.foo;  // Error
+}
+
+function test2<T, K extends keyof T>(obj: Record<K, number>) {
+    let x = obj.foo;  // Error
+}
+
 
 //// [mappedTypeErrors.js]
 function f1(x) {
@@ -196,7 +208,7 @@ setState(foo, {});
 setState(foo, foo);
 setState(foo, { a: undefined }); // Error
 setState(foo, { c: true }); // Error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.setState = function (props) {
@@ -220,8 +232,15 @@ var x3 = { a: 'no' }; // Error
 var o = { x: 5, y: false };
 var f = {
     pf: { x: 7 },
-    pt: { x: 7, y: false }
+    pt: { x: 7, y: false },
 };
+// Repro from #28170
+function test1(obj) {
+    var x = obj.foo; // Error
+}
+function test2(obj) {
+    var x = obj.foo; // Error
+}
 
 
 //// [mappedTypeErrors.d.ts]
@@ -238,23 +257,23 @@ interface Point {
     x: number;
     y: number;
 }
-declare type T00 = {
+type T00 = {
     [P in P]: string;
 };
-declare type T01 = {
+type T01 = {
     [P in number]: string;
 };
-declare type T02 = {
+type T02 = {
     [P in Date]: number;
 };
-declare type T03 = Record<Date, number>;
-declare type T10 = Pick<Shape, "name">;
-declare type T11 = Pick<Shape, "foo">;
-declare type T12 = Pick<Shape, "name" | "foo">;
-declare type T13 = Pick<Shape, keyof Named>;
-declare type T14 = Pick<Shape, keyof Point>;
-declare type T15 = Pick<Shape, never>;
-declare type T16 = Pick<Shape, undefined>;
+type T03 = Record<Date, number>;
+type T10 = Pick<Shape, "name">;
+type T11 = Pick<Shape, "foo">;
+type T12 = Pick<Shape, "name" | "foo">;
+type T13 = Pick<Shape, keyof Named>;
+type T14 = Pick<Shape, keyof Point>;
+type T15 = Pick<Shape, never>;
+type T16 = Pick<Shape, undefined>;
 declare function f1<T>(x: T): void;
 declare function f2<T extends string | number>(x: T): void;
 declare function f3<T extends keyof Shape>(x: T): void;
@@ -277,7 +296,7 @@ declare class C<T> {
     setState<K extends keyof T>(props: Pick<T, K>): void;
 }
 declare let c: C<Foo>;
-declare type T2 = {
+type T2 = {
     a?: number;
     [key: string]: any;
 };
@@ -286,7 +305,7 @@ declare let x2: Partial<T2>;
 declare let x3: {
     [P in keyof T2]: T2[P];
 };
-declare type Foo2<T, F extends keyof T> = {
+type Foo2<T, F extends keyof T> = {
     pf: {
         [P in F]?: T[P];
     };
@@ -294,9 +313,11 @@ declare type Foo2<T, F extends keyof T> = {
         [P in T]?: T[P];
     };
 };
-declare type O = {
+type O = {
     x: number;
     y: boolean;
 };
 declare let o: O;
 declare let f: Foo2<O, 'x'>;
+declare function test1<T, K extends keyof T>(obj: Pick<T, K>): void;
+declare function test2<T, K extends keyof T>(obj: Record<K, number>): void;

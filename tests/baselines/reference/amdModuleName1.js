@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/amdModuleName1.ts] ////
+
 //// [amdModuleName1.ts]
 ///<amd-module name='NamedModule'/>
 class Foo {
@@ -13,7 +15,7 @@ export = Foo;
 define("NamedModule", ["require", "exports"], function (require, exports) {
     "use strict";
     ///<amd-module name='NamedModule'/>
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
             this.x = 5;
         }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/fatArrowSelf.ts] ////
+
 //// [fatArrowSelf.ts]
 module Events {
     export interface ListenerCallback {
@@ -27,7 +29,7 @@ module Consumer {
 //// [fatArrowSelf.js]
 var Events;
 (function (Events) {
-    var EventEmitter = (function () {
+    var EventEmitter = /** @class */ (function () {
         function EventEmitter() {
         }
         EventEmitter.prototype.addListener = function (type, listener) {
@@ -38,7 +40,7 @@ var Events;
 })(Events || (Events = {}));
 var Consumer;
 (function (Consumer) {
-    var EventEmitterConsummer = (function () {
+    var EventEmitterConsummer = /** @class */ (function () {
         function EventEmitterConsummer(emitter) {
             this.emitter = emitter;
         }

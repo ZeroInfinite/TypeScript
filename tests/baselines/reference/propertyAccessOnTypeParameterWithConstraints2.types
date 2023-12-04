@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints2.ts ===
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints2.ts] ////
+
+=== propertyAccessOnTypeParameterWithConstraints2.ts ===
 // generic types should behave as if they have properties of their constraint type
 
 class A {
@@ -23,17 +25,12 @@ class B extends A {
 
 class C<U extends A, T extends A> {
 >C : C<U, T>
->U : U
->A : A
->T : T
->A : A
 
     f() {
 >f : () => string
 
         var x: U;
 >x : U
->U : U
 
         var a = x['foo'](); // should be string
 >a : string
@@ -54,7 +51,6 @@ class C<U extends A, T extends A> {
     g(x: U) {
 >g : (x: U) => string
 >x : U
->U : U
 
         var a = x['foo'](); // should be string
 >a : string
@@ -92,8 +88,6 @@ var r1 = (new C<B, A>()).f();
 >(new C<B, A>()) : C<B, A>
 >new C<B, A>() : C<B, A>
 >C : typeof C
->B : B
->A : A
 >f : () => string
 
 var r1b = (new C<B, A>()).g(new B());
@@ -103,31 +97,19 @@ var r1b = (new C<B, A>()).g(new B());
 >(new C<B, A>()) : C<B, A>
 >new C<B, A>() : C<B, A>
 >C : typeof C
->B : B
->A : A
 >g : (x: B) => string
 >new B() : B
 >B : typeof B
 
 interface I<U extends A, T extends A> {
->I : I<U, T>
->U : U
->A : A
->T : T
->A : A
-
     foo: U;
 >foo : U
->U : U
 }
 //interface I<U extends T, T extends A> {
 //    foo: U;
 //}
 var i: I<B, A>;
 >i : I<B, A>
->I : I<U, T>
->B : B
->A : A
 
 var r2 = i.foo.foo();
 >r2 : string
@@ -148,34 +130,15 @@ var r2b = i.foo['foo']();
 >'foo' : "foo"
 
 var a: {
->a : { <U extends A, T extends A>(): U; <U extends A, T extends A>(x: U): U; <U extends A, T extends A>(x: U, y: T): U; }
+>a : { <U extends A, T extends A>(): U; <U_1 extends A, T_1 extends A>(x: U_1): U_1; <U_2 extends A, T_2 extends A>(x: U_2, y: T_2): U_2; }
 
     <U extends A, T extends A>(): U;
->U : U
->A : A
->T : T
->A : A
->U : U
-
     <U extends A, T extends A>(x: U): U;
->U : U
->A : A
->T : T
->A : A
 >x : U
->U : U
->U : U
 
     <U extends A, T extends A>(x: U, y: T): U;
->U : U
->A : A
->T : T
->A : A
 >x : U
->U : U
 >y : T
->T : T
->U : U
 }
 //var a: {
 //    <U extends T, T extends A>(): U;
@@ -187,9 +150,7 @@ var r3 = a<A, A>().foo();
 >a<A, A>().foo() : string
 >a<A, A>().foo : () => string
 >a<A, A>() : A
->a : { <U extends A, T extends A>(): U; <U extends A, T extends A>(x: U): U; <U extends A, T extends A>(x: U, y: T): U; }
->A : A
->A : A
+>a : { <U extends A, T extends A>(): U; <U_1 extends A, T_1 extends A>(x: U_1): U_1; <U_2 extends A, T_2 extends A>(x: U_2, y: T_2): U_2; }
 >foo : () => string
 
 var r3b = a()['foo']();
@@ -197,7 +158,7 @@ var r3b = a()['foo']();
 >a()['foo']() : string
 >a()['foo'] : () => string
 >a() : A
->a : { <U extends A, T extends A>(): U; <U extends A, T extends A>(x: U): U; <U extends A, T extends A>(x: U, y: T): U; }
+>a : { <U extends A, T extends A>(): U; <U_1 extends A, T_1 extends A>(x: U_1): U_1; <U_2 extends A, T_2 extends A>(x: U_2, y: T_2): U_2; }
 >'foo' : "foo"
 
 // parameter supplied for type argument inference to succeed
@@ -211,7 +172,7 @@ var r3c = a(aB, aB).foo();
 >a(aB, aB).foo() : string
 >a(aB, aB).foo : () => string
 >a(aB, aB) : B
->a : { <U extends A, T extends A>(): U; <U extends A, T extends A>(x: U): U; <U extends A, T extends A>(x: U, y: T): U; }
+>a : { <U extends A, T extends A>(): U; <U_1 extends A, T_1 extends A>(x: U_1): U_1; <U_2 extends A, T_2 extends A>(x: U_2, y: T_2): U_2; }
 >aB : B
 >aB : B
 >foo : () => string
@@ -221,7 +182,7 @@ var r3d = a(aB, aB)['foo']();
 >a(aB, aB)['foo']() : string
 >a(aB, aB)['foo'] : () => string
 >a(aB, aB) : B
->a : { <U extends A, T extends A>(): U; <U extends A, T extends A>(x: U): U; <U extends A, T extends A>(x: U, y: T): U; }
+>a : { <U extends A, T extends A>(): U; <U_1 extends A, T_1 extends A>(x: U_1): U_1; <U_2 extends A, T_2 extends A>(x: U_2, y: T_2): U_2; }
 >aB : B
 >aB : B
 >'foo' : "foo"
@@ -233,14 +194,8 @@ var b = {
     foo: <U extends A, T extends A>(x: U, y: T) => {
 >foo : <U extends A, T extends A>(x: U, y: T) => string
 ><U extends A, T extends A>(x: U, y: T) => {        var a = x['foo'](); // should be string        return a + x.foo();    } : <U extends A, T extends A>(x: U, y: T) => string
->U : U
->A : A
->T : T
->A : A
 >x : U
->U : U
 >y : T
->T : T
 
         var a = x['foo'](); // should be string
 >a : string

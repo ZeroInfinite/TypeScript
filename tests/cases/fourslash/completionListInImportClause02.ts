@@ -8,6 +8,7 @@
 ////    import { /**/ } from "M1"
 ////}
 
-goTo.marker();
-verify.completionListContains("V");
-verify.not.completionListAllowsNewIdentifier();
+verify.completions({ marker: "", exact: [
+  "V",
+  { name: "type", sortText: completion.SortText.GlobalsOrKeywords },
+] });

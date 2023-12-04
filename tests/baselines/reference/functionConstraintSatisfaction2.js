@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeArgumentLists/functionConstraintSatisfaction2.ts] ////
+
 //// [functionConstraintSatisfaction2.ts]
 // satisfaction of a constraint to Function, all of these invocations are errors unless otherwise noted
 
@@ -47,13 +49,13 @@ foo(1);
 foo(function () { }, 1);
 foo(1, function () { });
 function foo2(x) { return x; }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
 var b;
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;

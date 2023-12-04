@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/deleteOperator/deleteOperatorWithBooleanType.ts] ////
+
 //// [deleteOperatorWithBooleanType.ts]
 // delete  operator on boolean type
 var BOOLEAN: boolean;
@@ -42,7 +44,7 @@ delete M.n;
 // delete  operator on boolean type
 var BOOLEAN;
 function foo() { return true; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return false; };

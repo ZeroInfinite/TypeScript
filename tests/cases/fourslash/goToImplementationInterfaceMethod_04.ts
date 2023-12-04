@@ -7,11 +7,11 @@
 //// }
 ////
 //// class Bar extends SuperBar {
-////     [|hello() {}|]
+////     [|hello|]() {}
 //// }
 ////
 //// class SuperBar implements Foo {
-////     [|hello() {}|]
+////     [|hello|]() {}
 //// }
 ////
 //// class OtherBar implements Foo {
@@ -22,4 +22,4 @@
 ////     x.he/*function_call*/llo()
 //// }
 
-verify.allRangesAppearInImplementationList("function_call");
+verify.baselineGoToImplementation("function_call");

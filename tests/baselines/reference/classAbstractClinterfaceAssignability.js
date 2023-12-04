@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classAbstractKeyword/classAbstractClinterfaceAssignability.ts] ////
+
 //// [classAbstractClinterfaceAssignability.ts]
 interface I {
     x: number;
@@ -25,7 +27,7 @@ AAA = A;
 
 //// [classAbstractClinterfaceAssignability.js]
 var I;
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;

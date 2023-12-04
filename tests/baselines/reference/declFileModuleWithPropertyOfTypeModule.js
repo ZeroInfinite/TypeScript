@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileModuleWithPropertyOfTypeModule.ts] ////
+
 //// [declFileModuleWithPropertyOfTypeModule.ts]
 module m {
     export class c {
@@ -9,7 +11,7 @@ module m {
 //// [declFileModuleWithPropertyOfTypeModule.js]
 var m;
 (function (m) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
@@ -20,7 +22,7 @@ var m;
 
 
 //// [declFileModuleWithPropertyOfTypeModule.d.ts]
-declare module m {
+declare namespace m {
     class c {
     }
     var a: typeof m;

@@ -7,9 +7,10 @@
 //// */
 ////function str(n: number, radix: number): string;
 ////function str(n: number, radix?: number): string { return ""; }
+////
+////str(1, /*a*/)
+////
+////declare function f<T>(a: T): T;
+////f(2, /*b*/);
 
-edit.insert("str(1,");
-verify.currentParameterHelpArgumentNameIs("radix");
-verify.currentParameterHelpArgumentDocCommentIs("The radix");
-verify.currentSignatureHelpIs("str(n: number, radix: number): string");
-verify.currentSignatureHelpDocCommentIs("Stringifies a number with radix");
+verify.baselineSignatureHelp()

@@ -1,9 +1,8 @@
-=== tests/cases/compiler/classExpressionWithResolutionOfNamespaceOfSameName01.ts ===
-namespace C {
->C : any
+//// [tests/cases/compiler/classExpressionWithResolutionOfNamespaceOfSameName01.ts] ////
 
+=== classExpressionWithResolutionOfNamespaceOfSameName01.ts ===
+namespace C {
     export interface type {
->type : type
     }
 }
 
@@ -15,5 +14,4 @@ var x = class C {
     prop: C.type;
 >prop : C.type
 >C : any
->type : C.type
 }

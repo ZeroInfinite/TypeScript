@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/void/invalidVoidValues.ts] ////
+
 //// [invalidVoidValues.ts]
 var x: void;
 x = 1;
@@ -37,7 +39,7 @@ var E;
 })(E || (E = {}));
 x = E;
 x = E.A;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

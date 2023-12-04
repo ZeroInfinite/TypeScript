@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericImplements.ts] ////
+
 //// [genericImplements.ts]
 class A { a; };
 class B { b; };
@@ -21,34 +23,34 @@ class Z implements I {
 } // { f: <T>() => T } 
 
 //// [genericImplements.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
 ;
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;
 }());
 ;
 // OK
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     X.prototype.f = function () { return undefined; };
     return X;
 }()); // { f: () => { b; } }
 // OK
-var Y = (function () {
+var Y = /** @class */ (function () {
     function Y() {
     }
     Y.prototype.f = function () { return undefined; };
     return Y;
 }()); // { f: () => { a; } }
 // OK
-var Z = (function () {
+var Z = /** @class */ (function () {
     function Z() {
     }
     Z.prototype.f = function () { return undefined; };

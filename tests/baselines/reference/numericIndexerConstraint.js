@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/numericIndexerConstraint.ts] ////
+
 //// [numericIndexerConstraint.ts]
 class C {
     0: number;
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [numericIndexerConstraint.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

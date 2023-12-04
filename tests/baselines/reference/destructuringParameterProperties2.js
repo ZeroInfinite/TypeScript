@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringParameterProperties2.ts] ////
+
 //// [destructuringParameterProperties2.ts]
 class C1 {
     constructor(private k: number, private [a, b, c]: [number, string, boolean]) {
@@ -30,7 +32,7 @@ var [z_a, z_b, z_c] = [z.getA(), z.getB(), z.getC()];
 
 
 //// [destructuringParameterProperties2.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1(k, _a) {
         var a = _a[0], b = _a[1], c = _a[2];
         this.k = k;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constEnumDeclarations.ts] ////
+
 //// [constEnumDeclarations.ts]
 const enum E {
     A = 1,
@@ -18,10 +20,10 @@ const enum E2 {
 declare const enum E {
     A = 1,
     B = 2,
-    C = 3,
+    C = 3
 }
 declare const enum E2 {
     A = 1,
     B = 2,
-    C = 3,
+    C = 3
 }

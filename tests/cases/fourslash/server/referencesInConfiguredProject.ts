@@ -2,15 +2,15 @@
 
 // Global class reference.
 
-// @Filename: referencesForGlobals_1.ts
-////class [|globalClass|] {
+// @Filename: /referencesForGlobals_1.ts
+////class /*0*/globalClass {
 ////    public f() { }
 ////}
 
-// @Filename: referencesForGlobals_2.ts
-////var c = [|globalClass|]();
+// @Filename: /referencesForGlobals_2.ts
+////var c = /*1*/globalClass();
 
-// @Filename: tsconfig.json
+// @Filename: /tsconfig.json
 ////{ "files": ["referencesForGlobals_1.ts", "referencesForGlobals_2.ts"] }
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1')

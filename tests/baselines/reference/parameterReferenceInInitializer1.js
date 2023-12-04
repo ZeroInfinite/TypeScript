@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/parameterReferenceInInitializer1.ts] ////
+
 //// [parameterReferenceInInitializer1.ts]
 function fn<a>(y: Y, set: (y: Y, x: number) => void): a {
     return undefined;
@@ -16,11 +18,11 @@ class C {
 function fn(y, set) {
     return undefined;
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C(y, x // expected to work, but actually doesn't
     ) {
-        if (x === void 0) { x = fn(y, function (y, x) { return y.x = x; }); } // expected to work, but actually doesn't
-        this.x = x; // expected to work, but actually doesn't
+        if (x === void 0) { x = fn(y, function (y, x) { return y.x = x; }); }
+        this.x = x;
     }
     return C;
 }());

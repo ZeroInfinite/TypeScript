@@ -9,7 +9,9 @@
     "declaration": true,
     "baselineCheck": true,
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "ref/m1.ts",
         "ref/m2.ts",
         "test.ts"

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithAnyAndEveryType.ts ===
+//// [tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithAnyAndEveryType.ts] ////
+
+=== additionOperatorWithAnyAndEveryType.ts ===
 function foo() { }
 >foo : () => void
 
@@ -35,7 +37,6 @@ var d: string;
 
 var e: Object;
 >e : Object
->Object : Object
 
 // any as left operand, result is type Any except plusing string
 var r1 = a + a;

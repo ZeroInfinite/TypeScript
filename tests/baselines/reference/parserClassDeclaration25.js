@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ClassDeclarations/parserClassDeclaration25.ts] ////
+
 //// [parserClassDeclaration25.ts]
 interface IList<T> {
     data(): T;
@@ -10,7 +12,7 @@ class List<U> implements IList<U> {
 
 
 //// [parserClassDeclaration25.js]
-var List = (function () {
+var List = /** @class */ (function () {
     function List() {
     }
     return List;

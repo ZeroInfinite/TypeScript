@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeName1.ts] ////
+
 //// [typeName1.ts]
 interface I {
     k;
@@ -28,7 +30,7 @@ var x15:number=C;
 
 
 //// [typeName1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

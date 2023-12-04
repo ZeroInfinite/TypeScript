@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource7.ts] ////
+
 //// [parserRealSource7.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -839,7 +841,7 @@ module TypeScript {
 ///<reference path='typescript.ts' />
 var TypeScript;
 (function (TypeScript) {
-    var Continuation = (function () {
+    var Continuation = /** @class */ (function () {
         function Continuation(normalBlock) {
             this.normalBlock = normalBlock;
             this.exceptionBlock = -1;
@@ -1369,7 +1371,7 @@ var TypeScript;
                     fgSym.declAST = ast;
                 }
             }
-            else {
+            else { // there exists a symbol with this name
                 if ((fgSym.kind() == SymbolKind.Type)) {
                     fgSym = context.checker.createFunctionSignature(funcDecl, containerSym, containerScope, fgSym, false).declAST.type.symbol;
                 }
@@ -1428,7 +1430,7 @@ var TypeScript;
                 funcDecl.accessorSymbol = context.checker.createAccessorSymbol(funcDecl, fgSym, containerSym.type, (funcDecl.isMethod() && isStatic), true, containerScope, containerSym);
             }
             funcDecl.type.symbol.declAST = ast;
-            if (funcDecl.isConstructor) {
+            if (funcDecl.isConstructor) { // REVIEW: Remove when classes completely replace oldclass
                 go = true;
             }
             ;
@@ -1482,6 +1484,8 @@ var TypeScript;
         else if (ast.nodeType == NodeType.InterfaceDeclaration) {
             go = preCollectInterfaceTypes(ast, parent, context);
         }
+        // This will be a constructor arg because this pass only traverses
+        // constructor arg lists
         else if (ast.nodeType == NodeType.ArgDecl) {
             go = preCollectArgDeclTypes(ast, parent, context);
         }

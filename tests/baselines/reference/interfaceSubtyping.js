@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/interfaceSubtyping.ts] ////
+
 //// [interfaceSubtyping.ts]
 interface iface {
     foo(): void;
@@ -10,7 +12,7 @@ class Camera implements iface{
 
 
 //// [interfaceSubtyping.js]
-var Camera = (function () {
+var Camera = /** @class */ (function () {
     function Camera(str) {
         this.str = str;
     }

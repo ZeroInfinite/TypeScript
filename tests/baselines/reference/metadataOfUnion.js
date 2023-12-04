@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/metadataOfUnion.ts] ////
+
 //// [metadataOfUnion.ts]
 function PropDeco(target: Object, propKey: string | symbol) { }
 
@@ -47,26 +49,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 function PropDeco(target, propKey) { }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     __decorate([
         PropDeco,
         __metadata("design:type", Object)
-    ], B.prototype, "x");
+    ], B.prototype, "x", void 0);
     __decorate([
         PropDeco,
         __metadata("design:type", Boolean)
-    ], B.prototype, "y");
+    ], B.prototype, "y", void 0);
     __decorate([
         PropDeco,
         __metadata("design:type", Object)
-    ], B.prototype, "z");
+    ], B.prototype, "z", void 0);
     return B;
 }());
 var E;
@@ -76,24 +78,24 @@ var E;
     E[E["C"] = 2] = "C";
     E[E["D"] = 3] = "D";
 })(E || (E = {}));
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     __decorate([
         PropDeco,
         __metadata("design:type", Number)
-    ], D.prototype, "a");
+    ], D.prototype, "a", void 0);
     __decorate([
         PropDeco,
         __metadata("design:type", Number)
-    ], D.prototype, "b");
+    ], D.prototype, "b", void 0);
     __decorate([
         PropDeco,
         __metadata("design:type", Number)
-    ], D.prototype, "c");
+    ], D.prototype, "c", void 0);
     __decorate([
         PropDeco,
         __metadata("design:type", Number)
-    ], D.prototype, "d");
+    ], D.prototype, "d", void 0);
     return D;
 }());

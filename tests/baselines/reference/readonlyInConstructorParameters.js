@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/constructorDeclarations/constructorParameters/readonlyInConstructorParameters.ts] ////
+
 //// [readonlyInConstructorParameters.ts]
 class C {
     constructor(readonly x: number) {}
@@ -14,20 +16,20 @@ class F {
 new F(1).x;
 
 //// [readonlyInConstructorParameters.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
         this.x = x;
     }
     return C;
 }());
 new C(1).x = 2;
-var E = (function () {
+var E = /** @class */ (function () {
     function E(x) {
         this.x = x;
     }
     return E;
 }());
-var F = (function () {
+var F = /** @class */ (function () {
     function F(x) {
         this.x = x;
     }

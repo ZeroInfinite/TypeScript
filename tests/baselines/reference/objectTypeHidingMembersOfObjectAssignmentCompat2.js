@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/members/objectTypeHidingMembersOfObjectAssignmentCompat2.ts] ////
+
 //// [objectTypeHidingMembersOfObjectAssignmentCompat2.ts]
 interface I {
     toString(): number;
@@ -26,7 +28,7 @@ var i;
 var o;
 o = i; // error
 i = o; // error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.toString = function () { return 1; };

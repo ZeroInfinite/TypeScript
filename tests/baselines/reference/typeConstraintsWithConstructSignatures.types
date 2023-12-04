@@ -1,20 +1,16 @@
-=== tests/cases/compiler/typeConstraintsWithConstructSignatures.ts ===
-interface Constructable {
->Constructable : Constructable
+//// [tests/cases/compiler/typeConstraintsWithConstructSignatures.ts] ////
 
+=== typeConstraintsWithConstructSignatures.ts ===
+interface Constructable {
     new (): any;
 }
 
 class C<T extends Constructable> {
 >C : C<T>
->T : T
->Constructable : Constructable
 
     constructor(public data: T, public data2: Constructable) { }
 >data : T
->T : T
 >data2 : Constructable
->Constructable : Constructable
 
     create() {
 >create : () => void

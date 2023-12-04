@@ -1,14 +1,10 @@
 /// <reference path="fourslash.ts" />
 
 // @Filename: /a.ts
-////export function [|{| "isWriteAccess": true, "isDefinition": true |}foo|](): void {}
+////export function /*1*/foo(): void {}
 
 // @Filename: /b.ts
-////import { [|foo|] as [|{| "isWriteAccess": true, "isDefinition": true |}oof|] } from "./a";
+////import { foo as oof } from "./a";
 
 verify.noErrors();
-const [r0, r1, r2] = test.ranges();
-verify.referenceGroups(r0, [
-    { definition: "function foo(): void", ranges: [r0, r1] },
-    { definition: "import oof", ranges: [r2] }
-]);
+verify.baselineFindAllReferences('1')

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classInsideBlock.ts] ////
+
 //// [classInsideBlock.ts]
 function foo() {
     class C { }
@@ -5,7 +7,7 @@ function foo() {
 
 //// [classInsideBlock.js]
 function foo() {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

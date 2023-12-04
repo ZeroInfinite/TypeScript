@@ -1,11 +1,9 @@
-=== tests/cases/compiler/incrementOnNullAssertion.ts ===
-interface Dictionary<T> {
->Dictionary : Dictionary<T>
->T : T
+//// [tests/cases/compiler/incrementOnNullAssertion.ts] ////
 
+=== incrementOnNullAssertion.ts ===
+interface Dictionary<T> {
     [myFavouriteType: string]: T | undefined
 >myFavouriteType : string
->T : T
 }
 const x = 'bar'
 >x : "bar"
@@ -13,7 +11,6 @@ const x = 'bar'
 
 let foo: Dictionary<number> = {}
 >foo : Dictionary<number>
->Dictionary : Dictionary<T>
 >{} : {}
 
 if (foo[x] === undefined) {
@@ -32,21 +29,21 @@ if (foo[x] === undefined) {
 }
 else {
     let nu = foo[x]
->nu : number | undefined
->foo[x] : number | undefined
+>nu : number
+>foo[x] : number
 >foo : Dictionary<number>
 >x : "bar"
 
     let n = foo[x]
->n : number | undefined
->foo[x] : number | undefined
+>n : number
+>foo[x] : number
 >foo : Dictionary<number>
 >x : "bar"
 
     foo[x]!++
 >foo[x]!++ : number
 >foo[x]! : number
->foo[x] : number | undefined
+>foo[x] : number
 >foo : Dictionary<number>
 >x : "bar"
 }

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/arrayLiterals/arrayLiterals2ES5.ts ===
+//// [tests/cases/conformance/expressions/arrayLiterals/arrayLiterals2ES5.ts] ////
+
+=== arrayLiterals2ES5.ts ===
 // ElementList:  ( Modified )
 //      Elisionopt   AssignmentExpression
 //      Elisionopt   SpreadElement
@@ -67,7 +69,6 @@ var b0: [any, any, any] = [undefined, null, undefined];
 >b0 : [any, any, any]
 >[undefined, null, undefined] : [undefined, null, undefined]
 >undefined : undefined
->null : null
 >undefined : undefined
 
 var b1: [number[], string[]] = [[1, 2, 3], ["hello", "string"]];
@@ -132,7 +133,6 @@ var temp3 = [undefined, null, undefined];
 >temp3 : any[]
 >[undefined, null, undefined] : null[]
 >undefined : undefined
->null : null
 >undefined : undefined
 
 var temp4 = [];
@@ -140,16 +140,7 @@ var temp4 = [];
 >[] : undefined[]
 
 interface myArray extends Array<Number> { }
->myArray : myArray
->Array : T[]
->Number : Number
-
 interface myArray2 extends Array<Number|String> { }
->myArray2 : myArray2
->Array : T[]
->Number : Number
->String : String
-
 var d0 = [1, true, ...temp,];  // has type (string|number|boolean)[]
 >d0 : (string | number | boolean)[]
 >[1, true, ...temp,] : (string | number | boolean)[]
@@ -172,14 +163,12 @@ var d2: number[] = [...temp1];
 
 var d3: myArray = [...temp1];
 >d3 : myArray
->myArray : myArray
 >[...temp1] : number[]
 >...temp1 : number
 >temp1 : number[]
 
 var d4: myArray2 = [...temp, ...temp1];
 >d4 : myArray2
->myArray2 : myArray2
 >[...temp, ...temp1] : (string | number)[]
 >...temp : string
 >temp : string[]

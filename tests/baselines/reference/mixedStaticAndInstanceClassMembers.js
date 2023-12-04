@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/mixedStaticAndInstanceClassMembers.ts] ////
+
 //// [mixedStaticAndInstanceClassMembers.ts]
 class A {
     f() {}
@@ -16,7 +18,7 @@ class B {
 }
 
 //// [mixedStaticAndInstanceClassMembers.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.f = function () { };
@@ -24,7 +26,7 @@ var A = (function () {
     };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.f = function () { };

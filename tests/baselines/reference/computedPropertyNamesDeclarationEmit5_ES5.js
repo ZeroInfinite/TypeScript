@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNamesDeclarationEmit5_ES5.ts] ////
+
 //// [computedPropertyNamesDeclarationEmit5_ES5.ts]
 var v = {
     ["" + ""]: 0,
@@ -7,21 +9,21 @@ var v = {
 }
 
 //// [computedPropertyNamesDeclarationEmit5_ES5.js]
+var _a;
 var v = (_a = {},
     _a["" + ""] = 0,
     _a["" + ""] = function () { },
     Object.defineProperty(_a, "" + "", {
         get: function () { return 0; },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     }),
     Object.defineProperty(_a, "" + "", {
         set: function (x) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     }),
     _a);
-var _a;
 
 
 //// [computedPropertyNamesDeclarationEmit5_ES5.d.ts]

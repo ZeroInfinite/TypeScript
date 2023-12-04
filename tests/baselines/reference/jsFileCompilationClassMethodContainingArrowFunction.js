@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/jsFileCompilationClassMethodContainingArrowFunction.ts] ////
+
 //// [a.js]
 class c {
     method(a) {
@@ -6,7 +8,7 @@ class c {
 }
 
 //// [out.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     c.prototype.method = function (a) {

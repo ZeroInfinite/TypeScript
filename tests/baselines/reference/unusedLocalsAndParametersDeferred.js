@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedLocalsAndParametersDeferred.ts] ////
+
 //// [unusedLocalsAndParametersDeferred.ts]
 export { };
 
@@ -161,7 +163,7 @@ N;
 
 //// [unusedLocalsAndParametersDeferred.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 function defered(a) {
     return a();
 }
@@ -187,7 +189,7 @@ var farrow = function (a) {
 };
 farrow(2);
 var prop1;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         // in a property initalizer
         this.p = defered(function () {
@@ -207,14 +209,14 @@ var C = (function () {
                 v;
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;
 }());
 new C();
 var prop2;
-var E = (function () {
+var E = /** @class */ (function () {
     function class_1() {
         // in a property initalizer
         this.p = defered(function () {
@@ -234,7 +236,7 @@ var E = (function () {
                 v;
             });
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return class_1;

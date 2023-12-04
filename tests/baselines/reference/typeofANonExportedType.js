@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/specifyingTypes/typeQueries/typeofANonExportedType.ts] ////
+
 //// [typeofANonExportedType.ts]
 var x = 1;
 export var r1: typeof x;
@@ -53,10 +55,11 @@ export var r13: typeof foo;
 
 //// [typeofANonExportedType.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.r13 = exports.r12 = exports.r11 = exports.r10 = exports.r9 = exports.r8 = exports.r7 = exports.r6 = exports.r5 = exports.i = exports.r4b = exports.r4 = exports.r3 = exports.c = exports.r2 = exports.r1 = void 0;
 var x = 1;
 var y = { foo: '' };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -66,7 +69,7 @@ var i2;
 var M;
 (function (M) {
     M.foo = '';
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;
@@ -80,7 +83,7 @@ var E;
 function foo() { }
 (function (foo) {
     foo.y = 1;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

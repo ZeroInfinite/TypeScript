@@ -1,14 +1,14 @@
 /// <reference path="fourslash.ts" />
 
 //@Filename: a.ts
-////var [|{| "isWriteAccess": true, "isDefinition": true |}x|]: number;
+/////*1*/var /*2*/x: number;
 
 //@Filename: b.ts
 /////// <reference path="a.ts" />
-////[|{| "isWriteAccess": true |}x|]++;
+/////*3*/x++;
 
 //@Filename: c.ts
 /////// <reference path="a.ts" />
-////[|{| "isWriteAccess": true |}x|]++;
+/////*4*/x++;
 
-verify.singleReferenceGroup("var x: number");
+verify.baselineFindAllReferences('1', '2', '3', '4');

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/Symbols/ES5SymbolProperty2.ts] ////
+
 //// [ES5SymbolProperty2.ts]
 module M {
     var Symbol: any;
@@ -14,7 +16,7 @@ module M {
 var M;
 (function (M) {
     var Symbol;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype[Symbol.iterator] = function () { };

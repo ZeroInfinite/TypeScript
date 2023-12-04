@@ -1,29 +1,18 @@
-=== tests/cases/compiler/functionOverloadsOnGenericArity1.ts ===
+//// [tests/cases/compiler/functionOverloadsOnGenericArity1.ts] ////
+
+=== functionOverloadsOnGenericArity1.ts ===
 // overloading on arity not allowed
 interface C {
->C : C
-
    f<T>(): string;
->f : { <T>(): string; <T, U>(): string; }
->T : T
+>f : { <T>(): string; <T_1, U>(): string; }
 
    f<T, U>(): string; 
->f : { <T>(): string; <T, U>(): string; }
->T : T
->U : U
+>f : { <T_1>(): string; <T, U>(): string; }
  
    <T>(): string;
->T : T
-
    <T, U>(): string; 
->T : T
->U : U
  
   new <T>(): string;
->T : T
-
   new <T, U>(): string; 
->T : T
->U : U
 }
 

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ParameterLists/parserParameterList7.ts] ////
+
 //// [parserParameterList7.ts]
 class C1 {
  constructor(public p1:string); // ERROR
@@ -6,7 +8,7 @@ class C1 {
 }
 
 //// [parserParameterList7.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1(p3) {
         this.p3 = p3;
     } // OK

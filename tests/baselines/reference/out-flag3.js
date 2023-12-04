@@ -8,14 +8,15 @@ class A { }
 //// [b.ts]
 class B { }
 
+
 //// [c.js]
 // --out and --outFile error
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;

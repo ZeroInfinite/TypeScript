@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/strictModeUseContextualKeyword.ts] ////
+
 //// [strictModeUseContextualKeyword.ts]
 "use strict"
 var as = 0;
@@ -17,7 +19,7 @@ function H() {
 "use strict";
 var as = 0;
 function foo(as) { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.as = function () { };

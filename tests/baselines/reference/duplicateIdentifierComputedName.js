@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateIdentifierComputedName.ts] ////
+
 //// [duplicateIdentifierComputedName.ts]
 class C {
     ["a"]: string;
@@ -6,7 +8,7 @@ class C {
 
 
 //// [duplicateIdentifierComputedName.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

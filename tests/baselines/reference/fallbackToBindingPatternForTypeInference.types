@@ -1,10 +1,10 @@
-=== tests/cases/compiler/fallbackToBindingPatternForTypeInference.ts ===
+//// [tests/cases/compiler/fallbackToBindingPatternForTypeInference.ts] ////
+
+=== fallbackToBindingPatternForTypeInference.ts ===
 declare function trans<T>(f: (x: T) => string): number;
 >trans : <T>(f: (x: T) => string) => number
->T : T
 >f : (x: T) => string
 >x : T
->T : T
 
 trans(({a}) => a);
 >trans(({a}) => a) : number

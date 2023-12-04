@@ -1,7 +1,8 @@
-=== tests/cases/compiler/genericClassStaticMethod.ts ===
+//// [tests/cases/compiler/genericClassStaticMethod.ts] ////
+
+=== genericClassStaticMethod.ts ===
 class Foo<T> {
 >Foo : Foo<T>
->T : T
 
     static getFoo() {
 >getFoo : () => void
@@ -10,9 +11,7 @@ class Foo<T> {
 
 class Bar<T> extends Foo<T> {
 >Bar : Bar<T>
->T : T
 >Foo : Foo<T>
->T : T
 
     static getFoo() {
 >getFoo : () => void

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParamExtendsOtherTypeParam.ts] ////
+
 //// [typeParamExtendsOtherTypeParam.ts]
 class A<T, U extends T> { }
 class B<T extends Object, U extends T> {
@@ -31,12 +33,12 @@ var x8: B<I2, I1>;
 
 
 //// [typeParamExtendsOtherTypeParam.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;

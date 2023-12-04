@@ -1,13 +1,15 @@
+//// [tests/cases/conformance/decorators/class/decoratorChecksFunctionBodies.ts] ////
+
 //// [decoratorChecksFunctionBodies.ts]
 // from #2971
 function func(s: string): void {
 }
 
 class A {
-    @((x, p) => {
+    @((x, p, d) => {
         var a = 3;
         func(a);
-        return x; 
+        return d;
     })
     m() {
 
@@ -24,16 +26,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // from #2971
 function func(s) {
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.m = function () {
     };
     __decorate([
-        (function (x, p) {
+        (function (x, p, d) {
             var a = 3;
             func(a);
-            return x;
+            return d;
         })
     ], A.prototype, "m", null);
     return A;

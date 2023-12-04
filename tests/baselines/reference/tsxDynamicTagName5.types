@@ -1,12 +1,14 @@
-=== tests/cases/conformance/jsx/react.d.ts ===
+//// [tests/cases/conformance/jsx/tsxDynamicTagName5.tsx] ////
+
+=== react.d.ts ===
 declare module 'react' {
+>'react' : typeof import("react")
+
 	class Component<T, U> { }
 >Component : Component<T, U>
->T : T
->U : U
 }
 
-=== tests/cases/conformance/jsx/app.tsx ===
+=== app.tsx ===
 import * as React from 'react';
 >React : typeof React
 
@@ -24,10 +26,10 @@ export class Text extends React.Component<{}, {}> {
 >render : () => any
 
     return (
->(      <this._tagName />    ) : any
+>(      <this._tagName />    ) : error
 
       <this._tagName />
-><this._tagName /> : any
+><this._tagName /> : error
 >this._tagName : string
 >this : this
 >_tagName : string

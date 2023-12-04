@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParameterExplicitlyExtendsAny.ts] ////
+
 //// [typeParameterExplicitlyExtendsAny.ts]
 function fee<T>() {
     var t: T;
@@ -51,7 +53,7 @@ function f(x) {
     x[100];
     x['hello'];
 }
-var MyClass = (function () {
+var MyClass = /** @class */ (function () {
     function MyClass() {
     }
     MyClass.displayTree1 = function (tree) {

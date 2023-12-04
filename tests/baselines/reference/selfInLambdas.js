@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/selfInLambdas.ts] ////
+
 //// [selfInLambdas.ts]
 interface MouseEvent {
     x: number;
@@ -57,7 +59,7 @@ var o = {
         };
     }
 };
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
         this.value = "value";
     }

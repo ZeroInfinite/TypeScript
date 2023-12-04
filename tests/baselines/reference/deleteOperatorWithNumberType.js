@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/deleteOperator/deleteOperatorWithNumberType.ts] ////
+
 //// [deleteOperatorWithNumberType.ts]
 // delete  operator on number type
 var NUMBER: number;
@@ -50,7 +52,7 @@ delete objA.a, M.n;
 var NUMBER;
 var NUMBER1 = [1, 2];
 function foo() { return 1; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return 1; };

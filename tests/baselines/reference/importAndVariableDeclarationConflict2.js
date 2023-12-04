@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/importAndVariableDeclarationConflict2.ts] ////
+
 //// [importAndVariableDeclarationConflict2.ts]
 module m {
   export var m = '';
@@ -17,7 +19,7 @@ var m;
     m_1.m = '';
 })(m || (m = {}));
 var x = m.m;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

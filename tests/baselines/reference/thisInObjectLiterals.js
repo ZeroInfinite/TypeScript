@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/thisKeyword/thisInObjectLiterals.ts] ////
+
 //// [thisInObjectLiterals.ts]
 class MyClass {
     t: number;
@@ -20,7 +22,7 @@ var obj: { f: () => any; };
 
 
 //// [thisInObjectLiterals.js]
-var MyClass = (function () {
+var MyClass = /** @class */ (function () {
     function MyClass() {
     }
     MyClass.prototype.fn = function () {

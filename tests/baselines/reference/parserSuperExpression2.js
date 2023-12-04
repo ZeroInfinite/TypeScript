@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/SuperExpressions/parserSuperExpression2.ts] ////
+
 //// [parserSuperExpression2.ts]
 class C {
   M() {
@@ -6,11 +8,11 @@ class C {
 }
 
 //// [parserSuperExpression2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.M = function () {
-        _super.prototype..call(this, 0);
+        _this = _super.call(this, 0) || this;
     };
     return C;
 }());

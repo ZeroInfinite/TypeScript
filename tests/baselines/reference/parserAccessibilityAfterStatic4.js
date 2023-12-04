@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ErrorRecovery/AccessibilityAfterStatic/parserAccessibilityAfterStatic4.ts] ////
+
 //// [parserAccessibilityAfterStatic4.ts]
 class Outer
 {
@@ -6,7 +8,7 @@ static public: number;
 
 
 //// [parserAccessibilityAfterStatic4.js]
-var Outer = (function () {
+var Outer = /** @class */ (function () {
     function Outer() {
     }
     return Outer;

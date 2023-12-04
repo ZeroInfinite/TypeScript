@@ -36,16 +36,15 @@ function Decl() {
     return 0;
 }
 exports.default = Decl;
-var Decl;
 (function (Decl) {
     Decl.x = 10;
     Decl.y = 20;
-})(Decl = exports.Decl || (exports.Decl = {}));
+})(Decl || (Decl = {}));
 //// [m2.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var m1_1 = require("m1");
-m1_1.default();
+(0, m1_1.default)();
 var x;
 var y;
 m1_1.default.x;

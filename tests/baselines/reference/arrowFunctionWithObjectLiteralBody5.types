@@ -1,9 +1,10 @@
-=== tests/cases/compiler/arrowFunctionWithObjectLiteralBody5.ts ===
+//// [tests/cases/compiler/arrowFunctionWithObjectLiteralBody5.ts] ////
+
+=== arrowFunctionWithObjectLiteralBody5.ts ===
 var a = () => <Error>{ name: "foo", message: "bar" };      
 >a : () => Error
 >() => <Error>{ name: "foo", message: "bar" } : () => Error
 ><Error>{ name: "foo", message: "bar" } : Error
->Error : Error
 >{ name: "foo", message: "bar" } : { name: string; message: string; }
 >name : string
 >"foo" : "foo"
@@ -15,7 +16,6 @@ var b = () => (<Error>{ name: "foo", message: "bar" });
 >() => (<Error>{ name: "foo", message: "bar" }) : () => Error
 >(<Error>{ name: "foo", message: "bar" }) : Error
 ><Error>{ name: "foo", message: "bar" } : Error
->Error : Error
 >{ name: "foo", message: "bar" } : { name: string; message: string; }
 >name : string
 >"foo" : "foo"
@@ -38,7 +38,6 @@ var d = () => ((<Error>({ name: "foo", message: "bar" })));
 >((<Error>({ name: "foo", message: "bar" }))) : Error
 >(<Error>({ name: "foo", message: "bar" })) : Error
 ><Error>({ name: "foo", message: "bar" }) : Error
->Error : Error
 >({ name: "foo", message: "bar" }) : { name: string; message: string; }
 >{ name: "foo", message: "bar" } : { name: string; message: string; }
 >name : string

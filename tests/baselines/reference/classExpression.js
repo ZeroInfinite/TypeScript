@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classExpression.ts] ////
+
 //// [classExpression.ts]
 var x = class C {
 }
@@ -13,13 +15,13 @@ module M {
 }
 
 //// [classExpression.js]
-var x = (function () {
+var x = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
 var y = {
-    foo: (function () {
+    foo: /** @class */ (function () {
         function C2() {
         }
         return C2;
@@ -27,7 +29,7 @@ var y = {
 };
 var M;
 (function (M) {
-    var z = (function () {
+    var z = /** @class */ (function () {
         function C4() {
         }
         return C4;

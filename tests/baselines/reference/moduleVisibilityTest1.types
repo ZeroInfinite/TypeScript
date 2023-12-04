@@ -1,4 +1,6 @@
-=== tests/cases/compiler/moduleVisibilityTest1.ts ===
+//// [tests/cases/compiler/moduleVisibilityTest1.ts] ////
+
+=== moduleVisibilityTest1.ts ===
 module OuterMod {
 >OuterMod : typeof OuterMod
 
@@ -61,8 +63,6 @@ module M {
 
 
 	export interface I {
->I : I
-
 		someMethod():number;
 >someMethod : () => number
 	}
@@ -74,7 +74,6 @@ module M {
 
 	 export class C implements I {
 >C : C
->I : I
 
 		public someMethodThatCallsAnOuterMethod() {return OuterInnerAlias.someExportedOuterInnerFunc();}
 >someMethodThatCallsAnOuterMethod : () => string
@@ -144,11 +143,8 @@ module M {
 var cprime : M.I = <M.I>null;
 >cprime : M.I
 >M : any
->I : M.I
 ><M.I>null : M.I
 >M : any
->I : M.I
->null : null
 
 var c = new M.C();
 >c : M.C

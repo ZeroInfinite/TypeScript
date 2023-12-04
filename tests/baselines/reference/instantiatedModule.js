@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/moduleDeclarations/instantiatedModule.ts] ////
+
 //// [instantiatedModule.ts]
 // adding the var makes this an instantiated module
 
@@ -78,7 +80,7 @@ var p1;
 // makes this an instantiated mmodule
 var M2;
 (function (M2) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point() {
         }
         Point.Origin = function () {

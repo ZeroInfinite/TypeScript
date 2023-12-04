@@ -14,7 +14,10 @@
 ////
 ////x./**/
 
-goTo.marker();
-verify.completionListContains("commonProperty", "(property) commonProperty: string | number");
-verify.completionListContains("commonFunction", "(method) commonFunction(): number");
-verify.completionListCount(2);
+verify.completions({
+    marker: "",
+    exact: [
+        { name: "commonFunction", text: "(method) commonFunction(): number" },
+        { name: "commonProperty", text: "(property) commonProperty: string | number" },
+    ],
+});

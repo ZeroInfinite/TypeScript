@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implicitAnyGetAndSetAccessorWithAnyReturnType.ts] ////
+
 //// [implicitAnyGetAndSetAccessorWithAnyReturnType.ts]
 // these should be errors
 class GetAndSet {
@@ -25,7 +27,7 @@ class GetterOnly {
 
 //// [implicitAnyGetAndSetAccessorWithAnyReturnType.js]
 // these should be errors
-var GetAndSet = (function () {
+var GetAndSet = /** @class */ (function () {
     function GetAndSet() {
         this.getAndSet = null; // error at "getAndSet"
     }
@@ -37,30 +39,30 @@ var GetAndSet = (function () {
         set: function (value) {
             this.getAndSet = value;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return GetAndSet;
 }());
-var SetterOnly = (function () {
+var SetterOnly = /** @class */ (function () {
     function SetterOnly() {
     }
     Object.defineProperty(SetterOnly.prototype, "haveOnlySet", {
         set: function (newXValue) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return SetterOnly;
 }());
-var GetterOnly = (function () {
+var GetterOnly = /** @class */ (function () {
     function GetterOnly() {
     }
     Object.defineProperty(GetterOnly.prototype, "haveOnlyGet", {
         get: function () {
             return null;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return GetterOnly;

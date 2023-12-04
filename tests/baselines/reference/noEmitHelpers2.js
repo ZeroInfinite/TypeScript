@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/noEmitHelpers2.ts] ////
+
 //// [noEmitHelpers2.ts]
 declare var decorator: any;
 
@@ -8,7 +10,7 @@ class A {
 }
 
 //// [noEmitHelpers2.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A(a, b) {
     }
     A = __decorate([

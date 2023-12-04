@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/specifyingTypes/typeQueries/typeQueryOnClass.ts] ////
+
 //// [typeQueryOnClass.ts]
 class C<T> {
     constructor(x: number);
@@ -57,7 +59,7 @@ var r3: typeof D;
 var r4: typeof d;
 
 //// [typeQueryOnClass.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
         var _this = this;
         this.x = x;
@@ -72,14 +74,14 @@ var C = (function () {
         },
         set: function (x) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(C, "sd", {
         get: function () {
             return 1;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     C.prototype.baz = function (x) { return ''; };
@@ -89,14 +91,14 @@ var C = (function () {
         },
         set: function (x) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(C.prototype, "id", {
         get: function () {
             return 1;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     C.sa = 1;
@@ -107,7 +109,7 @@ var c;
 // BUG 820454
 var r1;
 var r2;
-var D = (function () {
+var D = /** @class */ (function () {
     function D(y) {
         this.y = y;
     }

@@ -1,7 +1,15 @@
+//// [tests/cases/compiler/APISample_linter.ts] ////
+
+//// [package.json]
+{
+    "name": "typescript",
+    "types": "/.ts/typescript.d.ts"
+}
+
 //// [APISample_linter.ts]
 /*
- * Note: This test is a public API sample. The sample sources can be found 
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#traversing-the-ast-with-a-little-linter
+ * Note: This test is a public API sample. The sample sources can be found
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#traversing-the-ast-with-a-little-linter
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
 
@@ -63,14 +71,16 @@ fileNames.forEach(fileName => {
     delint(sourceFile);
 });
 
+
 //// [APISample_linter.js]
 "use strict";
 /*
  * Note: This test is a public API sample. The sample sources can be found
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#traversing-the-ast-with-a-little-linter
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#traversing-the-ast-with-a-little-linter
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.delint = void 0;
 var ts = require("typescript");
 function delint(sourceFile) {
     delintNode(sourceFile);
@@ -106,7 +116,7 @@ function delint(sourceFile) {
     }
     function report(node, message) {
         var _a = sourceFile.getLineAndCharacterOfPosition(node.getStart()), line = _a.line, character = _a.character;
-        console.log(sourceFile.fileName + " (" + (line + 1) + "," + (character + 1) + "): " + message);
+        console.log("".concat(sourceFile.fileName, " (").concat(line + 1, ",").concat(character + 1, "): ").concat(message));
     }
 }
 exports.delint = delint;

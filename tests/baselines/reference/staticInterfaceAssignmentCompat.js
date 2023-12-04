@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticInterfaceAssignmentCompat.ts] ////
+
 //// [staticInterfaceAssignmentCompat.ts]
 class Shape {
     static create(): Shape {
@@ -13,7 +15,7 @@ var x: ShapeFactory = Shape;
 
 
 //// [staticInterfaceAssignmentCompat.js]
-var Shape = (function () {
+var Shape = /** @class */ (function () {
     function Shape() {
     }
     Shape.create = function () {

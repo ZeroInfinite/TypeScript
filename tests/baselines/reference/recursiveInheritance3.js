@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/recursiveInheritance3.ts] ////
+
 //// [recursiveInheritance3.ts]
 class C implements I {
     public foo(x: any) { return x; }
@@ -9,7 +11,7 @@ interface I extends C {
 }
 
 //// [recursiveInheritance3.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = 1;
     }

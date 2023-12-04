@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportFunctionWithInaccessibleTypesInParameterTypeAnnotation.ts] ////
+
 //// [ExportFunctionWithInaccessibleTypesInParameterTypeAnnotation.ts]
 module A {
 
@@ -18,12 +20,12 @@ module A {
 //// [ExportFunctionWithInaccessibleTypesInParameterTypeAnnotation.js]
 var A;
 (function (A) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point() {
         }
         return Point;
     }());
-    var Line = (function () {
+    var Line = /** @class */ (function () {
         function Line(start, end) {
             this.start = start;
             this.end = end;

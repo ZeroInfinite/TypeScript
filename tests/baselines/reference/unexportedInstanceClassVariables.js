@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unexportedInstanceClassVariables.ts] ////
+
 //// [unexportedInstanceClassVariables.ts]
 module M{
 	class A{
@@ -15,14 +17,14 @@ module M{
 //// [unexportedInstanceClassVariables.js]
 var M;
 (function (M) {
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A(val) {
         }
         return A;
     }());
 })(M || (M = {}));
 (function (M) {
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;

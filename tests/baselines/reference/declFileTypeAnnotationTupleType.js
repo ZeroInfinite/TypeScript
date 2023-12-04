@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationTupleType.ts] ////
+
 //// [declFileTypeAnnotationTupleType.ts]
 class c {
 }
@@ -18,27 +20,27 @@ var x: [g<string>, m.g<number>, () => c] = [new g<string>(), new m.g<number>(), 
 var y = x;
 
 //// [declFileTypeAnnotationTupleType.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;
 }());
 var m;
 (function (m) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
     }());
     m.c = c;
-    var g = (function () {
+    var g = /** @class */ (function () {
         function g() {
         }
         return g;
     }());
     m.g = g;
 })(m || (m = {}));
-var g = (function () {
+var g = /** @class */ (function () {
     function g() {
     }
     return g;
@@ -53,7 +55,7 @@ var y = x;
 //// [declFileTypeAnnotationTupleType.d.ts]
 declare class c {
 }
-declare module m {
+declare namespace m {
     class c {
     }
     class g<T> {

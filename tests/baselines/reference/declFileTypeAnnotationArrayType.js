@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationArrayType.ts] ////
+
 //// [declFileTypeAnnotationArrayType.ts]
 class c {
 }
@@ -51,27 +53,27 @@ function foo10() {
 }
 
 //// [declFileTypeAnnotationArrayType.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;
 }());
 var m;
 (function (m) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
     }());
     m.c = c;
-    var g = (function () {
+    var g = /** @class */ (function () {
         function g() {
         }
         return g;
     }());
     m.g = g;
 })(m || (m = {}));
-var g = (function () {
+var g = /** @class */ (function () {
     function g() {
     }
     return g;
@@ -116,7 +118,7 @@ function foo10() {
 //// [declFileTypeAnnotationArrayType.d.ts]
 declare class c {
 }
-declare module m {
+declare namespace m {
     class c {
     }
     class g<T> {

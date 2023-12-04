@@ -1,4 +1,6 @@
-=== tests/cases/compiler/server.ts ===
+//// [tests/cases/compiler/es6ExportClauseWithAssignmentInEs5.ts] ////
+
+=== server.ts ===
 var foo = 2;
 >foo : number
 >2 : 2
@@ -30,7 +32,7 @@ var bizz = 8;
 >bizz : number
 >8 : 8
 
-bizz++; // compiles to exports.bizz = bizz += 1
+bizz++; // compiles to exports.bizz = (bizz++, bizz)
 >bizz++ : number
 >bizz : number
 

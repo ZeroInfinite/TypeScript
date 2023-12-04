@@ -1,4 +1,6 @@
-=== tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithPropertyOfEveryType.ts ===
+//// [tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithPropertyOfEveryType.ts] ////
+
+=== interfaceWithPropertyOfEveryType.ts ===
 class C { foo: string; }
 >C : Symbol(C, Decl(interfaceWithPropertyOfEveryType.ts, 0, 0))
 >foo : Symbol(C.foo, Decl(interfaceWithPropertyOfEveryType.ts, 0, 9))
@@ -39,7 +41,7 @@ interface Foo {
 
     g: Object;
 >g : Symbol(Foo.g, Decl(interfaceWithPropertyOfEveryType.ts, 13, 16))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     h: (x: number) => number;
 >h : Symbol(Foo.h, Decl(interfaceWithPropertyOfEveryType.ts, 14, 14))

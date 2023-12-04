@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsEnums.ts] ////
+
 //// [commentsEnums.ts]
 /** Enum of colors*/
 enum Colors {
@@ -30,6 +32,6 @@ declare enum Colors {
     /** Fancy name for 'blue'*/
     Cornflower = 0,
     /** Fancy name for 'pink'*/
-    FancyPink = 1,
+    FancyPink = 1
 }
 declare var x: Colors;

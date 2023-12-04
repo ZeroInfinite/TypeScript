@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentEmitAtEndOfFile1.ts] ////
+
 //// [commentEmitAtEndOfFile1.ts]
 // test
 var f = ''
@@ -18,4 +20,4 @@ var foo;
 (function (foo) {
     function bar() { }
 })(foo || (foo = {}));
-// test #4 
+// test #4

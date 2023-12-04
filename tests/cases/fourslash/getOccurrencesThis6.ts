@@ -90,7 +90,7 @@
 ////    }
 ////
 ////    public static staticB = this.staticMethod1;
-////    
+////
 ////    public static staticMethod1() {
 ////        this;
 ////        this;
@@ -133,23 +133,48 @@
 ////}
 ////
 ////var x = {
+////    a: /*4*/this,
+////
 ////    f() {
-////        this/*4*/;
-////    },
-////    g() {
 ////        this/*5*/;
-////    }
-////}
+////        function foo() {
+////            this;
+////        }
+////        const bar = () => {
+////            this;
+////        }
+////    },
+////
+////    g() {
+////        this;
+////    },
+////
+////    get h() {
+////        /*7*/this;
+////        function foo() {
+////            this;
+////        }
+////        const bar = () => {
+////            this;
+////        }
+////        return;
+////    },
+////
+////    set h(foo: any) {
+////        this;
+////    },
+////
+////    l: () => {
+////        /*8*/this;
+////        function foo() {
+////            this;
+////        }
+////        const bar = () => {
+////            this;
+////        }
+////    },
+////};
+////
 
 
-function verifyOccurrencesAtMarker(marker: string, count: number) {
-    goTo.marker(marker);
-    verify.occurrencesAtPositionCount(count);
-}
-
-verifyOccurrencesAtMarker("1", 2);
-verifyOccurrencesAtMarker("2", 6);
-verifyOccurrencesAtMarker("3", 1);
-verifyOccurrencesAtMarker("4", 1);
-verifyOccurrencesAtMarker("5", 1);
-verifyOccurrencesAtMarker("6", 0);
+verify.baselineDocumentHighlights(test.markers());

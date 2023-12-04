@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/voidOperator/voidOperatorWithNumberType.ts] ////
+
 //// [voidOperatorWithNumberType.ts]
 // void  operator on number type
 var NUMBER: number;
@@ -50,7 +52,7 @@ void objA.a, M.n;
 var NUMBER;
 var NUMBER1 = [1, 2];
 function foo() { return 1; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return 1; };

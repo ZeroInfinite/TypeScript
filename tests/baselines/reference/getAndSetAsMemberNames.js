@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/getAndSetAsMemberNames.ts] ////
+
 //// [getAndSetAsMemberNames.ts]
 class C1 {
     set: boolean;
@@ -22,18 +24,18 @@ class C5 {
 
 
 //// [getAndSetAsMemberNames.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1() {
         this.get = 1;
     }
     return C1;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;
 }());
-var C3 = (function () {
+var C3 = /** @class */ (function () {
     function C3() {
     }
     C3.prototype.set = function (x) {
@@ -41,20 +43,20 @@ var C3 = (function () {
     };
     return C3;
 }());
-var C4 = (function () {
+var C4 = /** @class */ (function () {
     function C4() {
         this.get = true;
     }
     return C4;
 }());
-var C5 = (function () {
+var C5 = /** @class */ (function () {
     function C5() {
         this.set = function () { return true; };
     }
     C5.prototype.get = function () { return true; };
     Object.defineProperty(C5.prototype, "t", {
         set: function (x) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C5;

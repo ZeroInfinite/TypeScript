@@ -1,10 +1,10 @@
-=== tests/cases/conformance/types/members/objectTypeWithCallSignatureHidingMembersOfFunction.ts ===
+//// [tests/cases/conformance/types/members/objectTypeWithCallSignatureHidingMembersOfFunction.ts] ////
+
+=== objectTypeWithCallSignatureHidingMembersOfFunction.ts ===
 // object types with call signatures can override members of Function
 // no errors expected below 
 
 interface I {
->I : I
-
     (): void;
     apply(a: any, b?: any): void;
 >apply : (a: any, b?: any) => void
@@ -19,7 +19,6 @@ interface I {
 
 var i: I;
 >i : I
->I : I
 
 var r1: (a: any, b?: any) => void = i.apply;
 >r1 : (a: any, b?: any) => void

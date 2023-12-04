@@ -2,27 +2,28 @@
 JsFile: c.js
 mapUrl: c.js.map
 sourceRoot: 
-sources: tests/cases/compiler/a.ts,tests/cases/compiler/b.ts
+sources: a.ts,b.ts
 ===================================================================
 -------------------------------------------------------------------
 emittedFile:c.js
-sourceFile:tests/cases/compiler/a.ts
+sourceFile:a.ts
 -------------------------------------------------------------------
 >>>// --out and --outFile error
 1 >
 2 >^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 >                            ^^^^^^^^^->
 1 >
 2 >// --out and --outFile error
 1 >Emitted(1, 1) Source(1, 1) + SourceIndex(0)
 2 >Emitted(1, 29) Source(1, 29) + SourceIndex(0)
 ---
->>>var A = (function () {
-1 >
+>>>var A = /** @class */ (function () {
+1->
 2 >^^^^^^^^^^^^^^^^^^^->
-1 >
+1->
   >
   >
-1 >Emitted(2, 1) Source(3, 1) + SourceIndex(0)
+1->Emitted(2, 1) Source(3, 1) + SourceIndex(0)
 ---
 >>>    function A() {
 1->^^^^
@@ -52,7 +53,7 @@ sourceFile:tests/cases/compiler/a.ts
 2 >^
 3 > 
 4 > ^^^^
-5 >     ^^^^^^^^^^^^^^^^^^->
+5 >     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^->
 1 >
 2 >}
 3 > 
@@ -64,9 +65,9 @@ sourceFile:tests/cases/compiler/a.ts
 ---
 -------------------------------------------------------------------
 emittedFile:c.js
-sourceFile:tests/cases/compiler/b.ts
+sourceFile:b.ts
 -------------------------------------------------------------------
->>>var B = (function () {
+>>>var B = /** @class */ (function () {
 1->
 2 >^^^^^^^^^^^^^^^^^^^->
 1->

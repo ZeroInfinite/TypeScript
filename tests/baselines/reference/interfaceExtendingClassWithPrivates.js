@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/interfacesExtendingClasses/interfaceExtendingClassWithPrivates.ts] ////
+
 //// [interfaceExtendingClassWithPrivates.ts]
 class Foo {
     private x: string;
@@ -16,7 +18,7 @@ var r = i.y;
 var r2 = i.x; // error
 
 //// [interfaceExtendingClassWithPrivates.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/typeofOperator/typeofOperatorWithStringType.ts] ////
+
 //// [typeofOperatorWithStringType.ts]
 // typeof  operator on string type
 var STRING: string;
@@ -62,7 +64,7 @@ z: typeof M.n;
 var STRING;
 var STRING1 = ["", "abc"];
 function foo() { return "abc"; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return ""; };

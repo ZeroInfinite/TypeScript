@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ErrorRecovery/IncompleteMemberVariables/parserErrorRecovery_IncompleteMemberVariable2.ts] ////
+
 //// [parserErrorRecovery_IncompleteMemberVariable2.ts]
 // Interface
 interface IPoint {
@@ -33,12 +35,11 @@ var dist = p.getDist();
 var Shapes;
 (function (Shapes) {
     // Class
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         // Constructor
         function Point(x, y) {
             this.x = x;
             this.y = y;
-            this.con = "hello";
         }
         // Instance member
         Point.prototype.getDist = function () { return Math.sqrt(this.x * this.x + this.y * this.y); };

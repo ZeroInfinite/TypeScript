@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/thisInPropertyBoundDeclarations.ts] ////
+
 //// [thisInPropertyBoundDeclarations.ts]
 class Bug {
     private name: string;
@@ -68,7 +70,7 @@ class B {
 }
 
 //// [thisInPropertyBoundDeclarations.js]
-var Bug = (function () {
+var Bug = /** @class */ (function () {
     function Bug() {
     }
     Bug.prototype.foo = function (name) {
@@ -82,7 +84,7 @@ var Bug = (function () {
     return Bug;
 }());
 // Valid use of this in a property bound decl
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
         this.prop1 = function () {
             this;
@@ -100,17 +102,17 @@ var A = (function () {
             }
         };
         this.prop4 = {
-            a: function () { return this; }
+            a: function () { return this; },
         };
         this.prop5 = function () {
             return {
-                a: function () { return this; }
+                a: function () { return this; },
             };
         };
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
         var _this = this;
         this.prop1 = this;

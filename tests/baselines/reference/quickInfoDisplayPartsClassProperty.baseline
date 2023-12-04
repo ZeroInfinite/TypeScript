@@ -1,10 +1,97 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts ===
+// class c {
+//     public publicProperty: string;
+//            ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.publicProperty: string
+// | ----------------------------------------------------------------------
+//     private privateProperty: string;
+//             ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.privateProperty: string
+// | ----------------------------------------------------------------------
+//     protected protectedProperty: string;
+//               ^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.protectedProperty: string
+// | ----------------------------------------------------------------------
+//     static staticProperty: string;
+//            ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.staticProperty: string
+// | ----------------------------------------------------------------------
+//     private static privateStaticProperty: string;
+//                    ^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.privateStaticProperty: string
+// | ----------------------------------------------------------------------
+//     protected static protectedStaticProperty: string;
+//                      ^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.protectedStaticProperty: string
+// | ----------------------------------------------------------------------
+//     method() {
+//         this.publicProperty;
+//              ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.publicProperty: string
+// | ----------------------------------------------------------------------
+//         this.privateProperty;
+//              ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.privateProperty: string
+// | ----------------------------------------------------------------------
+//         this.protectedProperty;
+//              ^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.protectedProperty: string
+// | ----------------------------------------------------------------------
+//         c.staticProperty;
+//           ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.staticProperty: string
+// | ----------------------------------------------------------------------
+//         c.privateStaticProperty;
+//           ^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.privateStaticProperty: string
+// | ----------------------------------------------------------------------
+//         c.protectedStaticProperty;
+//           ^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.protectedStaticProperty: string
+// | ----------------------------------------------------------------------
+//     }
+// }
+// var cInstance = new c();
+// cInstance.publicProperty;
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c
+// | ----------------------------------------------------------------------
+//           ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.publicProperty: string
+// | ----------------------------------------------------------------------
+// c.staticProperty;
+// ^
+// | ----------------------------------------------------------------------
+// | class c
+// | ----------------------------------------------------------------------
+//   ^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (property) c.staticProperty: string
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 21
+      "position": 21,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "public",
       "textSpan": {
@@ -53,16 +140,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 57
+      "position": 57,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "private",
       "textSpan": {
@@ -111,16 +198,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 96
+      "position": 96,
+      "name": "21"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "protected",
       "textSpan": {
@@ -169,16 +256,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 134
+      "position": 134,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "static",
       "textSpan": {
@@ -227,16 +314,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 177
+      "position": 177,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "private,static",
       "textSpan": {
@@ -285,16 +372,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 229
+      "position": 229,
+      "name": "41"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "protected,static",
       "textSpan": {
@@ -343,16 +430,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 290
+      "position": 290,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "public",
       "textSpan": {
@@ -401,16 +488,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 319
+      "position": 319,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "private",
       "textSpan": {
@@ -459,16 +546,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 349
+      "position": 349,
+      "name": "61"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "protected",
       "textSpan": {
@@ -517,16 +604,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 378
+      "position": 378,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "static",
       "textSpan": {
@@ -575,16 +662,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 404
+      "position": 404,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "private,static",
       "textSpan": {
@@ -633,16 +720,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 437
+      "position": 437,
+      "name": "81"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "protected,static",
       "textSpan": {
@@ -691,16 +778,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 495
+      "position": 495,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -733,16 +820,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 505
+      "position": 505,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "public",
       "textSpan": {
@@ -791,16 +878,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 521
+      "position": 521,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -821,16 +908,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassProperty.ts",
-      "position": 523
+      "position": 523,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "property",
       "kindModifiers": "static",
       "textSpan": {
@@ -879,8 +966,7 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

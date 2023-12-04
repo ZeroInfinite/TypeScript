@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateClassElements.ts] ////
+
 //// [duplicateClassElements.ts]
 class a {
     public a;
@@ -45,7 +47,7 @@ class a {
 }
 
 //// [duplicateClassElements.js]
-var a = (function () {
+var a = /** @class */ (function () {
     function a() {
     }
     a.prototype.b = function () {
@@ -58,7 +60,7 @@ var a = (function () {
         },
         set: function (_x) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(a.prototype, "y", {
@@ -67,7 +69,7 @@ var a = (function () {
         },
         set: function (_y) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     a.prototype.z = function () {
@@ -78,7 +80,7 @@ var a = (function () {
         },
         set: function (_y) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(a.prototype, "x2", {
@@ -87,7 +89,7 @@ var a = (function () {
         },
         set: function (_x) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(a.prototype, "z2", {
@@ -96,7 +98,7 @@ var a = (function () {
         },
         set: function (_y) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     a.prototype.z2 = function () {

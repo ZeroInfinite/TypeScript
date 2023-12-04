@@ -1,4 +1,6 @@
-=== tests/cases/compiler/numericIndexerConstraint3.ts ===
+//// [tests/cases/compiler/numericIndexerConstraint3.ts] ////
+
+=== numericIndexerConstraint3.ts ===
 class A {
 >A : A
 
@@ -18,9 +20,8 @@ class C {
 >C : C
 
     0: B;
->B : B
+>0 : B
 
     [x: number]: A;
 >x : number
->A : A
 }

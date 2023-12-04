@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardOfFormTypeOfOther.ts] ////
+
 //// [typeGuardOfFormTypeOfOther.ts]
 class C { private p: string };
 
@@ -82,7 +84,7 @@ else {
 
 
 //// [typeGuardOfFormTypeOfOther.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -122,7 +124,7 @@ if (typeof boolOrC === "Object") {
 else {
     var r4 = boolOrC; // boolean
 }
-if (typeof strOrC === "Object") {
+if (typeof strOrC === "Object") { // comparison is OK with cast
     c = strOrC; // error: but no narrowing to C
 }
 else {

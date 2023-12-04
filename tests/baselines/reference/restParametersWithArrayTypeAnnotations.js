@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/restParametersWithArrayTypeAnnotations.ts] ////
+
 //// [restParametersWithArrayTypeAnnotations.ts]
 // Rest parameters must be an array type if they have a type annotation, errors only for the functions with 2 rest params
 
@@ -72,7 +74,7 @@ var f2 = function () {
         y[_i - 1] = arguments[_i];
     }
 };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {
@@ -122,7 +124,7 @@ var f4 = function () {
         y[_i - 1] = arguments[_i];
     }
 };
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     C2.prototype.foo = function () {

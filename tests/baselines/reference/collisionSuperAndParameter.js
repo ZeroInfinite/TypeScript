@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/collisionSuperAndParameter.ts] ////
+
 //// [collisionSuperAndParameter.ts]
 class Foo {
     a() {
@@ -64,16 +66,21 @@ class Foo4 extends Foo {
 
 //// [collisionSuperAndParameter.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.a = function () {
@@ -91,15 +98,15 @@ var Foo = (function () {
     Object.defineProperty(Foo.prototype, "c", {
         set: function (_super) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Foo;
 }());
-var Foo2 = (function (_super) {
-    __extends(Foo2, _super);
+var Foo2 = /** @class */ (function (_super_1) {
+    __extends(Foo2, _super_1);
     function Foo2(_super) {
-        var _this = _super.call(this) || this;
+        var _this = _super_1.call(this) || this;
         _this.prop4 = {
             doStuff: function (_super) {
             }
@@ -121,15 +128,15 @@ var Foo2 = (function (_super) {
     Object.defineProperty(Foo2.prototype, "z", {
         set: function (_super) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Foo2;
 }(Foo));
-var Foo4 = (function (_super) {
-    __extends(Foo4, _super);
+var Foo4 = /** @class */ (function (_super_1) {
+    __extends(Foo4, _super_1);
     function Foo4(_super) {
-        return _super.call(this) || this;
+        return _super_1.call(this) || this;
     }
     Foo4.prototype.y = function (_super) {
         var _this = this;

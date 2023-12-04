@@ -1,6 +1,6 @@
 /// <reference path='fourslash.ts' />
-////function f([|{| "isWriteAccess": true, "isDefinition": true |}x|]: number) {
-////  return [|x|] + 1
+////function f(/*1*/x: number) {
+////  return /*2*/x + 1
 ////}
 
-verify.singleReferenceGroup("(parameter) x: number");
+verify.baselineFindAllReferences('1', '2');

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames10_ES5.ts] ////
+
 //// [computedPropertyNames10_ES5.ts]
 var s: string;
 var n: number;
@@ -17,6 +19,7 @@ var v = {
 }
 
 //// [computedPropertyNames10_ES5.js]
+var _a;
 var s;
 var n;
 var a;
@@ -31,6 +34,5 @@ var v = (_a = {},
     _a[a] = function () { },
     _a[true] = function () { },
     _a["hello bye"] = function () { },
-    _a["hello " + a + " bye"] = function () { },
+    _a["hello ".concat(a, " bye")] = function () { },
     _a);
-var _a;

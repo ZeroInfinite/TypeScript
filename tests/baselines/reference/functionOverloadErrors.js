@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/functions/functionOverloadErrors.ts] ////
+
 //// [functionOverloadErrors.ts]
 //Function overload signature with initializer
 function fn1(x = 3);
@@ -135,7 +137,7 @@ function fn10() { }
 function fn11() { }
 function fn12() { }
 //Function overloads that differ by accessibility
-var cls = (function () {
+var cls = /** @class */ (function () {
     function cls() {
     }
     cls.prototype.f = function () { };

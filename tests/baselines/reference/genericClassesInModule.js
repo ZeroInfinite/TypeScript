@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericClassesInModule.ts] ////
+
 //// [genericClassesInModule.ts]
 module Foo {
 
@@ -11,13 +13,13 @@ var a = new Foo.B<Foo.A>();
 //// [genericClassesInModule.js]
 var Foo;
 (function (Foo) {
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;
     }());
     Foo.B = B;
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;
@@ -28,7 +30,7 @@ var a = new Foo.B();
 
 
 //// [genericClassesInModule.d.ts]
-declare module Foo {
+declare namespace Foo {
     class B<T> {
     }
     class A {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/ClassDeclaration22.ts] ////
+
 //// [ClassDeclaration22.ts]
 class C {
     "foo"();
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [ClassDeclaration22.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype["bar"] = function () { };

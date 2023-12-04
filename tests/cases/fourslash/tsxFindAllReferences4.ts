@@ -7,13 +7,13 @@
 ////     }
 ////     interface ElementAttributesProperty { props }
 //// }
-//// class [|MyClass|] {
+//// /*1*/class /*2*/MyClass {
 ////   props: {
 ////     name?: string;
 ////     size?: number;
 //// }
-//// 
-//// 
-//// var x = <[|MyClass|] name='hello'></[|MyClass|]>;
+////
+////
+//// var x = /*3*/</*4*/MyClass name='hello'><//*5*/MyClass>;
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1', '2', '3', '4', '5');

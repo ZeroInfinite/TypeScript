@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/accessorParameterAccessibilityModifier.ts] ////
+
 //// [accessorParameterAccessibilityModifier.ts]
 class C {
     set X(public v) { }
@@ -5,17 +7,17 @@ class C {
 }
 
 //// [accessorParameterAccessibilityModifier.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "X", {
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(C, "X", {
         set: function (v2) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

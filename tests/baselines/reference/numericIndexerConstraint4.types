@@ -1,4 +1,6 @@
-=== tests/cases/compiler/numericIndexerConstraint4.ts ===
+//// [tests/cases/compiler/numericIndexerConstraint4.ts] ////
+
+=== numericIndexerConstraint4.ts ===
 class A {
 >A : A
 
@@ -19,10 +21,10 @@ var x: {
 
     [idx: number]: A;
 >idx : number
->A : A
 
 } = { 0: new B() }
 >{ 0: new B() } : { 0: B; }
+>0 : B
 >new B() : B
 >B : typeof B
 

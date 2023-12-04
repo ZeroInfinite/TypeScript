@@ -1,7 +1,8 @@
-=== tests/cases/compiler/spreadIntersectionJsx.tsx ===
+//// [tests/cases/compiler/spreadIntersectionJsx.tsx] ////
+
+=== spreadIntersectionJsx.tsx ===
 const React: any = null;
 >React : any
->null : null
 
 class A { a; }
 >A : A
@@ -13,12 +14,10 @@ class C { c; }
 
 let intersected: A & C;
 >intersected : A & C
->A : A
->C : C
 
 let element = <div { ...intersected } />;
->element : any
-><div { ...intersected } /> : any
+>element : error
+><div { ...intersected } /> : error
 >div : any
 >intersected : A & C
 

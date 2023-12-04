@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/dontShowCompilerGeneratedMembers.ts] ////
+
 //// [dontShowCompilerGeneratedMembers.ts]
 var f: {
     x: number;
@@ -5,5 +7,6 @@ var f: {
 };
 
 //// [dontShowCompilerGeneratedMembers.js]
-var f = -;
+var f;
+-;
 ;

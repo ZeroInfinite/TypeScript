@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/augmentedTypesClass2.ts] ////
+
 //// [augmentedTypesClass2.ts]
 // Checking class with other things in type space not value space
 
@@ -33,7 +35,7 @@ class c44 {
 //// [augmentedTypesClass2.js]
 // Checking class with other things in type space not value space
 // class then interface
-var c11 = (function () {
+var c11 = /** @class */ (function () {
     function c11() {
     }
     c11.prototype.foo = function () {
@@ -43,7 +45,7 @@ var c11 = (function () {
 }());
 // class then class - covered
 // class then enum 
-var c33 = (function () {
+var c33 = /** @class */ (function () {
     function c33() {
     }
     c33.prototype.foo = function () {
@@ -56,7 +58,7 @@ var c33 = (function () {
 })(c33 || (c33 = {}));
 ;
 // class then import
-var c44 = (function () {
+var c44 = /** @class */ (function () {
     function c44() {
     }
     c44.prototype.foo = function () {

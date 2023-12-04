@@ -1,8 +1,10 @@
-=== tests/cases/compiler/unaryPlus.ts ===
+//// [tests/cases/compiler/unaryPlus.ts] ////
+
+=== unaryPlus.ts ===
 // allowed per spec
 var a = +1;
 >a : number
->+1 : number
+>+1 : 1
 >1 : 1
 
 var b = +(<any>"");

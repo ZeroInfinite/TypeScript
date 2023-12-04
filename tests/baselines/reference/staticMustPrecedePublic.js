@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticMustPrecedePublic.ts] ////
+
 //// [staticMustPrecedePublic.ts]
 class Outer {
     static public intI: number;
@@ -6,7 +8,7 @@ class Outer {
 
 
 //// [staticMustPrecedePublic.js]
-var Outer = (function () {
+var Outer = /** @class */ (function () {
     function Outer() {
     }
     return Outer;

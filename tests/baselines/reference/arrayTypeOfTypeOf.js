@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/specifyingTypes/typeLiterals/arrayTypeOfTypeOf.ts] ////
+
 //// [arrayTypeOfTypeOf.ts]
 // array type cannot use typeof.
 
@@ -12,5 +14,5 @@ var xs4: typeof Array<typeof x>;
 var x = 1;
 var xs; // Not an error.  This is equivalent to Array<typeof x>
 var xs2;
-var xs3 = ;
-var xs4 = ;
+var xs3;
+var xs4;

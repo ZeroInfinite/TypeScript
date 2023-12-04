@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/propertiesAndIndexersForNumericNames.ts] ////
+
 //// [propertiesAndIndexersForNumericNames.ts]
 class C {
     [i: number]: number;
@@ -43,7 +45,7 @@ class C {
 
 
 //// [propertiesAndIndexersForNumericNames.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         // These all have numeric names; they should error
         // because their types are not compatible with the numeric indexer.

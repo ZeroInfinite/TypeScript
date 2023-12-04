@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsOnReturnStatement1.ts] ////
+
 //// [commentsOnReturnStatement1.ts]
 class DebugClass {
     public static debugFunc() {
@@ -10,7 +12,7 @@ class DebugClass {
 }
 
 //// [commentsOnReturnStatement1.js]
-var DebugClass = (function () {
+var DebugClass = /** @class */ (function () {
     function DebugClass() {
     }
     DebugClass.debugFunc = function () {

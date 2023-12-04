@@ -1,11 +1,11 @@
-=== tests/cases/compiler/genericClasses1.ts ===
+//// [tests/cases/compiler/genericClasses1.ts] ////
+
+=== genericClasses1.ts ===
 class C<T> {
 >C : C<T>
->T : T
 
 	public x: T;
 >x : T
->T : T
 }
 
 var v1 = new C<string>();

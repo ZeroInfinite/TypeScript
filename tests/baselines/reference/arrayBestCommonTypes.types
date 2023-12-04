@@ -1,17 +1,15 @@
-=== tests/cases/compiler/arrayBestCommonTypes.ts ===
+//// [tests/cases/compiler/arrayBestCommonTypes.ts] ////
+
+=== arrayBestCommonTypes.ts ===
 module EmptyTypes {
 >EmptyTypes : typeof EmptyTypes
 
     interface iface { }
->iface : iface
-
     class base implements iface { }
 >base : base
->iface : iface
 
     class base2 implements iface { }
 >base2 : base2
->iface : iface
 
     class derived extends base { }
 >derived : derived
@@ -41,7 +39,6 @@ module EmptyTypes {
 >x : any
 >y : boolean
 >false : false
->null : null
 
         public x() {
 >x : () => void
@@ -96,7 +93,6 @@ module EmptyTypes {
 >voidIfAny : { (x: boolean, y?: boolean): number; (x: string, y?: boolean): number; (x: number, y?: boolean): number; }
 >[null, 2, 4][0] : number
 >[null, 2, 4] : number[]
->null : null
 >2 : 2
 >4 : 4
 >0 : 0
@@ -112,7 +108,6 @@ module EmptyTypes {
 >[2, 4, null] : number[]
 >2 : 2
 >4 : 4
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([undefined, 4, null][0]));
@@ -126,7 +121,6 @@ module EmptyTypes {
 >[undefined, 4, null] : number[]
 >undefined : undefined
 >4 : 4
->null : null
 >0 : 0
 
             <number>(this.voidIfAny(['', "q"][0]));
@@ -179,7 +173,6 @@ module EmptyTypes {
 >voidIfAny : { (x: boolean, y?: boolean): number; (x: string, y?: boolean): number; (x: number, y?: boolean): number; }
 >[null, "q", ''][0] : string
 >[null, "q", ''] : string[]
->null : null
 >"q" : "q"
 >'' : ""
 >0 : 0
@@ -195,7 +188,6 @@ module EmptyTypes {
 >["q", '', null] : string[]
 >"q" : "q"
 >'' : ""
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([undefined, '', null][0]));
@@ -209,7 +201,6 @@ module EmptyTypes {
 >[undefined, '', null] : string[]
 >undefined : undefined
 >'' : ""
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([[3, 4], [null]][0][0]));
@@ -226,7 +217,6 @@ module EmptyTypes {
 >3 : 3
 >4 : 4
 >[null] : null[]
->null : null
 >0 : 0
 >0 : 0
 
@@ -235,7 +225,6 @@ module EmptyTypes {
 >t1 : { x: number; y: base; }[]
 >x : number
 >y : base
->base : base
 >[{ x: 7, y: new derived() }, { x: 5, y: new base() }] : { x: number; y: derived; }[]
 >{ x: 7, y: new derived() } : { x: number; y: derived; }
 >x : number
@@ -254,16 +243,15 @@ module EmptyTypes {
 >t2 : { x: boolean; y: base; }[]
 >x : boolean
 >y : base
->base : base
 >[{ x: true, y: new derived() }, { x: false, y: new base() }] : ({ x: true; y: derived; } | { x: false; y: base; })[]
 >{ x: true, y: new derived() } : { x: true; y: derived; }
->x : boolean
+>x : true
 >true : true
 >y : derived
 >new derived() : derived
 >derived : typeof derived
 >{ x: false, y: new base() } : { x: false; y: base; }
->x : boolean
+>x : false
 >false : false
 >y : base
 >new base() : base
@@ -273,7 +261,6 @@ module EmptyTypes {
 >t3 : { x: string; y: base; }[]
 >x : string
 >y : base
->base : base
 >[{ x: undefined, y: new base() }, { x: '', y: new derived() }] : { x: string; y: derived; }[]
 >{ x: undefined, y: new base() } : { x: undefined; y: base; }
 >x : undefined
@@ -290,7 +277,6 @@ module EmptyTypes {
 
             var anyObj: any = null;
 >anyObj : any
->null : null
 
             // Order matters here so test all the variants
             var a1 = [{ x: 0, y: 'a' }, { x: 'a', y: 'a' }, { x: anyObj, y: 'a' }];
@@ -352,8 +338,6 @@ module EmptyTypes {
 
             var ifaceObj: iface = null;
 >ifaceObj : iface
->iface : iface
->null : null
 
             var baseObj = new base();
 >baseObj : base
@@ -400,18 +384,15 @@ module NonEmptyTypes {
 >NonEmptyTypes : typeof NonEmptyTypes
 
     interface iface { x: string; }
->iface : iface
 >x : string
 
     class base implements iface { x: string; y: string; }
 >base : base
->iface : iface
 >x : string
 >y : string
 
     class base2 implements iface { x: string; z: string; }
 >base2 : base2
->iface : iface
 >x : string
 >z : string
 
@@ -444,7 +425,6 @@ module NonEmptyTypes {
 >x : any
 >y : boolean
 >false : false
->null : null
 
         public x() {
 >x : () => void
@@ -499,7 +479,6 @@ module NonEmptyTypes {
 >voidIfAny : { (x: boolean, y?: boolean): number; (x: string, y?: boolean): number; (x: number, y?: boolean): number; }
 >[null, 2, 4][0] : number
 >[null, 2, 4] : number[]
->null : null
 >2 : 2
 >4 : 4
 >0 : 0
@@ -515,7 +494,6 @@ module NonEmptyTypes {
 >[2, 4, null] : number[]
 >2 : 2
 >4 : 4
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([undefined, 4, null][0]));
@@ -529,7 +507,6 @@ module NonEmptyTypes {
 >[undefined, 4, null] : number[]
 >undefined : undefined
 >4 : 4
->null : null
 >0 : 0
 
             <number>(this.voidIfAny(['', "q"][0]));
@@ -582,7 +559,6 @@ module NonEmptyTypes {
 >voidIfAny : { (x: boolean, y?: boolean): number; (x: string, y?: boolean): number; (x: number, y?: boolean): number; }
 >[null, "q", ''][0] : string
 >[null, "q", ''] : string[]
->null : null
 >"q" : "q"
 >'' : ""
 >0 : 0
@@ -598,7 +574,6 @@ module NonEmptyTypes {
 >["q", '', null] : string[]
 >"q" : "q"
 >'' : ""
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([undefined, '', null][0]));
@@ -612,7 +587,6 @@ module NonEmptyTypes {
 >[undefined, '', null] : string[]
 >undefined : undefined
 >'' : ""
->null : null
 >0 : 0
 
             <number>(this.voidIfAny([[3, 4], [null]][0][0]));
@@ -629,7 +603,6 @@ module NonEmptyTypes {
 >3 : 3
 >4 : 4
 >[null] : null[]
->null : null
 >0 : 0
 >0 : 0
 
@@ -638,7 +611,6 @@ module NonEmptyTypes {
 >t1 : { x: number; y: base; }[]
 >x : number
 >y : base
->base : base
 >[{ x: 7, y: new derived() }, { x: 5, y: new base() }] : { x: number; y: base; }[]
 >{ x: 7, y: new derived() } : { x: number; y: derived; }
 >x : number
@@ -657,16 +629,15 @@ module NonEmptyTypes {
 >t2 : { x: boolean; y: base; }[]
 >x : boolean
 >y : base
->base : base
 >[{ x: true, y: new derived() }, { x: false, y: new base() }] : ({ x: true; y: derived; } | { x: false; y: base; })[]
 >{ x: true, y: new derived() } : { x: true; y: derived; }
->x : boolean
+>x : true
 >true : true
 >y : derived
 >new derived() : derived
 >derived : typeof derived
 >{ x: false, y: new base() } : { x: false; y: base; }
->x : boolean
+>x : false
 >false : false
 >y : base
 >new base() : base
@@ -676,7 +647,6 @@ module NonEmptyTypes {
 >t3 : { x: string; y: base; }[]
 >x : string
 >y : base
->base : base
 >[{ x: undefined, y: new base() }, { x: '', y: new derived() }] : ({ x: undefined; y: base; } | { x: string; y: derived; })[]
 >{ x: undefined, y: new base() } : { x: undefined; y: base; }
 >x : undefined
@@ -693,7 +663,6 @@ module NonEmptyTypes {
 
             var anyObj: any = null;
 >anyObj : any
->null : null
 
             // Order matters here so test all the variants
             var a1 = [{ x: 0, y: 'a' }, { x: 'a', y: 'a' }, { x: anyObj, y: 'a' }];
@@ -755,8 +724,6 @@ module NonEmptyTypes {
 
             var ifaceObj: iface = null;
 >ifaceObj : iface
->iface : iface
->null : null
 
             var baseObj = new base();
 >baseObj : base

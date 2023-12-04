@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithConstructSignatures6.ts ===
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithConstructSignatures6.ts] ////
+
+=== assignmentCompatWithConstructSignatures6.ts ===
 // checking assignment compatibility relations for function types. All valid.
 
 class Base { foo: string; }
@@ -21,101 +23,60 @@ class OtherDerived extends Base { bing: string; }
 >bing : string
 
 interface A {
->A : A
-
     a: new <T>(x: T) => T[];
 >a : new <T>(x: T) => T[]
->T : T
 >x : T
->T : T
->T : T
 
     a2: new <T>(x: T) => string[];
 >a2 : new <T>(x: T) => string[]
->T : T
 >x : T
->T : T
 
     a3: new <T>(x: T) => void;
 >a3 : new <T>(x: T) => void
->T : T
 >x : T
->T : T
 
     a4: new <T, U>(x: T, y: U) => string;
 >a4 : new <T, U>(x: T, y: U) => string
->T : T
->U : U
 >x : T
->T : T
 >y : U
->U : U
 
     a5: new <T, U>(x: (arg: T) => U) => T;
 >a5 : new <T, U>(x: (arg: T) => U) => T
->T : T
->U : U
 >x : (arg: T) => U
 >arg : T
->T : T
->U : U
->T : T
 
     a6: new <T extends Base>(x: (arg: T) => Derived) => T;
 >a6 : new <T extends Base>(x: (arg: T) => Derived) => T
->T : T
->Base : Base
 >x : (arg: T) => Derived
 >arg : T
->T : T
->Derived : Derived
->T : T
 
     a11: new <T>(x: { foo: T }, y: { foo: T; bar: T }) => Base;
->a11 : new <T>(x: { foo: T; }, y: { foo: T; bar: T; }) => Base
->T : T
+>a11 : new <T>(x: {    foo: T;}, y: {    foo: T;    bar: T;}) => Base
 >x : { foo: T; }
 >foo : T
->T : T
 >y : { foo: T; bar: T; }
 >foo : T
->T : T
 >bar : T
->T : T
->Base : Base
 
     a15: new <T>(x: { a: T; b: T }) => T[];
->a15 : new <T>(x: { a: T; b: T; }) => T[]
->T : T
+>a15 : new <T>(x: {    a: T;    b: T;}) => T[]
 >x : { a: T; b: T; }
 >a : T
->T : T
 >b : T
->T : T
->T : T
 
     a16: new <T extends Base>(x: { a: T; b: T }) => T[];
->a16 : new <T extends Base>(x: { a: T; b: T; }) => T[]
->T : T
->Base : Base
+>a16 : new <T extends Base>(x: {    a: T;    b: T;}) => T[]
 >x : { a: T; b: T; }
 >a : T
->T : T
 >b : T
->T : T
->T : T
 }
 
 var x: A;
 >x : A
->A : A
 
 var b: new <T>(x: T) => T[]; 
 >b : new <T>(x: T) => T[]
->T : T
 >x : T
->T : T
->T : T
 
 x.a = b;
 >x.a = b : new <T>(x: T) => T[]
@@ -133,9 +94,7 @@ b = x.a;
 
 var b2: new <T>(x: T) => string[]; 
 >b2 : new <T>(x: T) => string[]
->T : T
 >x : T
->T : T
 
 x.a2 = b2;
 >x.a2 = b2 : new <T>(x: T) => string[]
@@ -153,10 +112,7 @@ b2 = x.a2;
 
 var b3: new <T>(x: T) => T;
 >b3 : new <T>(x: T) => T
->T : T
 >x : T
->T : T
->T : T
 
 x.a3 = b3;
 >x.a3 = b3 : new <T>(x: T) => T
@@ -174,12 +130,8 @@ b3 = x.a3;
 
 var b4: new <T, U>(x: T, y: U) => string; 
 >b4 : new <T, U>(x: T, y: U) => string
->T : T
->U : U
 >x : T
->T : T
 >y : U
->U : U
 
 x.a4 = b4;
 >x.a4 = b4 : new <T, U>(x: T, y: U) => string
@@ -197,13 +149,8 @@ b4 = x.a4;
 
 var b5: new <T, U>(x: (arg: T) => U) => T; 
 >b5 : new <T, U>(x: (arg: T) => U) => T
->T : T
->U : U
 >x : (arg: T) => U
 >arg : T
->T : T
->U : U
->T : T
 
 x.a5 = b5;
 >x.a5 = b5 : new <T, U>(x: (arg: T) => U) => T
@@ -220,18 +167,12 @@ b5 = x.a5;
 >a5 : new <T, U>(x: (arg: T) => U) => T
 
 var b11: new <T, U>(x: { foo: T }, y: { foo: U; bar: U }) => Base; 
->b11 : new <T, U>(x: { foo: T; }, y: { foo: U; bar: U; }) => Base
->T : T
->U : U
+>b11 : new <T, U>(x: {    foo: T;}, y: {    foo: U;    bar: U;}) => Base
 >x : { foo: T; }
 >foo : T
->T : T
 >y : { foo: U; bar: U; }
 >foo : U
->U : U
 >bar : U
->U : U
->Base : Base
 
 x.a11 = b11;
 >x.a11 = b11 : new <T, U>(x: { foo: T; }, y: { foo: U; bar: U; }) => Base
@@ -248,14 +189,10 @@ b11 = x.a11;
 >a11 : new <T>(x: { foo: T; }, y: { foo: T; bar: T; }) => Base
 
 var b16: new <T>(x: { a: T; b: T }) => T[]; 
->b16 : new <T>(x: { a: T; b: T; }) => T[]
->T : T
+>b16 : new <T>(x: {    a: T;    b: T;}) => T[]
 >x : { a: T; b: T; }
 >a : T
->T : T
 >b : T
->T : T
->T : T
 
 x.a16 = b16;
 >x.a16 = b16 : new <T>(x: { a: T; b: T; }) => T[]

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/usingModuleWithExportImportInValuePosition.ts] ////
+
 //// [usingModuleWithExportImportInValuePosition.ts]
 module A {
 export var x = 'hello world'
@@ -23,7 +25,7 @@ var c: C.a.B.Id;
 var A;
 (function (A) {
     A.x = 'hello world';
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point(x, y) {
             this.x = x;
             this.y = y;

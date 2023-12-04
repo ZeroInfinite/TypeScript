@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/thisInOuterClassBody.ts] ////
+
 //// [thisInOuterClassBody.ts]
 class Foo {
 
@@ -21,7 +23,7 @@ class Foo {
 }
 
 //// [thisInOuterClassBody.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.x = this;
     }
@@ -36,6 +38,8 @@ var Foo = (function () {
         var a = this.y;
         var b = this.x;
     };
-    Foo.y = this;
+    var _a;
+    _a = Foo;
+    Foo.y = _a;
     return Foo;
 }());

@@ -1,4 +1,7 @@
+//// [tests/cases/conformance/expressions/binaryOperators/inOperator/inOperatorWithInvalidOperands.ts] ////
+
 //// [inOperatorWithInvalidOperands.ts]
+class Foo {}
 enum E { a }
 
 var x: any;
@@ -8,7 +11,9 @@ var x: any;
 var a1: boolean;
 var a2: void;
 var a3: {};
-var a4: E
+var a4: E;
+var a5: Foo | string;
+var a6: Foo;
 
 var ra1 = a1 in x;
 var ra2 = a2 in x;
@@ -19,6 +24,8 @@ var ra6 = undefined in x;
 var ra7 = E.a in x;
 var ra8 = false in x;
 var ra9 = {} in x;
+var ra10 = a5 in x;
+var ra11 = a6 in x;
 
 // invalid right operands
 // the right operand is required to be of type Any, an object type, or a type parameter type
@@ -39,11 +46,15 @@ var rb8 = x in '';
 var rb9 = x in null;
 var rb10 = x in undefined;
 
-
 // both operands are invalid
 var rc1 = {} in '';
 
 //// [inOperatorWithInvalidOperands.js]
+var Foo = /** @class */ (function () {
+    function Foo() {
+    }
+    return Foo;
+}());
 var E;
 (function (E) {
     E[E["a"] = 0] = "a";
@@ -55,6 +66,8 @@ var a1;
 var a2;
 var a3;
 var a4;
+var a5;
+var a6;
 var ra1 = a1 in x;
 var ra2 = a2 in x;
 var ra3 = a3 in x;
@@ -64,6 +77,8 @@ var ra6 = undefined in x;
 var ra7 = E.a in x;
 var ra8 = false in x;
 var ra9 = {} in x;
+var ra10 = a5 in x;
+var ra11 = a6 in x;
 // invalid right operands
 // the right operand is required to be of type Any, an object type, or a type parameter type
 var b1;

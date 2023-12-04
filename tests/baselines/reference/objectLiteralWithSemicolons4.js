@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/objectLiteralWithSemicolons4.ts] ////
+
 //// [objectLiteralWithSemicolons4.ts]
 var v = {
   a
@@ -5,5 +7,5 @@ var v = {
 
 //// [objectLiteralWithSemicolons4.js]
 var v = {
-    a: 
+    a: a
 };

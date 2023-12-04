@@ -1,23 +1,41 @@
-/* @internal */
-namespace ts.codefix {
-    registerCodeFix({
-        errorCodes: [Diagnostics.Constructors_for_derived_classes_must_contain_a_super_call.code],
-        getCodeActions: (context: CodeFixContext) => {
-            const sourceFile = context.sourceFile;
-            const token = getTokenAtPosition(sourceFile, context.span.start, /*includeJsDocComment*/ false);
+import {
+    ConstructorDeclaration,
+    Debug,
+    Diagnostics,
+    emptyArray,
+    factory,
+    getTokenAtPosition,
+    isConstructorDeclaration,
+    SourceFile,
+    textChanges,
+} from "../_namespaces/ts";
+import {
+    codeFixAll,
+    createCodeFixAction,
+    registerCodeFix,
+} from "../_namespaces/ts.codefix";
 
-            if (token.kind !== SyntaxKind.ConstructorKeyword) {
-                return undefined;
-            }
+const fixId = "constructorForDerivedNeedSuperCall";
+const errorCodes = [Diagnostics.Constructors_for_derived_classes_must_contain_a_super_call.code];
+registerCodeFix({
+    errorCodes,
+    getCodeActions(context) {
+        const { sourceFile, span } = context;
+        const ctr = getNode(sourceFile, span.start);
+        const changes = textChanges.ChangeTracker.with(context, t => doChange(t, sourceFile, ctr));
+        return [createCodeFixAction(fixId, changes, Diagnostics.Add_missing_super_call, fixId, Diagnostics.Add_all_missing_super_calls)];
+    },
+    fixIds: [fixId],
+    getAllCodeActions: context => codeFixAll(context, errorCodes, (changes, diag) => doChange(changes, context.sourceFile, getNode(diag.file, diag.start))),
+});
 
-            const changeTracker = textChanges.ChangeTracker.fromCodeFixContext(context);
-            const superCall = createStatement(createCall(createSuper(), /*typeArguments*/ undefined, /*argumentsArray*/ emptyArray));
-            changeTracker.insertNodeAfter(sourceFile, getOpenBrace(<ConstructorDeclaration>token.parent, sourceFile), superCall, { suffix: context.newLineCharacter });
+function getNode(sourceFile: SourceFile, pos: number): ConstructorDeclaration {
+    const token = getTokenAtPosition(sourceFile, pos);
+    Debug.assert(isConstructorDeclaration(token.parent), "token should be at the constructor declaration");
+    return token.parent;
+}
 
-            return [{
-                description: getLocaleSpecificMessage(Diagnostics.Add_missing_super_call),
-                changes: changeTracker.getChanges()
-            }];
-        }
-    });
+function doChange(changes: textChanges.ChangeTracker, sourceFile: SourceFile, ctr: ConstructorDeclaration) {
+    const superCall = factory.createExpressionStatement(factory.createCallExpression(factory.createSuper(), /*typeArguments*/ undefined, /*argumentsArray*/ emptyArray));
+    changes.insertNodeAtConstructorStart(sourceFile, ctr, superCall);
 }

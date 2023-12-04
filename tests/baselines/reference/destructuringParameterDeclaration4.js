@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringParameterDeclaration4.ts] ////
+
 //// [destructuringParameterDeclaration4.ts]
 // If the parameter is a rest parameter, the parameter type is any[]
 // A type annotation for a rest parameter must denote an array type.
@@ -82,7 +84,7 @@ a5([1, 2, "string", false, true]); // Error, parameter type is [any, any, [[any]
 a5([1, 2]); // Error, parameter type is [any, any, [[any]]]
 a6([1, 2, "string"]); // Error, parameter type is number[]
 var temp = [1, 2, 3];
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         var temp = [];
         for (var _i = 0; _i < arguments.length; _i++) {

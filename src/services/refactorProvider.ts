@@ -1,46 +1,39 @@
-/* @internal */
-namespace ts {
-    export interface Refactor {
-        /** An unique code associated with each refactor */
-        name: string;
+import {
+    ApplicableRefactorInfo,
+    arrayFrom,
+    flatMapIterator,
+    InteractiveRefactorArguments,
+    Refactor,
+    RefactorContext,
+    RefactorEditInfo,
+} from "./_namespaces/ts";
+import {
+    refactorKindBeginsWith,
+} from "./_namespaces/ts.refactor";
 
-        /** Description of the refactor to display in the UI of the editor */
-        description: string;
+// A map with the refactor code as key, the refactor itself as value
+// e.g.  nonSuggestableRefactors[refactorCode] -> the refactor you want
+const refactors = new Map<string, Refactor>();
 
-        /** Compute the associated code actions */
-        getEditsForAction(context: RefactorContext, actionName: string): RefactorEditInfo | undefined;
+/**
+ * @param name An unique code associated with each refactor. Does not have to be human-readable.
+ *
+ * @internal
+ */
+export function registerRefactor(name: string, refactor: Refactor) {
+    refactors.set(name, refactor);
+}
 
-        /** Compute (quickly) which actions are available here */
-        getAvailableActions(context: RefactorContext): ApplicableRefactorInfo[] | undefined;
-    }
+/** @internal */
+export function getApplicableRefactors(context: RefactorContext, includeInteractiveActions?: boolean): ApplicableRefactorInfo[] {
+    return arrayFrom(flatMapIterator(refactors.values(), refactor =>
+        context.cancellationToken && context.cancellationToken.isCancellationRequested() ||
+            !refactor.kinds?.some(kind => refactorKindBeginsWith(kind, context.kind)) ? undefined :
+            refactor.getAvailableActions(context, includeInteractiveActions)));
+}
 
-    export interface RefactorContext {
-        file: SourceFile;
-        startPosition: number;
-        endPosition?: number;
-        program: Program;
-        newLineCharacter: string;
-        rulesProvider?: formatting.RulesProvider;
-        cancellationToken?: CancellationToken;
-    }
-
-    export namespace refactor {
-        // A map with the refactor code as key, the refactor itself as value
-        // e.g.  nonSuggestableRefactors[refactorCode] -> the refactor you want
-        const refactors: Map<Refactor> = createMap<Refactor>();
-
-        export function registerRefactor(refactor: Refactor) {
-            refactors.set(refactor.name, refactor);
-        }
-
-        export function getApplicableRefactors(context: RefactorContext): ApplicableRefactorInfo[] {
-            return flatMapIter(refactors.values(), refactor =>
-                context.cancellationToken && context.cancellationToken.isCancellationRequested() ? [] : refactor.getAvailableActions(context));
-        }
-
-        export function getEditsForRefactor(context: RefactorContext, refactorName: string, actionName: string): RefactorEditInfo | undefined {
-            const refactor = refactors.get(refactorName);
-            return refactor && refactor.getEditsForAction(context, actionName);
-        }
-    }
+/** @internal */
+export function getEditsForRefactor(context: RefactorContext, refactorName: string, actionName: string, interactiveRefactorArguments?: InteractiveRefactorArguments): RefactorEditInfo | undefined {
+    const refactor = refactors.get(refactorName);
+    return refactor && refactor.getEditsForAction(context, actionName, interactiveRefactorArguments);
 }

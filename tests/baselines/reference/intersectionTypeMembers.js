@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/intersection/intersectionTypeMembers.ts] ////
+
 //// [intersectionTypeMembers.ts]
 // An intersection type has those members that are present in any of its constituent types,
 // with types that are intersections of the respective members in the constituent types
@@ -44,6 +46,28 @@ const de: D & E = {
     }
 }
 
+// Additional test case with >2 doubly nested members so fix for #31441 is tested w/ excess props
+interface F {
+    nested: { doublyNested: { g: string; } }
+}
+
+interface G {
+    nested: { doublyNested: { h: string; } }
+}
+
+const defg: D & E & F & G = {
+    nested: {
+        doublyNested: {
+            d: 'yes',
+            f: 'no',
+            g: 'ok',
+            h: 'affirmative'
+        },
+        different: { e: 12 },
+        other: { g: 101 }
+    }
+}
+
 
 //// [intersectionTypeMembers.js]
 // An intersection type has those members that are present in any of its constituent types,
@@ -64,6 +88,18 @@ var de = {
         doublyNested: {
             d: 'yes',
             f: 'no'
+        },
+        different: { e: 12 },
+        other: { g: 101 }
+    }
+};
+var defg = {
+    nested: {
+        doublyNested: {
+            d: 'yes',
+            f: 'no',
+            g: 'ok',
+            h: 'affirmative'
         },
         different: { e: 12 },
         other: { g: 101 }

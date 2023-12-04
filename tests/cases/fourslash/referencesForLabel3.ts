@@ -2,8 +2,8 @@
 
 // References to unused label
 
-////[|label|]: while (true) {
+/////*1*/label: while (true) {
 ////    var label = "label";
 ////}
 
-verify.singleReferenceGroup("label");
+verify.baselineFindAllReferences('1');

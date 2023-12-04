@@ -15,8 +15,9 @@ y = moduleA; // should be error
 
 //// [aliasAssignments_moduleA.js]
 "use strict";
-exports.__esModule = true;
-var someClass = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.someClass = void 0;
+var someClass = /** @class */ (function () {
     function someClass() {
     }
     return someClass;
@@ -24,7 +25,7 @@ var someClass = (function () {
 exports.someClass = someClass;
 //// [aliasAssignments_1.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var moduleA = require("./aliasAssignments_moduleA");
 var x = moduleA;
 x = 1; // Should be error

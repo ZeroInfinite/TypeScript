@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/selfReferencesInFunctionParameters.ts] ////
+
 //// [selfReferencesInFunctionParameters.ts]
 function foo(x: number = x) {
 }
@@ -21,7 +23,7 @@ function bar(x0, x) {
     if (x0 === void 0) { x0 = ""; }
     if (x === void 0) { x = x; }
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x, y) {
         if (x === void 0) { x = 1; }
         if (y === void 0) { y = y; }

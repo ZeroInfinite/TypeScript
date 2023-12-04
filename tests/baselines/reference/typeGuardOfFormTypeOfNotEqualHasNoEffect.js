@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardOfFormTypeOfNotEqualHasNoEffect.ts] ////
+
 //// [typeGuardOfFormTypeOfNotEqualHasNoEffect.ts]
 class C { private p: string };
 
@@ -36,7 +38,7 @@ else {
 }
 
 //// [typeGuardOfFormTypeOfNotEqualHasNoEffect.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

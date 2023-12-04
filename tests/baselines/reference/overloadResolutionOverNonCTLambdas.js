@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadResolutionOverNonCTLambdas.ts] ////
+
 //// [overloadResolutionOverNonCTLambdas.ts]
 module Bugs {
   class A {
@@ -26,7 +28,7 @@ bug3(function(x:string):string { return x; });
 //// [overloadResolutionOverNonCTLambdas.js]
 var Bugs;
 (function (Bugs) {
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/number/invalidNumberAssignments.ts] ////
+
 //// [invalidNumberAssignments.ts]
 var x = 1;
 
@@ -29,7 +31,7 @@ var a = x;
 var b = x;
 var c = x;
 var d = x;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

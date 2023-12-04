@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsDottedModuleName.ts] ////
+
 //// [commentsDottedModuleName.ts]
 /** this is multi declare module*/
 export module outerModule.InnerModule {
@@ -10,26 +12,27 @@ export module outerModule.InnerModule {
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.outerModule = void 0;
     /** this is multi declare module*/
     var outerModule;
     (function (outerModule) {
         var InnerModule;
         (function (InnerModule) {
             /// class b comment
-            var b = (function () {
+            var b = /** @class */ (function () {
                 function b() {
                 }
                 return b;
             }());
             InnerModule.b = b;
         })(InnerModule = outerModule.InnerModule || (outerModule.InnerModule = {}));
-    })(outerModule = exports.outerModule || (exports.outerModule = {}));
+    })(outerModule || (exports.outerModule = outerModule = {}));
 });
 
 
 //// [commentsDottedModuleName.d.ts]
 /** this is multi declare module*/
-export declare module outerModule.InnerModule {
+export declare namespace outerModule.InnerModule {
     class b {
     }
 }

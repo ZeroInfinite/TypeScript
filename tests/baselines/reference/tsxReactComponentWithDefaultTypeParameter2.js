@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/tsxReactComponentWithDefaultTypeParameter2.tsx] ////
+
 //// [file.tsx]
 import React = require('react');
 
@@ -10,14 +12,12 @@ declare class MyComp<P = Prop> extends React.Component<P, {}> {
     internalProp: P;
 }
 
-// Error
 let x = <MyComp />
 let x1 = <MyComp a="hi"/>
 
 //// [file.jsx]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-// Error
 var x = <MyComp />;
 var x1 = <MyComp a="hi"/>;

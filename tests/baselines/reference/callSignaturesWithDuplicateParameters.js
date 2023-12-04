@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesWithDuplicateParameters.ts] ////
+
 //// [callSignaturesWithDuplicateParameters.ts]
 // Duplicate parameter names are always an error
 
@@ -50,7 +52,7 @@ var f5 = function foo(x, x) { };
 var f6 = function (x, x) { };
 var f7 = function (x, x) { };
 var f8 = function (x, y) { };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x, x) { };

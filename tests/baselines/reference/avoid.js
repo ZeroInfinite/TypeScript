@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/avoid.ts] ////
+
 //// [avoid.ts]
 function f() {
     var x=1;
@@ -27,7 +29,7 @@ var y = f(); // error void fn
 var why = f(); // error void fn
 var w;
 w = f(); // error void fn
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.g = function () {

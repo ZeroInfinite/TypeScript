@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/vararg.ts] ////
+
 //// [vararg.ts]
 module M {
     export class C {
@@ -41,7 +43,7 @@ result+=x.fonly("a","b","c","d"); //ok
 //// [vararg.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.f = function (x) {

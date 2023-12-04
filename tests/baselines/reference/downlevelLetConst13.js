@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/downlevelLetConst13.ts] ////
+
 //// [downlevelLetConst13.ts]
 'use strict'
 // exported let\const bindings should not be renamed
@@ -21,6 +23,7 @@ export module M {
 //// [downlevelLetConst13.js]
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.M = exports.bar4 = exports.bar3 = exports.bar2 = exports.bar1 = exports.bar = exports.foo = void 0;
 // exported let\const bindings should not be renamed
 exports.foo = 10;
 exports.bar = "123";
@@ -36,4 +39,4 @@ var M;
     M.bar6 = [2][0];
     M.bar7 = { a: 1 }.a;
     M.bar8 = { a: 1 }.a;
-})(M = exports.M || (exports.M = {}));
+})(M || (exports.M = M = {}));

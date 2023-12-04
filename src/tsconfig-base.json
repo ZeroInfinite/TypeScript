@@ -1,17 +1,36 @@
 {
     "compilerOptions": {
-        "lib": ["es5"],
+        "rootDir": ".",
+        "outDir": "../built/local",
+
+        "pretty": true,
+        "lib": ["es2020"],
+        "target": "es2020",
+        "module": "CommonJS",
+        "moduleResolution": "node",
+
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "composite": true,
         "noEmitOnError": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
+        "emitDeclarationOnly": true,
+
+        "strict": true,
+        "strictBindCallApply": false,
+        "useUnknownInCatchVariables": false,
+        "noImplicitOverride": true,
+
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "allowUnusedLabels": false,
+
+        "skipLibCheck": true,
+
         "alwaysStrict": true,
-        "pretty": true,
         "preserveConstEnums": true,
-        "stripInternal": true,
-        "sourceMap": true,
-        "target": "es5",
+        "newLine": "lf",
+
         "types": []
     }
 }

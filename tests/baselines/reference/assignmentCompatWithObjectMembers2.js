@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembers2.ts] ////
+
 //// [assignmentCompatWithObjectMembers2.ts]
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 // additional optional properties do not cause errors
@@ -45,12 +47,12 @@ a2 = t;
 //// [assignmentCompatWithObjectMembers2.js]
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 // additional optional properties do not cause errors
-var S = (function () {
+var S = /** @class */ (function () {
     function S() {
     }
     return S;
 }());
-var T = (function () {
+var T = /** @class */ (function () {
     function T() {
     }
     return T;

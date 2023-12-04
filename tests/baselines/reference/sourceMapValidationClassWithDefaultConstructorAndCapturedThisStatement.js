@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sourceMapValidationClassWithDefaultConstructorAndCapturedThisStatement.ts] ////
+
 //// [sourceMapValidationClassWithDefaultConstructorAndCapturedThisStatement.ts]
 class Greeter {
     public a = 10;
@@ -5,7 +7,7 @@ class Greeter {
 }
 
 //// [sourceMapValidationClassWithDefaultConstructorAndCapturedThisStatement.js]
-var Greeter = (function () {
+var Greeter = /** @class */ (function () {
     function Greeter() {
         var _this = this;
         this.a = 10;

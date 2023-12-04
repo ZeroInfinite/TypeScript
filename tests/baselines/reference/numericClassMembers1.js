@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/numericClassMembers1.ts] ////
+
 //// [numericClassMembers1.ts]
 class C234 {
   0 = 1; 
@@ -16,21 +18,21 @@ class C236 {
 
 
 //// [numericClassMembers1.js]
-var C234 = (function () {
+var C234 = /** @class */ (function () {
     function C234() {
         this[0] = 1;
         this[0.0] = 2;
     }
     return C234;
 }());
-var C235 = (function () {
+var C235 = /** @class */ (function () {
     function C235() {
         this[0.0] = 1;
         this['0'] = 2;
     }
     return C235;
 }());
-var C236 = (function () {
+var C236 = /** @class */ (function () {
     function C236() {
         this['0.0'] = 1;
         this['0'] = 2;

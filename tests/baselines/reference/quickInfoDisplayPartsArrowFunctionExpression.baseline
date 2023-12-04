@@ -1,10 +1,50 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts ===
+// var x = a => 10;
+//     ^
+// | ----------------------------------------------------------------------
+// | var x: (a: any) => number
+// | ----------------------------------------------------------------------
+//         ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: any
+// | ----------------------------------------------------------------------
+// var y = (a, b) => 10;
+//     ^
+// | ----------------------------------------------------------------------
+// | var y: (a: any, b: any) => number
+// | ----------------------------------------------------------------------
+//          ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: any
+// | ----------------------------------------------------------------------
+//             ^
+// | ----------------------------------------------------------------------
+// | (parameter) b: any
+// | ----------------------------------------------------------------------
+// var z = (a: number) => 10;
+//     ^
+// | ----------------------------------------------------------------------
+// | var z: (a: number) => number
+// | ----------------------------------------------------------------------
+//          ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: number
+// | ----------------------------------------------------------------------
+// var z2 = () => 10;
+//     ^^
+// | ----------------------------------------------------------------------
+// | var z2: () => number
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 4
+      "position": 4,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -73,16 +113,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 8
+      "position": 8,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -123,16 +163,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 21
+      "position": 21,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -225,16 +265,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 26
+      "position": 26,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -275,16 +315,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 29
+      "position": 29,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -325,16 +365,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 43
+      "position": 43,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -403,16 +443,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 48
+      "position": 48,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -453,16 +493,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsArrowFunctionExpression.ts",
-      "position": 70
+      "position": 70,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -515,8 +555,7 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

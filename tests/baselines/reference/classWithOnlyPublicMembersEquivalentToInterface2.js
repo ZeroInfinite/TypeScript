@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/namedTypes/classWithOnlyPublicMembersEquivalentToInterface2.ts] ////
+
 //// [classWithOnlyPublicMembersEquivalentToInterface2.ts]
 // no errors expected
 
@@ -29,14 +31,14 @@ i = c;
 
 //// [classWithOnlyPublicMembersEquivalentToInterface2.js]
 // no errors expected
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.y = function (a) { return null; };
     Object.defineProperty(C.prototype, "z", {
         get: function () { return 1; },
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

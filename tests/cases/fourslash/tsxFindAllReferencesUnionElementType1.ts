@@ -18,7 +18,7 @@
 ////     return <h1>World </h1>;
 //// }
 
-//// var [|SFCComp|] = SFC1 || SFC2;
-//// <[|SFCComp|] x={ "hi" } />
+//// /*1*/var /*2*/SFCComp = SFC1 || SFC2;
+//// /*3*/</*4*/SFCComp x={ "hi" } />
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1', '2', '3', '4');

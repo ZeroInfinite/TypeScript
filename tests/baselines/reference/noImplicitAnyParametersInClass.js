@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/noImplicitAnyParametersInClass.ts] ////
+
 //// [noImplicitAnyParametersInClass.ts]
 class C {
     // No implicit-'any' errors.
@@ -92,7 +94,7 @@ class C {
 }
 
 //// [noImplicitAnyParametersInClass.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         // No implicit-'any' errors.
         this.pub_f9 = function () { return ""; };

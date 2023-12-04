@@ -26,24 +26,32 @@
 ////}
 //// Derived./*2*/
 
-// Sub class, everything but private is visible
-goTo.marker("1");
-verify.not.completionListContains('privateMethod');
-verify.not.completionListContains('privateProperty');
-verify.completionListContains('protectedMethod');
-verify.completionListContains('protectedProperty');
-verify.completionListContains('publicMethod');
-verify.completionListContains('publicProperty');
-verify.completionListContains('protectedOverriddenMethod');
-verify.completionListContains('protectedOverriddenProperty');
+const publicCompletions: ReadonlyArray<FourSlashInterface.ExpectedCompletionEntry> = completion.functionMembersPlus([
+    { name: "publicMethod", sortText: completion.SortText.LocalDeclarationPriority },
+    { name: "publicProperty", sortText: completion.SortText.LocalDeclarationPriority },
+]);
 
-// Can see protected methods elevated to public
-goTo.marker("2");
-verify.not.completionListContains('privateMethod');
-verify.not.completionListContains('privateProperty');
-verify.not.completionListContains('protectedMethod');
-verify.not.completionListContains('protectedProperty');
-verify.completionListContains('publicMethod');
-verify.completionListContains('publicProperty');
-verify.completionListContains('protectedOverriddenMethod');
-verify.completionListContains('protectedOverriddenProperty');
+verify.completions(
+    {
+        // Sub class, everything but private is visible
+        marker: "1",
+        unsorted: [
+            { name: "prototype", sortText: completion.SortText.LocationPriority },
+            { name: "protectedOverriddenMethod", sortText: completion.SortText.LocalDeclarationPriority },
+            { name: "protectedOverriddenProperty", sortText: completion.SortText.LocalDeclarationPriority },
+            { name: "protectedMethod", sortText: completion.SortText.LocalDeclarationPriority },
+            { name: "protectedProperty", sortText: completion.SortText.LocalDeclarationPriority },
+            ...publicCompletions
+        ],
+    },
+    {
+        // Can see protected methods elevated to public
+        marker: "2",
+        unsorted: [
+            { name: "prototype", sortText: completion.SortText.LocationPriority },
+            { name: "protectedOverriddenMethod", sortText: completion.SortText.LocalDeclarationPriority },
+            { name: "protectedOverriddenProperty", sortText: completion.SortText.LocalDeclarationPriority },
+            ...publicCompletions,
+        ],
+    },
+);

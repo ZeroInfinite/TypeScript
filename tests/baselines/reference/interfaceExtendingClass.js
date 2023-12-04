@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/interfacesExtendingClasses/interfaceExtendingClass.ts] ////
+
 //// [interfaceExtendingClass.ts]
 class Foo {
     x: string;
@@ -20,7 +22,7 @@ var f: Foo = i;
 i = f;
 
 //// [interfaceExtendingClass.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.y = function () { };
@@ -28,7 +30,7 @@ var Foo = (function () {
         get: function () {
             return 1;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Foo;

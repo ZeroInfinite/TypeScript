@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileForTypeParameters.ts] ////
+
 //// [declFileForTypeParameters.ts]
 class C<T> {
     x: T;
@@ -7,7 +9,7 @@ class C<T> {
 }
 
 //// [declFileForTypeParameters.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (a) {

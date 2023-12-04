@@ -1,7 +1,8 @@
-=== tests/cases/conformance/statements/for-inStatements/for-inStatementsArray.ts ===
+//// [tests/cases/conformance/statements/for-inStatements/for-inStatementsArray.ts] ////
+
+=== for-inStatementsArray.ts ===
 let a: Date[];
 >a : Date[]
->Date : Date
 
 let b: boolean[];
 >b : boolean[]

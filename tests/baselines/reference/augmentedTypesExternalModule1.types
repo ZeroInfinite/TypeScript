@@ -1,4 +1,6 @@
-=== tests/cases/compiler/augmentedTypesExternalModule1.ts ===
+//// [tests/cases/compiler/augmentedTypesExternalModule1.ts] ////
+
+=== augmentedTypesExternalModule1.ts ===
 export var a = 1;
 >a : number
 >1 : 1
@@ -8,5 +10,3 @@ class c5 { public foo() { } }
 >foo : () => void
 
 module c5 { } // should be ok everywhere
->c5 : typeof c5
-

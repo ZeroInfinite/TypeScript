@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/destructuringInVariableDeclarations5.ts] ////
+
 //// [destructuringInVariableDeclarations5.ts]
 export let { toString } = 1;
 {
@@ -17,6 +19,7 @@ export let { toString } = 1;
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.toString = void 0;
     exports.toString = 1..toString;
     {
         let { toFixed } = 1;

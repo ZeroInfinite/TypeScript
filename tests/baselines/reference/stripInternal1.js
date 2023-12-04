@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/stripInternal1.ts] ////
+
 //// [stripInternal1.ts]
 class C {
   foo(): void { }
@@ -6,7 +8,7 @@ class C {
 }
 
 //// [stripInternal1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () { };

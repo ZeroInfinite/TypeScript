@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationVisibilityErrorParameterOfFunction.ts] ////
+
 //// [declFileTypeAnnotationVisibilityErrorParameterOfFunction.ts]
 module m {
     class private1 {
@@ -47,12 +49,12 @@ module m {
 //// [declFileTypeAnnotationVisibilityErrorParameterOfFunction.js]
 var m;
 (function (m) {
-    var private1 = (function () {
+    var private1 = /** @class */ (function () {
         function private1() {
         }
         return private1;
     }());
-    var public1 = (function () {
+    var public1 = /** @class */ (function () {
         function public1() {
         }
         return public1;
@@ -85,7 +87,7 @@ var m;
     m.foo14 = foo14;
     var m2;
     (function (m2) {
-        var public2 = (function () {
+        var public2 = /** @class */ (function () {
             function public2() {
             }
             return public2;
@@ -105,3 +107,23 @@ var m;
     }
     m.foo114 = foo114;
 })(m || (m = {}));
+
+
+//// [declFileTypeAnnotationVisibilityErrorParameterOfFunction.d.ts]
+declare namespace m {
+    class private1 {
+    }
+    export class public1 {
+    }
+    export function foo3(param: private1): void;
+    export function foo4(param?: private1): void;
+    export function foo13(param: public1): void;
+    export function foo14(param?: public1): void;
+    namespace m2 {
+        class public2 {
+        }
+    }
+    export function foo113(param: m2.public2): void;
+    export function foo114(param?: m2.public2): void;
+    export {};
+}

@@ -1,4 +1,5 @@
 /// <reference path='fourslash.ts'/>
+
 // @ModuleResolution: classic
 
 // @Filename: m1.ts
@@ -12,30 +13,16 @@
 ////import {foo,/*4*/ from "m1"
 ////import {bar as /*5*/, /*6*/ from "m1"
 ////import {foo, bar, baz as b,/*7*/} from "m1"
+////import { type /*8*/ } from "m1";
+////import { type b/*9*/ } from "m1";
 
-function verifyCompletionAtMarker(marker: string, showBuilder: boolean, ...completions: string[]) {
-    goTo.marker(marker);
-    if (completions.length) {
-        for (let completion of completions) {
-            verify.completionListContains(completion);
-        }
-    }
-    else {
-        verify.completionListIsEmpty();
-    }
+const type = { name: "type", sortText: completion.SortText.GlobalsOrKeywords };
 
-    if (showBuilder) {
-        verify.completionListAllowsNewIdentifier();
-    }
-    else {
-        verify.not.completionListAllowsNewIdentifier();
-    }
-}
-
-verifyCompletionAtMarker("1", /*showBuilder*/ false, "foo", "bar", "baz");
-verifyCompletionAtMarker("2", /*showBuilder*/ false, "foo", "bar", "baz");
-verifyCompletionAtMarker("3", /*showBuilder*/ false, "foo", "bar", "baz");
-verifyCompletionAtMarker("4", /*showBuilder*/ false, "bar", "baz");
-verifyCompletionAtMarker("5", /*showBuilder*/ true);
-verifyCompletionAtMarker("6", /*showBuilder*/ false, "foo", "baz");
-verifyCompletionAtMarker("7", /*showBuilder*/ false);
+verify.completions(
+    // { marker: ["1", "2", "3"], exact: ["bar", "baz", "foo", type] },
+    // { marker: "4", exact: ["bar", "baz", type] },
+    // { marker: "5", exact: undefined, isNewIdentifierLocation: true },
+    // { marker: "6", exact: ["baz", "foo", type] },
+    // { marker: "7", exact: undefined },
+    { marker: ["8", "9"], exact: ["bar", "baz", "foo"] }, // No 'type'
+);

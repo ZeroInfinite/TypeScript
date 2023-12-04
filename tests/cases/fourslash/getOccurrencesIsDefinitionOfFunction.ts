@@ -1,6 +1,6 @@
 /// <reference path='fourslash.ts' />
-////function [|{| "isWriteAccess": true, "isDefinition": true |}func|](x: number) {
+/////*1*/function /*2*/func(x: number) {
 ////}
-////[|func|](x)
+/////*3*/func(x)
 
-verify.singleReferenceGroup("function func(x: number): void");
+verify.baselineFindAllReferences('1', '2', '3');

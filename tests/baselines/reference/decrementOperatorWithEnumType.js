@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/decrementOperator/decrementOperatorWithEnumType.ts] ////
+
 //// [decrementOperatorWithEnumType.ts]
 // -- operator on enum type
 
@@ -11,6 +13,7 @@ var ResultIsNumber2 = ENUM1.A--;
 --ENUM1["A"];
 
 ENUM1[A]--;
+
 
 //// [decrementOperatorWithEnumType.js]
 // -- operator on enum type

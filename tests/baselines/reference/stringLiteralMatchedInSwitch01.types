@@ -1,15 +1,14 @@
-=== tests/cases/conformance/types/stringLiteral/stringLiteralMatchedInSwitch01.ts ===
+//// [tests/cases/conformance/types/stringLiteral/stringLiteralMatchedInSwitch01.ts] ////
+
+=== stringLiteralMatchedInSwitch01.ts ===
 type S = "a" | "b";
->S : S
+>S : "a" | "b"
 
 type T = S[] | S;
->T : T
->S : S
->S : S
+>T : S | S[]
 
 var foo: T;
 >foo : T
->T : T
 
 switch (foo) {
 >foo : T
@@ -29,7 +28,6 @@ switch (foo) {
 >(foo as S[]) : S[]
 >foo as S[] : S[]
 >foo : S[]
->S : S
 >0 : 0
 
         break;

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/localImportNameVsGlobalName.ts ===
+//// [tests/cases/compiler/localImportNameVsGlobalName.ts] ////
+
+=== localImportNameVsGlobalName.ts ===
 module Keyboard {
 >Keyboard : typeof Keyboard
 
@@ -21,7 +23,6 @@ module App {
   export function foo(key: Key): void {}
 >foo : (key: Key) => void
 >key : Key
->Key : Key
 
   foo(Key.UP);
 >foo(Key.UP) : void

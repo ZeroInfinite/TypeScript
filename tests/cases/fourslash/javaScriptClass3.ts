@@ -12,10 +12,10 @@
 ////    method() { return this.alpha; }
 //// }
 //// var x = new Foo();
-//// x.alpha/*src1*/;
-//// x.beta/*src2*/;
+//// x.[|alpha/*src1*/|];
+//// x.[|beta/*src2*/|];
 
-verify.goToDefinition({
-    src1: "dst1",
-    src2: "dst2"
-});
+verify.baselineGoToDefinition(
+    "src1",
+    "src2",
+);

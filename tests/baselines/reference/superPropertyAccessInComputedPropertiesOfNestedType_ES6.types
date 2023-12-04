@@ -1,4 +1,6 @@
-=== tests/cases/compiler/superPropertyAccessInComputedPropertiesOfNestedType_ES6.ts ===
+//// [tests/cases/compiler/superPropertyAccessInComputedPropertiesOfNestedType_ES6.ts] ////
+
+=== superPropertyAccessInComputedPropertiesOfNestedType_ES6.ts ===
 class A {
 >A : A
 
@@ -22,6 +24,7 @@ class B extends A {
 >class {            [super.foo()]() {                return 100;            }        } : typeof (Anonymous class)
 
             [super.foo()]() {
+>[super.foo()] : () => number
 >super.foo() : number
 >super.foo : () => number
 >super : A

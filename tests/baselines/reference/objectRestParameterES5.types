@@ -1,6 +1,8 @@
-=== tests/cases/conformance/types/rest/objectRestParameterES5.ts ===
+//// [tests/cases/conformance/types/rest/objectRestParameterES5.ts] ////
+
+=== objectRestParameterES5.ts ===
 function cloneAgain({ a, ...clone }: { a: number, b: string }): void {
->cloneAgain : ({ a, ...clone }: { a: number; b: string; }) => void
+>cloneAgain : ({ a, ...clone }: {    a: number;    b: string;}) => void
 >a : number
 >clone : { b: string; }
 >a : number
@@ -8,9 +10,9 @@ function cloneAgain({ a, ...clone }: { a: number, b: string }): void {
 }
 
 declare function suddenly(f: (a: { x: { z, ka }, y: string }) => void);
->suddenly : (f: (a: { x: { z: any; ka: any; }; y: string; }) => void) => any
->f : (a: { x: { z: any; ka: any; }; y: string; }) => void
->a : { x: { z: any; ka: any; }; y: string; }
+>suddenly : (f: (a: {    x: {        z;        ka;    };    y: string;}) => void) => any
+>f : (a: {    x: {        z;        ka;    };    y: string;}) => void
+>a : { x: {    z;    ka;}; y: string; }
 >x : { z: any; ka: any; }
 >z : any
 >ka : any
@@ -57,7 +59,7 @@ class C {
 >C : C
 
     m({ a, ...clone }: { a: number, b: string}): void {
->m : ({ a, ...clone }: { a: number; b: string; }) => void
+>m : ({ a, ...clone }: {    a: number;    b: string;}) => void
 >a : number
 >clone : { b: string; }
 >a : number
@@ -77,7 +79,7 @@ class C {
 }
 function foobar({ bar={}, ...opts }: any = {}) {
 >foobar : ({ bar, ...opts }?: any) => void
->bar : {}
+>bar : any
 >{} : {}
 >opts : any
 >{} : {}

@@ -1,7 +1,7 @@
-=== tests/cases/compiler/parameterInitializerBeforeDestructuringEmit.ts ===
-interface Foo {
->Foo : Foo
+//// [tests/cases/compiler/parameterInitializerBeforeDestructuringEmit.ts] ////
 
+=== parameterInitializerBeforeDestructuringEmit.ts ===
+interface Foo {
     bar?: any;
 >bar : any
 
@@ -14,7 +14,6 @@ function foobar({ bar = {}, ...opts }: Foo = {}) {
 >bar : any
 >{} : {}
 >opts : { baz?: any; }
->Foo : Foo
 >{} : {}
 
     "use strict";
@@ -38,7 +37,6 @@ class C {
 >bar : any
 >{} : {}
 >opts : { baz?: any; }
->Foo : Foo
 >{} : {}
 
         "use strict";

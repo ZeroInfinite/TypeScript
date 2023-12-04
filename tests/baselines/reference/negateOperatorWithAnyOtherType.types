@@ -1,10 +1,12 @@
-=== tests/cases/conformance/expressions/unaryOperators/negateOperator/negateOperatorWithAnyOtherType.ts ===
+//// [tests/cases/conformance/expressions/unaryOperators/negateOperator/negateOperatorWithAnyOtherType.ts] ////
+
+=== negateOperatorWithAnyOtherType.ts ===
 // - operator on any type
 
 var ANY: any;
 >ANY : any
 
-var ANY1;
+var ANY1: any;
 >ANY1 : any
 
 var ANY2: any[] = ["", ""];
@@ -39,7 +41,7 @@ class A {
     public a: any;
 >a : any
 
-    static foo() {
+    static foo(): any {
 >foo : () => any
 
         var a;
@@ -100,7 +102,6 @@ var ResultIsNumber7 = -undefined;
 var ResultIsNumber = -null;
 >ResultIsNumber : number
 >-null : number
->null : null
 
 // any type expressions
 var ResultIsNumber8 = -ANY2[0];

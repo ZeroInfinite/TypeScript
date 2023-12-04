@@ -17,7 +17,7 @@
 ////     private method() { }
 //// }
 
-//// var [|RCComp|] = RC1 || RC2;
-//// <[|RCComp|] />
+//// /*1*/var /*2*/RCComp = RC1 || RC2;
+//// /*3*/</*4*/RCComp />
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1', '2', '3', '4');

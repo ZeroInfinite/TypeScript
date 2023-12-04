@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/visSyntax.ts] ////
+
 //// [visSyntax.ts]
 module M {
     export class C {
@@ -14,7 +16,7 @@ module M {
 //// [visSyntax.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

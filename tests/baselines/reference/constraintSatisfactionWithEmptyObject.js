@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeArgumentLists/constraintSatisfactionWithEmptyObject.ts] ////
+
 //// [constraintSatisfactionWithEmptyObject.ts]
 // valid uses of a basic object constraint, no errors expected
 
@@ -44,7 +46,7 @@ function foo(x) { }
 var r = foo({});
 var a = {};
 var r = foo({});
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
         this.x = x;
     }
@@ -57,7 +59,7 @@ function foo2(x) { }
 var r = foo2({});
 var a = {};
 var r = foo2({});
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2(x) {
         this.x = x;
     }

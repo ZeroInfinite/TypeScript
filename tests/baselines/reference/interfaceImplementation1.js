@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/interfaceImplementation1.ts] ////
+
 //// [interfaceImplementation1.ts]
 interface I1 {
     iObj:{ };
@@ -47,13 +49,13 @@ c["foo"];
 
 
 //// [interfaceImplementation1.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1() {
     }
     C1.prototype.iFn = function (n, s) { };
     return C1;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
         this.x = 1;
     }

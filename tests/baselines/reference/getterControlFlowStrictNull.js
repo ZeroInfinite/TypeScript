@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/getterControlFlowStrictNull.ts] ////
+
 //// [getterControlFlowStrictNull.ts]
 class A {
    a(): string | null {
@@ -17,9 +19,21 @@ class B {
         // it should error here because it returns undefined
     }
 }
+class C {
+    get a() {
+        if (Math.random() > 0.5) {
+            return 0;
+        }
+
+        // it should error here because it returns undefined
+    }
+
+    set a(value: number) {
+    }
+}
 
 //// [getterControlFlowStrictNull.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.a = function () {
@@ -30,7 +44,7 @@ var A = (function () {
     };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     Object.defineProperty(B.prototype, "a", {
@@ -40,8 +54,25 @@ var B = (function () {
             }
             // it should error here because it returns undefined
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return B;
+}());
+var C = /** @class */ (function () {
+    function C() {
+    }
+    Object.defineProperty(C.prototype, "a", {
+        get: function () {
+            if (Math.random() > 0.5) {
+                return 0;
+            }
+            // it should error here because it returns undefined
+        },
+        set: function (value) {
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return C;
 }());

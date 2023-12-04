@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/binopAssignmentShouldHaveType.ts] ////
+
 //// [binopAssignmentShouldHaveType.ts]
 declare var console;
 "use strict";
@@ -23,7 +25,7 @@ module Test {
 "use strict";
 var Test;
 (function (Test) {
-    var Bug = (function () {
+    var Bug = /** @class */ (function () {
         function Bug() {
         }
         Bug.prototype.getName = function () {

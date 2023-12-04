@@ -18,8 +18,9 @@ y2 = ext;
 
 //// [typeofExternalModules_external.js]
 "use strict";
-exports.__esModule = true;
-var C = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.C = void 0;
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -27,7 +28,7 @@ var C = (function () {
 exports.C = C;
 //// [typeofExternalModules_exportAssign.js]
 "use strict";
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     return D;
@@ -35,7 +36,7 @@ var D = (function () {
 module.exports = D;
 //// [typeofExternalModules_core.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var ext = require("./typeofExternalModules_external");
 var exp = require("./typeofExternalModules_exportAssign");
 var y1 = ext;

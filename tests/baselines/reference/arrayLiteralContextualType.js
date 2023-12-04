@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/arrayLiteralContextualType.ts] ////
+
 //// [arrayLiteralContextualType.ts]
 interface IAnimal {
     name: string;
@@ -30,14 +32,14 @@ foo(arr); // ok because arr is Array<Giraffe|Elephant> not {}[]
 bar(arr); // ok because arr is Array<Giraffe|Elephant> not {}[]
 
 //// [arrayLiteralContextualType.js]
-var Giraffe = (function () {
+var Giraffe = /** @class */ (function () {
     function Giraffe() {
         this.name = "Giraffe";
         this.neckLength = "3m";
     }
     return Giraffe;
 }());
-var Elephant = (function () {
+var Elephant = /** @class */ (function () {
     function Elephant() {
         this.name = "Elephant";
         this.trunkDiameter = "20cm";

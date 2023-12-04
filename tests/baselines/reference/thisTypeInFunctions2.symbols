@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/thisType/thisTypeInFunctions2.ts ===
+//// [tests/cases/conformance/types/thisType/thisTypeInFunctions2.ts] ////
+
+=== thisTypeInFunctions2.ts ===
 interface IndexedWithThis {
 >IndexedWithThis : Symbol(IndexedWithThis, Decl(thisTypeInFunctions2.ts, 0, 0))
 
@@ -89,11 +91,13 @@ extend2({
     init() {
 >init : Symbol(init, Decl(thisTypeInFunctions2.ts, 32, 9))
 
-        this // this: containing object literal type
+        this // this: IndexedWithoutThis because of contextual typing
 >this : Symbol(IndexedWithoutThis, Decl(thisTypeInFunctions2.ts, 5, 1))
 
         this.mine
+>this.mine : Symbol(IndexedWithoutThis.__index, Decl(thisTypeInFunctions2.ts, 9, 29))
 >this : Symbol(IndexedWithoutThis, Decl(thisTypeInFunctions2.ts, 5, 1))
+>mine : Symbol(IndexedWithoutThis.__index, Decl(thisTypeInFunctions2.ts, 9, 29))
 
     },
     mine: 13,
@@ -102,11 +106,13 @@ extend2({
     foo() {
 >foo : Symbol(foo, Decl(thisTypeInFunctions2.ts, 37, 13))
 
-        this // this: containing object literal type
+        this // this: IndexedWithoutThis because of contextual typing
 >this : Symbol(IndexedWithoutThis, Decl(thisTypeInFunctions2.ts, 5, 1))
 
         this.mine
+>this.mine : Symbol(IndexedWithoutThis.__index, Decl(thisTypeInFunctions2.ts, 9, 29))
 >this : Symbol(IndexedWithoutThis, Decl(thisTypeInFunctions2.ts, 5, 1))
+>mine : Symbol(IndexedWithoutThis.__index, Decl(thisTypeInFunctions2.ts, 9, 29))
     }
 });
 
@@ -118,9 +124,9 @@ simple({
 >n : Symbol(n, Decl(thisTypeInFunctions2.ts, 45, 8))
 
         return n.length + this.bar();
->n.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>n.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >n : Symbol(n, Decl(thisTypeInFunctions2.ts, 45, 8))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >this.bar : Symbol(SimpleInterface.bar, Decl(thisTypeInFunctions2.ts, 13, 19))
 >this : Symbol(SimpleInterface, Decl(thisTypeInFunctions2.ts, 11, 1))
 >bar : Symbol(SimpleInterface.bar, Decl(thisTypeInFunctions2.ts, 13, 19))

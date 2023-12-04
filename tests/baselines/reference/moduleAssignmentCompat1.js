@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleAssignmentCompat1.ts] ////
+
 //// [moduleAssignmentCompat1.ts]
 module A {
     export class C { }
@@ -19,7 +21,7 @@ b = a;
 //// [moduleAssignmentCompat1.js]
 var A;
 (function (A) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;
@@ -28,13 +30,13 @@ var A;
 })(A || (A = {}));
 var B;
 (function (B) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;
     }());
     B.C = C;
-    var D = (function () {
+    var D = /** @class */ (function () {
         function D() {
         }
         return D;

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/overloadResolutionWithAny.ts ===
+//// [tests/cases/compiler/overloadResolutionWithAny.ts] ////
+
+=== overloadResolutionWithAny.ts ===
 var func: {
 >func : { (s: string): number; (s: any): string; }
 
@@ -42,7 +44,6 @@ var func2: {
     (s: string, t: any): RegExp;
 >s : string
 >t : any
->RegExp : RegExp
 
     (s: any, t: any): string;
 >s : any

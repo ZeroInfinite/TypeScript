@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/selfRef.ts] ////
+
 //// [selfRef.ts]
 module M
 {
@@ -21,7 +23,7 @@ module M
 //// [selfRef.js]
 var M;
 (function (M) {
-    var Test = (function () {
+    var Test = /** @class */ (function () {
         function Test() {
             this.name = "hello";
             this.setName = function (value) {

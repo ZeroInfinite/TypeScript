@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeArgumentLists/wrappedAndRecursiveConstraints3.ts] ////
+
 //// [wrappedAndRecursiveConstraints3.ts]
 // no errors expected
 
@@ -17,7 +19,7 @@ var r2 = r('');
 
 //// [wrappedAndRecursiveConstraints3.js]
 // no errors expected
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
     }
     C.prototype.foo = function (x) {

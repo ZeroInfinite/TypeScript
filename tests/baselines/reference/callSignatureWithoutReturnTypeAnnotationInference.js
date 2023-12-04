@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignatureWithoutReturnTypeAnnotationInference.ts] ////
+
 //// [callSignatureWithoutReturnTypeAnnotationInference.ts]
 // Call signatures without a return type should infer one from the function body (if present)
 
@@ -173,7 +175,7 @@ function foo9(x) {
     return i;
 }
 var r9 = foo9(1);
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -186,7 +188,7 @@ var r10 = foo10(1);
 var M;
 (function (M) {
     M.x = 1;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;
@@ -210,7 +212,7 @@ function foo13() {
     return m1;
 }
 var r13 = foo13();
-var c1 = (function () {
+var c1 = /** @class */ (function () {
     function c1(x) {
     }
     return c1;

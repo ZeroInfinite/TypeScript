@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/typeRelationships/bestCommonType/heterogeneousArrayLiterals.ts ===
+//// [tests/cases/conformance/types/typeRelationships/bestCommonType/heterogeneousArrayLiterals.ts] ////
+
+=== heterogeneousArrayLiterals.ts ===
 // type of an array is the best common type of its elements (plus its contextual type if it exists)
 
 var a = [1, '']; // {}[]
@@ -15,7 +17,7 @@ var d = [{}, 1]; // {}[]
 
 var e = [{}, Object]; // {}[]
 >e : Symbol(e, Decl(heterogeneousArrayLiterals.ts, 6, 3))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
 var f = [[], [1]]; // number[][]
 >f : Symbol(f, Decl(heterogeneousArrayLiterals.ts, 8, 3))

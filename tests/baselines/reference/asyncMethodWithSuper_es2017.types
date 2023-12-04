@@ -1,9 +1,14 @@
-=== tests/cases/conformance/async/es2017/asyncMethodWithSuper_es2017.ts ===
+//// [tests/cases/conformance/async/es2017/asyncMethodWithSuper_es2017.ts] ////
+
+=== asyncMethodWithSuper_es2017.ts ===
 class A {
 >A : A
 
     x() {
 >x : () => void
+    }
+    y() {
+>y : () => void
     }
 }
 
@@ -21,6 +26,13 @@ class B extends A {
 >super.x : () => void
 >super : A
 >x : () => void
+
+        // call additional property.
+        super.y();
+>super.y() : void
+>super.y : () => void
+>super : A
+>y : () => void
 
         // call with element access
         super["x"]();
@@ -121,3 +133,4 @@ class B extends A {
 >f : () => void
     }
 }
+

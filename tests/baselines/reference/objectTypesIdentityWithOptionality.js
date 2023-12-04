@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/typeAndMemberIdentity/objectTypesIdentityWithOptionality.ts] ////
+
 //// [objectTypesIdentityWithOptionality.ts]
 // object types are identical structurally
 
@@ -58,17 +60,17 @@ function foo14(x: any) { }
 
 //// [objectTypesIdentityWithOptionality.js]
 // object types are identical structurally
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;
 }());
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

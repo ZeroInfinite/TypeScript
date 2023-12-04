@@ -1,7 +1,15 @@
+//// [tests/cases/compiler/APISample_parseConfig.ts] ////
+
+//// [package.json]
+{
+    "name": "typescript",
+    "types": "/.ts/typescript.d.ts"
+}
+
 //// [APISample_parseConfig.ts]
 /*
- * Note: This test is a public API sample. The sample sources can be found 
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
+ * Note: This test is a public API sample. The sample sources can be found
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
 
@@ -35,20 +43,22 @@ export function createProgram(rootFiles: string[], compilerOptionsJson: string):
     return ts.createProgram(rootFiles, settings.options);
 }
 
+
 //// [APISample_parseConfig.js]
 "use strict";
 /*
  * Note: This test is a public API sample. The sample sources can be found
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createProgram = void 0;
 var ts = require("typescript");
 function printError(error) {
     if (!error) {
         return;
     }
-    console.log((error.file && error.file.fileName) + ": " + error.messageText);
+    console.log("".concat(error.file && error.file.fileName, ": ").concat(error.messageText));
 }
 function createProgram(rootFiles, compilerOptionsJson) {
     var _a = ts.parseConfigFileTextToJson("tsconfig.json", compilerOptionsJson), config = _a.config, error = _a.error;

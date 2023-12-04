@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericDefaultsErrors.ts] ////
+
 //// [genericDefaultsErrors.ts]
 declare const x: any;
 
@@ -38,6 +40,9 @@ type i09t04 = i09<1, 2, 3, 4>; // error
 
 interface i10 { x: T; } // error
 interface i10<T = number> {}
+
+// https://github.com/Microsoft/TypeScript/issues/16221
+interface SelfReference<T = SelfReference> {}
 
 //// [genericDefaultsErrors.js]
 f11(); // ok

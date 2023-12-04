@@ -1,6 +1,8 @@
-=== tests/cases/compiler/thisInModuleFunction1.ts ===
+//// [tests/cases/compiler/thisInModuleFunction1.ts] ////
+
+=== thisInModuleFunction1.ts ===
 module bar {
->bar : typeof bar
+>bar : typeof globalThis.bar
 
  export function bar() {
 >bar : () => any

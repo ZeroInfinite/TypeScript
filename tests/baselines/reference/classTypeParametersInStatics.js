@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classTypeParametersInStatics.ts] ////
+
 //// [classTypeParametersInStatics.ts]
 module Editor {
 
@@ -36,7 +38,7 @@ module Editor {
 //// [classTypeParametersInStatics.js]
 var Editor;
 (function (Editor) {
-    var List = (function () {
+    var List = /** @class */ (function () {
         function List(isHead, data) {
             this.isHead = isHead;
             this.data = data;

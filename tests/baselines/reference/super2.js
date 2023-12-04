@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/super2.ts] ////
+
 //// [super2.ts]
 // Case 5
 class Base5 {
@@ -52,17 +54,22 @@ results1.x() + results1.y() + results2.y();
 
 //// [super2.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 // Case 5
-var Base5 = (function () {
+var Base5 = /** @class */ (function () {
     function Base5() {
     }
     Base5.prototype.x = function () {
@@ -73,7 +80,7 @@ var Base5 = (function () {
     };
     return Base5;
 }());
-var Sub5 = (function (_super) {
+var Sub5 = /** @class */ (function (_super) {
     __extends(Sub5, _super);
     function Sub5() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -83,7 +90,7 @@ var Sub5 = (function (_super) {
     };
     return Sub5;
 }(Base5));
-var SubSub5 = (function (_super) {
+var SubSub5 = /** @class */ (function (_super) {
     __extends(SubSub5, _super);
     function SubSub5() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -97,7 +104,7 @@ var SubSub5 = (function (_super) {
     return SubSub5;
 }(Sub5));
 // Case 6
-var Base6 = (function () {
+var Base6 = /** @class */ (function () {
     function Base6() {
     }
     Base6.prototype.x = function () {
@@ -105,7 +112,7 @@ var Base6 = (function () {
     };
     return Base6;
 }());
-var Sub6 = (function (_super) {
+var Sub6 = /** @class */ (function (_super) {
     __extends(Sub6, _super);
     function Sub6() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -115,7 +122,7 @@ var Sub6 = (function (_super) {
     };
     return Sub6;
 }(Base6));
-var SubSub6 = (function (_super) {
+var SubSub6 = /** @class */ (function (_super) {
     __extends(SubSub6, _super);
     function SubSub6() {
         return _super !== null && _super.apply(this, arguments) || this;

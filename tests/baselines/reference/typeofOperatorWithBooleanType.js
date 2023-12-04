@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/typeofOperator/typeofOperatorWithBooleanType.ts] ////
+
 //// [typeofOperatorWithBooleanType.ts]
 // typeof  operator on boolean type
 var BOOLEAN: boolean;
@@ -54,7 +56,7 @@ z: typeof M.n;
 // typeof  operator on boolean type
 var BOOLEAN;
 function foo() { return true; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return false; };

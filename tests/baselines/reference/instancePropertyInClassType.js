@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/classTypes/instancePropertyInClassType.ts] ////
+
 //// [instancePropertyInClassType.ts]
 module NonGeneric {
     class C {
@@ -41,7 +43,7 @@ module Generic {
 //// [instancePropertyInClassType.js]
 var NonGeneric;
 (function (NonGeneric) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C(a, b) {
             this.a = a;
             this.b = b;
@@ -51,7 +53,7 @@ var NonGeneric;
                 return 1;
             },
             set: function (v) { },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         C.prototype.fn = function () { return this; };
@@ -66,7 +68,7 @@ var NonGeneric;
 })(NonGeneric || (NonGeneric = {}));
 var Generic;
 (function (Generic) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C(a, b) {
             this.a = a;
             this.b = b;
@@ -76,7 +78,7 @@ var Generic;
                 return null;
             },
             set: function (v) { },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         C.prototype.fn = function () { return this; };

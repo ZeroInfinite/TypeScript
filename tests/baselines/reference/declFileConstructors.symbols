@@ -1,4 +1,6 @@
-=== tests/cases/compiler/declFileConstructors_0.ts ===
+//// [tests/cases/compiler/declFileConstructors.ts] ////
+
+=== declFileConstructors_0.ts ===
 export class SimpleConstructor {
 >SimpleConstructor : Symbol(SimpleConstructor, Decl(declFileConstructors_0.ts, 0, 0))
 
@@ -32,9 +34,9 @@ export class ConstructorWithRestParamters {
 
         return a + rests.join("");
 >a : Symbol(a, Decl(declFileConstructors_0.ts, 15, 16))
->rests.join : Symbol(Array.join, Decl(lib.d.ts, --, --))
+>rests.join : Symbol(Array.join, Decl(lib.es5.d.ts, --, --))
 >rests : Symbol(rests, Decl(declFileConstructors_0.ts, 15, 26))
->join : Symbol(Array.join, Decl(lib.d.ts, --, --))
+>join : Symbol(Array.join, Decl(lib.es5.d.ts, --, --))
     }
 }
 
@@ -84,7 +86,7 @@ export class ConstructorWithParameterInitializer {
     }
 }
 
-=== tests/cases/compiler/declFileConstructors_1.ts ===
+=== declFileConstructors_1.ts ===
 class GlobalSimpleConstructor {
 >GlobalSimpleConstructor : Symbol(GlobalSimpleConstructor, Decl(declFileConstructors_1.ts, 0, 0))
 
@@ -118,9 +120,9 @@ class GlobalConstructorWithRestParamters {
 
         return a + rests.join("");
 >a : Symbol(a, Decl(declFileConstructors_1.ts, 15, 16))
->rests.join : Symbol(Array.join, Decl(lib.d.ts, --, --))
+>rests.join : Symbol(Array.join, Decl(lib.es5.d.ts, --, --))
 >rests : Symbol(rests, Decl(declFileConstructors_1.ts, 15, 26))
->join : Symbol(Array.join, Decl(lib.d.ts, --, --))
+>join : Symbol(Array.join, Decl(lib.es5.d.ts, --, --))
     }
 }
 

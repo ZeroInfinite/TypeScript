@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/restParameters/emitRestParametersMethod.ts] ////
+
 //// [emitRestParametersMethod.ts]
 class C {
     constructor(name: string, ...rest) { }
@@ -14,7 +16,7 @@ class D {
 }
 
 //// [emitRestParametersMethod.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(name) {
         var rest = [];
         for (var _i = 1; _i < arguments.length; _i++) {
@@ -35,7 +37,7 @@ var C = (function () {
     };
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
         var rest = [];
         for (var _i = 0; _i < arguments.length; _i++) {

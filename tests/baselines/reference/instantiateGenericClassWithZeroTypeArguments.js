@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeArgumentLists/instantiateGenericClassWithZeroTypeArguments.ts] ////
+
 //// [instantiateGenericClassWithZeroTypeArguments.ts]
 // no errors expected when instantiating a generic type with no type arguments provided
 
@@ -17,13 +19,13 @@ var d = new D();
 
 //// [instantiateGenericClassWithZeroTypeArguments.js]
 // no errors expected when instantiating a generic type with no type arguments provided
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
 var c = new C();
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     return D;

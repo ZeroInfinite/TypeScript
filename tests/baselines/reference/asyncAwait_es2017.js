@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/async/es2017/asyncAwait_es2017.ts] ////
+
 //// [asyncAwait_es2017.ts]
 type MyPromise<T> = Promise<T>;
 declare var MyPromise: typeof Promise;
@@ -14,7 +16,7 @@ let f6 = async function(): MyPromise<void> { }
 
 let f7 = async () => { };
 let f8 = async (): Promise<void> => { };
-let f9 = async (): MyPromise<void> => { }; 
+let f9 = async (): MyPromise<void> => { };
 let f10 = async () => p;
 let f11 = async () => mp;
 let f12 = async (): Promise<number> => mp;
@@ -37,6 +39,13 @@ class C {
 
 module M {
 	export async function f1() { }
+}
+
+async function f14() {
+    block: {
+        await 1;
+        break block;
+    }
 }
 
 //// [asyncAwait_es2017.js]
@@ -71,3 +80,9 @@ var M;
     async function f1() { }
     M.f1 = f1;
 })(M || (M = {}));
+async function f14() {
+    block: {
+        await 1;
+        break block;
+    }
+}

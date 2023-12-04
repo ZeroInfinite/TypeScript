@@ -1,4 +1,6 @@
+// === EmitOutput ===
 EmitSkipped: false
+
 FileName : out.js
 /// <reference path='my.d.ts' />
 var foo;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/anyAssignableToEveryType2.ts] ////
+
 //// [anyAssignableToEveryType2.ts]
 // any is not a subtype of any other types, but is assignable, all the below should work
 
@@ -132,12 +134,12 @@ interface I20 {
 
 //// [anyAssignableToEveryType2.js]
 // any is not a subtype of any other types, but is assignable, all the below should work
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var A2 = (function () {
+var A2 = /** @class */ (function () {
     function A2() {
     }
     return A2;
@@ -150,7 +152,7 @@ function f() { }
 (function (f) {
     f.bar = 1;
 })(f || (f = {}));
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;

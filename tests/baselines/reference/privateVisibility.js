@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privateVisibility.ts] ////
+
 //// [privateVisibility.ts]
 class Foo {
 	public pubMeth() {this.privMeth();}
@@ -27,7 +29,7 @@ c.priv; // should not work
 
 
 //// [privateVisibility.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.pubProp = 0;
         this.privProp = 0;
@@ -43,7 +45,7 @@ f.pubMeth(); // should work
 f.pubProp; // should work
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
             this.pub = 0;
             this.priv = 1;

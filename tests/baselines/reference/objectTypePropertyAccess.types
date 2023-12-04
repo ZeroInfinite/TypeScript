@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/members/objectTypePropertyAccess.ts ===
+//// [tests/cases/conformance/types/members/objectTypePropertyAccess.ts] ////
+
+=== objectTypePropertyAccess.ts ===
 // Index notation should resolve to the type of a declared property with that same name
 class C {
 >C : C
@@ -9,7 +11,6 @@ class C {
 
 var c: C;
 >c : C
->C : C
 
 var r1 = c.toString();
 >r1 : string
@@ -38,14 +39,11 @@ var r4 = c['foo'];
 >'foo' : "foo"
 
 interface I {
->I : I
-
     bar: string;
 >bar : string
 }
 var i: I;
 >i : I
->I : I
 
 var r4 = i.toString();
 >r4 : string

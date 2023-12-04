@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/contextualTyping/argumentExpressionContextualTyping.ts] ////
+
 //// [argumentExpressionContextualTyping.ts]
 // In a typed function call, argument expressions are contextually typed by their corresponding parameter types.
 function foo({x: [a, b], y: {c, d, e}}) { }
@@ -19,6 +21,15 @@ baz(["string", 1, true, ...array]);  // Error
 foo(o);                              // Error because x has an array type namely (string|number)[]
 
 //// [argumentExpressionContextualTyping.js]
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 // In a typed function call, argument expressions are contextually typed by their corresponding parameter types.
 function foo(_a) {
     var _b = _a.x, a = _b[0], b = _b[1], _c = _a.y, c = _c.c, d = _c.d, e = _c.e;
@@ -36,5 +47,5 @@ var tuple = ["string", 1, true];
 baz(tuple);
 baz(["string", 1, true]);
 baz(array); // Error
-baz(["string", 1, true].concat(array)); // Error
+baz(__spreadArray(["string", 1, true], array, true)); // Error
 foo(o); // Error because x has an array type namely (string|number)[]

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileWithInternalModuleNameConflictsInExtendsClause1.ts] ////
+
 //// [declFileWithInternalModuleNameConflictsInExtendsClause1.ts]
 module X.A.C {
     export interface Z {
@@ -6,7 +8,7 @@ module X.A.C {
 module X.A.B.C {
     module A {
     }
-    export class W implements X.A.C.Z { // This needs to be refered as X.A.C.Z as A has conflict
+    export class W implements X.A.C.Z { // This needs to be referred as X.A.C.Z as A has conflict
     }
 }
 
@@ -19,7 +21,7 @@ var X;
         (function (B) {
             var C;
             (function (C) {
-                var W = (function () {
+                var W = /** @class */ (function () {
                     function W() {
                     }
                     return W;
@@ -32,11 +34,11 @@ var X;
 
 
 //// [declFileWithInternalModuleNameConflictsInExtendsClause1.d.ts]
-declare module X.A.C {
+declare namespace X.A.C {
     interface Z {
     }
 }
-declare module X.A.B.C {
+declare namespace X.A.B.C {
     class W implements X.A.C.Z {
     }
 }

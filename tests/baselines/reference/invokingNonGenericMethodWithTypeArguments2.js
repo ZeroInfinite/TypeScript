@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/invokingNonGenericMethodWithTypeArguments2.ts] ////
+
 //// [invokingNonGenericMethodWithTypeArguments2.ts]
 class Foo {
     private foo: any;
@@ -9,7 +11,7 @@ class Foo {
 
 
 //// [invokingNonGenericMethodWithTypeArguments2.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.foo();
     }

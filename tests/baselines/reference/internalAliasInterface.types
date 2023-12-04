@@ -1,9 +1,8 @@
-=== tests/cases/compiler/internalAliasInterface.ts ===
-module a {
->a : any
+//// [tests/cases/compiler/internalAliasInterface.ts] ////
 
+=== internalAliasInterface.ts ===
+module a {
     export interface I {
->I : I
     }
 }
 
@@ -17,6 +16,5 @@ module c {
 
     export var x: b;
 >x : b
->b : b
 }
 

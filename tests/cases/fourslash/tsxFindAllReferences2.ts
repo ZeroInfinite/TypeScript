@@ -5,12 +5,12 @@
 ////     interface Element { }
 ////     interface IntrinsicElements {
 ////         div: {
-////             [|name|]?: string;
+////             /*1*/name?: string;
 ////             isOpen?: boolean;
 ////         };
 ////         span: { n: string; };
 ////     }
 //// }
-//// var x = <div [|name|]="hello" />;
+//// var x = <div name="hello" />;
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1')

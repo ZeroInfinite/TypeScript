@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/typeofOperator/typeofOperatorWithNumberType.ts] ////
+
 //// [typeofOperatorWithNumberType.ts]
 // typeof  operator on number type
 var NUMBER: number;
@@ -62,7 +64,7 @@ z: typeof M.n;
 var NUMBER;
 var NUMBER1 = [1, 2];
 function foo() { return 1; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return 1; };

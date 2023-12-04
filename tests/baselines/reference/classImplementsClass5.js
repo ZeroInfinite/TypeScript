@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classImplementsClass5.ts] ////
+
 //// [classImplementsClass5.ts]
 class A {
     private x = 1;
@@ -19,23 +21,28 @@ c2 = c;
 
 //// [classImplementsClass5.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
         this.x = 1;
     }
     A.prototype.foo = function () { return 1; };
     return A;
 }());
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = 1;
     }
@@ -44,7 +51,7 @@ var C = (function () {
     };
     return C;
 }());
-var C2 = (function (_super) {
+var C2 = /** @class */ (function (_super) {
     __extends(C2, _super);
     function C2() {
         return _super !== null && _super.apply(this, arguments) || this;

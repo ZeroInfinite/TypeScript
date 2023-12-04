@@ -1,4 +1,6 @@
-=== tests/cases/compiler/declFileTypeAnnotationTypeQuery.ts ===
+//// [tests/cases/compiler/declFileTypeAnnotationTypeQuery.ts] ////
+
+=== declFileTypeAnnotationTypeQuery.ts ===
 class c {
 >c : c
 }
@@ -10,12 +12,10 @@ module m {
     }
     export class g<T> {
 >g : g<T>
->T : T
     }
 }
 class g<T> {
 >g : g<T>
->T : T
 }
 
 // Just the name

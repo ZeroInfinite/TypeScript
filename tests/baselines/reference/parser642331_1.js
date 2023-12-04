@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/RegressionTests/parser642331_1.ts] ////
+
 //// [parser642331_1.ts]
 "use strict";
 
@@ -8,7 +10,7 @@ class test {
 
 //// [parser642331_1.js]
 "use strict";
-var test = (function () {
+var test = /** @class */ (function () {
     function test(static) {
     }
     return test;

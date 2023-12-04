@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleClassArrayCodeGenTest.ts] ////
+
 //// [moduleClassArrayCodeGenTest.ts]
 // Invalid code gen for Array of Module class
 
@@ -14,13 +16,13 @@ var t2: M.B[] = [];
 // Invalid code gen for Array of Module class
 var M;
 (function (M) {
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;
     }());
     M.A = A;
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericClassesRedeclaration.ts] ////
+
 //// [genericClassesRedeclaration.ts]
 declare module TypeScript {
     interface IIndexable<T> {
@@ -27,7 +29,7 @@ declare module TypeScript {
         public lookup(key: string): T;
         public remove(key: string): void;
     }
-    class IdentiferNameHashTable<T> extends StringHashTable<T> {
+    class IdentifierNameHashTable<T> extends StringHashTable<T> {
         public getAllKeys(): string[];
         public add(key: string, data: T): boolean;
         public addOrUpdate(key: string, data: T): boolean;
@@ -66,7 +68,7 @@ declare module TypeScript {
         public lookup(key: string): T;
         public remove(key: string): void;
     }
-    class IdentiferNameHashTable<T> extends StringHashTable<T> {
+    class IdentifierNameHashTable<T> extends StringHashTable<T> {
         public getAllKeys(): string[];
         public add(key: string, data: T): boolean;
         public addOrUpdate(key: string, data: T): boolean;

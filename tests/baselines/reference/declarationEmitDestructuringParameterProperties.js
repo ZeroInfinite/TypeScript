@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declarationEmitDestructuringParameterProperties.ts] ////
+
 //// [declarationEmitDestructuringParameterProperties.ts]
 class C1 {
     constructor(public [x, y, z]: string[]) {
@@ -17,19 +19,19 @@ class C3 {
 }
 
 //// [declarationEmitDestructuringParameterProperties.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1(_a) {
         var x = _a[0], y = _a[1], z = _a[2];
     }
     return C1;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2(_a) {
         var x = _a[0], y = _a[1], z = _a[2];
     }
     return C2;
 }());
-var C3 = (function () {
+var C3 = /** @class */ (function () {
     function C3(_a) {
         var x = _a.x, y = _a.y, z = _a.z;
     }
@@ -39,20 +41,26 @@ var C3 = (function () {
 
 //// [declarationEmitDestructuringParameterProperties.d.ts]
 declare class C1 {
-    x: string, y: string, z: string;
+    x: string;
+    y: string;
+    z: string;
     constructor([x, y, z]: string[]);
 }
-declare type TupleType1 = [string, number, boolean];
+type TupleType1 = [string, number, boolean];
 declare class C2 {
-    x: string, y: number, z: boolean;
+    x: string;
+    y: number;
+    z: boolean;
     constructor([x, y, z]: TupleType1);
 }
-declare type ObjType1 = {
+type ObjType1 = {
     x: number;
     y: string;
     z: boolean;
 };
 declare class C3 {
-    x: number, y: string, z: boolean;
-    constructor({x, y, z}: ObjType1);
+    x: number;
+    y: string;
+    z: boolean;
+    constructor({ x, y, z }: ObjType1);
 }

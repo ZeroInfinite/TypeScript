@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericInterfacesWithoutTypeArguments.ts] ////
+
 //// [genericInterfacesWithoutTypeArguments.ts]
 interface I<T> { }
 class C<T> { }
@@ -6,7 +8,7 @@ var c: C<I>;
 
 
 //// [genericInterfacesWithoutTypeArguments.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

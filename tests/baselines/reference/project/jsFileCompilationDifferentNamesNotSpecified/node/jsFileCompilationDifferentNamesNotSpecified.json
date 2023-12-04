@@ -5,7 +5,9 @@
     "declaration": true,
     "project": "DifferentNamesNotSpecified",
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "DifferentNamesNotSpecified/a.ts"
     ],
     "emittedFiles": [

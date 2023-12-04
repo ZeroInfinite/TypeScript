@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/systemModule9.ts] ////
+
 //// [systemModule9.ts]
 import * as ns from 'file1';
 import {a, b as c} from 'file2';
@@ -23,8 +25,8 @@ export {y as z};
 //// [systemModule9.js]
 System.register(["file1", "file2", "file3", "file4", "file5", "file6", "file7"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var ns, file2_1, file3_1, file5_1, ns3, x, y;
+    var __moduleName = context_1 && context_1.id;
     var exportedNames_1 = {
         "x": true,
         "z": true
@@ -63,8 +65,8 @@ System.register(["file1", "file2", "file3", "file4", "file5", "file6", "file7"],
             ns.f();
             file2_1.a();
             file2_1.b();
-            file3_1["default"]();
-            file5_1["default"]();
+            file3_1.default();
+            file5_1.default();
             ns2.f();
             ns3.f();
             y = true;

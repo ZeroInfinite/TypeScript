@@ -1,9 +1,8 @@
-=== tests/cases/conformance/jsx/file.tsx ===
-declare module JSX {
->JSX : any
+//// [tests/cases/conformance/jsx/tsxOpeningClosingNames.tsx] ////
 
+=== file.tsx ===
+declare module JSX {
 	interface Element { }
->Element : Element
 }
 
 declare module A.B.C {

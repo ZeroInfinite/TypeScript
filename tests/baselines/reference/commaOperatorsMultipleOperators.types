@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/commaOperator/commaOperatorsMultipleOperators.ts ===
+//// [tests/cases/conformance/expressions/commaOperator/commaOperatorsMultipleOperators.ts] ////
+
+=== commaOperatorsMultipleOperators.ts ===
 var ANY: any;
 >ANY : any
 
@@ -13,7 +15,6 @@ var STRING: string;
 
 var OBJECT: Object;
 >OBJECT : Object
->Object : Object
 
 //Expected: work well
 ANY, BOOLEAN, NUMBER;
@@ -101,7 +102,6 @@ var resultIsObject1 = (NUMBER, STRING, OBJECT);
 null, true, 1;
 >null, true, 1 : 1
 >null, true : true
->null : null
 >true : true
 >1 : 1
 
@@ -123,7 +123,6 @@ var resultIsNumber2 = (null, true, 1);
 >(null, true, 1) : 1
 >null, true, 1 : 1
 >null, true : true
->null : null
 >true : true
 >1 : 1
 

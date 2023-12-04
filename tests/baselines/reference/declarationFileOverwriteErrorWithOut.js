@@ -8,8 +8,9 @@ declare class c {
 class d {
 }
 
+
 //// [out.js]
-var d = (function () {
+var d = /** @class */ (function () {
     function d() {
     }
     return d;

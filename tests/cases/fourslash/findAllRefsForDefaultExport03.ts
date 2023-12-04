@@ -1,20 +1,17 @@
 /// <reference path='fourslash.ts'/>
 
-////function [|{| "isWriteAccess": true, "isDefinition": true |}f|]() {
+/////*1*/function /*2*/f() {
 ////    return 100;
 ////}
 ////
-////export default [|f|];
+/////*3*/export default /*4*/f;
 ////
-////var x: typeof [|f|];
+////var x: typeof /*5*/f;
 ////
-////var y = [|f|]();
+////var y = /*6*/f();
 ////
-////namespace [|{| "isWriteAccess": true, "isDefinition": true |}f|] {
+/////*7*/namespace /*8*/f {
 ////    var local = 100;
 ////}
 
-const ranges = test.ranges();
-const [r0, r1, r2, r3, r4] = ranges;
-verify.referenceGroups([r0, r3], [{ definition: "function f(): number\nnamespace f", ranges }]);
-verify.referenceGroups([r1, r2, r4], [{ definition: "namespace f\nfunction f(): number", ranges }]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6', '7', '8');

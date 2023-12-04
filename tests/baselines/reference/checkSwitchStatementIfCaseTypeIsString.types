@@ -1,4 +1,6 @@
-=== tests/cases/compiler/checkSwitchStatementIfCaseTypeIsString.ts ===
+//// [tests/cases/compiler/checkSwitchStatementIfCaseTypeIsString.ts] ////
+
+=== checkSwitchStatementIfCaseTypeIsString.ts ===
 declare function use(a: any): void;
 >use : (a: any) => void
 >a : any
@@ -7,9 +9,8 @@ class A {
 >A : A
 
     doIt(x: Array<string>): void {
->doIt : (x: string[]) => void
+>doIt : (x: Array<string>) => void
 >x : string[]
->Array : T[]
 
         x.forEach((v) => {
 >x.forEach((v) => {            switch(v) {                case "test": use(this);            }        }) : void

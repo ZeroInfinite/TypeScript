@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/methodSignatureDeclarationEmit1.ts] ////
+
 //// [methodSignatureDeclarationEmit1.ts]
 class C {
   public foo(n: number): void;
@@ -7,7 +9,7 @@ class C {
 }
 
 //// [methodSignatureDeclarationEmit1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (a) {

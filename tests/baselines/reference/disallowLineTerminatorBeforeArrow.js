@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/arrowFunction/disallowLineTerminatorBeforeArrow.ts] ////
+
 //// [disallowLineTerminatorBeforeArrow.ts]
 var f1 = ()
     => { }
@@ -131,7 +133,7 @@ foo(function () { return true; });
 foo(function () { return false; });
 var m;
 (function (m) {
-    var City = (function () {
+    var City = /** @class */ (function () {
         function City(x, thing) {
             if (thing === void 0) { thing = function () { return 100; }; }
             this.m = function () { return 2 * 2 * 2; };

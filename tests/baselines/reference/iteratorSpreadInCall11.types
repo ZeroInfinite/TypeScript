@@ -1,9 +1,9 @@
-=== tests/cases/conformance/es6/spread/iteratorSpreadInCall11.ts ===
+//// [tests/cases/conformance/es6/spread/iteratorSpreadInCall11.ts] ////
+
+=== iteratorSpreadInCall11.ts ===
 function foo<T>(...s: T[]) { return s[0] }
 >foo : <T>(...s: T[]) => T
->T : T
 >s : T[]
->T : T
 >s[0] : T
 >s : T[]
 >0 : 0
@@ -30,9 +30,10 @@ class SymbolIterator {
     }
 
     [Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => this
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
         return this;
 >this : this

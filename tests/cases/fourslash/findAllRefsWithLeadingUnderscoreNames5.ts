@@ -3,14 +3,14 @@
 ////class Foo {
 ////    public _bar;
 ////    public __bar;
-////    public [|{| "isWriteAccess": true, "isDefinition": true |}___bar|];
+////    /*1*/public /*2*/___bar;
 ////    public ____bar;
 ////}
 ////
 ////var x: Foo;
 ////x._bar;
 ////x.__bar;
-////x.[|___bar|];
+////x./*3*/___bar;
 ////x.____bar;
 
-verify.singleReferenceGroup("(property) Foo.___bar: any");
+verify.baselineFindAllReferences('1', '2', '3');

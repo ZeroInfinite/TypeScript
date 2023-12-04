@@ -1,4 +1,6 @@
-=== tests/cases/compiler/spreadIntersectionJsx.tsx ===
+//// [tests/cases/compiler/spreadIntersectionJsx.tsx] ////
+
+=== spreadIntersectionJsx.tsx ===
 const React: any = null;
 >React : Symbol(React, Decl(spreadIntersectionJsx.tsx, 0, 5))
 
@@ -17,6 +19,5 @@ let intersected: A & C;
 
 let element = <div { ...intersected } />;
 >element : Symbol(element, Decl(spreadIntersectionJsx.tsx, 4, 3))
->div : Symbol(unknown)
 >intersected : Symbol(intersected, Decl(spreadIntersectionJsx.tsx, 3, 3))
 

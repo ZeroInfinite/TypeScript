@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5ModuleWithoutModuleGenTarget.ts] ////
+
 //// [es5ModuleWithoutModuleGenTarget.ts]
 export class A
 {
@@ -14,7 +16,8 @@ export class A
 //// [es5ModuleWithoutModuleGenTarget.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var A = (function () {
+exports.A = void 0;
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.B = function () {

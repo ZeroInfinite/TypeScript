@@ -1,10 +1,12 @@
+//// [tests/cases/compiler/arrayReferenceWithoutTypeArgs.ts] ////
+
 //// [arrayReferenceWithoutTypeArgs.ts]
 class X {
     public f(a: Array) { }
 }
 
 //// [arrayReferenceWithoutTypeArgs.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     X.prototype.f = function (a) { };

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/Symbols/symbolProperty6.ts] ////
+
 //// [symbolProperty6.ts]
 class C {
     [Symbol.iterator] = 0;
@@ -9,11 +11,12 @@ class C {
 }
 
 //// [symbolProperty6.js]
+var _a;
 class C {
     constructor() {
-        this[Symbol.iterator] = 0;
+        this[_a] = 0;
     }
-    [Symbol.toPrimitive]() { }
+    [(_a = Symbol.iterator, Symbol.unscopables, Symbol.toPrimitive)]() { }
     get [Symbol.toStringTag]() {
         return 0;
     }

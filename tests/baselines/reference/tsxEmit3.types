@@ -1,13 +1,9 @@
-=== tests/cases/conformance/jsx/file.tsx ===
+//// [tests/cases/conformance/jsx/tsxEmit3.tsx] ////
 
+=== file.tsx ===
 declare module JSX {
->JSX : any
-
 	interface Element { }
->Element : Element
-
 	interface IntrinsicElements { }
->IntrinsicElements : IntrinsicElements
 }
 
 module M {
@@ -73,7 +69,7 @@ module M {
 }
 
 module M {
->M : typeof M
+>M : typeof globalThis.M
 
 	var M = 100;
 >M : number

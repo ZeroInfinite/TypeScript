@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/assignmentCompatInterfaceWithStringIndexSignature.ts] ////
+
 //// [assignmentCompatInterfaceWithStringIndexSignature.ts]
 interface IHandler {
     (e): boolean;
@@ -17,7 +19,7 @@ Biz(new Foo());
 
 
 //// [assignmentCompatInterfaceWithStringIndexSignature.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.Boz = function () { };

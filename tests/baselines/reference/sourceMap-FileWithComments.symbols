@@ -1,4 +1,6 @@
-=== tests/cases/compiler/sourceMap-FileWithComments.ts ===
+//// [tests/cases/compiler/sourceMap-FileWithComments.ts] ////
+
+=== sourceMap-FileWithComments.ts ===
 // Interface
 interface IPoint {
 >IPoint : Symbol(IPoint, Decl(sourceMap-FileWithComments.ts, 0, 0))
@@ -24,9 +26,9 @@ module Shapes {
         // Instance member
         getDist() { return Math.sqrt(this.x * this.x + this.y * this.y); }
 >getDist : Symbol(Point.getDist, Decl(sourceMap-FileWithComments.ts, 11, 59))
->Math.sqrt : Symbol(Math.sqrt, Decl(lib.d.ts, --, --))
->Math : Symbol(Math, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
->sqrt : Symbol(Math.sqrt, Decl(lib.d.ts, --, --))
+>Math.sqrt : Symbol(Math.sqrt, Decl(lib.es5.d.ts, --, --))
+>Math : Symbol(Math, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
+>sqrt : Symbol(Math.sqrt, Decl(lib.es5.d.ts, --, --))
 >this.x : Symbol(Point.x, Decl(sourceMap-FileWithComments.ts, 11, 20))
 >this : Symbol(Point, Decl(sourceMap-FileWithComments.ts, 6, 15))
 >x : Symbol(Point.x, Decl(sourceMap-FileWithComments.ts, 11, 20))

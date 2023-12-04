@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/parameterReferencesOtherParameter2.ts] ////
+
 //// [parameterReferencesOtherParameter2.ts]
 class Model {
     public name: string;
@@ -10,12 +12,12 @@ class UI {
 }
 
 //// [parameterReferencesOtherParameter2.js]
-var Model = (function () {
+var Model = /** @class */ (function () {
     function Model() {
     }
     return Model;
 }());
-var UI = (function () {
+var UI = /** @class */ (function () {
     function UI(model, foo) {
         if (foo === void 0) { foo = model.name; }
     }

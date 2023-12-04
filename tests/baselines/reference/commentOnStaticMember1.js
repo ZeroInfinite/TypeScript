@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentOnStaticMember1.ts] ////
+
 //// [commentOnStaticMember1.ts]
 class Greeter {
     //Hello World
@@ -6,7 +8,7 @@ class Greeter {
 }
 
 //// [commentOnStaticMember1.js]
-var Greeter = (function () {
+var Greeter = /** @class */ (function () {
     function Greeter() {
     }
     //Hello World

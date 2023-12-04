@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/string/invalidStringAssignments.ts] ////
+
 //// [invalidStringAssignments.ts]
 var x = '';
 
@@ -32,7 +34,7 @@ var a = x;
 var b = x;
 var c = x;
 var d = x;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

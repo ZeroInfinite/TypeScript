@@ -1,7 +1,7 @@
-tests/cases/compiler/test.tsx(9,17): error TS2304: Cannot find name 'createElement'.
+test.tsx(9,17): error TS2552: Cannot find name 'createElement'. Did you mean 'frameElement'?
 
 
-==== tests/cases/compiler/test.tsx (1 errors) ====
+==== test.tsx (1 errors) ====
     declare module JSX {
         interface IntrinsicElements {
             [s: string]: any;
@@ -12,7 +12,8 @@ tests/cases/compiler/test.tsx(9,17): error TS2304: Cannot find name 'createEleme
         render() {
             return <div />;
                     ~~~
-!!! error TS2304: Cannot find name 'createElement'.
+!!! error TS2552: Cannot find name 'createElement'. Did you mean 'frameElement'?
+!!! related TS2728 lib.dom.d.ts:--:--: 'frameElement' is declared here.
         }
     }
     

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/augmentedTypesModules2.ts] ////
+
 //// [augmentedTypesModules2.ts]
 // module then function
 module m2 { }
@@ -59,7 +61,7 @@ function m2f() { }
 function m2g() { }
 ;
 (function (m2g) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.foo = function () { };

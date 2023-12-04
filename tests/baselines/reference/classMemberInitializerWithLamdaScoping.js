@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classMemberInitializerWithLamdaScoping.ts] ////
+
 //// [classMemberInitializerWithLamdaScoping.ts]
 declare var console: {
     log(msg?: any): void;
@@ -31,7 +33,7 @@ class Test1 {
 }
 
 //// [classMemberInitializerWithLamdaScoping.js]
-var Test = (function () {
+var Test = /** @class */ (function () {
     function Test(field) {
         var _this = this;
         this.field = field;
@@ -47,7 +49,7 @@ var Test = (function () {
     return Test;
 }());
 var field1;
-var Test1 = (function () {
+var Test1 = /** @class */ (function () {
     function Test1(field1) {
         this.field1 = field1;
         this.messageHandler = function () {

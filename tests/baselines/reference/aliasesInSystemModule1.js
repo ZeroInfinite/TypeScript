@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/aliasesInSystemModule1.ts] ////
+
 //// [aliasesInSystemModule1.ts]
 import alias = require('foo');
 import cls = alias.Class;
@@ -18,8 +20,8 @@ module M {
 //// [aliasesInSystemModule1.js]
 System.register(["foo"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var alias, cls, cls2, x, y, z, M;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (alias_1) {

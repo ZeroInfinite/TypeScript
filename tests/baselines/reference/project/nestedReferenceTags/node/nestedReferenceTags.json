@@ -5,7 +5,9 @@
         "main.ts"
     ],
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "lib/classA.ts",
         "lib/classB.ts",
         "main.ts"

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classAbstractKeyword/classAbstractImportInstantiation.ts] ////
+
 //// [classAbstractImportInstantiation.ts]
 module M {
     export abstract class A {}
@@ -13,7 +15,7 @@ new myA;
 //// [classAbstractImportInstantiation.js]
 var M;
 (function (M) {
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;

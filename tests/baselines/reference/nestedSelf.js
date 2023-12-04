@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/nestedSelf.ts] ////
+
 //// [nestedSelf.ts]
 module M {
  export class C {
@@ -11,7 +13,7 @@ module M {
 //// [nestedSelf.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
             this.n = 42;
         }

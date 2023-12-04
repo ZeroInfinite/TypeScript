@@ -1,6 +1,7 @@
 "use strict";
-exports.__esModule = true;
-var RM = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RM = void 0;
+var RM = /** @class */ (function () {
     function RM() {
     }
     RM.prototype.getName = function () {

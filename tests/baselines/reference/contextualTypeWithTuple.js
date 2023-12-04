@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/tuple/contextualTypeWithTuple.ts] ////
+
 //// [contextualTypeWithTuple.ts]
 // no error
 var numStrTuple: [number, string] = [5, "hello"];
@@ -25,6 +27,17 @@ unionTuple = unionTuple2;
 unionTuple2 = unionTuple;
 numStrTuple = unionTuple3;
 
+// repro from #29311
+type test1 = [...number[]]
+type fixed1 = test1 & { length: 2 }
+let var1: fixed1 = [0, 0]
+
+// #52551
+type EmptyTuple = []
+interface MyEmptyTuple extends EmptyTuple { extraInfo?: any; }
+const withExtra: MyEmptyTuple = []
+
+
 //// [contextualTypeWithTuple.js]
 // no error
 var numStrTuple = [5, "hello"];
@@ -32,12 +45,12 @@ var numStrTuple2 = [5, "foo", true];
 var numStrBoolTuple = [5, "foo", true];
 var objNumTuple = [{ a: "world" }, 5];
 var strTupleTuple = ["bar", [5, { x: 1, y: 1 }]];
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     return D;
@@ -56,3 +69,5 @@ unionTuple = unionTuple1;
 unionTuple = unionTuple2;
 unionTuple2 = unionTuple;
 numStrTuple = unionTuple3;
+var var1 = [0, 0];
+var withExtra = [];

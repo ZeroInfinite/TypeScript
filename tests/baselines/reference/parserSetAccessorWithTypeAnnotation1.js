@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/Accessors/parserSetAccessorWithTypeAnnotation1.ts] ////
+
 //// [parserSetAccessorWithTypeAnnotation1.ts]
 class C {
    set foo(v): number {
@@ -5,13 +7,13 @@ class C {
 }
 
 //// [parserSetAccessorWithTypeAnnotation1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "foo", {
         set: function (v) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

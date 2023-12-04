@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/recursiveTypes/objectTypeWithRecursiveWrappedProperty2.ts] ////
+
 //// [objectTypeWithRecursiveWrappedProperty2.ts]
 // Basic recursive type
 
@@ -15,7 +17,7 @@ list1 = list3; // error
 
 //// [objectTypeWithRecursiveWrappedProperty2.js]
 // Basic recursive type
-var List = (function () {
+var List = /** @class */ (function () {
     function List() {
     }
     return List;

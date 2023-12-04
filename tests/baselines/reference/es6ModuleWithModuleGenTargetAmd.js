@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es6ModuleWithModuleGenTargetAmd.ts] ////
+
 //// [es6ModuleWithModuleGenTargetAmd.ts]
 export class A
 {
@@ -15,6 +17,7 @@ export class A
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.A = void 0;
     class A {
         constructor() {
         }

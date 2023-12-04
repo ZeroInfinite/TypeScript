@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/conflictMarkerDiff3Trivia1.ts] ////
+
 //// [conflictMarkerDiff3Trivia1.ts]
 class C {
 <<<<<<< HEAD
@@ -10,7 +12,7 @@ class C {
 }
 
 //// [conflictMarkerDiff3Trivia1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.v = 1;
     }

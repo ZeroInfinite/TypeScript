@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadCallTest.ts] ////
+
 //// [overloadCallTest.ts]
 class foo {
     constructor() {
@@ -16,7 +18,7 @@ class foo {
 
 
 //// [overloadCallTest.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo() {
         function bar(foo) { return "foo"; }
         ;

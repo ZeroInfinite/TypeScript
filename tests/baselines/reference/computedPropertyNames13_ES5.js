@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames13_ES5.ts] ////
+
 //// [computedPropertyNames13_ES5.ts]
 var s: string;
 var n: number;
@@ -20,7 +22,7 @@ class C {
 var s;
 var n;
 var a;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype[s] = function () { };
@@ -33,6 +35,6 @@ var C = (function () {
     C.prototype[a] = function () { };
     C[true] = function () { };
     C.prototype["hello bye"] = function () { };
-    C["hello " + a + " bye"] = function () { };
+    C["hello ".concat(a, " bye")] = function () { };
     return C;
 }());

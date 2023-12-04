@@ -1,4 +1,6 @@
-=== tests/cases/conformance/ambient/user.ts ===
+//// [tests/cases/conformance/ambient/ambientShorthand.ts] ////
+
+=== user.ts ===
 ///<reference path="declarations.d.ts"/>
 import foo, {bar} from "jquery";
 >foo : any
@@ -17,9 +19,11 @@ foo(bar, baz, boom);
 >baz : any
 >boom : any
 
-=== tests/cases/conformance/ambient/declarations.d.ts ===
+=== declarations.d.ts ===
 declare module "jquery"
-No type information for this code.// Semicolon is optional
-No type information for this code.declare module "fs";
-No type information for this code.
-No type information for this code.
+>"jquery" : any
+
+// Semicolon is optional
+declare module "fs";
+>"fs" : any
+

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5-umd4.ts] ////
+
 //// [es5-umd4.ts]
 class A
 {
@@ -26,7 +28,7 @@ export = A;
     }
 })(function (require, exports) {
     "use strict";
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         A.prototype.B = function () {

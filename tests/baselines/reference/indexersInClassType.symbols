@@ -1,19 +1,23 @@
-=== tests/cases/conformance/classes/members/classTypes/indexersInClassType.ts ===
+//// [tests/cases/conformance/classes/members/classTypes/indexersInClassType.ts] ////
+
+=== indexersInClassType.ts ===
 class C {
 >C : Symbol(C, Decl(indexersInClassType.ts, 0, 0))
 
     [x: number]: Date;
 >x : Symbol(x, Decl(indexersInClassType.ts, 1, 5))
->Date : Symbol(Date, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Date : Symbol(Date, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.scripthost.d.ts, --, --))
 
     [x: string]: Object;
 >x : Symbol(x, Decl(indexersInClassType.ts, 2, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     1: Date;
->Date : Symbol(Date, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>1 : Symbol(C[1], Decl(indexersInClassType.ts, 2, 24))
+>Date : Symbol(Date, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --), Decl(lib.scripthost.d.ts, --, --))
 
     'a': {}
+>'a' : Symbol(C['a'], Decl(indexersInClassType.ts, 3, 12))
 
     fn() {
 >fn : Symbol(C.fn, Decl(indexersInClassType.ts, 4, 11))

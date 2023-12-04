@@ -1,4 +1,6 @@
-=== tests/cases/compiler/aliasUsageInArray_main.ts ===
+//// [tests/cases/compiler/aliasUsageInArray.ts] ////
+
+=== aliasUsageInArray_main.ts ===
 import Backbone = require("./aliasUsageInArray_backbone");
 >Backbone : typeof Backbone
 
@@ -6,8 +8,6 @@ import moduleA = require("./aliasUsageInArray_moduleA");
 >moduleA : typeof moduleA
 
 interface IHasVisualizationModel {
->IHasVisualizationModel : IHasVisualizationModel
-
     VisualizationModel: typeof Backbone.Model;
 >VisualizationModel : typeof Backbone.Model
 >Backbone.Model : typeof Backbone.Model
@@ -17,7 +17,6 @@ interface IHasVisualizationModel {
 
 var xs: IHasVisualizationModel[] = [moduleA];
 >xs : IHasVisualizationModel[]
->IHasVisualizationModel : IHasVisualizationModel
 >[moduleA] : (typeof moduleA)[]
 >moduleA : typeof moduleA
 
@@ -27,7 +26,7 @@ var xs2: typeof moduleA[] = [moduleA];
 >[moduleA] : (typeof moduleA)[]
 >moduleA : typeof moduleA
 
-=== tests/cases/compiler/aliasUsageInArray_backbone.ts ===
+=== aliasUsageInArray_backbone.ts ===
 export class Model {
 >Model : Model
 
@@ -35,7 +34,7 @@ export class Model {
 >someData : string
 }
 
-=== tests/cases/compiler/aliasUsageInArray_moduleA.ts ===
+=== aliasUsageInArray_moduleA.ts ===
 import Backbone = require("./aliasUsageInArray_backbone");
 >Backbone : typeof Backbone
 

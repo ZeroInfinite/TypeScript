@@ -1,10 +1,11 @@
-=== tests/cases/compiler/exportAssignmentInterface_B.ts ===
+//// [tests/cases/compiler/exportAssignmentInterface.ts] ////
+
+=== exportAssignmentInterface_B.ts ===
 import I1 = require("exportAssignmentInterface_A");
 >I1 : any
 
 var i: I1;
 >i : I1
->I1 : I1
 
 var n: number = i.p1;
 >n : number
@@ -12,10 +13,8 @@ var n: number = i.p1;
 >i : I1
 >p1 : number
 
-=== tests/cases/compiler/exportAssignmentInterface_A.ts ===
+=== exportAssignmentInterface_A.ts ===
 interface A {
->A : A
-
 	p1: number;
 >p1 : number
 }

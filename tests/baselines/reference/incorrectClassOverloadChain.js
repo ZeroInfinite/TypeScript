@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/incorrectClassOverloadChain.ts] ////
+
 //// [incorrectClassOverloadChain.ts]
 class C {
     foo(): string;
@@ -6,7 +8,7 @@ class C {
 }
 
 //// [incorrectClassOverloadChain.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = 1;
     }

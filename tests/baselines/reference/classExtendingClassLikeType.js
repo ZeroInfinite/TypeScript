@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classExtendingClassLikeType.ts] ////
+
 //// [classExtendingClassLikeType.ts]
 interface Base<T, U> {
     x: T;
@@ -60,24 +62,29 @@ class D5 extends getBadBase() {
 
 //// [classExtendingClassLikeType.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 // Error, no Base constructor function
-var D0 = (function (_super) {
+var D0 = /** @class */ (function (_super) {
     __extends(D0, _super);
     function D0() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return D0;
 }(Base));
-var D1 = (function (_super) {
+var D1 = /** @class */ (function (_super) {
     __extends(D1, _super);
     function D1() {
         var _this = _super.call(this, "abc", "def") || this;
@@ -87,7 +94,7 @@ var D1 = (function (_super) {
     }
     return D1;
 }(getBase()));
-var D2 = (function (_super) {
+var D2 = /** @class */ (function (_super) {
     __extends(D2, _super);
     function D2() {
         var _this = _super.call(this, 10) || this;
@@ -98,7 +105,7 @@ var D2 = (function (_super) {
     }
     return D2;
 }(getBase()));
-var D3 = (function (_super) {
+var D3 = /** @class */ (function (_super) {
     __extends(D3, _super);
     function D3() {
         var _this = _super.call(this, "abc", 42) || this;
@@ -109,7 +116,7 @@ var D3 = (function (_super) {
     return D3;
 }(getBase()));
 // Error, no constructors with three type arguments
-var D4 = (function (_super) {
+var D4 = /** @class */ (function (_super) {
     __extends(D4, _super);
     function D4() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -117,7 +124,7 @@ var D4 = (function (_super) {
     return D4;
 }(getBase()));
 // Error, constructor return types differ
-var D5 = (function (_super) {
+var D5 = /** @class */ (function (_super) {
     __extends(D5, _super);
     function D5() {
         return _super !== null && _super.apply(this, arguments) || this;

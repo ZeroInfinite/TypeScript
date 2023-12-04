@@ -9,8 +9,11 @@
 ////}|]
 ////
 
-verify.rangeAfterCodeFix(`{
+verify.codeFix({
+    description: "Remove unused declaration for: 'x'",
+    newRangeContent: `{
     for (const elem of ["a", "b", "c"]) {
         elem;
     }
-}`, /*includeWhiteSpace*/ true);
+}`
+});

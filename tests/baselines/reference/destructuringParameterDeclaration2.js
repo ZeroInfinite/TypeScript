@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringParameterDeclaration2.ts] ////
+
 //// [destructuringParameterDeclaration2.ts]
 // A parameter declaration may specify either an identifier or a binding pattern.
 // The identifiers specified in parameter declarations and binding patterns
@@ -94,13 +96,13 @@ function c0(_a) {
     var _b = _a.z, x = _b.x, j = _b.y.j;
 }
 function c1(_a) {
-    var z = (_a === void 0 ? { z: 10 } : _a).z;
+    var _b = _a === void 0 ? { z: 10 } : _a, z = _b.z;
 }
 function c2(_a) {
     var _b = _a.z, z = _b === void 0 ? 10 : _b;
 }
 function c3(_a) {
-    var b = (_a === void 0 ? { b: "hello" } : _a).b;
+    var _b = _a === void 0 ? { b: "hello" } : _a, b = _b.b;
 }
 function c4(_a, z) {
     var z = _a[0];
@@ -127,7 +129,7 @@ function d1(_a) {
 function d2(_a) {
     var x = _a.x, y = _a.y, z = _a.z;
 } // Error, binding pattern can't be optional in implementation signature
-var C4 = (function () {
+var C4 = /** @class */ (function () {
     function C4() {
     }
     C4.prototype.d3 = function (_a) {

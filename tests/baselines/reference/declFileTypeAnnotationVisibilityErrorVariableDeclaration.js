@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationVisibilityErrorVariableDeclaration.ts] ////
+
 //// [declFileTypeAnnotationVisibilityErrorVariableDeclaration.ts]
 module m {
     class private1 {
@@ -35,12 +37,12 @@ module m {
 //// [declFileTypeAnnotationVisibilityErrorVariableDeclaration.js]
 var m;
 (function (m) {
-    var private1 = (function () {
+    var private1 = /** @class */ (function () {
         function private1() {
         }
         return private1;
     }());
-    var public1 = (function () {
+    var public1 = /** @class */ (function () {
         function public1() {
         }
         return public1;
@@ -55,7 +57,7 @@ var m;
     m.l2 = new public1();
     var m2;
     (function (m2) {
-        var public2 = (function () {
+        var public2 = /** @class */ (function () {
             function public2() {
             }
             return public2;
@@ -66,3 +68,23 @@ var m;
     var y3 = new m2.public2();
     m.l3 = new m2.public2();
 })(m || (m = {}));
+
+
+//// [declFileTypeAnnotationVisibilityErrorVariableDeclaration.d.ts]
+declare namespace m {
+    class private1 {
+    }
+    export class public1 {
+    }
+    export var k: private1;
+    export var l: private1;
+    export var k2: public1;
+    export var l2: public1;
+    namespace m2 {
+        class public2 {
+        }
+    }
+    export var k3: m2.public2;
+    export var l3: m2.public2;
+    export {};
+}

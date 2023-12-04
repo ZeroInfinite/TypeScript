@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/boolean/invalidBooleanAssignments.ts] ////
+
 //// [invalidBooleanAssignments.ts]
 var x = true;
 
@@ -37,7 +39,7 @@ var E;
     E[E["A"] = 0] = "A";
 })(E || (E = {}));
 var e = x;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

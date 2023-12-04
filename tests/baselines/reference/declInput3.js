@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declInput3.ts] ////
+
 //// [declInput3.ts]
 interface bar2 {
 
@@ -11,7 +13,7 @@ class bar {
 
 
 //// [declInput3.js]
-var bar = (function () {
+var bar = /** @class */ (function () {
     function bar() {
     }
     bar.prototype.f = function () { return ''; };

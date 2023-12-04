@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/controlFlow/typeGuardsNestedAssignments.ts] ////
+
 //// [typeGuardsNestedAssignments.ts]
 class Foo {
     x: string;
@@ -46,7 +48,7 @@ while ((match = re.exec("xxx")) != null) {
 }
 
 //// [typeGuardsNestedAssignments.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;
@@ -81,5 +83,5 @@ function f4() {
 var re = /./g;
 var match;
 while ((match = re.exec("xxx")) != null) {
-    var length = match[1].length + match[2].length;
+    var length_1 = match[1].length + match[2].length;
 }

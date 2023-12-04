@@ -35,11 +35,12 @@ export module M1 {
 
 //// [foo1.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.M1 = void 0;
 var foo2 = require("./foo2");
 var M1;
 (function (M1) {
-    var C1 = (function () {
+    var C1 = /** @class */ (function () {
         function C1() {
             this.m1 = new foo2.M1.C1();
             this.m1.y = 10; // OK
@@ -48,14 +49,15 @@ var M1;
         return C1;
     }());
     M1.C1 = C1;
-})(M1 = exports.M1 || (exports.M1 = {}));
+})(M1 || (exports.M1 = M1 = {}));
 //// [foo2.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.M1 = void 0;
 var foo1 = require("./foo1");
 var M1;
 (function (M1) {
-    var C1 = (function () {
+    var C1 = /** @class */ (function () {
         function C1() {
             this.m1 = new foo1.M1.C1();
             this.m1.y = 10; // Error
@@ -67,4 +69,4 @@ var M1;
         return C1;
     }());
     M1.C1 = C1;
-})(M1 = exports.M1 || (exports.M1 = {}));
+})(M1 || (exports.M1 = M1 = {}));

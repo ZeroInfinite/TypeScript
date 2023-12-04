@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/accessorWithRestParam.ts] ////
+
 //// [accessorWithRestParam.ts]
 class C {
     set X(...v) { }
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [accessorWithRestParam.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "X", {
@@ -15,7 +17,7 @@ var C = (function () {
                 v[_i] = arguments[_i];
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(C, "X", {
@@ -25,7 +27,7 @@ var C = (function () {
                 v2[_i] = arguments[_i];
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

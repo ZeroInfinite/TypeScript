@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/indexerReturningTypeParameter1.ts] ////
+
 //// [indexerReturningTypeParameter1.ts]
 interface f {
     groupBy<T>(): { [key: string]: T[]; };
@@ -16,7 +18,7 @@ var r2 = a2.groupBy();
 //// [indexerReturningTypeParameter1.js]
 var a;
 var r = a.groupBy();
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     c.prototype.groupBy = function () {

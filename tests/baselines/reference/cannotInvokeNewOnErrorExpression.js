@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/cannotInvokeNewOnErrorExpression.ts] ////
+
 //// [cannotInvokeNewOnErrorExpression.ts]
 module M
 {
@@ -8,7 +10,7 @@ var t = new M.ClassA[];
 //// [cannotInvokeNewOnErrorExpression.js]
 var M;
 (function (M) {
-    var ClassA = (function () {
+    var ClassA = /** @class */ (function () {
         function ClassA() {
         }
         return ClassA;

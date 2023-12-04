@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericWithOpenTypeParameters1.ts] ////
+
 //// [genericWithOpenTypeParameters1.ts]
 class B<T> {
    foo(x: T): T { return null; }
@@ -12,7 +14,7 @@ var f4 = (x: B<number>) => { return x.foo(1); } // no error
 
 
 //// [genericWithOpenTypeParameters1.js]
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.foo = function (x) { return null; };

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/chainedAssignment2.ts ===
+//// [tests/cases/compiler/chainedAssignment2.ts] ////
+
+=== chainedAssignment2.ts ===
 var a: string;
 >a : string
 
@@ -10,11 +12,9 @@ var c: boolean;
 
 var d: Date;
 >d : Date
->Date : Date
 
 var e: RegExp;
 >e : RegExp
->RegExp : RegExp
 
 a = b = c = d = e = null;
 >a = b = c = d = e = null : null
@@ -27,6 +27,5 @@ a = b = c = d = e = null;
 >d : Date
 >e = null : null
 >e : RegExp
->null : null
 
 

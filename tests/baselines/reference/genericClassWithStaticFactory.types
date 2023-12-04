@@ -1,30 +1,24 @@
-=== tests/cases/compiler/genericClassWithStaticFactory.ts ===
+//// [tests/cases/compiler/genericClassWithStaticFactory.ts] ////
+
+=== genericClassWithStaticFactory.ts ===
 module Editor {
 >Editor : typeof Editor
 
     export class List<T> {
 >List : List<T>
->T : T
 
         public next: List<T>;
 >next : List<T>
->List : List<T>
->T : T
 
         public prev: List<T>;
 >prev : List<T>
->List : List<T>
->T : T
 
         private listFactory: ListFactory<T>;
 >listFactory : ListFactory<T>
->ListFactory : ListFactory<T>
->T : T
 
         constructor(public isHead: boolean, public data: T) {
 >isHead : boolean
 >data : T
->T : T
 
             this.listFactory = new ListFactory<T>();
 >this.listFactory = new ListFactory<T>() : ListFactory<T>
@@ -33,25 +27,21 @@ module Editor {
 >listFactory : ListFactory<T>
 >new ListFactory<T>() : ListFactory<T>
 >ListFactory : typeof ListFactory
->T : T
            
         }
 
         public add(data: T): List<T> {
 >add : (data: T) => List<T>
 >data : T
->T : T
->List : List<T>
->T : T
 
             var entry = this.listFactory.MakeEntry(data);
 >entry : List<T>
 >this.listFactory.MakeEntry(data) : List<T>
->this.listFactory.MakeEntry : <T>(data: T) => List<T>
+>this.listFactory.MakeEntry : <T_1>(data: T_1) => List<T_1>
 >this.listFactory : ListFactory<T>
 >this : this
 >listFactory : ListFactory<T>
->MakeEntry : <T>(data: T) => List<T>
+>MakeEntry : <T_1>(data: T_1) => List<T_1>
 >data : T
             
             this.prev.next = entry;
@@ -95,8 +85,6 @@ module Editor {
 
             var entry: List<T>;
 >entry : List<T>
->List : List<T>
->T : T
 
             var i: number;
 >i : number
@@ -147,7 +135,6 @@ module Editor {
 
         public first(): T {
 >first : () => T
->T : T
 
             if (this.isEmpty())
 >this.isEmpty() : boolean
@@ -164,15 +151,12 @@ module Editor {
             }
             else {
                 return null;
->null : null
             }
         }
 
         public pushEntry(entry: List<T>): void {
 >pushEntry : (entry: List<T>) => void
 >entry : List<T>
->List : List<T>
->T : T
 
             entry.isHead = false;
 >entry.isHead = false : false
@@ -217,16 +201,15 @@ module Editor {
         public push(data: T): void {
 >push : (data: T) => void
 >data : T
->T : T
 
             var entry = this.listFactory.MakeEntry(data);
 >entry : List<T>
 >this.listFactory.MakeEntry(data) : List<T>
->this.listFactory.MakeEntry : <T>(data: T) => List<T>
+>this.listFactory.MakeEntry : <T_1>(data: T_1) => List<T_1>
 >this.listFactory : ListFactory<T>
 >this : this
 >listFactory : ListFactory<T>
->MakeEntry : <T>(data: T) => List<T>
+>MakeEntry : <T_1>(data: T_1) => List<T_1>
 >data : T
 
             entry.data = data;
@@ -279,10 +262,6 @@ module Editor {
         public popEntry(head: List<T>): List<T> {
 >popEntry : (head: List<T>) => List<T>
 >head : List<T>
->List : List<T>
->T : T
->List : List<T>
->T : T
 
             if (this.next.isHead) {
 >this.next.isHead : boolean
@@ -292,16 +271,15 @@ module Editor {
 >isHead : boolean
 
                 return null;
->null : null
             }
             else {
                 return this.listFactory.RemoveEntry(this.next);
 >this.listFactory.RemoveEntry(this.next) : List<T>
->this.listFactory.RemoveEntry : <T>(entry: List<T>) => List<T>
+>this.listFactory.RemoveEntry : <T_1>(entry: List<T_1>) => List<T_1>
 >this.listFactory : ListFactory<T>
 >this : this
 >listFactory : ListFactory<T>
->RemoveEntry : <T>(entry: List<T>) => List<T>
+>RemoveEntry : <T_1>(entry: List<T_1>) => List<T_1>
 >this.next : List<T>
 >this : this
 >next : List<T>
@@ -311,10 +289,6 @@ module Editor {
         public insertEntry(entry: List<T>): List<T> {
 >insertEntry : (entry: List<T>) => List<T>
 >entry : List<T>
->List : List<T>
->T : T
->List : List<T>
->T : T
 
             entry.isHead = false;
 >entry.isHead = false : false
@@ -362,20 +336,15 @@ module Editor {
         public insertAfter(data: T): List<T> {
 >insertAfter : (data: T) => List<T>
 >data : T
->T : T
->List : List<T>
->T : T
 
             var entry: List<T> = this.listFactory.MakeEntry(data);
 >entry : List<T>
->List : List<T>
->T : T
 >this.listFactory.MakeEntry(data) : List<T>
->this.listFactory.MakeEntry : <T>(data: T) => List<T>
+>this.listFactory.MakeEntry : <T_1>(data: T_1) => List<T_1>
 >this.listFactory : ListFactory<T>
 >this : this
 >listFactory : ListFactory<T>
->MakeEntry : <T>(data: T) => List<T>
+>MakeEntry : <T_1>(data: T_1) => List<T_1>
 >data : T
 
             entry.next = this.next;
@@ -417,10 +386,6 @@ module Editor {
         public insertEntryBefore(entry: List<T>): List<T> {
 >insertEntryBefore : (entry: List<T>) => List<T>
 >entry : List<T>
->List : List<T>
->T : T
->List : List<T>
->T : T
 
             this.prev.next = entry;
 >this.prev.next = entry : List<T>
@@ -461,18 +426,15 @@ module Editor {
         public insertBefore(data: T): List<T> {
 >insertBefore : (data: T) => List<T>
 >data : T
->T : T
->List : List<T>
->T : T
 
             var entry = this.listFactory.MakeEntry(data);
 >entry : List<T>
 >this.listFactory.MakeEntry(data) : List<T>
->this.listFactory.MakeEntry : <T>(data: T) => List<T>
+>this.listFactory.MakeEntry : <T_1>(data: T_1) => List<T_1>
 >this.listFactory : ListFactory<T>
 >this : this
 >listFactory : ListFactory<T>
->MakeEntry : <T>(data: T) => List<T>
+>MakeEntry : <T_1>(data: T_1) => List<T_1>
 >data : T
 
             return this.insertEntryBefore(entry);
@@ -486,23 +448,15 @@ module Editor {
 
     export class ListFactory<T> {
 >ListFactory : ListFactory<T>
->T : T
 
         public MakeHead<T>(): List<T> {
 >MakeHead : <T>() => List<T>
->T : T
->List : List<T>
->T : T
 
             var entry: List<T> = new List<T>(true, null);
 >entry : List<T>
->List : List<T>
->T : T
 >new List<T>(true, null) : List<T>
 >List : typeof List
->T : T
 >true : true
->null : null
 
             entry.prev = entry;
 >entry.prev = entry : List<T>
@@ -524,19 +478,12 @@ module Editor {
 
         public MakeEntry<T>(data: T): List<T> {
 >MakeEntry : <T>(data: T) => List<T>
->T : T
 >data : T
->T : T
->List : List<T>
->T : T
 
             var entry: List<T> = new List<T>(false, data);
 >entry : List<T>
->List : List<T>
->T : T
 >new List<T>(false, data) : List<T>
 >List : typeof List
->T : T
 >false : false
 >data : T
 
@@ -560,20 +507,13 @@ module Editor {
 
         public RemoveEntry<T>(entry: List<T>): List<T> {
 >RemoveEntry : <T>(entry: List<T>) => List<T>
->T : T
 >entry : List<T>
->List : List<T>
->T : T
->List : List<T>
->T : T
 
             if (entry == null) {
 >entry == null : boolean
 >entry : List<T>
->null : null
 
                 return null;
->null : null
             }
             else if (entry.isHead) {
 >entry.isHead : boolean
@@ -582,7 +522,6 @@ module Editor {
 
             // Can't remove the head of a list!
                 return null;
->null : null
             }
             else {
                 entry.next.prev = entry.prev;

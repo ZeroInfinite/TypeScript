@@ -11,7 +11,9 @@
     "mapRoot": "tests/cases/projects/outputdir_singleFile/mapFiles",
     "resolveMapRoot": true,
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "test.ts"
     ],
     "emittedFiles": [

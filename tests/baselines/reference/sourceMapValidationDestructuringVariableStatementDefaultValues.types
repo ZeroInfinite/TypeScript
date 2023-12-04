@@ -1,7 +1,7 @@
-=== tests/cases/compiler/sourceMapValidationDestructuringVariableStatementDefaultValues.ts ===
-interface Robot {
->Robot : Robot
+//// [tests/cases/compiler/sourceMapValidationDestructuringVariableStatementDefaultValues.ts] ////
 
+=== sourceMapValidationDestructuringVariableStatementDefaultValues.ts ===
+interface Robot {
     name: string;
 >name : string
 
@@ -21,7 +21,6 @@ var hello = "hello";
 
 var robotA: Robot = { name: "mower", skill: "mowing" };
 >robotA : Robot
->Robot : Robot
 >{ name: "mower", skill: "mowing" } : { name: string; skill: string; }
 >name : string
 >"mower" : "mower"
@@ -30,7 +29,6 @@ var robotA: Robot = { name: "mower", skill: "mowing" };
 
 var robotB: Robot = { name: "trimmer", skill: "trimming" };
 >robotB : Robot
->Robot : Robot
 >{ name: "trimmer", skill: "trimming" } : { name: string; skill: string; }
 >name : string
 >"trimmer" : "trimmer"

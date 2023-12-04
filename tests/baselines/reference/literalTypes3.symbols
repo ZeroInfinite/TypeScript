@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/literal/literalTypes3.ts ===
+//// [tests/cases/conformance/types/literal/literalTypes3.ts] ////
+
+=== literalTypes3.ts ===
 function f1(s: string) {
 >f1 : Symbol(f1, Decl(literalTypes3.ts, 0, 0))
 >s : Symbol(s, Decl(literalTypes3.ts, 0, 12))
@@ -64,7 +66,7 @@ function f4(x: number) {
 >x : Symbol(x, Decl(literalTypes3.ts, 26, 12))
     }
     throw new Error();
->Error : Symbol(Error, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Error : Symbol(Error, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 }
 
 function f5(x: number, y: 1 | 2) {

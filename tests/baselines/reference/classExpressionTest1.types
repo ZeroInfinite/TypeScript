@@ -1,22 +1,20 @@
-=== tests/cases/compiler/classExpressionTest1.ts ===
+//// [tests/cases/compiler/classExpressionTest1.ts] ////
+
+=== classExpressionTest1.ts ===
 function M() {
 >M : () => { t: string; x: number; }
 
     class C<X> {
 >C : C<X>
->X : X
 
         f<T>() {
 >f : <T>() => { t: T; x: X; }
->T : T
 
             var t: T;
 >t : T
->T : T
 
             var x: X;
 >x : X
->X : X
 
             return { t, x };
 >{ t, x } : { t: T; x: X; }

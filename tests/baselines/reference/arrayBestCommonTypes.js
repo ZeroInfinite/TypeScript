@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/arrayBestCommonTypes.ts] ////
+
 //// [arrayBestCommonTypes.ts]
 module EmptyTypes {
     interface iface { }
@@ -109,10 +111,15 @@ module NonEmptyTypes {
 
 //// [arrayBestCommonTypes.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -120,24 +127,24 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var EmptyTypes;
 (function (EmptyTypes) {
-    var base = (function () {
+    var base = /** @class */ (function () {
         function base() {
         }
         return base;
     }());
-    var base2 = (function () {
+    var base2 = /** @class */ (function () {
         function base2() {
         }
         return base2;
     }());
-    var derived = (function (_super) {
+    var derived = /** @class */ (function (_super) {
         __extends(derived, _super);
         function derived() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return derived;
     }(base));
-    var f = (function () {
+    var f = /** @class */ (function () {
         function f() {
         }
         f.prototype.voidIfAny = function (x, y) {
@@ -179,24 +186,24 @@ var EmptyTypes;
 })(EmptyTypes || (EmptyTypes = {}));
 var NonEmptyTypes;
 (function (NonEmptyTypes) {
-    var base = (function () {
+    var base = /** @class */ (function () {
         function base() {
         }
         return base;
     }());
-    var base2 = (function () {
+    var base2 = /** @class */ (function () {
         function base2() {
         }
         return base2;
     }());
-    var derived = (function (_super) {
+    var derived = /** @class */ (function (_super) {
         __extends(derived, _super);
         function derived() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return derived;
     }(base));
-    var f = (function () {
+    var f = /** @class */ (function () {
         function f() {
         }
         f.prototype.voidIfAny = function (x, y) {

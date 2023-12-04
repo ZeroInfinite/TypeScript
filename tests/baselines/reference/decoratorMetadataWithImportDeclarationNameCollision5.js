@@ -26,7 +26,7 @@ export {MyClass};
 //// [db.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var db = (function () {
+var db = /** @class */ (function () {
     function db() {
     }
     db.prototype.doSomething = function () {
@@ -37,11 +37,12 @@ exports.default = db;
 //// [service.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MyClass = void 0;
 var db_1 = require("./db");
 function someDecorator(target) {
     return target;
 }
-var MyClass = (function () {
+var MyClass = /** @class */ (function () {
     function MyClass(db) {
         this.db = db;
         this.db.doSomething();

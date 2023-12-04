@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/assignmentCompatOnNew.ts] ////
+
 //// [assignmentCompatOnNew.ts]
 class Foo{};
 
@@ -7,7 +9,7 @@ bar(Foo); // Error, but should be allowed
 
 
 //// [assignmentCompatOnNew.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;

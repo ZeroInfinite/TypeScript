@@ -1,10 +1,8 @@
-=== tests/cases/compiler/classImplementsImportedInterface.ts ===
+//// [tests/cases/compiler/classImplementsImportedInterface.ts] ////
+
+=== classImplementsImportedInterface.ts ===
 module M1 {
->M1 : any
-
     export interface I {
->I : I
-
         foo();
 >foo : () => any
     }
@@ -20,7 +18,6 @@ module M2 {
 
     class C implements T {
 >C : C
->T : T
 
         foo() {}
 >foo : () => void

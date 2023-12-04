@@ -1,4 +1,6 @@
-=== tests/cases/compiler/localClassesInLoop.ts ===
+//// [tests/cases/compiler/localClassesInLoop.ts] ////
+
+=== localClassesInLoop.ts ===
 declare function use(a: any);
 >use : Symbol(use, Decl(localClassesInLoop.ts, 0, 0))
 >a : Symbol(a, Decl(localClassesInLoop.ts, 0, 21))
@@ -16,9 +18,9 @@ for (let x = 0; x < 2; ++x) {
 >C : Symbol(C, Decl(localClassesInLoop.ts, 4, 29))
 
     data.push(() => C);
->data.push : Symbol(Array.push, Decl(lib.d.ts, --, --))
+>data.push : Symbol(Array.push, Decl(lib.es5.d.ts, --, --))
 >data : Symbol(data, Decl(localClassesInLoop.ts, 3, 3))
->push : Symbol(Array.push, Decl(lib.d.ts, --, --))
+>push : Symbol(Array.push, Decl(lib.es5.d.ts, --, --))
 >C : Symbol(C, Decl(localClassesInLoop.ts, 4, 29))
 }
 

@@ -1,28 +1,52 @@
-/// <reference path="harness.ts" />
+import {
+    FileBasedTest,
+    IO,
+    userSpecifiedRoot,
+} from "./_namespaces/Harness";
+import * as ts from "./_namespaces/ts";
 
+export type TestRunnerKind = CompilerTestKind | FourslashTestKind | "project";
+export type CompilerTestKind = "conformance" | "compiler";
+export type FourslashTestKind = "fourslash" | "fourslash-server";
 
-type TestRunnerKind = CompilerTestKind | FourslashTestKind | "project" | "rwc" | "test262";
-type CompilerTestKind = "conformance" | "compiler";
-type FourslashTestKind = "fourslash" | "fourslash-shims" | "fourslash-shims-pp" | "fourslash-server";
+export let shards = 1;
+export let shardId = 1;
 
-abstract class RunnerBase {
-    constructor() { }
+// The following have setters as while they're read here in the harness, they're only set in the runner
+export function setShards(count: number) {
+    shards = count;
+}
+export function setShardId(id: number) {
+    shardId = id;
+}
 
+export abstract class RunnerBase {
     // contains the tests to run
-    public tests: string[] = [];
+    public tests: (string | FileBasedTest)[] = [];
 
     /** Add a source file to the runner's list of tests that need to be initialized with initializeTests */
     public addTest(fileName: string) {
         this.tests.push(fileName);
     }
 
-    public enumerateFiles(folder: string, regex?: RegExp, options?: { recursive: boolean }): string[] {
-        return ts.map(Harness.IO.listFiles(Harness.userSpecifiedRoot + folder, regex, { recursive: (options ? options.recursive : false) }), ts.normalizeSlashes);
+    public enumerateFiles(folder: string, regex?: RegExp, options?: { recursive: boolean; }): string[] {
+        return ts.map(IO.listFiles(userSpecifiedRoot + folder, regex, { recursive: (options ? options.recursive : false) }), ts.normalizeSlashes);
     }
 
     abstract kind(): TestRunnerKind;
 
-    abstract enumerateTestFiles(): string[];
+    abstract enumerateTestFiles(): (string | FileBasedTest)[];
+
+    getTestFiles(): ReturnType<this["enumerateTestFiles"]> {
+        const all = this.enumerateTestFiles();
+        if (shards === 1) {
+            return all as ReturnType<this["enumerateTestFiles"]>;
+        }
+        return all.filter((_val, idx) => idx % shards === (shardId - 1)) as ReturnType<this["enumerateTestFiles"]>;
+    }
+
+    /** The working directory where tests are found. Needed for batch testing where the input path will differ from the output path inside baselines */
+    public workingDirectory = "";
 
     /** Setup the runner's tests so that they are ready to be executed by the harness
      *  The first test should be a describe/it block that sets up the harness's compiler instance appropriately

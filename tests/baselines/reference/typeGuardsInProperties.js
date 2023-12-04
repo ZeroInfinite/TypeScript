@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardsInProperties.ts] ////
+
 //// [typeGuardsInProperties.ts]
 // Note that type guards affect types of variables and parameters only and 
 // have no effect on members of objects such as properties. 
@@ -30,7 +32,7 @@ strOrNum = typeof obj1.x === "string" && obj1.x;  // string | number
 // have no effect on members of objects such as properties. 
 var num;
 var strOrNum;
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1() {
     }
     Object.defineProperty(C1.prototype, "pp3", {
@@ -38,7 +40,7 @@ var C1 = (function () {
         get: function () {
             return strOrNum;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     C1.prototype.method = function () {

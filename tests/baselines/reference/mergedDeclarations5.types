@@ -1,13 +1,14 @@
-=== tests/cases/compiler/a.ts ===
+//// [tests/cases/compiler/mergedDeclarations5.ts] ////
+
+=== a.ts ===
 class A {
 >A : A
 
     protected foo() {}
 >foo : () => void
 }
-=== tests/cases/compiler/b.ts ===
+=== b.ts ===
 interface A { }
->A : A
 
 class B extends A {
 >B : B

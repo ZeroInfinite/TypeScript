@@ -9,19 +9,19 @@
 ////enum /*enumDefinition*/Enum { value1, value2 };
 ////
 ////class /*selfDefinition*/Bar {
-////    public _interface: IFo/*interfaceReference*/o = new Fo/*classReferenceInInitializer*/o();
-////    public _class: Fo/*classReference*/o = new Foo();
-////    public _list: IF/*interfaceReferenceInList*/oo[]=[];
-////    public _enum: E/*enumReference*/num = En/*enumReferenceInInitializer*/um.value1;
-////    public _self: Ba/*selfReference*/r;
+////    public _interface: [|IFo/*interfaceReference*/o|] = new [|Fo/*classReferenceInInitializer*/o|]();
+////    public _class: [|Fo/*classReference*/o|] = new Foo();
+////    public _list: [|IF/*interfaceReferenceInList*/oo|][]=[];
+////    public _enum: [|E/*enumReference*/num|] = [|En/*enumReferenceInInitializer*/um|].value1;
+////    public _self: [|Ba/*selfReference*/r|];
 ////
-////    constructor(public _inConstructor: IFo/*interfaceReferenceInConstructor*/o) {
+////    constructor(public _inConstructor: [|IFo/*interfaceReferenceInConstructor*/o|]) {
 ////    }
 ////}
 
-verify.goToDefinition([
-    [["interfaceReference", "interfaceReferenceInList", "interfaceReferenceInConstructor"], "interfaceDefinition"],
-    [["classReference", "classReferenceInInitializer"], "classDefinition"],
-    [["enumReference", "enumReferenceInInitializer"], "enumDefinition"],
-    ["selfReference", "selfDefinition"]
-]);
+verify.baselineGoToDefinition(
+    "interfaceReference", "interfaceReferenceInList", "interfaceReferenceInConstructor",
+    "classReference", "classReferenceInInitializer",
+    "enumReference", "enumReferenceInInitializer",
+    "selfReference",
+);

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/inheritanceAndOverriding/derivedClassOverridesProtectedMembers2.ts] ////
+
 //// [derivedClassOverridesProtectedMembers2.ts]
 var x: { foo: string; }
 var y: { foo: string; bar: string; }
@@ -65,10 +67,15 @@ var r8 = d2[1];
 
 //// [derivedClassOverridesProtectedMembers2.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -76,27 +83,27 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var x;
 var y;
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base(a) {
     }
     Base.prototype.b = function (a) { };
     Object.defineProperty(Base.prototype, "c", {
         get: function () { return x; },
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Base.s = function (a) { };
     Object.defineProperty(Base, "t", {
         get: function () { return x; },
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Base;
 }());
 // Increase visibility of all protected members to public
-var Derived = (function (_super) {
+var Derived = /** @class */ (function (_super) {
     __extends(Derived, _super);
     function Derived(a) {
         return _super.call(this, a) || this;
@@ -105,14 +112,14 @@ var Derived = (function (_super) {
     Object.defineProperty(Derived.prototype, "c", {
         get: function () { return y; },
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Derived.s = function (a) { };
     Object.defineProperty(Derived, "t", {
         get: function () { return y; },
         set: function (a) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Derived;
@@ -128,12 +135,12 @@ var r5 = Derived.s(y);
 var r6 = Derived.t;
 var r6a = Derived.u;
 Derived.t = y;
-var Base2 = (function () {
+var Base2 = /** @class */ (function () {
     function Base2() {
     }
     return Base2;
 }());
-var Derived2 = (function (_super) {
+var Derived2 = /** @class */ (function (_super) {
     __extends(Derived2, _super);
     function Derived2() {
         return _super !== null && _super.apply(this, arguments) || this;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/recursiveTypeParameterReferenceError1.ts] ////
+
 //// [recursiveTypeParameterReferenceError1.ts]
 class X<T> { }
 interface Foo<T> {
@@ -18,14 +20,14 @@ var r2 = f2.ofC4;
 
 
 //// [recursiveTypeParameterReferenceError1.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     return X;
 }());
 var f;
 var r = f.z;
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;

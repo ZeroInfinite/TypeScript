@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/decoratorWithUnderscoreMethod.ts] ////
+
 //// [decoratorWithUnderscoreMethod.ts]
 declare var console : { log(arg: string): void };
 function dec(): Function {
@@ -23,7 +25,7 @@ function dec() {
         //propKey has three underscores as prefix, but the method has only two underscores
     };
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.__foo = function (bar) {
@@ -31,6 +33,6 @@ var A = (function () {
     };
     __decorate([
         dec()
-    ], A.prototype, "__foo");
+    ], A.prototype, "__foo", null);
     return A;
 }());

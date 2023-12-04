@@ -1,10 +1,97 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts ===
+// class c {
+//     public publicMethod() { }
+//            ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.publicMethod(): void
+// | ----------------------------------------------------------------------
+//     private privateMethod() { }
+//             ^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.privateMethod(): void
+// | ----------------------------------------------------------------------
+//     protected protectedMethod() { }
+//               ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.protectedMethod(): void
+// | ----------------------------------------------------------------------
+//     static staticMethod() { }
+//            ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.staticMethod(): void
+// | ----------------------------------------------------------------------
+//     private static privateStaticMethod() { }
+//                    ^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.privateStaticMethod(): void
+// | ----------------------------------------------------------------------
+//     protected static protectedStaticMethod() { }
+//                      ^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.protectedStaticMethod(): void
+// | ----------------------------------------------------------------------
+//     method() {
+//         this.publicMethod();
+//              ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.publicMethod(): void
+// | ----------------------------------------------------------------------
+//         this.privateMethod();
+//              ^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.privateMethod(): void
+// | ----------------------------------------------------------------------
+//         this.protectedMethod();
+//              ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.protectedMethod(): void
+// | ----------------------------------------------------------------------
+//         c.staticMethod();
+//           ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.staticMethod(): void
+// | ----------------------------------------------------------------------
+//         c.privateStaticMethod();
+//           ^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.privateStaticMethod(): void
+// | ----------------------------------------------------------------------
+//         c.protectedStaticMethod();
+//           ^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.protectedStaticMethod(): void
+// | ----------------------------------------------------------------------
+//     }
+// }
+// var cInstance = new c();
+// cInstance.publicMethod();
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c
+// | ----------------------------------------------------------------------
+//           ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.publicMethod(): void
+// | ----------------------------------------------------------------------
+// c.staticMethod();
+// ^
+// | ----------------------------------------------------------------------
+// | class c
+// | ----------------------------------------------------------------------
+//   ^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c.staticMethod(): void
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 21
+      "position": 21,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "public",
       "textSpan": {
@@ -61,16 +148,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 52
+      "position": 52,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "private",
       "textSpan": {
@@ -127,16 +214,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 86
+      "position": 86,
+      "name": "21"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "protected",
       "textSpan": {
@@ -193,16 +280,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 119
+      "position": 119,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "static",
       "textSpan": {
@@ -259,16 +346,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 157
+      "position": 157,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "private,static",
       "textSpan": {
@@ -325,16 +412,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 204
+      "position": 204,
+      "name": "41"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "protected,static",
       "textSpan": {
@@ -391,16 +478,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 260
+      "position": 260,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "public",
       "textSpan": {
@@ -457,16 +544,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 289
+      "position": 289,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "private",
       "textSpan": {
@@ -523,16 +610,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 319
+      "position": 319,
+      "name": "61"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "protected",
       "textSpan": {
@@ -589,16 +676,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 348
+      "position": 348,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "static",
       "textSpan": {
@@ -655,16 +742,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 374
+      "position": 374,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "private,static",
       "textSpan": {
@@ -721,16 +808,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 407
+      "position": 407,
+      "name": "81"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "protected,static",
       "textSpan": {
@@ -787,16 +874,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 465
+      "position": 465,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -829,16 +916,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 475
+      "position": 475,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "public",
       "textSpan": {
@@ -895,16 +982,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 491
+      "position": 491,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -925,16 +1012,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClassMethod.ts",
-      "position": 493
+      "position": 493,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "static",
       "textSpan": {
@@ -991,8 +1078,7 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

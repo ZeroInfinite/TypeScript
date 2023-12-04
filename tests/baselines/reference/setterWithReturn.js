@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/setterWithReturn.ts] ////
+
 //// [setterWithReturn.ts]
 class C234 {
     public set p1(arg1) {
@@ -11,7 +13,7 @@ class C234 {
 }
 
 //// [setterWithReturn.js]
-var C234 = (function () {
+var C234 = /** @class */ (function () {
     function C234() {
     }
     Object.defineProperty(C234.prototype, "p1", {
@@ -23,7 +25,7 @@ var C234 = (function () {
                 return 0;
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C234;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericClassWithStaticFactory.ts] ////
+
 //// [genericClassWithStaticFactory.ts]
 module Editor {
 
@@ -144,7 +146,7 @@ module Editor {
 //// [genericClassWithStaticFactory.js]
 var Editor;
 (function (Editor) {
-    var List = (function () {
+    var List = /** @class */ (function () {
         function List(isHead, data) {
             this.isHead = isHead;
             this.data = data;
@@ -232,7 +234,7 @@ var Editor;
         return List;
     }());
     Editor.List = List;
-    var ListFactory = (function () {
+    var ListFactory = /** @class */ (function () {
         function ListFactory() {
         }
         ListFactory.prototype.MakeHead = function () {

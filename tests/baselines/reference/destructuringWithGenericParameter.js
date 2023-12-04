@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/destructuringWithGenericParameter.ts] ////
+
 //// [destructuringWithGenericParameter.ts]
 class GenericClass<T> {
     payload: T;
@@ -15,7 +17,7 @@ genericFunction(genericObject, ({greeting}) => {
 
 
 //// [destructuringWithGenericParameter.js]
-var GenericClass = (function () {
+var GenericClass = /** @class */ (function () {
     function GenericClass() {
     }
     return GenericClass;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/tsxStatelessFunctionComponents3.tsx] ////
+
 //// [file.tsx]
 import React = require('react');
 
@@ -20,14 +22,14 @@ var App: React.StatelessComponent<{ children }> = ({children}) => (
 //// [file.jsx]
 define(["require", "exports", "react"], function (require, exports, React) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
     var Foo = function (props) { return <div />; };
     // Should be OK
     var foo = <Foo />;
     // Should be OK
     var MainMenu = function (props) { return (<div>
     <h3>Main Menu</h3>
-</div>); };
+    </div>); };
     var App = function (_a) {
         var children = _a.children;
         return (<div>

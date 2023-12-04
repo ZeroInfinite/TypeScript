@@ -1,26 +1,21 @@
-=== tests/cases/compiler/doNotWidenAtObjectLiteralPropertyAssignment.ts ===
-interface ITestEventInterval {
->ITestEventInterval : ITestEventInterval
+//// [tests/cases/compiler/doNotWidenAtObjectLiteralPropertyAssignment.ts] ////
 
+=== doNotWidenAtObjectLiteralPropertyAssignment.ts ===
+interface ITestEventInterval {
     begin: number;
 >begin : number
 }
 
 interface IIntervalTreeNode {
->IIntervalTreeNode : IIntervalTreeNode
-
     interval: ITestEventInterval;
 >interval : ITestEventInterval
->ITestEventInterval : ITestEventInterval
 
     children?: IIntervalTreeNode[];
 >children : IIntervalTreeNode[]
->IIntervalTreeNode : IIntervalTreeNode
 }
 
 var test: IIntervalTreeNode[] = [{ interval: { begin: 0 }, children: null }]; // was error here because best common type is {}
 >test : IIntervalTreeNode[]
->IIntervalTreeNode : IIntervalTreeNode
 >[{ interval: { begin: 0 }, children: null }] : { interval: { begin: number; }; children: null; }[]
 >{ interval: { begin: 0 }, children: null } : { interval: { begin: number; }; children: null; }
 >interval : { begin: number; }
@@ -28,5 +23,4 @@ var test: IIntervalTreeNode[] = [{ interval: { begin: 0 }, children: null }]; //
 >begin : number
 >0 : 0
 >children : null
->null : null
 

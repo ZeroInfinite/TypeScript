@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/generics4.ts] ////
+
 //// [generics4.ts]
 class C<T> { private x: T; }
 interface X { f(): string; }
@@ -8,7 +10,7 @@ var b: C<Y>;
 a = b; // Not ok - return types of "f" are different
 
 //// [generics4.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privateInterfaceProperties.ts] ////
+
 //// [privateInterfaceProperties.ts]
 interface i1 { name:string; }
  
@@ -11,13 +13,13 @@ class c2 implements i1 { public name:string; }
 
 //// [privateInterfaceProperties.js]
 // should be an error 
-var c1 = (function () {
+var c1 = /** @class */ (function () {
     function c1() {
     }
     return c1;
 }());
 // should be ok 
-var c2 = (function () {
+var c2 = /** @class */ (function () {
     function c2() {
     }
     return c2;

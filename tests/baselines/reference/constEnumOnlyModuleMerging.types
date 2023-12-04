@@ -1,4 +1,6 @@
-=== tests/cases/compiler/constEnumOnlyModuleMerging.ts ===
+//// [tests/cases/compiler/constEnumOnlyModuleMerging.ts] ////
+
+=== constEnumOnlyModuleMerging.ts ===
 module Outer {
 >Outer : typeof Outer
 
@@ -8,11 +10,9 @@ module Outer {
 }
 
 module Outer {
->Outer : typeof Outer
-
     export const enum A { X }
 >A : A
->X : A
+>X : A.X
 }
 
 module B {

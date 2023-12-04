@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/codeGeneration/nameCollision.ts] ////
+
 //// [nameCollision.ts]
 module A {
     // these 2 statements force an underscore before the 'A' 
@@ -61,7 +63,7 @@ var B;
 (function (B_1) {
     // re-opened module with colliding name
     // this should add an underscore.
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;

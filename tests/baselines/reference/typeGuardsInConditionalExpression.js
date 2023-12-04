@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardsInConditionalExpression.ts] ////
+
 //// [typeGuardsInConditionalExpression.ts]
 // In the true expression of a conditional expression, 
 // the type of a variable or parameter is narrowed by any type guard in the condition when true, 
@@ -138,7 +140,7 @@ function foo8(x) {
     var b;
     return typeof x === "string"
         ? x === "hello"
-        : ((b = x) &&
+        : ((b = x) && //  number | boolean
             (typeof x === "boolean"
                 ? x // boolean
                 : x == 10)); // boolean

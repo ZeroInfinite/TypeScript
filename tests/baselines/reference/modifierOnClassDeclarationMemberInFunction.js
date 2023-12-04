@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/modifierOnClassDeclarationMemberInFunction.ts] ////
+
 //// [modifierOnClassDeclarationMemberInFunction.ts]
 function f() {
     class C {
@@ -9,7 +11,7 @@ function f() {
 
 //// [modifierOnClassDeclarationMemberInFunction.js]
 function f() {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
             this.baz = 1;
         }

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/exportDeclarations/ExportClassWithInaccessibleTypeInTypeParameterConstraint.ts ===
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportClassWithInaccessibleTypeInTypeParameterConstraint.ts] ////
+
+=== ExportClassWithInaccessibleTypeInTypeParameterConstraint.ts ===
 module A {
 >A : typeof A
 
@@ -14,7 +16,6 @@ module A {
 
     export var Origin: Point = { x: 0, y: 0 };
 >Origin : Point
->Point : Point
 >{ x: 0, y: 0 } : { x: number; y: number; }
 >x : number
 >0 : 0
@@ -31,7 +32,6 @@ module A {
 
     export var Origin3d: Point3d = { x: 0, y: 0, z: 0 };
 >Origin3d : Point3d
->Point3d : Point3d
 >{ x: 0, y: 0, z: 0 } : { x: number; y: number; z: number; }
 >x : number
 >0 : 0
@@ -42,24 +42,16 @@ module A {
 
     export class Line<TPoint extends Point>{
 >Line : Line<TPoint>
->TPoint : TPoint
->Point : Point
 
         constructor(public start: TPoint, public end: TPoint) { }
 >start : TPoint
->TPoint : TPoint
 >end : TPoint
->TPoint : TPoint
 
         static fromorigin2d(p: Point): Line<Point>{
 >fromorigin2d : (p: Point) => Line<Point>
 >p : Point
->Point : Point
->Line : Line<TPoint>
->Point : Point
 
             return null;
->null : null
         }
     }
 }

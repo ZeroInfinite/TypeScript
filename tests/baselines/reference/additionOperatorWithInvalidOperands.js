@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithInvalidOperands.ts] ////
+
 //// [additionOperatorWithInvalidOperands.ts]
 function foo() { }
 class C {
@@ -42,7 +44,7 @@ var r20 = E.a + M;
 
 //// [additionOperatorWithInvalidOperands.js]
 function foo() { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.foo = function () { };

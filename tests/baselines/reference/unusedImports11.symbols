@@ -1,10 +1,12 @@
-=== tests/cases/compiler/a.ts ===
+//// [tests/cases/compiler/unusedImports11.ts] ////
+
+=== a.ts ===
 import { Member } from './b';
 >Member : Symbol(Member, Decl(a.ts, 0, 8))
 
 import d, { Member as M } from './b';
 >d : Symbol(d, Decl(a.ts, 1, 6))
->Member : Symbol(M, Decl(a.ts, 1, 11))
+>Member : Symbol(Member, Decl(b.ts, 0, 0))
 >M : Symbol(M, Decl(a.ts, 1, 11))
 
 import * as ns from './b';
@@ -32,7 +34,7 @@ new r.Member();
 >r : Symbol(r, Decl(a.ts, 2, 26))
 >Member : Symbol(Member, Decl(b.ts, 0, 0))
 
-=== tests/cases/compiler/b.ts ===
+=== b.ts ===
 export class Member {}
 >Member : Symbol(Member, Decl(b.ts, 0, 0))
 

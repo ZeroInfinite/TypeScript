@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsemitComments.ts] ////
+
 //// [commentsemitComments.ts]
 /** Variable comments*/
 var myVariable = 10;
@@ -98,7 +100,7 @@ var fooVar;
 foo(50);
 fooVar();
 /**class comment*/
-var c = (function () {
+var c = /** @class */ (function () {
     /** constructor comment*/
     function c() {
         /** property comment */
@@ -117,7 +119,7 @@ var c = (function () {
         set: function (val) {
             this.b = val;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     /** overload implementation signature*/
@@ -134,7 +136,7 @@ var i1_i;
 var m1;
 (function (m1) {
     /** class b */
-    var b = (function () {
+    var b = /** @class */ (function () {
         function b(x) {
             this.x = x;
         }
@@ -160,8 +162,9 @@ declare class c {
     /** function comment */
     myFoo(): number;
     /** getter comment*/
+    get prop1(): number;
     /** setter comment*/
-    prop1: number;
+    set prop1(val: number);
     /** overload signature1*/
     foo1(a: number): string;
     /** Overload signature 2*/
@@ -178,20 +181,20 @@ interface i1 {
     /**indexer property*/
     [a: number]: string;
     /** function property;*/
-    myFoo(a: number): string;
+    myFoo(/*param prop*/ a: number): string;
     /** prop*/
     prop: string;
 }
 /**interface instance comments*/
 declare var i1_i: i1;
 /** this is module comment*/
-declare module m1 {
+declare namespace m1 {
     /** class b */
     class b {
         x: number;
         constructor(x: number);
     }
-    module m2 {
+    namespace m2 {
     }
 }
 declare var x: any;

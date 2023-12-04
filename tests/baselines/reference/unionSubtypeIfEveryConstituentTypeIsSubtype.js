@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/subtypesAndSuperTypes/unionSubtypeIfEveryConstituentTypeIsSubtype.ts] ////
+
 //// [unionSubtypeIfEveryConstituentTypeIsSubtype.ts]
 enum e {
     e1,
@@ -149,12 +151,12 @@ var e;
     e[e["e1"] = 0] = "e1";
     e[e["e2"] = 1] = "e2";
 })(e || (e = {}));
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var A2 = (function () {
+var A2 = /** @class */ (function () {
     function A2() {
     }
     return A2;
@@ -167,7 +169,7 @@ function f() { }
 (function (f) {
     f.bar = 1;
 })(f || (f = {}));
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;

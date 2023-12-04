@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/jsdocInTypeScript.ts] ////
+
 //// [jsdocInTypeScript.ts]
 // JSDoc typedef tags are not bound TypeScript files.
 /** @typedef {function} T */
@@ -48,9 +50,17 @@ import M = N; // Error: @typedef does not create namespaces in TypeScript code.
  */
 const obj = { foo: (a, b) => a + b };
 
+/** @enum {string} */
+var E = {};
+E[""];
+
+// make sure import types in JSDoc are not resolved
+/** @type {import("should-not-be-resolved").Type} */
+var v = import(String());
+
 
 //// [jsdocInTypeScript.js]
-var T = (function () {
+var T = /** @class */ (function () {
     function T() {
     }
     return T;
@@ -79,3 +89,9 @@ var M = N; // Error: @typedef does not create namespaces in TypeScript code.
  * @type {{foo: (function(string, string): string)}}
  */
 var obj = { foo: function (a, b) { return a + b; } };
+/** @enum {string} */
+var E = {};
+E[""];
+// make sure import types in JSDoc are not resolved
+/** @type {import("should-not-be-resolved").Type} */
+var v = Promise.resolve("".concat(String())).then(function (s) { return require(s); });

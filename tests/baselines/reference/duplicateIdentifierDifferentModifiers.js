@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateIdentifierDifferentModifiers.ts] ////
+
 //// [duplicateIdentifierDifferentModifiers.ts]
 // Not OK
 interface B { x; }
@@ -24,13 +26,13 @@ interface C {
 
 //// [duplicateIdentifierDifferentModifiers.js]
 // OK
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
 // Not OK
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

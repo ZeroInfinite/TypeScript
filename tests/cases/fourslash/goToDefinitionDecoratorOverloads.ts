@@ -9,11 +9,11 @@
 ////
 ////declare const s: symbol;
 ////class C {
-////    @/*useDecString*/dec f() {}
-////    @/*useDecSymbol*/dec [s]() {}
+////    @[|/*useDecString*/dec|] f() {}
+////    @[|/*useDecSymbol*/dec|] [s]() {}
 ////}
 
-verify.goToDefinition({
-    useDecString: "defDecString",
-    useDecSymbol: "defDecSymbol"
-});
+verify.baselineGoToDefinition(
+    "useDecString",
+    "useDecSymbol",
+);

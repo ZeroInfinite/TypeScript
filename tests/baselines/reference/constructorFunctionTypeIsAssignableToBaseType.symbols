@@ -1,4 +1,6 @@
-=== tests/cases/conformance/classes/classDeclarations/classHeritageSpecification/constructorFunctionTypeIsAssignableToBaseType.ts ===
+//// [tests/cases/conformance/classes/classDeclarations/classHeritageSpecification/constructorFunctionTypeIsAssignableToBaseType.ts] ////
+
+=== constructorFunctionTypeIsAssignableToBaseType.ts ===
 class Base {
 >Base : Symbol(Base, Decl(constructorFunctionTypeIsAssignableToBaseType.ts, 0, 0))
 
@@ -7,7 +9,7 @@ class Base {
 
         bar: Object;
 >bar : Symbol(bar, Decl(constructorFunctionTypeIsAssignableToBaseType.ts, 1, 17))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
     }
 }
 

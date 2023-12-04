@@ -1,4 +1,6 @@
-=== tests/cases/compiler/numericIndexerConstraint4.ts ===
+//// [tests/cases/compiler/numericIndexerConstraint4.ts] ////
+
+=== numericIndexerConstraint4.ts ===
 class A {
 >A : Symbol(A, Decl(numericIndexerConstraint4.ts, 0, 0))
 
@@ -22,5 +24,6 @@ var x: {
 >A : Symbol(A, Decl(numericIndexerConstraint4.ts, 0, 0))
 
 } = { 0: new B() }
+>0 : Symbol(0, Decl(numericIndexerConstraint4.ts, 10, 5))
 >B : Symbol(B, Decl(numericIndexerConstraint4.ts, 2, 1))
 

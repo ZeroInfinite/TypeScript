@@ -1,5 +1,6 @@
-=== tests/cases/conformance/types/stringLiteral/stringLiteralTypesAndLogicalOrExpressions01.ts ===
+//// [tests/cases/conformance/types/stringLiteral/stringLiteralTypesAndLogicalOrExpressions01.ts] ////
 
+=== stringLiteralTypesAndLogicalOrExpressions01.ts ===
 declare function myRandBool(): boolean;
 >myRandBool : () => boolean
 
@@ -18,12 +19,12 @@ let c: "foo" = b;
 >b : "foo"
 
 let d = b || "bar";
->d : "foo" | "bar"
+>d : string
 >b || "bar" : "foo" | "bar"
 >b : "foo"
 >"bar" : "bar"
 
 let e: "foo" | "bar" = d;
 >e : "foo" | "bar"
->d : "foo" | "bar"
+>d : string
 

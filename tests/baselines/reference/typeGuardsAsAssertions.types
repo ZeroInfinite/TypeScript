@@ -1,4 +1,6 @@
-=== tests/cases/conformance/controlFlow/typeGuardsAsAssertions.ts ===
+//// [tests/cases/conformance/controlFlow/typeGuardsAsAssertions.ts] ////
+
+=== typeGuardsAsAssertions.ts ===
 // Repro from #8513
 
 let cond: boolean;
@@ -6,37 +8,22 @@ let cond: boolean;
 
 export type Optional<a> = Some<a> | None;
 >Optional : Optional<a>
->a : a
->Some : Some<a>
->a : a
->None : None
 
 export interface None { readonly none: string; }
->None : None
 >none : string
 
 export interface Some<a> { readonly some: a; }
->Some : Some<a>
->a : a
 >some : a
->a : a
 
 export const none : None = { none: '' };
 >none : None
->None : None
 >{ none: '' } : { none: string; }
 >none : string
 >'' : ""
 
 export function isSome<a>(value: Optional<a>): value is Some<a> {
 >isSome : <a>(value: Optional<a>) => value is Some<a>
->a : a
 >value : Optional<a>
->Optional : Optional<a>
->a : a
->value : any
->Some : Some<a>
->a : a
 
     return 'some' in value;
 >'some' in value : boolean
@@ -46,9 +33,7 @@ export function isSome<a>(value: Optional<a>): value is Some<a> {
 
 function someFrom<a>(some: a) {
 >someFrom : <a>(some: a) => { some: a; }
->a : a
 >some : a
->a : a
 
     return { some };
 >{ some } : { some: a; }
@@ -57,14 +42,10 @@ function someFrom<a>(some: a) {
 
 export function fn<r>(makeSome: () => r): void {
 >fn : <r>(makeSome: () => r) => void
->r : r
 >makeSome : () => r
->r : r
 
     let result: Optional<r> = none;
 >result : Optional<r>
->Optional : Optional<a>
->r : r
 >none : None
 
     result;  // None
@@ -117,7 +98,7 @@ function foo1() {
 >x : string | number | boolean
 >typeof x === "string" ? x.slice() : "abc" : string
 >typeof x === "string" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"string" : "string"
 >x.slice() : string
@@ -151,7 +132,7 @@ function foo2() {
 
         if (typeof x === "string") {
 >typeof x === "string" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"string" : "string"
 
@@ -210,7 +191,7 @@ function f2() {
 
     if (typeof x === "string") {
 >typeof x === "string" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : undefined
 >"string" : "string"
 
@@ -253,7 +234,7 @@ function f4() {
 
     if (typeof x === "boolean") {
 >typeof x === "boolean" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : undefined
 >"boolean" : "boolean"
 
@@ -271,11 +252,11 @@ function f5(x: string | number) {
     if (typeof x === "string" && typeof x === "number") {
 >typeof x === "string" && typeof x === "number" : boolean
 >typeof x === "string" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"string" : "string"
 >typeof x === "number" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string
 >"number" : "number"
 
@@ -295,7 +276,6 @@ function f6() {
 
     let x: string | undefined | null;
 >x : string | null | undefined
->null : null
 
     x!.slice();
 >x!.slice() : string
@@ -331,7 +311,6 @@ function f6() {
     x = null;
 >x = null : null
 >x : string | null | undefined
->null : null
 
     x!.slice();
 >x!.slice() : string
@@ -344,7 +323,6 @@ function f6() {
 >x = <undefined | null>undefined : null | undefined
 >x : string | null | undefined
 ><undefined | null>undefined : null | undefined
->null : null
 >undefined : undefined
 
     x!.slice();
@@ -371,7 +349,6 @@ function f6() {
 >x = <string | null>"" : string | null
 >x : string | null | undefined
 ><string | null>"" : string | null
->null : null
 >"" : ""
 
     x!.slice();

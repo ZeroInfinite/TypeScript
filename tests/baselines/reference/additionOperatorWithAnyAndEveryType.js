@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithAnyAndEveryType.ts] ////
+
 //// [additionOperatorWithAnyAndEveryType.ts]
 function foo() { }
 class C {
@@ -41,7 +43,7 @@ var r20 = a + ((a: string) => { return a });
 
 //// [additionOperatorWithAnyAndEveryType.js]
 function foo() { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.foo = function () { };

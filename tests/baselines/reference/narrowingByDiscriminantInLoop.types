@@ -1,40 +1,30 @@
-=== tests/cases/compiler/narrowingByDiscriminantInLoop.ts ===
+//// [tests/cases/compiler/narrowingByDiscriminantInLoop.ts] ////
+
+=== narrowingByDiscriminantInLoop.ts ===
 // Repro from #9977
 
 type IDLMemberTypes = OperationMemberType | ConstantMemberType;
->IDLMemberTypes : IDLMemberTypes
->OperationMemberType : OperationMemberType
->ConstantMemberType : ConstantMemberType
+>IDLMemberTypes : OperationMemberType | ConstantMemberType
 
 interface IDLTypeDescription {
->IDLTypeDescription : IDLTypeDescription
-
     origin: string;
 >origin : string
 }
 
 interface InterfaceType {
->InterfaceType : InterfaceType
-
     members: IDLMemberTypes[];
 >members : IDLMemberTypes[]
->IDLMemberTypes : IDLMemberTypes
 }
 
 interface OperationMemberType {
->OperationMemberType : OperationMemberType
-
     type: "operation";
 >type : "operation"
 
     idlType: IDLTypeDescription;
 >idlType : IDLTypeDescription
->IDLTypeDescription : IDLTypeDescription
 }
 
 interface ConstantMemberType {
->ConstantMemberType : ConstantMemberType
-
     type: "const";
 >type : "const"
 
@@ -45,7 +35,6 @@ interface ConstantMemberType {
 function insertInterface(callbackType: InterfaceType) {
 >insertInterface : (callbackType: InterfaceType) => void
 >callbackType : InterfaceType
->InterfaceType : InterfaceType
 
     for (const memberType of callbackType.members) {
 >memberType : IDLMemberTypes
@@ -85,7 +74,6 @@ function insertInterface(callbackType: InterfaceType) {
 >memberType.idlType : IDLTypeDescription
 >memberType : OperationMemberType
 >idlType : IDLTypeDescription
->IDLTypeDescription : IDLTypeDescription
         }
     }
 }
@@ -93,7 +81,6 @@ function insertInterface(callbackType: InterfaceType) {
 function insertInterface2(callbackType: InterfaceType) {
 >insertInterface2 : (callbackType: InterfaceType) => void
 >callbackType : InterfaceType
->InterfaceType : InterfaceType
 
     for (const memberType of callbackType.members) {
 >memberType : IDLMemberTypes
@@ -121,7 +108,6 @@ function insertInterface2(callbackType: InterfaceType) {
 function foo(memberType: IDLMemberTypes) {
 >foo : (memberType: IDLMemberTypes) => void
 >memberType : IDLMemberTypes
->IDLMemberTypes : IDLMemberTypes
 
     if (memberType.type === "const") {
 >memberType.type === "const" : boolean
@@ -154,8 +140,6 @@ function foo(memberType: IDLMemberTypes) {
 // Repro for issue similar to #8383
 
 interface A {
->A : A
-
     kind: true;
 >kind : true
 >true : true
@@ -166,8 +150,6 @@ interface A {
 }
 
 interface B {
->B : B
-
     kind: false;
 >kind : false
 >false : false
@@ -180,8 +162,6 @@ interface B {
 function f1(x: A | B) {
 >f1 : (x: A | B) => void
 >x : A | B
->A : A
->B : B
 
     while (true) {
 >true : true
@@ -225,8 +205,6 @@ function f1(x: A | B) {
 function f2(x: A | B) {
 >f2 : (x: A | B) => void
 >x : A | B
->A : A
->B : B
 
     while (true) {
 >true : true

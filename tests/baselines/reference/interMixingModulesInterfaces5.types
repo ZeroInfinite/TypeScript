@@ -1,10 +1,10 @@
-=== tests/cases/compiler/interMixingModulesInterfaces5.ts ===
+//// [tests/cases/compiler/interMixingModulesInterfaces5.ts] ////
+
+=== interMixingModulesInterfaces5.ts ===
 module A {
 >A : typeof A
 
     interface B {
->B : B
-
         name: string;
 >name : string
 
@@ -19,7 +19,6 @@ module A {
 >createB : () => number
 
             return null;
->null : null
         }
     }
 }

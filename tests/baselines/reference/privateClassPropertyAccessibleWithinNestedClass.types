@@ -1,4 +1,6 @@
-=== tests/cases/conformance/classes/members/accessibility/privateClassPropertyAccessibleWithinNestedClass.ts ===
+//// [tests/cases/conformance/classes/members/accessibility/privateClassPropertyAccessibleWithinNestedClass.ts] ////
+
+=== privateClassPropertyAccessibleWithinNestedClass.ts ===
 // no errors
 
 class C {
@@ -74,7 +76,6 @@ class C {
 
                 let x: C;
 >x : C
->C : C
 
                 var x1 = x.foo;
 >x1 : () => any

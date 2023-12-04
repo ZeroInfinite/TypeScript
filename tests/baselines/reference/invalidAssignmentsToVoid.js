@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/void/invalidAssignmentsToVoid.ts] ////
+
 //// [invalidAssignmentsToVoid.ts]
 var x: void;
 x = 1;
@@ -28,7 +30,7 @@ x = 1;
 x = true;
 x = '';
 x = {};
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames7_ES5.ts] ////
+
 //// [computedPropertyNames7_ES5.ts]
 enum E {
     member
@@ -7,6 +9,7 @@ var v = {
 }
 
 //// [computedPropertyNames7_ES5.js]
+var _a;
 var E;
 (function (E) {
     E[E["member"] = 0] = "member";
@@ -14,4 +17,3 @@ var E;
 var v = (_a = {},
     _a[E.member] = 0,
     _a);
-var _a;

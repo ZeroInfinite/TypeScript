@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/propertyMemberDeclarations/memberFunctionDeclarations/staticMemberAssignsToConstructorFunctionMembers.ts] ////
+
 //// [staticMemberAssignsToConstructorFunctionMembers.ts]
 class C {
     static foo() {
@@ -13,7 +15,7 @@ class C {
 }
 
 //// [staticMemberAssignsToConstructorFunctionMembers.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.foo = function () {

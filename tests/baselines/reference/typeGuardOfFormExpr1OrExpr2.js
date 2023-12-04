@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardOfFormExpr1OrExpr2.ts] ////
+
 //// [typeGuardOfFormExpr1OrExpr2.ts]
 var str: string;
 var bool: boolean;
@@ -53,7 +55,7 @@ var num;
 var strOrNum;
 var strOrNumOrBool;
 var numOrBool;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

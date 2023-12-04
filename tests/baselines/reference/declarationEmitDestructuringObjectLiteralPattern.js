@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declarationEmitDestructuringObjectLiteralPattern.ts] ////
+
 //// [declarationEmitDestructuringObjectLiteralPattern.ts]
 var { } = { x: 5, y: "hello" };
 var { x4 } = { x4: 5, y4: "hello" };
@@ -39,8 +41,8 @@ function f15() {
 var _f = f15(), a4 = _f.a4, b4 = _f.b4, c4 = _f.c4;
 var m;
 (function (m) {
-    _a = f15(), m.a4 = _a.a4, m.b4 = _a.b4, m.c4 = _a.c4;
     var _a;
+    _a = f15(), m.a4 = _a.a4, m.b4 = _a.b4, m.c4 = _a.c4;
 })(m || (m = {}));
 
 
@@ -58,6 +60,6 @@ declare function f15(): {
     c4: boolean;
 };
 declare var a4: string, b4: number, c4: boolean;
-declare module m {
+declare namespace m {
     var a4: string, b4: number, c4: boolean;
 }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentOnClassMethod1.ts] ////
+
 //// [commentOnClassMethod1.ts]
 class WebControls {
     /**
@@ -8,7 +10,7 @@ class WebControls {
 }
 
 //// [commentOnClassMethod1.js]
-var WebControls = (function () {
+var WebControls = /** @class */ (function () {
     function WebControls() {
     }
     /**

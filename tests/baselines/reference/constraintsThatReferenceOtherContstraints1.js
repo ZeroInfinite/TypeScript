@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constraintsThatReferenceOtherContstraints1.ts] ////
+
 //// [constraintsThatReferenceOtherContstraints1.ts]
 interface Object { }
 
@@ -10,12 +12,12 @@ var x: Foo< { a: string }, { a: string; b: number }>; // Error 2 Type '{ a: stri
 
 
 //// [constraintsThatReferenceOtherContstraints1.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;
 }());
-var Bar = (function () {
+var Bar = /** @class */ (function () {
     function Bar() {
     }
     return Bar;

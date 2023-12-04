@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNamesContextualType9_ES5.ts] ////
+
 //// [computedPropertyNamesContextualType9_ES5.ts]
 interface I {
     [s: string]: boolean;
@@ -10,8 +12,8 @@ var o: I = {
 }
 
 //// [computedPropertyNamesContextualType9_ES5.js]
+var _a;
 var o = (_a = {},
     _a[+"foo"] = "",
     _a[+"bar"] = 0,
     _a);
-var _a;

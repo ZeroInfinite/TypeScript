@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeofInAnonymousType.ts] ////
+
 //// [declFileTypeofInAnonymousType.ts]
 module m1 {
     export class c {
@@ -24,7 +26,7 @@ var d = {
 //// [declFileTypeofInAnonymousType.js]
 var m1;
 (function (m1) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
@@ -52,13 +54,13 @@ var d = {
 
 
 //// [declFileTypeofInAnonymousType.d.ts]
-declare module m1 {
+declare namespace m1 {
     class c {
     }
     enum e {
         weekday = 0,
         weekend = 1,
-        holiday = 2,
+        holiday = 2
     }
 }
 declare var a: {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/tupleTypes.ts] ////
+
 //// [tupleTypes.ts]
 var v1: [];  // Error
 var v2: [number];
@@ -16,7 +18,7 @@ t = [];               // Error
 t = [1];              // Error
 t = [1, "hello"];     // Ok
 t = ["hello", 1];     // Error
-t = [1, "hello", 2];  // Ok
+t = [1, "hello", 2];  // Error
 
 var tf: [string, (x: string) => number] = ["hello", x => x.length];
 
@@ -53,6 +55,18 @@ a1 = a3;  // Error
 a3 = a1;
 a3 = a2;
 
+type B = Pick<[number], 'length'>;
+declare const b: B;
+b.length = 0; // Error
+declare const b1: readonly [number?];
+b1.length = 0; // Error
+declare const b2: readonly [number, ...number[]];
+b2.length = 0; // Error
+declare const b3: readonly number[];
+b3.length = 0; // Error
+declare const b4: [number?];
+b4.length = 0;
+
 
 //// [tupleTypes.js]
 var v1; // Error
@@ -70,7 +84,7 @@ t = []; // Error
 t = [1]; // Error
 t = [1, "hello"]; // Ok
 t = ["hello", 1]; // Error
-t = [1, "hello", 2]; // Ok
+t = [1, "hello", 2]; // Error
 var tf = ["hello", function (x) { return x.length; }];
 var ff1 = ff("hello", ["foo", function (x) { return x.length; }]);
 var ff1;
@@ -99,3 +113,8 @@ a1 = a2; // Error
 a1 = a3; // Error
 a3 = a1;
 a3 = a2;
+b.length = 0; // Error
+b1.length = 0; // Error
+b2.length = 0; // Error
+b3.length = 0; // Error
+b4.length = 0;

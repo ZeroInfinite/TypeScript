@@ -1,4 +1,6 @@
-=== tests/cases/compiler/interfaceExtendsClass1.ts ===
+//// [tests/cases/compiler/interfaceExtendsClass1.ts] ////
+
+=== interfaceExtendsClass1.ts ===
 class Control {
 >Control : Control
 
@@ -6,9 +8,6 @@ class Control {
 >state : any
 }
 interface SelectableControl extends Control {
->SelectableControl : SelectableControl
->Control : Control
-
     select(): void;
 >select : () => void
 }

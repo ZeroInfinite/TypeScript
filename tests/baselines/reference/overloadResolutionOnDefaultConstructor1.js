@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadResolutionOnDefaultConstructor1.ts] ////
+
 //// [overloadResolutionOnDefaultConstructor1.ts]
 class Bar {
     public clone() {
@@ -6,7 +8,7 @@ class Bar {
 }
 
 //// [overloadResolutionOnDefaultConstructor1.js]
-var Bar = (function () {
+var Bar = /** @class */ (function () {
     function Bar() {
     }
     Bar.prototype.clone = function () {

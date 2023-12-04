@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/metadataOfClassFromModule.ts] ////
+
 //// [metadataOfClassFromModule.ts]
 module MyModule {
 
@@ -25,13 +27,13 @@ var MyModule;
 (function (MyModule) {
     function inject(target, key) { }
     MyModule.inject = inject;
-    var Leg = (function () {
+    var Leg = /** @class */ (function () {
         function Leg() {
         }
         return Leg;
     }());
     MyModule.Leg = Leg;
-    var Person = (function () {
+    var Person = /** @class */ (function () {
         function Person() {
         }
         __decorate([

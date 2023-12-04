@@ -12,7 +12,7 @@ export var x = new defaultBinding();
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var a = (function () {
+    var a = /** @class */ (function () {
         function a() {
         }
         return a;
@@ -23,6 +23,7 @@ define(["require", "exports"], function (require, exports) {
 define(["require", "exports", "server"], function (require, exports, server_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.x = void 0;
     exports.x = new server_1.default();
 });
 

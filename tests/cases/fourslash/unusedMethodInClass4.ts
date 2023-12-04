@@ -8,5 +8,9 @@
 ////    } |]
 ////}
 
-verify.rangeAfterCodeFix(`public function2(){
-}`);
+verify.codeFix({
+    description: `Remove unused declaration for: 'function1'`,
+    newRangeContent: `public function2(){
+    }
+`,
+});

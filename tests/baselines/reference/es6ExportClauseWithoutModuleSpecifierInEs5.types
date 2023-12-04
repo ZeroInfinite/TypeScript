@@ -1,9 +1,10 @@
-=== tests/cases/compiler/server.ts ===
+//// [tests/cases/compiler/es6ExportClauseWithoutModuleSpecifierInEs5.ts] ////
+
+=== server.ts ===
 export class c {
 >c : c
 }
 export interface i {
->i : i
 }
 export module m {
 >m : typeof m
@@ -17,21 +18,20 @@ export var x = 10;
 >10 : 10
 
 export module uninstantiated {
->uninstantiated : any
 }
 
-=== tests/cases/compiler/client.ts ===
+=== client.ts ===
 export { c } from "./server";
->c : typeof c
+>c : typeof import("server").c
 
 export { c as c2 } from "./server";
->c : typeof c
->c2 : typeof c
+>c : typeof import("server").c
+>c2 : typeof import("server").c
 
 export { i, m as instantiatedModule } from "./server";
 >i : any
->m : typeof m
->instantiatedModule : typeof m
+>m : typeof import("server").m
+>instantiatedModule : typeof import("server").m
 
 export { uninstantiated } from "./server";
 >uninstantiated : any

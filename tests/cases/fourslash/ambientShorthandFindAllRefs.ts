@@ -4,13 +4,10 @@
 ////declare module "jquery";
 
 // @Filename: user.ts
-////import {[|{| "isWriteAccess": true, "isDefinition": true |}x|]} from "jquery";
+////import {/*1*/x} from "jquery";
 
 // @Filename: user2.ts
-////import {[|{| "isWriteAccess": true, "isDefinition": true |}x|]} from "jquery";
+////import {/*2*/x} from "jquery";
 
-const ranges = test.ranges();
-const [r0, r1] = ranges;
 // TODO: Want these to be in the same group, but that would require creating a symbol for `x`.
-verify.singleReferenceGroup("import x", [r0]);
-verify.singleReferenceGroup("import x", [r1]);
+verify.baselineFindAllReferences('1', '2');

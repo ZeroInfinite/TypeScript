@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/assignmentNonObjectTypeConstraints.ts] ////
+
 //// [assignmentNonObjectTypeConstraints.ts]
 const enum E { A, B, C }
 
@@ -24,13 +26,13 @@ function foo(x) {
     var y = x; // Ok
 }
 foo(5);
-foo(0 /* A */);
-var A = (function () {
+foo(0 /* E.A */);
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;

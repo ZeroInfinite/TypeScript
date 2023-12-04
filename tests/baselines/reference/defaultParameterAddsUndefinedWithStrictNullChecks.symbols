@@ -1,13 +1,15 @@
-=== tests/cases/compiler/defaultParameterAddsUndefinedWithStrictNullChecks.ts ===
+//// [tests/cases/compiler/defaultParameterAddsUndefinedWithStrictNullChecks.ts] ////
+
+=== defaultParameterAddsUndefinedWithStrictNullChecks.ts ===
 function f(addUndefined1 = "J", addUndefined2?: number) {
 >f : Symbol(f, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 0, 0))
 >addUndefined1 : Symbol(addUndefined1, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 0, 11))
 >addUndefined2 : Symbol(addUndefined2, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 0, 31))
 
     return addUndefined1.length + (addUndefined2 || 0);
->addUndefined1.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>addUndefined1.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >addUndefined1 : Symbol(addUndefined1, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 0, 11))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >addUndefined2 : Symbol(addUndefined2, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 0, 31))
 }
 function g(addUndefined = "J", addDefined: number) {
@@ -16,9 +18,9 @@ function g(addUndefined = "J", addDefined: number) {
 >addDefined : Symbol(addDefined, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 3, 30))
 
     return addUndefined.length + addDefined;
->addUndefined.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>addUndefined.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >addUndefined : Symbol(addUndefined, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 3, 11))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >addDefined : Symbol(addDefined, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 3, 30))
 }
 let total = f() + f('a', 1) + f('b') + f(undefined, 2);
@@ -41,9 +43,9 @@ function foo1(x: string = "string", b: number) {
 >b : Symbol(b, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 9, 35))
 
     x.length;
->x.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>x.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 9, 14))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 }
 
 function foo2(x = "string", b: number) {
@@ -52,9 +54,9 @@ function foo2(x = "string", b: number) {
 >b : Symbol(b, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 13, 27))
 
     x.length; // ok, should be string
->x.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>x.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 13, 14))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 }
 
 function foo3(x: string | undefined = "string", b: number) {
@@ -63,9 +65,9 @@ function foo3(x: string | undefined = "string", b: number) {
 >b : Symbol(b, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 17, 47))
 
     x.length; // ok, should be string
->x.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>x.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 17, 14))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 
     x = undefined;
 >x : Symbol(x, Decl(defaultParameterAddsUndefinedWithStrictNullChecks.ts, 17, 14))

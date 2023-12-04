@@ -1,4 +1,6 @@
-=== tests/cases/compiler/implicitAnyInCatch.ts ===
+//// [tests/cases/compiler/implicitAnyInCatch.ts] ////
+
+=== implicitAnyInCatch.ts ===
 // this should not be an error
 try { } catch (error) {
 >error : any
@@ -13,7 +15,7 @@ try { } catch (error) {
 }
 for (var key in this) { }
 >key : string
->this : any
+>this : typeof globalThis
 
 class C {
 >C : C
@@ -22,7 +24,7 @@ class C {
 >temp : () => void
 
         for (var x in this) {
->x : keyof this
+>x : Extract<keyof this, string>
 >this : this
         }
     }

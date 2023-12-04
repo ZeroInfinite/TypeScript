@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericCloduleInModule.ts] ////
+
 //// [genericCloduleInModule.ts]
 module A {
     export class B<T> {
@@ -15,7 +17,7 @@ b.foo();
 //// [genericCloduleInModule.js]
 var A;
 (function (A) {
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         B.prototype.foo = function () { };

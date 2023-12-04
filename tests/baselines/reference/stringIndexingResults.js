@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/indexSignatures/stringIndexingResults.ts] ////
+
 //// [stringIndexingResults.ts]
 class C {
     [x: string]: string;
@@ -36,7 +38,7 @@ var r12 = b[1];
 
 
 //// [stringIndexingResults.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.y = '';
     }

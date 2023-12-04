@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/codeGeneration/importStatements.ts] ////
+
 //// [importStatements.ts]
 module A {
     export class Point {
@@ -37,7 +39,7 @@ module E {
 //// [importStatements.js]
 var A;
 (function (A) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point(x, y) {
             this.x = x;
             this.y = y;

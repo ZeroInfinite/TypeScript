@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/union/contextualTypeWithUnionTypeIndexSignatures.ts] ////
+
 //// [contextualTypeWithUnionTypeIndexSignatures.ts]
 //When used as a contextual type, a union type U has those members that are present in any of 
 // its constituent types, with types that are unions of the respective members in the constituent types. 
@@ -39,7 +41,7 @@ interface IWithNumberIndexSignature2 {
 // If S is not empty, U has a string index signature of a union type of 
 // the types of the string index signatures from each type in S.
 var x: IWithNoStringIndexSignature | IWithStringIndexSignature1 = { z: a => a }; // a should be number
-var x: IWithNoStringIndexSignature | IWithStringIndexSignature1 = { foo: a => a }; // a should be any
+var x: IWithNoStringIndexSignature | IWithStringIndexSignature1 = { foo: a => a }; // a should be number (because of index signature of IWithStringIndexSignature1)
 var x: IWithNoStringIndexSignature | IWithStringIndexSignature1 = { foo: "hello" }; 
 var x2: IWithStringIndexSignature1 | IWithStringIndexSignature2 = { z: a => a.toString() }; // a should be number
 var x2: IWithStringIndexSignature1 | IWithStringIndexSignature2 = { z: a => a }; // a should be number
@@ -49,7 +51,7 @@ var x2: IWithStringIndexSignature1 | IWithStringIndexSignature2 = { z: a => a };
 // If S is not empty, U has a numeric index signature of a union type of 
 // the types of the numeric index signatures from each type in S.
 var x3: IWithNoNumberIndexSignature | IWithNumberIndexSignature1 = { 1: a => a }; // a should be number
-var x3: IWithNoNumberIndexSignature | IWithNumberIndexSignature1 = { 0: a => a }; // a should be any
+var x3: IWithNoNumberIndexSignature | IWithNumberIndexSignature1 = { 0: a => a }; // a should be number (because of index signature of IWithNumberIndexSignature1)
 var x3: IWithNoNumberIndexSignature | IWithNumberIndexSignature1 = { 0: "hello" };
 var x4: IWithNumberIndexSignature1 | IWithNumberIndexSignature2 = { 1: a => a.toString() }; // a should be number
 var x4: IWithNumberIndexSignature1 | IWithNumberIndexSignature2 = { 1: a => a }; // a should be number
@@ -66,7 +68,7 @@ var x4: IWithNumberIndexSignature1 | IWithNumberIndexSignature2 = { 1: a => a };
 // If S is not empty, U has a string index signature of a union type of 
 // the types of the string index signatures from each type in S.
 var x = { z: function (a) { return a; } }; // a should be number
-var x = { foo: function (a) { return a; } }; // a should be any
+var x = { foo: function (a) { return a; } }; // a should be number (because of index signature of IWithStringIndexSignature1)
 var x = { foo: "hello" };
 var x2 = { z: function (a) { return a.toString(); } }; // a should be number
 var x2 = { z: function (a) { return a; } }; // a should be number
@@ -74,7 +76,7 @@ var x2 = { z: function (a) { return a; } }; // a should be number
 // If S is not empty, U has a numeric index signature of a union type of 
 // the types of the numeric index signatures from each type in S.
 var x3 = { 1: function (a) { return a; } }; // a should be number
-var x3 = { 0: function (a) { return a; } }; // a should be any
+var x3 = { 0: function (a) { return a; } }; // a should be number (because of index signature of IWithNumberIndexSignature1)
 var x3 = { 0: "hello" };
 var x4 = { 1: function (a) { return a.toString(); } }; // a should be number
 var x4 = { 1: function (a) { return a; } }; // a should be number

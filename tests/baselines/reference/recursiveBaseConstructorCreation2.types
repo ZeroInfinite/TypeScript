@@ -1,4 +1,6 @@
-=== tests/cases/compiler/recursiveBaseConstructorCreation2.ts ===
+//// [tests/cases/compiler/recursiveBaseConstructorCreation2.ts] ////
+
+=== recursiveBaseConstructorCreation2.ts ===
 declare class base
 >base : base
 {
@@ -9,7 +11,6 @@ declare class abc extends base
 {
    foo: xyz;
 >foo : xyz
->xyz : xyz
 }
 declare class xyz extends abc
 >xyz : xyz

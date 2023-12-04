@@ -1,18 +1,18 @@
-=== tests/cases/compiler/typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral01.ts ===
+//// [tests/cases/compiler/typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral01.ts] ////
+
+=== typeArgumentInferenceWithRecursivelyReferencedTypeAliasToTypeLiteral01.ts ===
 type TreeNode = {
->TreeNode : TreeNode
+>TreeNode : { name: string; parent: TreeNode; }
 
     name: string;
 >name : string
 
     parent: TreeNode;
 >parent : TreeNode
->TreeNode : TreeNode
 }
 
 var nodes: TreeNode[];
 >nodes : TreeNode[]
->TreeNode : TreeNode
 
 nodes.map(n => n.name);
 >nodes.map(n => n.name) : string[]

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/codeGeneration/importStatements.ts ===
+//// [tests/cases/conformance/internalModules/codeGeneration/importStatements.ts] ////
+
+=== importStatements.ts ===
 module A {
 >A : typeof A
 
@@ -20,8 +22,6 @@ module A {
 
 // no code gen expected
 module B {
->B : any
-
     import a = A; //Error generates 'var <Alias> = <EntityName>;'
 >a : typeof a
 >A : typeof a
@@ -42,7 +42,6 @@ module C {
     var p: a.Point;
 >p : a.Point
 >a : any
->Point : a.Point
 
     var p = {x:0, y:0 };
 >p : a.Point
@@ -82,7 +81,6 @@ module E {
 >xDist : (x: a.Point) => number
 >x : a.Point
 >a : any
->Point : a.Point
 
         return (a.Origin.x - x.x);
 >(a.Origin.x - x.x) : number

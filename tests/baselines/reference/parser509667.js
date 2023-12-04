@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/RegressionTests/parser509667.ts] ////
+
 //// [parser509667.ts]
 class Foo {
    f1() {
@@ -12,7 +14,7 @@ class Foo {
 }
 
 //// [parser509667.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.f1 = function () {

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/typeInference/genericCallWithObjectTypeArgs.ts] ////
+
 //// [genericCallWithObjectTypeArgs.ts]
 class C {
     private x: string;
@@ -22,17 +24,17 @@ var r = foo(c1, d1); // error
 var r2 = foo(c1, c1); // ok
 
 //// [genericCallWithObjectTypeArgs.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     return D;
 }());
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     return X;

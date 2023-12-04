@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/autoAsiForStaticsInClassDeclaration.ts] ////
+
 //// [autoAsiForStaticsInClassDeclaration.ts]
 class C {
     static x
@@ -5,7 +7,7 @@ class C {
 } 
 
 //// [autoAsiForStaticsInClassDeclaration.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/localClassesInLoop.ts] ////
+
 //// [localClassesInLoop.ts]
 declare function use(a: any);
 
@@ -14,7 +16,7 @@ use(data[0]() === data[1]());
 "use strict";
 var data = [];
 var _loop_1 = function (x) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

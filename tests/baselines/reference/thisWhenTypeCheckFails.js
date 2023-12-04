@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/thisWhenTypeCheckFails.ts] ////
+
 //// [thisWhenTypeCheckFails.ts]
 class c {
     public n() {
@@ -9,7 +11,7 @@ class c {
 
 
 //// [thisWhenTypeCheckFails.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     c.prototype.n = function () {

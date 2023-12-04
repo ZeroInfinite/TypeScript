@@ -5,4 +5,7 @@
 ////    [|let a = "dummy entry";|]
 ////}
 
-verify.rangeAfterCodeFix("");
+verify.codeFix({
+    description: "Remove unused declaration for: 'a'",
+    newRangeContent: "",
+});

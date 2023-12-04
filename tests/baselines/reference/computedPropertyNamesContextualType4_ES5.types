@@ -1,7 +1,7 @@
-=== tests/cases/conformance/es6/computedProperties/computedPropertyNamesContextualType4_ES5.ts ===
-interface I {
->I : I
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNamesContextualType4_ES5.ts] ////
 
+=== computedPropertyNamesContextualType4_ES5.ts ===
+interface I {
     [s: string]: any;
 >s : string
 
@@ -11,16 +11,17 @@ interface I {
 
 var o: I = {
 >o : I
->I : I
 >{    [""+"foo"]: "",    [""+"bar"]: 0} : { [x: string]: string | number; }
 
     [""+"foo"]: "",
+>[""+"foo"] : string
 >""+"foo" : string
 >"" : ""
 >"foo" : "foo"
 >"" : ""
 
     [""+"bar"]: 0
+>[""+"bar"] : number
 >""+"bar" : string
 >"" : ""
 >"bar" : "bar"

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/collisionExportsRequireAndInternalModuleAliasInGlobalFile.ts] ////
+
 //// [collisionExportsRequireAndInternalModuleAliasInGlobalFile.ts]
 module mOfGloalFile {
     export class c {
@@ -25,7 +27,7 @@ module m2 {
 //// [collisionExportsRequireAndInternalModuleAliasInGlobalFile.js]
 var mOfGloalFile;
 (function (mOfGloalFile) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;

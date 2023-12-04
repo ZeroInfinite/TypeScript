@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/superPropertyAccess/superSymbolIndexedAccess5.ts ===
+//// [tests/cases/conformance/expressions/superPropertyAccess/superSymbolIndexedAccess5.ts] ////
+
+=== superSymbolIndexedAccess5.ts ===
 var symbol: any;
 >symbol : Symbol(symbol, Decl(superSymbolIndexedAccess5.ts, 0, 3))
 
@@ -6,6 +8,7 @@ class Foo {
 >Foo : Symbol(Foo, Decl(superSymbolIndexedAccess5.ts, 0, 16))
 
     [symbol]() {
+>[symbol] : Symbol(Foo[symbol], Decl(superSymbolIndexedAccess5.ts, 2, 11))
 >symbol : Symbol(symbol, Decl(superSymbolIndexedAccess5.ts, 0, 3))
 
         return 0;
@@ -17,6 +20,7 @@ class Bar extends Foo {
 >Foo : Symbol(Foo, Decl(superSymbolIndexedAccess5.ts, 0, 16))
 
     [symbol]() {
+>[symbol] : Symbol(Bar[symbol], Decl(superSymbolIndexedAccess5.ts, 8, 23))
 >symbol : Symbol(symbol, Decl(superSymbolIndexedAccess5.ts, 0, 3))
 
         return super[symbol]();

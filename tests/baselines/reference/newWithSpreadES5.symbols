@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/functionCalls/newWithSpreadES5.ts ===
+//// [tests/cases/conformance/expressions/functionCalls/newWithSpreadES5.ts] ////
+
+=== newWithSpreadES5.ts ===
 function f(x: number, y: number, ...z: string[]) {
 >f : Symbol(f, Decl(newWithSpreadES5.ts, 0, 0))
 >x : Symbol(x, Decl(newWithSpreadES5.ts, 0, 11))
@@ -36,6 +38,7 @@ interface C {
 >C : Symbol(C, Decl(newWithSpreadES5.ts, 13, 1))
 
     "a-b": typeof B;
+>"a-b" : Symbol(C["a-b"], Decl(newWithSpreadES5.ts, 15, 13))
 >B : Symbol(B, Decl(newWithSpreadES5.ts, 9, 1))
 }
 
@@ -43,6 +46,7 @@ interface D {
 >D : Symbol(D, Decl(newWithSpreadES5.ts, 17, 1))
 
     1: typeof B;
+>1 : Symbol(D[1], Decl(newWithSpreadES5.ts, 19, 13))
 >B : Symbol(B, Decl(newWithSpreadES5.ts, 9, 1))
 }
 

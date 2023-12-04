@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/promiseChaining.ts] ////
+
 //// [promiseChaining.ts]
 class Chain<T> {
     constructor(public value: T) { }
@@ -12,7 +14,7 @@ class Chain<T> {
 
 
 //// [promiseChaining.js]
-var Chain = (function () {
+var Chain = /** @class */ (function () {
     function Chain(value) {
         this.value = value;
     }

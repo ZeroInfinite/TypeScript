@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/typeInference/unionAndIntersectionInference2.ts] ////
+
 //// [unionAndIntersectionInference2.ts]
 declare function f1<T>(x: T | string): T;
 
@@ -20,8 +22,8 @@ var c2: string & { name: string } & number;
 var d2: string & { name: string } & number & { name: string };
 f2(a2); // string
 f2(b2); // string[]
-f2(c2); // string & number
-f2(d2); // string & number
+f2(c2); // never
+f2(d2); // never
 
 
 //// [unionAndIntersectionInference2.js]
@@ -41,5 +43,5 @@ var c2;
 var d2;
 f2(a2); // string
 f2(b2); // string[]
-f2(c2); // string & number
-f2(d2); // string & number
+f2(c2); // never
+f2(d2); // never

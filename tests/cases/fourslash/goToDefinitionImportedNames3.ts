@@ -1,8 +1,8 @@
 /// <reference path='fourslash.ts' />
 
 // @Filename: e.ts
-//// import {M, /*classAliasDefinition*/C, I} from "./d";
-//// var c = new /*classReference*/C();
+//// import {M, [|/*classAliasDefinition*/C|], I} from "./d";
+//// var c = new [|/*classReference*/C|]();
 
 
 // @Filename: d.ts
@@ -27,4 +27,4 @@
 ////    x;
 ////}
 
-verify.goToDefinition(["classReference", "classAliasDefinition"], "classDefinition");
+verify.baselineGoToDefinition("classReference", "classAliasDefinition");

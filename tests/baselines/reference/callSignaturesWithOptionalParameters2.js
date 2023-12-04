@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesWithOptionalParameters2.ts] ////
+
 //// [callSignaturesWithOptionalParameters2.ts]
 // Optional parameters should be valid in all the below casts
 
@@ -67,7 +69,7 @@ foo();
 function foo2(x, y) { }
 foo2(1);
 foo2(1, 2);
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x) { };

@@ -1,9 +1,6 @@
-//// [thisInInvalidContexts.ts]
-//'this' in static member initializer
-class ErrClass1 {
-    static t = this; // Error
-}
+//// [tests/cases/conformance/expressions/thisKeyword/thisInInvalidContexts.ts] ////
 
+//// [thisInInvalidContexts.ts]
 class BaseErrClass {
     constructor(t: any) { }
 }
@@ -50,41 +47,39 @@ enum SomeEnum {
 
 //// [thisInInvalidContexts.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-//'this' in static member initializer
-var ErrClass1 = (function () {
-    function ErrClass1() {
-    }
-    ErrClass1.t = this; // Error
-    return ErrClass1;
-}());
-var BaseErrClass = (function () {
+var BaseErrClass = /** @class */ (function () {
     function BaseErrClass(t) {
     }
     return BaseErrClass;
 }());
-var ClassWithNoInitializer = (function (_super) {
+var ClassWithNoInitializer = /** @class */ (function (_super) {
     __extends(ClassWithNoInitializer, _super);
     //'this' in optional super call
     function ClassWithNoInitializer() {
-        var _this = _super.call(this, _this) || this;
+        var _this = _super.call(this, _this) || this; // Error
         return _this;
     }
     return ClassWithNoInitializer;
 }(BaseErrClass));
-var ClassWithInitializer = (function (_super) {
+var ClassWithInitializer = /** @class */ (function (_super) {
     __extends(ClassWithInitializer, _super);
     //'this' in required super call
     function ClassWithInitializer() {
-        var _this = _super.call(this, _this) || this;
+        var _this = _super.call(this, _this) || this; // Error
         _this.t = 4;
         return _this;
     }
@@ -100,7 +95,7 @@ var M;
 //'this' as a type argument
 function genericFunc(x) { }
 genericFunc(undefined); // Should be an error
-var ErrClass3 = (function (_super) {
+var ErrClass3 = /** @class */ (function (_super) {
     __extends(ErrClass3, _super);
     function ErrClass3() {
         return _super !== null && _super.apply(this, arguments) || this;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/codeGeneration/exportCodeGen.ts] ////
+
 //// [exportCodeGen.ts]
 // should replace all refs to 'x' in the body,
 // with fully qualified
@@ -95,7 +97,7 @@ var E;
     })(Color = E.Color || (E.Color = {}));
     function fn() { }
     E.fn = fn;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;
@@ -115,7 +117,7 @@ var F;
         Color[Color["Red"] = 0] = "Red";
     })(Color || (Color = {}));
     function fn() { }
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

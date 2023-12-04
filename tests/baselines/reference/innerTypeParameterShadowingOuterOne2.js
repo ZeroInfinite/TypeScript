@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/innerTypeParameterShadowingOuterOne2.ts] ////
+
 //// [innerTypeParameterShadowingOuterOne2.ts]
 // inner type parameters shadow outer ones of the same name
 // no errors expected
@@ -40,7 +42,7 @@ class C2<T extends Date, U extends Date> {
 //// [innerTypeParameterShadowingOuterOne2.js]
 // inner type parameters shadow outer ones of the same name
 // no errors expected
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.g = function () {
@@ -53,7 +55,7 @@ var C = (function () {
     };
     return C;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     C2.prototype.g = function () {
@@ -75,4 +77,4 @@ var C2 = (function () {
 //        var x: U;
 //        x.getDate();
 //    }
-//} 
+//}

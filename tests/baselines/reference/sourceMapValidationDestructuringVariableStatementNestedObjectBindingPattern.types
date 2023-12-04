@@ -1,4 +1,6 @@
-=== tests/cases/compiler/sourceMapValidationDestructuringVariableStatementNestedObjectBindingPattern.ts ===
+//// [tests/cases/compiler/sourceMapValidationDestructuringVariableStatementNestedObjectBindingPattern.ts] ////
+
+=== sourceMapValidationDestructuringVariableStatementNestedObjectBindingPattern.ts ===
 declare var console: {
 >console : { log(msg: string): void; }
 
@@ -7,8 +9,6 @@ declare var console: {
 >msg : string
 }
 interface Robot {
->Robot : Robot
-
     name: string;
 >name : string
 
@@ -25,7 +25,6 @@ interface Robot {
 }
 var robotA: Robot = { name: "mower", skills: { primary: "mowing", secondary: "none" } };
 >robotA : Robot
->Robot : Robot
 >{ name: "mower", skills: { primary: "mowing", secondary: "none" } } : { name: string; skills: { primary: string; secondary: string; }; }
 >name : string
 >"mower" : "mower"
@@ -38,7 +37,6 @@ var robotA: Robot = { name: "mower", skills: { primary: "mowing", secondary: "no
 
 var robotB: Robot = { name: "trimmer", skills: { primary: "trimming", secondary: "edging" } };
 >robotB : Robot
->Robot : Robot
 >{ name: "trimmer", skills: { primary: "trimming", secondary: "edging" } } : { name: string; skills: { primary: string; secondary: string; }; }
 >name : string
 >"trimmer" : "trimmer"

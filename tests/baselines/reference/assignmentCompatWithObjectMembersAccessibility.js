@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembersAccessibility.ts] ////
+
 //// [assignmentCompatWithObjectMembersAccessibility.ts]
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 
@@ -114,7 +116,7 @@ module TargetIsPublic {
 var TargetIsPublic;
 (function (TargetIsPublic) {
     // targets
-    var Base = (function () {
+    var Base = /** @class */ (function () {
         function Base() {
         }
         return Base;
@@ -123,12 +125,12 @@ var TargetIsPublic;
     var b;
     var i;
     // sources
-    var D = (function () {
+    var D = /** @class */ (function () {
         function D() {
         }
         return D;
     }());
-    var E = (function () {
+    var E = /** @class */ (function () {
         function E() {
         }
         return E;
@@ -159,7 +161,7 @@ var TargetIsPublic;
 })(TargetIsPublic || (TargetIsPublic = {}));
 (function (TargetIsPublic) {
     // targets
-    var Base = (function () {
+    var Base = /** @class */ (function () {
         function Base() {
         }
         return Base;
@@ -168,12 +170,12 @@ var TargetIsPublic;
     var b;
     var i;
     // sources
-    var D = (function () {
+    var D = /** @class */ (function () {
         function D() {
         }
         return D;
     }());
-    var E = (function () {
+    var E = /** @class */ (function () {
         function E() {
         }
         return E;

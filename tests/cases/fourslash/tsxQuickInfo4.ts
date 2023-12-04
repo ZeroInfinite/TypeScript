@@ -28,7 +28,7 @@
 //// }
 
 //// function _buildMainButton({ onClick, children, className }: ButtonProps): JSX.Element {
-////     return(<button className={className} onClick={onClick}>{ children || 'MAIN BUTTON'}</button>);  
+////     return(<button className={className} onClick={onClick}>{ children || 'MAIN BUTTON'}</button>);
 //// }
 
 //// declare function buildMainLink({ to, children, className }: LinkProps): JSX.Element;
@@ -39,17 +39,17 @@
 ////     );
 //// }
 
-//// function buildSomeElement2(): JSX.Element {  
+//// function buildSomeElement2(): JSX.Element {
 ////     return (
 ////         <MainB/*3*/utton onC/*4*/lick={()=>{}}>GO</MainButton>;
 ////     );
 //// }
-//// let componenet = <MainButton onClick={()=>{}} ext/*5*/ra-prop>GO</MainButton>;  
+//// let componenet = <MainButton onClick={()=>{}} ext/*5*/ra-prop>GO</MainButton>;
 
 verify.quickInfos({
-    1: "function MainButton(linkProps: LinkProps): any (+1 overload)",
-    2: "(JSX attribute) to: string",
-    3: "function MainButton(buttonProps: ButtonProps): any (+1 overload)",
-    4: "(JSX attribute) onClick: () => void",
-    5: "(JSX attribute) extra-prop: true"
+    1: "function MainButton(linkProps: LinkProps): JSX.Element (+1 overload)",
+    2: "(property) LinkProps.to: string",
+    3: "function MainButton(buttonProps: ButtonProps): JSX.Element (+1 overload)",
+    4: "(method) ButtonProps.onClick(event?: React.MouseEvent<HTMLButtonElement>): void",
+    5: "(property) extra-prop: true"
 });

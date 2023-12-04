@@ -1,4 +1,6 @@
-=== tests/cases/compiler/inferentialTypingWithFunctionType2.ts ===
+//// [tests/cases/compiler/inferentialTypingWithFunctionType2.ts] ////
+
+=== inferentialTypingWithFunctionType2.ts ===
 function identity<A>(a: A): A {
 >identity : Symbol(identity, Decl(inferentialTypingWithFunctionType2.ts, 0, 0))
 >A : Symbol(A, Decl(inferentialTypingWithFunctionType2.ts, 0, 18))
@@ -11,7 +13,7 @@ function identity<A>(a: A): A {
 }
 var x = [1, 2, 3].map(identity)[0];
 >x : Symbol(x, Decl(inferentialTypingWithFunctionType2.ts, 3, 3))
->[1, 2, 3].map : Symbol(Array.map, Decl(lib.d.ts, --, --))
->map : Symbol(Array.map, Decl(lib.d.ts, --, --))
+>[1, 2, 3].map : Symbol(Array.map, Decl(lib.es5.d.ts, --, --))
+>map : Symbol(Array.map, Decl(lib.es5.d.ts, --, --))
 >identity : Symbol(identity, Decl(inferentialTypingWithFunctionType2.ts, 0, 0))
 

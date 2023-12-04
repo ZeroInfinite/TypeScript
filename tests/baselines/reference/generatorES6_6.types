@@ -1,11 +1,14 @@
-=== tests/cases/compiler/generatorES6_6.ts ===
+//// [tests/cases/compiler/generatorES6_6.ts] ////
+
+=== generatorES6_6.ts ===
 class C {
 >C : C
 
   *[Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => Generator<number, void, unknown>
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
     let a = yield 1;
 >a : any

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5ExportEqualsDts.ts] ////
+
 //// [es5ExportEqualsDts.ts]
 class A {
     foo() {
@@ -14,7 +16,7 @@ export = A
 
 //// [es5ExportEqualsDts.js]
 "use strict";
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () {
@@ -30,7 +32,7 @@ module.exports = A;
 declare class A {
     foo(): A.B;
 }
-declare module A {
+declare namespace A {
     interface B {
     }
 }

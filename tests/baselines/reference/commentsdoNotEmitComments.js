@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsdoNotEmitComments.ts] ////
+
 //// [commentsdoNotEmitComments.ts]
 /** Variable comments*/
 var myVariable = 10;
@@ -113,7 +115,7 @@ var c = (function () {
         set: function (val) {
             this.b = val;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     c.prototype.foo1 = function (aOrb) {
@@ -144,7 +146,8 @@ declare class c {
     constructor();
     b: number;
     myFoo(): number;
-    prop1: number;
+    get prop1(): number;
+    set prop1(val: number);
     foo1(a: number): string;
     foo1(b: string): string;
 }
@@ -157,18 +160,18 @@ interface i1 {
     prop: string;
 }
 declare var i1_i: i1;
-declare module m1 {
+declare namespace m1 {
     class b {
         x: number;
         constructor(x: number);
     }
-    module m2 {
+    namespace m2 {
     }
 }
 declare var x: any;
 declare const enum color {
     red = 0,
     green = 1,
-    blue = 2,
+    blue = 2
 }
 declare var shade: color;

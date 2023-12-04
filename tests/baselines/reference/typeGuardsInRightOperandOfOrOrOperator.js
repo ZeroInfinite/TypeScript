@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardsInRightOperandOfOrOrOperator.ts] ////
+
 //// [typeGuardsInRightOperandOfOrOrOperator.ts]
 // In the right operand of a || operation, 
 // the type of a variable or parameter is narrowed by any type guard in the left operand when false, 
@@ -87,6 +89,8 @@ function foo7(x) {
     return typeof x === "string"
         || ((z = x) // number | boolean
             || (typeof x === "number"
+                // change value of x
                 ? ((x = 10) && x.toString()) // number | boolean | string
+                // do not change value
                 : ((y = x) && x.toString()))); // number | boolean | string
 }

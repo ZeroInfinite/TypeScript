@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNamesDeclarationEmit2_ES5.ts] ////
+
 //// [computedPropertyNamesDeclarationEmit2_ES5.ts]
 class C {
     static ["" + ""]() { }
@@ -6,18 +8,18 @@ class C {
 }
 
 //// [computedPropertyNamesDeclarationEmit2_ES5.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C["" + ""] = function () { };
     Object.defineProperty(C, "" + "", {
         get: function () { return 0; },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(C, "" + "", {
         set: function (x) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

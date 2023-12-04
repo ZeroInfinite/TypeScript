@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardOfFormTypeOfString.ts] ////
+
 //// [typeGuardOfFormTypeOfString.ts]
 class C { private p: string };
 
@@ -86,7 +88,7 @@ else {
 
 
 //// [typeGuardOfFormTypeOfString.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

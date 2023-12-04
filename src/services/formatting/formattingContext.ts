@@ -1,101 +1,113 @@
-/// <reference path="references.ts"/>
+import {
+    Debug,
+    findChildOfKind,
+    FormatCodeSettings,
+    Node,
+    SourceFileLike,
+    SyntaxKind,
+} from "../_namespaces/ts";
+import {
+    TextRangeWithKind,
+} from "../_namespaces/ts.formatting";
 
-/* @internal */
-namespace ts.formatting {
-    export class FormattingContext {
-        public currentTokenSpan: TextRangeWithKind;
-        public nextTokenSpan: TextRangeWithKind;
-        public contextNode: Node;
-        public currentTokenParent: Node;
-        public nextTokenParent: Node;
+/** @internal */
+export const enum FormattingRequestKind {
+    FormatDocument,
+    FormatSelection,
+    FormatOnEnter,
+    FormatOnSemicolon,
+    FormatOnOpeningCurlyBrace,
+    FormatOnClosingCurlyBrace,
+}
 
-        private contextNodeAllOnSameLine: boolean;
-        private nextNodeAllOnSameLine: boolean;
-        private tokensAreOnSameLine: boolean;
-        private contextNodeBlockIsOnOneLine: boolean;
-        private nextNodeBlockIsOnOneLine: boolean;
+/** @internal */
+export class FormattingContext {
+    public currentTokenSpan!: TextRangeWithKind;
+    public nextTokenSpan!: TextRangeWithKind;
+    public contextNode!: Node;
+    public currentTokenParent!: Node;
+    public nextTokenParent!: Node;
 
-        constructor(public readonly sourceFile: SourceFileLike, public formattingRequestKind: FormattingRequestKind, public options: ts.FormatCodeSettings) {
+    private contextNodeAllOnSameLine: boolean | undefined;
+    private nextNodeAllOnSameLine: boolean | undefined;
+    private tokensAreOnSameLine: boolean | undefined;
+    private contextNodeBlockIsOnOneLine: boolean | undefined;
+    private nextNodeBlockIsOnOneLine: boolean | undefined;
+
+    constructor(public readonly sourceFile: SourceFileLike, public formattingRequestKind: FormattingRequestKind, public options: FormatCodeSettings) {
+    }
+
+    public updateContext(currentRange: TextRangeWithKind, currentTokenParent: Node, nextRange: TextRangeWithKind, nextTokenParent: Node, commonParent: Node) {
+        this.currentTokenSpan = Debug.checkDefined(currentRange);
+        this.currentTokenParent = Debug.checkDefined(currentTokenParent);
+        this.nextTokenSpan = Debug.checkDefined(nextRange);
+        this.nextTokenParent = Debug.checkDefined(nextTokenParent);
+        this.contextNode = Debug.checkDefined(commonParent);
+
+        // drop cached results
+        this.contextNodeAllOnSameLine = undefined;
+        this.nextNodeAllOnSameLine = undefined;
+        this.tokensAreOnSameLine = undefined;
+        this.contextNodeBlockIsOnOneLine = undefined;
+        this.nextNodeBlockIsOnOneLine = undefined;
+    }
+
+    public ContextNodeAllOnSameLine(): boolean {
+        if (this.contextNodeAllOnSameLine === undefined) {
+            this.contextNodeAllOnSameLine = this.NodeIsOnOneLine(this.contextNode);
         }
 
-        public updateContext(currentRange: TextRangeWithKind, currentTokenParent: Node, nextRange: TextRangeWithKind, nextTokenParent: Node, commonParent: Node) {
-            Debug.assert(currentRange !== undefined, "currentTokenSpan is null");
-            Debug.assert(currentTokenParent !== undefined, "currentTokenParent is null");
-            Debug.assert(nextRange !== undefined, "nextTokenSpan is null");
-            Debug.assert(nextTokenParent !== undefined, "nextTokenParent is null");
-            Debug.assert(commonParent !== undefined, "commonParent is null");
+        return this.contextNodeAllOnSameLine;
+    }
 
-            this.currentTokenSpan = currentRange;
-            this.currentTokenParent = currentTokenParent;
-            this.nextTokenSpan = nextRange;
-            this.nextTokenParent = nextTokenParent;
-            this.contextNode = commonParent;
-
-            // drop cached results
-            this.contextNodeAllOnSameLine = undefined;
-            this.nextNodeAllOnSameLine = undefined;
-            this.tokensAreOnSameLine = undefined;
-            this.contextNodeBlockIsOnOneLine = undefined;
-            this.nextNodeBlockIsOnOneLine = undefined;
+    public NextNodeAllOnSameLine(): boolean {
+        if (this.nextNodeAllOnSameLine === undefined) {
+            this.nextNodeAllOnSameLine = this.NodeIsOnOneLine(this.nextTokenParent);
         }
 
-        public ContextNodeAllOnSameLine(): boolean {
-            if (this.contextNodeAllOnSameLine === undefined) {
-                this.contextNodeAllOnSameLine = this.NodeIsOnOneLine(this.contextNode);
-            }
+        return this.nextNodeAllOnSameLine;
+    }
 
-            return this.contextNodeAllOnSameLine;
+    public TokensAreOnSameLine(): boolean {
+        if (this.tokensAreOnSameLine === undefined) {
+            const startLine = this.sourceFile.getLineAndCharacterOfPosition(this.currentTokenSpan.pos).line;
+            const endLine = this.sourceFile.getLineAndCharacterOfPosition(this.nextTokenSpan.pos).line;
+            this.tokensAreOnSameLine = startLine === endLine;
         }
 
-        public NextNodeAllOnSameLine(): boolean {
-            if (this.nextNodeAllOnSameLine === undefined) {
-                this.nextNodeAllOnSameLine = this.NodeIsOnOneLine(this.nextTokenParent);
-            }
+        return this.tokensAreOnSameLine;
+    }
 
-            return this.nextNodeAllOnSameLine;
+    public ContextNodeBlockIsOnOneLine() {
+        if (this.contextNodeBlockIsOnOneLine === undefined) {
+            this.contextNodeBlockIsOnOneLine = this.BlockIsOnOneLine(this.contextNode);
         }
 
-        public TokensAreOnSameLine(): boolean {
-            if (this.tokensAreOnSameLine === undefined) {
-                const startLine = this.sourceFile.getLineAndCharacterOfPosition(this.currentTokenSpan.pos).line;
-                const endLine = this.sourceFile.getLineAndCharacterOfPosition(this.nextTokenSpan.pos).line;
-                this.tokensAreOnSameLine = (startLine === endLine);
-            }
+        return this.contextNodeBlockIsOnOneLine;
+    }
 
-            return this.tokensAreOnSameLine;
+    public NextNodeBlockIsOnOneLine() {
+        if (this.nextNodeBlockIsOnOneLine === undefined) {
+            this.nextNodeBlockIsOnOneLine = this.BlockIsOnOneLine(this.nextTokenParent);
         }
 
-        public ContextNodeBlockIsOnOneLine() {
-            if (this.contextNodeBlockIsOnOneLine === undefined) {
-                this.contextNodeBlockIsOnOneLine = this.BlockIsOnOneLine(this.contextNode);
-            }
+        return this.nextNodeBlockIsOnOneLine;
+    }
 
-            return this.contextNodeBlockIsOnOneLine;
-        }
+    private NodeIsOnOneLine(node: Node): boolean {
+        const startLine = this.sourceFile.getLineAndCharacterOfPosition(node.getStart(this.sourceFile)).line;
+        const endLine = this.sourceFile.getLineAndCharacterOfPosition(node.getEnd()).line;
+        return startLine === endLine;
+    }
 
-        public NextNodeBlockIsOnOneLine() {
-            if (this.nextNodeBlockIsOnOneLine === undefined) {
-                this.nextNodeBlockIsOnOneLine = this.BlockIsOnOneLine(this.nextTokenParent);
-            }
-
-            return this.nextNodeBlockIsOnOneLine;
-        }
-
-        private NodeIsOnOneLine(node: Node): boolean {
-            const startLine = this.sourceFile.getLineAndCharacterOfPosition(node.getStart(this.sourceFile)).line;
-            const endLine = this.sourceFile.getLineAndCharacterOfPosition(node.getEnd()).line;
+    private BlockIsOnOneLine(node: Node): boolean {
+        const openBrace = findChildOfKind(node, SyntaxKind.OpenBraceToken, this.sourceFile);
+        const closeBrace = findChildOfKind(node, SyntaxKind.CloseBraceToken, this.sourceFile);
+        if (openBrace && closeBrace) {
+            const startLine = this.sourceFile.getLineAndCharacterOfPosition(openBrace.getEnd()).line;
+            const endLine = this.sourceFile.getLineAndCharacterOfPosition(closeBrace.getStart(this.sourceFile)).line;
             return startLine === endLine;
         }
-
-        private BlockIsOnOneLine(node: Node): boolean {
-            const openBrace = findChildOfKind(node, SyntaxKind.OpenBraceToken, this.sourceFile);
-            const closeBrace = findChildOfKind(node, SyntaxKind.CloseBraceToken, this.sourceFile);
-            if (openBrace && closeBrace) {
-                const startLine = this.sourceFile.getLineAndCharacterOfPosition(openBrace.getEnd()).line;
-                const endLine = this.sourceFile.getLineAndCharacterOfPosition(closeBrace.getStart(this.sourceFile)).line;
-                return startLine === endLine;
-            }
-            return false;
-        }
+        return false;
     }
 }

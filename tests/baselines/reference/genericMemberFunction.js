@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericMemberFunction.ts] ////
+
 //// [genericMemberFunction.ts]
 export class BuildError<A, B, C>{
   public parent<A, B extends A, C>(): FileWithErrors<A, B, C> {
@@ -25,8 +27,9 @@ export class BuildResult<A, B, C>{
 //// [genericMemberFunction.js]
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
-    var BuildError = (function () {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.BuildResult = exports.FileWithErrors = exports.BuildError = void 0;
+    var BuildError = /** @class */ (function () {
         function BuildError() {
         }
         BuildError.prototype.parent = function () {
@@ -35,7 +38,7 @@ define(["require", "exports"], function (require, exports) {
         return BuildError;
     }());
     exports.BuildError = BuildError;
-    var FileWithErrors = (function () {
+    var FileWithErrors = /** @class */ (function () {
         function FileWithErrors() {
         }
         FileWithErrors.prototype.errors = function () {
@@ -47,7 +50,7 @@ define(["require", "exports"], function (require, exports) {
         return FileWithErrors;
     }());
     exports.FileWithErrors = FileWithErrors;
-    var BuildResult = (function () {
+    var BuildResult = /** @class */ (function () {
         function BuildResult() {
         }
         BuildResult.prototype.merge = function (other) {

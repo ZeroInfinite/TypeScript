@@ -1,9 +1,8 @@
-=== tests/cases/compiler/exportDefaultForNonInstantiatedModule.ts ===
-module m {
->m : any
+//// [tests/cases/compiler/exportDefaultForNonInstantiatedModule.ts] ////
 
+=== exportDefaultForNonInstantiatedModule.ts ===
+module m {
     export interface foo {
->foo : foo
     }
 }
 // Should not be emitted

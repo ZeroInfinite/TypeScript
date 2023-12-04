@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/valuesAndReferences/assignments.ts] ////
+
 //// [assignments.ts]
 // In this file:
 //  Assign to a module
@@ -41,7 +43,7 @@ I = null; // Error
 //  Assign to a parameter
 //  Assign to an interface
 M = null; // Error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

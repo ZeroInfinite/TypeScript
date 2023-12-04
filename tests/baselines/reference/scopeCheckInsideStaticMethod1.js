@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/scopeCheckInsideStaticMethod1.ts] ////
+
 //// [scopeCheckInsideStaticMethod1.ts]
 class C {
    private v;
@@ -11,7 +13,7 @@ class C {
 }
 
 //// [scopeCheckInsideStaticMethod1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.b = function () {

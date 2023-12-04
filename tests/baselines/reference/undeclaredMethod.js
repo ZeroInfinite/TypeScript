@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/undeclaredMethod.ts] ////
+
 //// [undeclaredMethod.ts]
 module M {
     export class C {
@@ -15,7 +17,7 @@ c.saltbar();	// crash
 //// [undeclaredMethod.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.salt = function () { };

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/index.tsx ===
+//// [tests/cases/compiler/jsxFactoryQualifiedNameWithEs5.ts] ////
+
+=== index.tsx ===
 import "./jsx";
 
 var skate: any;
@@ -16,7 +18,5 @@ class Component {
 >renderCallback : Symbol(Component.renderCallback, Decl(index.tsx, 5, 17))
 
         return <div>test</div>;
->div : Symbol(unknown)
->div : Symbol(unknown)
     }
 };

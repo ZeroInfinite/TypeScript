@@ -7,7 +7,11 @@
 ////let t: Gen;
 ////var { x, ...rest } = t;
 ////rest./*1*/x;
-goTo.marker('1');
-verify.completionListContains('parent', '(property) Gen.parent: Gen');
-verify.completionListContains('millenial', '(property) Gen.millenial: string');
-verify.completionListCount(2);
+
+verify.completions({
+    marker: "1",
+    exact: [
+        { name: "millenial", text: "(property) Gen.millenial: string" },
+        { name: "parent", text: "(property) Gen.parent: Gen" },
+    ],
+});

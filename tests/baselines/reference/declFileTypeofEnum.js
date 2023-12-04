@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeofEnum.ts] ////
+
 //// [declFileTypeofEnum.ts]
 enum days {
     monday,
@@ -37,7 +39,7 @@ declare enum days {
     thursday = 3,
     friday = 4,
     saturday = 5,
-    sunday = 6,
+    sunday = 6
 }
 declare var weekendDay: days;
 declare var daysOfMonth: typeof days;

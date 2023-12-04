@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleScopingBug.ts] ////
+
 //// [moduleScopingBug.ts]
 module M
 
@@ -36,7 +38,7 @@ var M;
     function f() {
         var inner = outer; // Ok
     }
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
             var inner = outer; // Ok
         }

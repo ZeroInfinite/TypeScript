@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/restElementWithInitializer2.ts] ////
+
 //// [restElementWithInitializer2.ts]
 var a: number[];
 var x: number[];
@@ -5,7 +7,7 @@ var x: number[];
 
 
 //// [restElementWithInitializer2.js]
+var _a;
 var a;
 var x;
 _a = a.slice(0), x = _a === void 0 ? a : _a; // Error, rest element cannot have initializer
-var _a;

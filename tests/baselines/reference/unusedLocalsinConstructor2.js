@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedLocalsinConstructor2.ts] ////
+
 //// [unusedLocalsinConstructor2.ts]
 class greeter {
     constructor() {
@@ -8,7 +10,7 @@ class greeter {
 }
 
 //// [unusedLocalsinConstructor2.js]
-var greeter = (function () {
+var greeter = /** @class */ (function () {
     function greeter() {
         var unused = 20;
         var used = "dummy";

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/heterogeneousArrayAndOverloads.ts] ////
+
 //// [heterogeneousArrayAndOverloads.ts]
 class arrTest {
     test(arg1: number[]);
@@ -12,7 +14,7 @@ class arrTest {
 }
 
 //// [heterogeneousArrayAndOverloads.js]
-var arrTest = (function () {
+var arrTest = /** @class */ (function () {
     function arrTest() {
     }
     arrTest.prototype.test = function (arg1) { };

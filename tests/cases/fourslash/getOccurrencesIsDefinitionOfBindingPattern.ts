@@ -1,5 +1,5 @@
 /// <reference path='fourslash.ts' />
-////const { [|{| "isWriteAccess": true, "isDefinition": true |}x|], y } = { x: 1, y: 2 };
-////const z = [|{| "isDefinition": false |}x|];
+////const { /*1*/x, y } = { /*2*/x: 1, y: 2 };
+////const z = /*3*/x;
 
-verify.singleReferenceGroup("const x: number");
+verify.baselineFindAllReferences('1', '2', '3')

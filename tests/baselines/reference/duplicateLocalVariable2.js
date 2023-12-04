@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateLocalVariable2.ts] ////
+
 //// [duplicateLocalVariable2.ts]
 export class TestCase {
     constructor (public name: string, public test: ()=>boolean, public errorMessageRegEx?: string) {
@@ -38,8 +40,9 @@ export var tests: TestRunner = (function () {
 //// [duplicateLocalVariable2.js]
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
-    var TestCase = (function () {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.tests = exports.TestRunner = exports.TestCase = void 0;
+    var TestCase = /** @class */ (function () {
         function TestCase(name, test, errorMessageRegEx) {
             this.name = name;
             this.test = test;
@@ -48,7 +51,7 @@ define(["require", "exports"], function (require, exports) {
         return TestCase;
     }());
     exports.TestCase = TestCase;
-    var TestRunner = (function () {
+    var TestRunner = /** @class */ (function () {
         function TestRunner() {
         }
         TestRunner.arrayCompare = function (arg1, arg2) {

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/exportDeclarations/ModuleWithExportedAndNonExportedImportAlias.ts] ////
+
 //// [ModuleWithExportedAndNonExportedImportAlias.ts]
 module A {
     export interface Point {
@@ -42,7 +44,7 @@ var line = Geometry.Lines.Line;
 //// [ModuleWithExportedAndNonExportedImportAlias.js]
 var B;
 (function (B) {
-    var Line = (function () {
+    var Line = /** @class */ (function () {
         function Line(start, end) {
             this.start = start;
             this.end = end;

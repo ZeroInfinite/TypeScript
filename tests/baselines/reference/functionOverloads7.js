@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/functionOverloads7.ts] ////
+
 //// [functionOverloads7.ts]
 class foo { 
    private bar();
@@ -11,7 +13,7 @@ class foo {
 
 
 //// [functionOverloads7.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo() {
     }
     foo.prototype.bar = function (foo) { return "foo"; };

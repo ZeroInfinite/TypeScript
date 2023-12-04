@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithGenericCallSignatures2.ts] ////
+
 //// [assignmentCompatWithGenericCallSignatures2.ts]
 // some complex cases of assignment compat of generic signatures. No contextual signature instantiation
 
@@ -12,7 +14,7 @@ interface B {
 var a: A;
 var b: B;
 
-// Both ok
+// Both errors
 a = b;
 b = a;
 
@@ -21,6 +23,6 @@ b = a;
 // some complex cases of assignment compat of generic signatures. No contextual signature instantiation
 var a;
 var b;
-// Both ok
+// Both errors
 a = b;
 b = a;

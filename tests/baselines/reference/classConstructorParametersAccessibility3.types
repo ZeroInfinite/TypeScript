@@ -1,4 +1,6 @@
-=== tests/cases/conformance/classes/constructorDeclarations/classConstructorParametersAccessibility3.ts ===
+//// [tests/cases/conformance/classes/constructorDeclarations/classConstructorParametersAccessibility3.ts] ////
+
+=== classConstructorParametersAccessibility3.ts ===
 class Base {
 >Base : Base
 
@@ -27,7 +29,6 @@ class Derived extends Base {
 
 var d: Derived;
 >d : Derived
->Derived : Derived
 
 d.p;  // public, OK
 >d.p : number

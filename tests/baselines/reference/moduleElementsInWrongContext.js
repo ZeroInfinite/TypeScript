@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleElementsInWrongContext.ts] ////
+
 //// [moduleElementsInWrongContext.ts]
 {
     module M { }
@@ -39,7 +41,7 @@
     export { foo };
     export { baz as b } from "ambient";
     export default v;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

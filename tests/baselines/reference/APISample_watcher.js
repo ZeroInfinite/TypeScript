@@ -1,7 +1,15 @@
+//// [tests/cases/compiler/APISample_watcher.ts] ////
+
+//// [package.json]
+{
+    "name": "typescript",
+    "types": "/.ts/typescript.d.ts"
+}
+
 //// [APISample_watcher.ts]
 /*
  * Note: This test is a public API sample. The sample sources can be found
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#incremental-build-support-using-the-language-services
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#incremental-build-support-using-the-language-services
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
 
@@ -40,6 +48,8 @@ function watch(rootFileNames: string[], options: ts.CompilerOptions) {
         getCurrentDirectory: () => process.cwd(),
         getCompilationSettings: () => options,
         getDefaultLibFileName: (options) => ts.getDefaultLibFilePath(options),
+        fileExists: fileName => fs.existsSync(fileName),
+        readFile: fileName => fs.readFileSync(fileName),
     };
 
     // Create the language service files
@@ -113,10 +123,10 @@ watch(currentDirectoryFiles, { module: ts.ModuleKind.CommonJS });
 "use strict";
 /*
  * Note: This test is a public API sample. The sample sources can be found
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#incremental-build-support-using-the-language-services
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#incremental-build-support-using-the-language-services
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var ts = require("typescript");
 function watch(rootFileNames, options) {
     var files = {};
@@ -136,7 +146,9 @@ function watch(rootFileNames, options) {
         },
         getCurrentDirectory: function () { return process.cwd(); },
         getCompilationSettings: function () { return options; },
-        getDefaultLibFileName: function (options) { return ts.getDefaultLibFilePath(options); }
+        getDefaultLibFileName: function (options) { return ts.getDefaultLibFilePath(options); },
+        fileExists: function (fileName) { return fs.existsSync(fileName); },
+        readFile: function (fileName) { return fs.readFileSync(fileName); },
     };
     // Create the language service files
     var services = ts.createLanguageService(servicesHost, ts.createDocumentRegistry());
@@ -159,10 +171,10 @@ function watch(rootFileNames, options) {
     function emitFile(fileName) {
         var output = services.getEmitOutput(fileName);
         if (!output.emitSkipped) {
-            console.log("Emitting " + fileName);
+            console.log("Emitting ".concat(fileName));
         }
         else {
-            console.log("Emitting " + fileName + " failed");
+            console.log("Emitting ".concat(fileName, " failed"));
             logErrors(fileName);
         }
         output.outputFiles.forEach(function (o) {
@@ -177,10 +189,10 @@ function watch(rootFileNames, options) {
             var message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
             if (diagnostic.file) {
                 var _a = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start), line = _a.line, character = _a.character;
-                console.log("  Error " + diagnostic.file.fileName + " (" + (line + 1) + "," + (character + 1) + "): " + message);
+                console.log("  Error ".concat(diagnostic.file.fileName, " (").concat(line + 1, ",").concat(character + 1, "): ").concat(message));
             }
             else {
-                console.log("  Error: " + message);
+                console.log("  Error: ".concat(message));
             }
         });
     }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privacyLocalInternalReferenceImportWithoutExport.ts] ////
+
 //// [privacyLocalInternalReferenceImportWithoutExport.ts]
 // private elements
 module m_private {
@@ -155,11 +157,12 @@ module import_private {
 //// [privacyLocalInternalReferenceImportWithoutExport.js]
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.import_public = exports.m_public = void 0;
     // private elements
     var m_private;
     (function (m_private) {
-        var c_private = (function () {
+        var c_private = /** @class */ (function () {
             function c_private() {
             }
             return c_private;
@@ -177,7 +180,7 @@ define(["require", "exports"], function (require, exports) {
         m_private.v_private = new c_private();
         var mi_private;
         (function (mi_private) {
-            var c = (function () {
+            var c = /** @class */ (function () {
                 function c() {
                 }
                 return c;
@@ -188,7 +191,7 @@ define(["require", "exports"], function (require, exports) {
     // Public elements
     var m_public;
     (function (m_public) {
-        var c_public = (function () {
+        var c_public = /** @class */ (function () {
             function c_public() {
             }
             return c_public;
@@ -206,14 +209,14 @@ define(["require", "exports"], function (require, exports) {
         m_public.v_public = 10;
         var mi_public;
         (function (mi_public) {
-            var c = (function () {
+            var c = /** @class */ (function () {
                 function c() {
                 }
                 return c;
             }());
             mi_public.c = c;
         })(mi_public = m_public.mi_public || (m_public.mi_public = {}));
-    })(m_public = exports.m_public || (exports.m_public = {}));
+    })(m_public || (exports.m_public = m_public = {}));
     var import_public;
     (function (import_public) {
         // No Privacy errors - importing private elements
@@ -254,7 +257,7 @@ define(["require", "exports"], function (require, exports) {
         var privateUse_im_private_mi_public = new im_private_mi_public.c();
         import_public.publicUse_im_private_mi_public = new im_private_mi_public.c();
         var privateUse_im_private_mu_public;
-    })(import_public = exports.import_public || (exports.import_public = {}));
+    })(import_public || (exports.import_public = import_public = {}));
     var import_private;
     (function (import_private) {
         // No Privacy errors - importing private elements
@@ -297,3 +300,73 @@ define(["require", "exports"], function (require, exports) {
         var privateUse_im_private_mu_public;
     })(import_private || (import_private = {}));
 });
+
+
+//// [privacyLocalInternalReferenceImportWithoutExport.d.ts]
+declare namespace m_private {
+    class c_private {
+    }
+    enum e_private {
+        Happy = 0,
+        Grumpy = 1
+    }
+    function f_private(): c_private;
+    var v_private: c_private;
+    interface i_private {
+    }
+    namespace mi_private {
+        class c {
+        }
+    }
+    namespace mu_private {
+        interface i {
+        }
+    }
+}
+export declare namespace m_public {
+    class c_public {
+    }
+    enum e_public {
+        Happy = 0,
+        Grumpy = 1
+    }
+    function f_public(): c_public;
+    var v_public: number;
+    interface i_public {
+    }
+    namespace mi_public {
+        class c {
+        }
+    }
+    namespace mu_public {
+        interface i {
+        }
+    }
+}
+export declare namespace import_public {
+    import im_private_c_private = m_private.c_private;
+    import im_private_e_private = m_private.e_private;
+    import im_private_i_private = m_private.i_private;
+    import im_private_mi_private = m_private.mi_private;
+    import im_private_mu_private = m_private.mu_private;
+    var publicUse_im_private_c_private: im_private_c_private;
+    var publicUse_im_private_e_private: im_private_e_private;
+    var publicUse_im_private_f_private: im_private_c_private;
+    var publicUse_im_private_v_private: im_private_c_private;
+    var publicUse_im_private_i_private: im_private_i_private;
+    var publicUse_im_private_mi_private: im_private_mi_private.c;
+    var publicUse_im_private_mu_private: im_private_mu_private.i;
+    import im_private_c_public = m_public.c_public;
+    import im_private_e_public = m_public.e_public;
+    import im_private_i_public = m_public.i_public;
+    import im_private_mi_public = m_public.mi_public;
+    import im_private_mu_public = m_public.mu_public;
+    var publicUse_im_private_c_public: im_private_c_public;
+    var publicUse_im_private_e_public: im_private_e_public;
+    var publicUse_im_private_f_public: im_private_c_public;
+    var publicUse_im_private_v_public: number;
+    var publicUse_im_private_i_public: im_private_i_public;
+    var publicUse_im_private_mi_public: im_private_mi_public.c;
+    var publicUse_im_private_mu_public: im_private_mu_public.i;
+}
+export {};

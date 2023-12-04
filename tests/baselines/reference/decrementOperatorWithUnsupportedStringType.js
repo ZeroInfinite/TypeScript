@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/decrementOperator/decrementOperatorWithUnsupportedStringType.ts] ////
+
 //// [decrementOperatorWithUnsupportedStringType.ts]
 // -- operator on string type
 var STRING: string;
@@ -70,7 +72,7 @@ objA.a--, M.n--;
 var STRING;
 var STRING1 = ["", ""];
 function foo() { return ""; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return ""; };

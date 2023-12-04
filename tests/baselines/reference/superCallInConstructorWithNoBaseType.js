@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/constructorDeclarations/superCalls/superCallInConstructorWithNoBaseType.ts] ////
+
 //// [superCallInConstructorWithNoBaseType.ts]
 class C {
     constructor() {
@@ -12,16 +14,17 @@ class D<T> {
 }
 
 //// [superCallInConstructorWithNoBaseType.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
-        _this = _super.call(this) || this; // error
+        return _super.call(this) || this; // error
     }
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D(x) {
-        _this = _super.call(this) || this; // error
+        var _this = _super.call(this) || this; // error
         this.x = x;
+        return _this;
     }
     return D;
 }());

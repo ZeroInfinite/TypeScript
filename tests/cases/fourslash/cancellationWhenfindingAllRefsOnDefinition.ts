@@ -7,7 +7,7 @@
 ////
 ////    }
 ////
-////    public /**/[|{| "isWriteAccess": true, "isDefinition": true |}start|](){
+////    public /*1*/start(){
 ////        return this;
 ////    }
 ////
@@ -20,24 +20,13 @@
 ////import Second = require("./findAllRefsOnDefinition-import");
 ////
 ////var second = new Second.Test()
-////second.[|start|]();
+////second./*2*/start();
 ////second.stop();
 
-checkRefs();
-
+verify.baselineFindAllReferences("1");
 cancellation.setCancelled();
-verifyOperationIsCancelled(checkRefs);
+verifyOperationIsCancelled(() => verify.baselineFindAllReferences('1'));
 
 // verify that internal state is still correct
 cancellation.resetCancelled();
-checkRefs();
-
-function checkRefs() {
-    const ranges = test.ranges();
-    const [r0, r1] = ranges;
-    verify.referenceGroups(r0, [{ definition: "(method) Test.start(): this", ranges }]);
-    verify.referenceGroups(r1, [
-        { definition: "(method) Second.Test.start(): Second.Test", ranges: [r0] },
-        { definition: "(method) Second.Test.start(): Second.Test", ranges: [r1] }
-    ]);
-}
+verify.baselineFindAllReferences("1");

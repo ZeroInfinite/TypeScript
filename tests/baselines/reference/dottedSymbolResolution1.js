@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/dottedSymbolResolution1.ts] ////
+
 //// [dottedSymbolResolution1.ts]
 interface JQuery {
     find(selector: string): JQuery;
@@ -26,7 +28,7 @@ function _setBarAndText(): void {
 }
 
 //// [dottedSymbolResolution1.js]
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base() {
     }
     Base.prototype.foo = function () { };

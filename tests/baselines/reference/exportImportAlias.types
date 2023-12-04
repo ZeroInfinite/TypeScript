@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/importDeclarations/exportImportAlias.ts ===
+//// [tests/cases/conformance/internalModules/importDeclarations/exportImportAlias.ts] ////
+
+=== exportImportAlias.ts ===
 // expect no errors here
 
 module A {
@@ -16,11 +18,7 @@ module A {
 >y : number
     }
     export module B {
->B : any
-
         export interface Id {
->Id : Id
-
             name: string;
 >name : string
         }
@@ -65,7 +63,6 @@ var c: C.a.B.Id;
 >C : any
 >a : any
 >B : any
->Id : A.B.Id
 
 module X {
 >X : typeof X
@@ -138,8 +135,6 @@ module K {
 >12 : 12
 
         export interface Point {
->Point : Point
-
             x: number;
 >x : number
 
@@ -179,5 +174,4 @@ var p: M.D.Point;
 >p : { x: number; y: number; }
 >M : any
 >D : any
->Point : K.L.Point
 

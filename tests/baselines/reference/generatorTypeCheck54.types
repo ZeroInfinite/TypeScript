@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/yieldExpressions/generatorTypeCheck54.ts ===
+//// [tests/cases/conformance/es6/yieldExpressions/generatorTypeCheck54.ts] ////
+
+=== generatorTypeCheck54.ts ===
 class Foo { x: number }
 >Foo : Foo
 >x : number
@@ -8,7 +10,7 @@ class Baz { z: number }
 >z : number
 
 function* g() {
->g : () => IterableIterator<Foo | Baz>
+>g : () => Generator<Foo | Baz, void, undefined>
 
     yield* [new Foo];
 >yield* [new Foo] : any

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationTypeAlias.ts] ////
+
 //// [declFileTypeAnnotationTypeAlias.ts]
 module M {
     export type Value = string | number | boolean;
@@ -33,7 +35,7 @@ module M {
 //// [declFileTypeAnnotationTypeAlias.js]
 var M;
 (function (M) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
@@ -41,7 +43,7 @@ var M;
     M.c = c;
     var m;
     (function (m) {
-        var c = (function () {
+        var c = /** @class */ (function () {
             function c() {
             }
             return c;
@@ -52,7 +54,7 @@ var M;
 (function (M) {
     var N;
     (function (N) {
-        var Window = (function () {
+        var Window = /** @class */ (function () {
             function Window() {
             }
             return Window;
@@ -63,13 +65,13 @@ var M;
 
 
 //// [declFileTypeAnnotationTypeAlias.d.ts]
-declare module M {
+declare namespace M {
     type Value = string | number | boolean;
     var x: Value;
     class c {
     }
     type C = c;
-    module m {
+    namespace m {
         class c {
         }
     }
@@ -79,9 +81,9 @@ declare module M {
 interface Window {
     someMethod(): any;
 }
-declare module M {
+declare namespace M {
     type W = Window | string;
-    module N {
+    namespace N {
         class Window {
         }
         var p: W;

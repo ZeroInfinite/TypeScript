@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembers2.ts ===
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembers2.ts] ////
+
+=== assignmentCompatWithObjectMembers2.ts ===
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 // additional optional properties do not cause errors
 
@@ -12,29 +14,23 @@ class T { foo: string; }
 
 var s: S;
 >s : S
->S : S
 
 var t: T;
 >t : T
->T : T
 
 interface S2 { foo: string; bar?: string }
->S2 : S2
 >foo : string
 >bar : string
 
 interface T2 { foo: string; baz?: string }
->T2 : T2
 >foo : string
 >baz : string
 
 var s2: S2;
 >s2 : S2
->S2 : S2
 
 var t2: T2;
 >t2 : T2
->T2 : T2
 
 var a: { foo: string; bar?: string }
 >a : { foo: string; bar?: string; }

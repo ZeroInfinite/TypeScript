@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames33_ES5.ts] ////
+
 //// [computedPropertyNames33_ES5.ts]
 function foo<T>() { return '' }
 class C<T> {
@@ -11,15 +13,15 @@ class C<T> {
 
 //// [computedPropertyNames33_ES5.js]
 function foo() { return ''; }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.bar = function () {
+        var _a;
         var obj = (_a = {},
             _a[foo()] = function () { },
             _a);
         return 0;
-        var _a;
     };
     return C;
 }());

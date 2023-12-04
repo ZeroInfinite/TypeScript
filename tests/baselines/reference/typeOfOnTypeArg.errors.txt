@@ -1,7 +1,7 @@
-tests/cases/compiler/typeOfOnTypeArg.ts(7,6): error TS2345: Argument of type '32' is not assignable to parameter of type '{ '': number; }'.
+typeOfOnTypeArg.ts(7,6): error TS2345: Argument of type 'number' is not assignable to parameter of type '{ '': number; }'.
 
 
-==== tests/cases/compiler/typeOfOnTypeArg.ts (1 errors) ====
+==== typeOfOnTypeArg.ts (1 errors) ====
     var A = { '': 3 };
     
     function fill<B extends typeof A>(f: B) {
@@ -10,5 +10,5 @@ tests/cases/compiler/typeOfOnTypeArg.ts(7,6): error TS2345: Argument of type '32
     
     fill(32);
          ~~
-!!! error TS2345: Argument of type '32' is not assignable to parameter of type '{ '': number; }'.
+!!! error TS2345: Argument of type 'number' is not assignable to parameter of type '{ '': number; }'.
     

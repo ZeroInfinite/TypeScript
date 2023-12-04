@@ -11,14 +11,14 @@
 ////     interface ElementAttributesProperty { props; }
 //// }
 //// interface OptionPropBag {
-////     [|propx|]: number
+////     /*1*/propx: number
 ////     propString: string
 ////     optional?: boolean
 //// }
 //// declare function Opt(attributes: OptionPropBag): JSX.Element;
 //// let opt = <Opt />;
-//// let opt1 = <Opt [|propx|]={100} propString />;
-//// let opt2 = <Opt [|propx|]={100} optional/>;
+//// let opt1 = <Opt propx={100} propString />;
+//// let opt2 = <Opt propx={100} optional/>;
 //// let opt3 = <Opt wrong />;
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1')

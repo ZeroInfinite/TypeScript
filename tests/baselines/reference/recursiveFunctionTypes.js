@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/recursiveFunctionTypes.ts] ////
+
 //// [recursiveFunctionTypes.ts]
 function fn(): typeof fn { return 1; }
 
@@ -55,7 +57,7 @@ function f2() { }
 function g2() { }
 function f3() { return f3; }
 var a = f3; // error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.g = function (t) { };

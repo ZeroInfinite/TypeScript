@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/interfaceImplementation4.ts] ////
+
 //// [interfaceImplementation4.ts]
 interface I1 {
     iObj:{ };
@@ -14,7 +16,7 @@ class C5 implements I1 {
 
 
 //// [interfaceImplementation4.js]
-var C5 = (function () {
+var C5 = /** @class */ (function () {
     function C5() {
     }
     C5.prototype.iFn = function () { };

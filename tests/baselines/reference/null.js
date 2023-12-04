@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/null.ts] ////
+
 //// [null.ts]
 var x=null; 
 var y=3+x;  
@@ -25,7 +27,7 @@ var w:I={x:null,y:3};
 var x = null;
 var y = 3 + x;
 var z = 3 + null;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

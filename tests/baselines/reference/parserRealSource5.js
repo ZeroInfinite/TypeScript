@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource5.ts] ////
+
 //// [parserRealSource5.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -73,7 +75,7 @@ module TypeScript {
 var TypeScript;
 (function (TypeScript) {
     // TODO: refactor indent logic for use in emit
-    var PrintContext = (function () {
+    var PrintContext = /** @class */ (function () {
         function PrintContext(outfile, parser) {
             this.outfile = outfile;
             this.parser = parser;

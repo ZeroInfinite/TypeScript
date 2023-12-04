@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/importedModuleAddToGlobal.ts] ////
+
 //// [importedModuleAddToGlobal.ts]
 // Binding for an import statement in a typeref position is being added to the global scope
 // Shouldn't compile b.B is not defined in C
@@ -19,7 +21,7 @@ module C {
 //// [importedModuleAddToGlobal.js]
 var B;
 (function (B_1) {
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;

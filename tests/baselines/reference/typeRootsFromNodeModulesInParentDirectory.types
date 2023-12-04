@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeRootsFromNodeModulesInParentDirectory.ts] ////
+
 === /src/a.ts ===
 import { x } from "xyz";
 >x : number
@@ -7,6 +9,8 @@ x;
 
 === /node_modules/@types/foo/index.d.ts ===
 declare module "xyz" {
+>"xyz" : typeof import("xyz")
+
     export const x: number;
 >x : number
 }

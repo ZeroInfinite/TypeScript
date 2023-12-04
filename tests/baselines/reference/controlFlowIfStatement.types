@@ -1,7 +1,8 @@
-=== tests/cases/conformance/controlFlow/controlFlowIfStatement.ts ===
+//// [tests/cases/conformance/controlFlow/controlFlowIfStatement.ts] ////
+
+=== controlFlowIfStatement.ts ===
 let x: string | number | boolean | RegExp;
 >x : string | number | boolean | RegExp
->RegExp : RegExp
 
 let cond: boolean;
 >cond : boolean
@@ -92,23 +93,20 @@ function b() {
 }
 function c<T>(data: string | T): T {
 >c : <T>(data: string | T) => T
->T : T
 >data : string | T
->T : T
->T : T
 
     if (typeof data === 'string') {
 >typeof data === 'string' : boolean
->typeof data : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof data : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >data : string | T
 >'string' : "string"
 
         return JSON.parse(data);
 >JSON.parse(data) : any
->JSON.parse : (text: string, reviver?: (key: any, value: any) => any) => any
+>JSON.parse : (text: string, reviver?: (this: any, key: string, value: any) => any) => any
 >JSON : JSON
->parse : (text: string, reviver?: (key: any, value: any) => any) => any
->data : string
+>parse : (text: string, reviver?: (this: any, key: string, value: any) => any) => any
+>data : string | (T & string)
     }
     else {
         return data;
@@ -117,13 +115,11 @@ function c<T>(data: string | T): T {
 }
 function d<T extends string>(data: string | T): never {
 >d : <T extends string>(data: string | T) => never
->T : T
 >data : string | T
->T : T
 
     if (typeof data === 'string') {
 >typeof data === 'string' : boolean
->typeof data : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof data : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >data : string | T
 >'string' : "string"
 
@@ -135,6 +131,32 @@ function d<T extends string>(data: string | T): never {
     else {
         return data;
 >data : never
+    }
+}
+
+interface I<T> {
+  p: T;
+>p : T
+}
+function e(x: I<"A" | "B">) {
+>e : (x: I<"A" | "B">) => void
+>x : I<"A" | "B">
+
+    if (x.p === "A") {
+>x.p === "A" : boolean
+>x.p : "A" | "B"
+>x : I<"A" | "B">
+>p : "A" | "B"
+>"A" : "A"
+
+        let a: "A" = (null as unknown as typeof x.p)
+>a : "A"
+>(null as unknown as typeof x.p) : "A"
+>null as unknown as typeof x.p : "A"
+>null as unknown : unknown
+>x.p : "A"
+>x : I<"A" | "B">
+>p : "A"
     }
 }
 

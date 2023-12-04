@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/augmentedTypesModules4.ts] ////
+
 //// [augmentedTypesModules4.ts]
 // module then enum
 // should be errors
@@ -46,7 +48,7 @@ var m4c;
 })(m4c || (m4c = {}));
 var m4d;
 (function (m4d) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.foo = function () { };

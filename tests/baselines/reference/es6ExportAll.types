@@ -1,9 +1,10 @@
-=== tests/cases/compiler/server.ts ===
+//// [tests/cases/compiler/es6ExportAll.ts] ////
+
+=== server.ts ===
 export class c {
 >c : c
 }
 export interface i {
->i : i
 }
 export module m {
 >m : typeof m
@@ -17,9 +18,8 @@ export var x = 10;
 >10 : 10
 
 export module uninstantiated {
->uninstantiated : any
 }
 
-=== tests/cases/compiler/client.ts ===
+=== client.ts ===
+
 export * from "server";
-No type information for this code.

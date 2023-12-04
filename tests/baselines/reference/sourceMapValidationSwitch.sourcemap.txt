@@ -5,7 +5,7 @@ sourceRoot:
 sources: sourceMapValidationSwitch.ts
 ===================================================================
 -------------------------------------------------------------------
-emittedFile:tests/cases/compiler/sourceMapValidationSwitch.js
+emittedFile:sourceMapValidationSwitch.js
 sourceFile:sourceMapValidationSwitch.ts
 -------------------------------------------------------------------
 >>>var x = 10;
@@ -31,30 +31,21 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>switch (x) {
 1->
-2 >^^^^^^
-3 >      ^
-4 >       ^
-5 >        ^
-6 >         ^
-7 >          ^
-8 >           ^
+2 >^^^^^^^^
+3 >        ^
+4 >         ^^
+5 >           ^
 1->
   >
-2 >switch
-3 >       
-4 >       (
-5 >        x
-6 >         )
-7 >           
-8 >           {
+2 >switch (
+3 >        x
+4 >         ) 
+5 >           {
 1->Emitted(2, 1) Source(2, 1) + SourceIndex(0)
-2 >Emitted(2, 7) Source(2, 7) + SourceIndex(0)
-3 >Emitted(2, 8) Source(2, 8) + SourceIndex(0)
-4 >Emitted(2, 9) Source(2, 9) + SourceIndex(0)
-5 >Emitted(2, 10) Source(2, 10) + SourceIndex(0)
-6 >Emitted(2, 11) Source(2, 11) + SourceIndex(0)
-7 >Emitted(2, 12) Source(2, 12) + SourceIndex(0)
-8 >Emitted(2, 13) Source(2, 13) + SourceIndex(0)
+2 >Emitted(2, 9) Source(2, 9) + SourceIndex(0)
+3 >Emitted(2, 10) Source(2, 10) + SourceIndex(0)
+4 >Emitted(2, 12) Source(2, 12) + SourceIndex(0)
+5 >Emitted(2, 13) Source(2, 13) + SourceIndex(0)
 ---
 >>>    case 5:
 1 >^^^^
@@ -87,15 +78,12 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>        break;
 1->^^^^^^^^
-2 >        ^^^^^
-3 >             ^
+2 >        ^^^^^^
 1->
   >        
-2 >        break
-3 >             ;
+2 >        break;
 1->Emitted(5, 9) Source(5, 9) + SourceIndex(0)
-2 >Emitted(5, 14) Source(5, 14) + SourceIndex(0)
-3 >Emitted(5, 15) Source(5, 15) + SourceIndex(0)
+2 >Emitted(5, 15) Source(5, 15) + SourceIndex(0)
 ---
 >>>    case 10:
 1 >^^^^
@@ -137,15 +125,12 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>            break;
 1->^^^^^^^^^^^^
-2 >            ^^^^^
-3 >                 ^
+2 >            ^^^^^^
 1->
   >            
-2 >            break
-3 >                 ;
+2 >            break;
 1->Emitted(9, 13) Source(9, 13) + SourceIndex(0)
-2 >Emitted(9, 18) Source(9, 18) + SourceIndex(0)
-3 >Emitted(9, 19) Source(9, 19) + SourceIndex(0)
+2 >Emitted(9, 19) Source(9, 19) + SourceIndex(0)
 ---
 >>>        }
 1 >^^^^^^^^
@@ -200,31 +185,22 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>switch (x) {
 1->
-2 >^^^^^^
-3 >      ^
-4 >       ^
-5 >        ^
-6 >         ^
-7 >          ^
-8 >           ^
+2 >^^^^^^^^
+3 >        ^
+4 >         ^^
+5 >           ^
 1->
   >
-2 >switch
-3 >       
-4 >       (
-5 >        x
-6 >         )
-7 >          
-  >          
-8 >           {
+2 >switch (
+3 >        x
+4 >         )
+  >         
+5 >           {
 1->Emitted(14, 1) Source(14, 1) + SourceIndex(0)
-2 >Emitted(14, 7) Source(14, 7) + SourceIndex(0)
-3 >Emitted(14, 8) Source(14, 8) + SourceIndex(0)
-4 >Emitted(14, 9) Source(14, 9) + SourceIndex(0)
-5 >Emitted(14, 10) Source(14, 10) + SourceIndex(0)
-6 >Emitted(14, 11) Source(14, 11) + SourceIndex(0)
-7 >Emitted(14, 12) Source(15, 1) + SourceIndex(0)
-8 >Emitted(14, 13) Source(15, 2) + SourceIndex(0)
+2 >Emitted(14, 9) Source(14, 9) + SourceIndex(0)
+3 >Emitted(14, 10) Source(14, 10) + SourceIndex(0)
+4 >Emitted(14, 12) Source(15, 1) + SourceIndex(0)
+5 >Emitted(14, 13) Source(15, 2) + SourceIndex(0)
 ---
 >>>    case 5:
 1 >^^^^
@@ -257,15 +233,12 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>        break;
 1->^^^^^^^^
-2 >        ^^^^^
-3 >             ^
+2 >        ^^^^^^
 1->
   >        
-2 >        break
-3 >             ;
+2 >        break;
 1->Emitted(17, 9) Source(18, 9) + SourceIndex(0)
-2 >Emitted(17, 14) Source(18, 14) + SourceIndex(0)
-3 >Emitted(17, 15) Source(18, 15) + SourceIndex(0)
+2 >Emitted(17, 15) Source(18, 15) + SourceIndex(0)
 ---
 >>>    case 10:
 1 >^^^^
@@ -307,15 +280,12 @@ sourceFile:sourceMapValidationSwitch.ts
 ---
 >>>            break;
 1->^^^^^^^^^^^^
-2 >            ^^^^^
-3 >                 ^
+2 >            ^^^^^^
 1->
   >            
-2 >            break
-3 >                 ;
+2 >            break;
 1->Emitted(21, 13) Source(22, 13) + SourceIndex(0)
-2 >Emitted(21, 18) Source(22, 18) + SourceIndex(0)
-3 >Emitted(21, 19) Source(22, 19) + SourceIndex(0)
+2 >Emitted(21, 19) Source(22, 19) + SourceIndex(0)
 ---
 >>>        }
 1 >^^^^^^^^

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/cloduleWithRecursiveReference.ts] ////
+
 //// [cloduleWithRecursiveReference.ts]
 module M
 {
@@ -10,7 +12,7 @@ module M
 //// [cloduleWithRecursiveReference.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

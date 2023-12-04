@@ -1,17 +1,14 @@
-=== tests/cases/compiler/sourceMap-StringLiteralWithNewLine.ts ===
+//// [tests/cases/compiler/sourceMap-StringLiteralWithNewLine.ts] ////
+
+=== sourceMap-StringLiteralWithNewLine.ts ===
 interface Document {
->Document : Document
 }
 interface Window {
->Window : Window
-
     document: Document;
 >document : Document
->Document : Document
 }
 declare var window: Window;
 >window : Window
->Window : Window
 
 module Foo {
 >Foo : typeof Foo

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericTypeWithNonGenericBaseMisMatch.ts] ////
+
 //// [genericTypeWithNonGenericBaseMisMatch.ts]
 interface I {
 	f: (a: { a: number }) => void
@@ -10,7 +12,7 @@ var i: I = x; // Should not be allowed -- type of 'f' is incompatible with 'I'
 
 
 //// [genericTypeWithNonGenericBaseMisMatch.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     X.prototype.f = function (a) { };

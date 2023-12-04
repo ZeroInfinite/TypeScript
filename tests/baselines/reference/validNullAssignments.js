@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/null/validNullAssignments.ts] ////
+
 //// [validNullAssignments.ts]
 var a: number = null;
 var b: boolean = null;
@@ -42,7 +44,7 @@ var E;
     E[E["A"] = 0] = "A";
 })(E || (E = {}));
 E.A = null; // error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5-umd3.ts] ////
+
 //// [es5-umd3.ts]
 export default class A
 {
@@ -25,7 +27,7 @@ export default class A
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var A = (function () {
+    var A = /** @class */ (function () {
         function A() {
         }
         A.prototype.B = function () {

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/unaryOperators/plusOperator/plusOperatorWithNumberType.ts ===
+//// [tests/cases/conformance/expressions/unaryOperators/plusOperator/plusOperatorWithNumberType.ts] ////
+
+=== plusOperatorWithNumberType.ts ===
 // + operator on number type
 var NUMBER: number;
 >NUMBER : number
@@ -49,7 +51,7 @@ var ResultIsNumber2 = +NUMBER1;
 // number type literal
 var ResultIsNumber3 = +1;
 >ResultIsNumber3 : number
->+1 : number
+>+1 : 1
 >1 : 1
 
 var ResultIsNumber4 = +{ x: 1, y: 2};
@@ -118,7 +120,7 @@ var ResultIsNumber11 = +(NUMBER + NUMBER);
 
 // miss assignment operators
 +1;
->+1 : number
+>+1 : 1
 >1 : 1
 
 +NUMBER;

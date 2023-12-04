@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/optionalParamterAndVariableDeclaration2.ts] ////
+
 //// [optionalParamterAndVariableDeclaration2.ts]
 class C {
     constructor(options?: number) {
@@ -7,7 +9,7 @@ class C {
 
 
 //// [optionalParamterAndVariableDeclaration2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(options) {
         var options = (options || 0);
     }

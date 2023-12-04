@@ -1,10 +1,12 @@
+//// [tests/cases/compiler/enumGenericTypeClash.ts] ////
+
 //// [enumGenericTypeClash.ts]
 class X<A,B,C> { }
 enum X { MyVal }
 
 
 //// [enumGenericTypeClash.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     return X;

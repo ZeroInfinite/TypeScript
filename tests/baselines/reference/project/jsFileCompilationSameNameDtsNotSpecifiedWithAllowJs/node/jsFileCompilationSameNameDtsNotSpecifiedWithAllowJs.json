@@ -5,7 +5,9 @@
     "declaration": true,
     "project": "SameNameDTsNotSpecifiedWithAllowJs",
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "SameNameDTsNotSpecifiedWithAllowJs/a.d.ts",
         "SameNameDTsNotSpecifiedWithAllowJs/a.js"
     ],

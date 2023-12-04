@@ -1,8 +1,7 @@
-tests/cases/compiler/inlineSourceMap.ts(2,1): error TS2304: Cannot find name 'console'.
+error TS5107: Option 'target=ES3' is deprecated and will stop functioning in TypeScript 5.5. Specify compilerOption '"ignoreDeprecations": "5.0"' to silence this error.
 
 
-==== tests/cases/compiler/inlineSourceMap.ts (1 errors) ====
+!!! error TS5107: Option 'target=ES3' is deprecated and will stop functioning in TypeScript 5.5. Specify compilerOption '"ignoreDeprecations": "5.0"' to silence this error.
+==== inlineSourceMap.ts (0 errors) ====
     var x = 0;
     console.log(x);
-    ~~~~~~~
-!!! error TS2304: Cannot find name 'console'.

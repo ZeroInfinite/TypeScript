@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/for-ofStatements/for-of26.ts ===
+//// [tests/cases/conformance/es6/for-ofStatements/for-of26.ts] ////
+
+=== for-of26.ts ===
 class StringIterator {
 >StringIterator : StringIterator
 
@@ -9,9 +11,10 @@ class StringIterator {
 >x : any
     }
     [Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => this
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
         return this;
 >this : this

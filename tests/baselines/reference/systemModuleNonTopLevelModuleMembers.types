@@ -1,4 +1,6 @@
-=== tests/cases/compiler/systemModuleNonTopLevelModuleMembers.ts ===
+//// [tests/cases/compiler/systemModuleNonTopLevelModuleMembers.ts] ////
+
+=== systemModuleNonTopLevelModuleMembers.ts ===
 export class TopLevelClass {}
 >TopLevelClass : TopLevelClass
 
@@ -11,7 +13,7 @@ export function TopLevelFunction(): void {}
 
 export enum TopLevelEnum {E}
 >TopLevelEnum : TopLevelEnum
->E : TopLevelEnum
+>E : TopLevelEnum.E
 
 export module TopLevelModule2 {
 >TopLevelModule2 : typeof TopLevelModule2
@@ -28,5 +30,5 @@ export module TopLevelModule2 {
 
     export enum NonTopLevelEnum {E}
 >NonTopLevelEnum : NonTopLevelEnum
->E : NonTopLevelEnum
+>E : NonTopLevelEnum.E
 }

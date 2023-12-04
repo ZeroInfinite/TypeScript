@@ -1,4 +1,6 @@
-=== tests/cases/compiler/moduleCodeGenTest5.ts ===
+//// [tests/cases/compiler/moduleCodeGenTest5.ts] ////
+
+=== moduleCodeGenTest5.ts ===
 export var x = 0;
 >x : number
 >0 : 0
@@ -36,7 +38,7 @@ class C2{
 
 export enum E1 {A=0}
 >E1 : E1
->A : E1
+>A : E1.A
 >0 : 0
 
 var u = E1.A;
@@ -47,7 +49,7 @@ var u = E1.A;
 
 enum E2 {B=0}
 >E2 : E2
->B : E2
+>B : E2.B
 >0 : 0
 
 var v = E2.B;

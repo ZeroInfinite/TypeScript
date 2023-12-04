@@ -1,6 +1,10 @@
+//// [tests/cases/conformance/async/es5/asyncMethodWithSuper_es5.ts] ////
+
 //// [asyncMethodWithSuper_es5.ts]
 class A {
     x() {
+    }
+    y() {
     }
 }
 
@@ -9,6 +13,8 @@ class B extends A {
     async simple() {
         // call with property access
         super.x();
+        // call additional property.
+        super.y();
 
         // call with element access
         super["x"]();
@@ -50,15 +56,18 @@ class B extends A {
     }
 }
 
+
 //// [asyncMethodWithSuper_es5.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.x = function () {
     };
+    A.prototype.y = function () {
+    };
     return A;
 }());
-var B = (function (_super) {
+var B = /** @class */ (function (_super) {
     __extends(B, _super);
     function B() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -70,6 +79,8 @@ var B = (function (_super) {
             return __generator(this, function (_a) {
                 // call with property access
                 _super.prototype.x.call(this);
+                // call additional property.
+                _super.prototype.y.call(this);
                 // call with element access
                 _super.prototype["x"].call(this);
                 a = _super.prototype.x;

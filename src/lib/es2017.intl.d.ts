@@ -1,10 +1,26 @@
-type DateTimeFormatPartTypes = "day" | "dayPeriod" | "era" | "hour" | "literal" | "minute" | "month" | "second" | "timeZoneName" | "weekday" | "year";
+declare namespace Intl {
+    interface DateTimeFormatPartTypesRegistry {
+        day: any;
+        dayPeriod: any;
+        era: any;
+        hour: any;
+        literal: any;
+        minute: any;
+        month: any;
+        second: any;
+        timeZoneName: any;
+        weekday: any;
+        year: any;
+    }
 
-interface DateTimeFormatPart {
-    type: DateTimeFormatPartTypes;
-    value: string;
-}
+    type DateTimeFormatPartTypes = keyof DateTimeFormatPartTypesRegistry;
 
-interface DateTimeFormat {
-    formatToParts(date?: Date | number): DateTimeFormatPart[];
+    interface DateTimeFormatPart {
+        type: DateTimeFormatPartTypes;
+        value: string;
+    }
+
+    interface DateTimeFormat {
+        formatToParts(date?: Date | number): DateTimeFormatPart[];
+    }
 }

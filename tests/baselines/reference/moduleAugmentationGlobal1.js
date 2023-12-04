@@ -19,8 +19,9 @@ let y = x.getA().x;
 
 //// [f1.js]
 "use strict";
-exports.__esModule = true;
-var A = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.A = void 0;
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
@@ -28,7 +29,7 @@ var A = (function () {
 exports.A = A;
 //// [f2.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var x = [1];
 var y = x.getA().x;
 
@@ -39,7 +40,7 @@ export declare class A {
 }
 //// [f2.d.ts]
 import { A } from "./f1";
-declare global  {
+declare global {
     interface Array<T> {
         getA(): A;
     }

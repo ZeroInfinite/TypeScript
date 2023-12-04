@@ -1,4 +1,6 @@
-=== tests/cases/compiler/usingModuleWithExportImportInValuePosition.ts ===
+//// [tests/cases/compiler/usingModuleWithExportImportInValuePosition.ts] ////
+
+=== usingModuleWithExportImportInValuePosition.ts ===
 module A {
 >A : typeof A
 
@@ -14,11 +16,7 @@ export class Point {
 >y : number
     }
     export module B {
->B : any
-
         export interface Id {
->Id : Id
-
             name: string;
 >name : string
         }
@@ -62,5 +60,4 @@ var c: C.a.B.Id;
 >C : any
 >a : any
 >B : any
->Id : A.B.Id
 

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/exportDeclarations/ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.ts ===
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.ts] ////
+
+=== ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.ts ===
 module A {
 >A : typeof A
 
@@ -11,12 +13,9 @@ module A {
 
     export var beez: Array<B>;
 >beez : B[]
->Array : T[]
->B : B
 
     export var beez2 = new Array<B>();
 >beez2 : B[]
 >new Array<B>() : B[]
 >Array : ArrayConstructor
->B : B
 }

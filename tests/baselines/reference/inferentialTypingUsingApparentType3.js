@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/inferentialTypingUsingApparentType3.ts] ////
+
 //// [inferentialTypingUsingApparentType3.ts]
 interface Field<T> {
     clean(input: T): T
@@ -27,7 +29,7 @@ var person = new ObjectField({
 person.fields.id;
 
 //// [inferentialTypingUsingApparentType3.js]
-var CharField = (function () {
+var CharField = /** @class */ (function () {
     function CharField() {
     }
     CharField.prototype.clean = function (input) {
@@ -35,7 +37,7 @@ var CharField = (function () {
     };
     return CharField;
 }());
-var NumberField = (function () {
+var NumberField = /** @class */ (function () {
     function NumberField() {
     }
     NumberField.prototype.clean = function (input) {
@@ -43,7 +45,7 @@ var NumberField = (function () {
     };
     return NumberField;
 }());
-var ObjectField = (function () {
+var ObjectField = /** @class */ (function () {
     function ObjectField(fields) {
         this.fields = fields;
     }

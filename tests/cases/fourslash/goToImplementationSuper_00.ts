@@ -2,9 +2,9 @@
 
 // Should go to super class declaration when invoked on a super call expression
 
-//// [|class Foo {
+//// class [|Foo|] {
 ////     constructor() {}
-//// }|]
+//// }
 ////
 //// class Bar extends Foo {
 ////     constructor() {
@@ -12,4 +12,4 @@
 ////     }
 //// }
 
-verify.allRangesAppearInImplementationList("super_call");
+verify.baselineGoToImplementation("super_call");

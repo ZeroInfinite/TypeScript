@@ -2,12 +2,9 @@
 
 //// class B {}
 //// function foo() {
-////     return {[|B|]: B};
+////     return {/*1*/B: B};
 //// }
-//// class C extends (foo()).[|B|] {}
-//// class C1 extends foo().[|B|] {}
+//// class C extends (foo())./*2*/B {}
+//// class C1 extends foo()./*3*/B {}
 
-const ranges = test.ranges();
-for (const range of ranges) {
-  verify.referencesOf(range, ranges);
-}
+verify.baselineFindAllReferences('1', '2', '3');

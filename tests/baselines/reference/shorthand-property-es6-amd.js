@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/shorthand-property-es6-amd.ts] ////
+
 //// [test.ts]
 import {foo} from './foo';
 const baz = 42;
@@ -14,3 +16,4 @@ define(["require", "exports", "./foo"], function (require, exports, foo_1) {
 
 
 //// [test.d.ts]
+export {};

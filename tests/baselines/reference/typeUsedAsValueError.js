@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeUsedAsValueError.ts] ////
+
 //// [typeUsedAsValueError.ts]
 interface Interface {
 
@@ -24,7 +26,7 @@ acceptsSomeType(someType);
 acceptsSomeType(someTypeNotFound);
 
 //// [typeUsedAsValueError.js]
-var SomeClass = (function () {
+var SomeClass = /** @class */ (function () {
     function SomeClass() {
     }
     return SomeClass;

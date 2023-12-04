@@ -1,10 +1,12 @@
-=== tests/cases/conformance/types/intersection/operatorsAndIntersectionTypes.ts ===
+//// [tests/cases/conformance/types/intersection/operatorsAndIntersectionTypes.ts] ////
+
+=== operatorsAndIntersectionTypes.ts ===
 type Guid = string & { $Guid };          // Tagged string type
->Guid : Guid
+>Guid : string & { $Guid: any; }
 >$Guid : any
 
 type SerialNo = number & { $SerialNo };  // Tagged number type
->SerialNo : SerialNo
+>SerialNo : number & { $SerialNo: any; }
 >$SerialNo : any
 
 function createGuid() {
@@ -13,7 +15,6 @@ function createGuid() {
     return "21EC2020-3AEA-4069-A2DD-08002B30309D" as Guid;
 >"21EC2020-3AEA-4069-A2DD-08002B30309D" as Guid : Guid
 >"21EC2020-3AEA-4069-A2DD-08002B30309D" : "21EC2020-3AEA-4069-A2DD-08002B30309D"
->Guid : Guid
 }
 
 function createSerialNo() {
@@ -22,7 +23,6 @@ function createSerialNo() {
     return 12345 as SerialNo;
 >12345 as SerialNo : SerialNo
 >12345 : 12345
->SerialNo : SerialNo
 }
 
 let map1: { [x: string]: number } = {};

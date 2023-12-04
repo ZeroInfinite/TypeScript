@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/parameterPropertyReferencingOtherParameter.ts] ////
+
 //// [parameterPropertyReferencingOtherParameter.ts]
 class Foo {
     constructor(public x: number, public y: number = x) { }
@@ -5,7 +7,7 @@ class Foo {
 
 
 //// [parameterPropertyReferencingOtherParameter.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo(x, y) {
         if (y === void 0) { y = x; }
         this.x = x;

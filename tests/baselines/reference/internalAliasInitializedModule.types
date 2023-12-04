@@ -1,4 +1,6 @@
-=== tests/cases/compiler/internalAliasInitializedModule.ts ===
+//// [tests/cases/compiler/internalAliasInitializedModule.ts] ////
+
+=== internalAliasInitializedModule.ts ===
 module a {
 >a : typeof a
 
@@ -22,7 +24,6 @@ module c {
     export var x: b.c = new b.c();
 >x : b.c
 >b : any
->c : b.c
 >new b.c() : b.c
 >b.c : typeof b.c
 >b : typeof b

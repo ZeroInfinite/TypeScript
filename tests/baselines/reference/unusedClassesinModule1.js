@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedClassesinModule1.ts] ////
+
 //// [unusedClassesinModule1.ts]
 module A {
     class Calculator {
@@ -9,7 +11,7 @@ module A {
 //// [unusedClassesinModule1.js]
 var A;
 (function (A) {
-    var Calculator = (function () {
+    var Calculator = /** @class */ (function () {
         function Calculator() {
         }
         Calculator.prototype.handelChar = function () {

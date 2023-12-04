@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es7/exponentiationOperator/emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts ===
+//// [tests/cases/conformance/es7/exponentiationOperator/emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts] ////
+
+=== emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts ===
 var globalCounter = 0;
 >globalCounter : Symbol(globalCounter, Decl(emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts, 0, 3))
 
@@ -9,6 +11,7 @@ function foo() {
 >globalCounter : Symbol(globalCounter, Decl(emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts, 0, 3))
 
     return { 0: 2 };
+>0 : Symbol(0, Decl(emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts, 3, 12))
 }
 foo()[0] **= foo()[0];
 >foo : Symbol(foo, Decl(emitCompoundExponentiationAssignmentWithIndexingOnLHS2.ts, 0, 22))

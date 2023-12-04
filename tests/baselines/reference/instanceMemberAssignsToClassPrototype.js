@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/propertyMemberDeclarations/memberFunctionDeclarations/instanceMemberAssignsToClassPrototype.ts] ////
+
 //// [instanceMemberAssignsToClassPrototype.ts]
 class C {
     foo() {
@@ -13,7 +15,7 @@ class C {
 }
 
 //// [instanceMemberAssignsToClassPrototype.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

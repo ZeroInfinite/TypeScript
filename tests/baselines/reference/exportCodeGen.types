@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/codeGeneration/exportCodeGen.ts ===
+//// [tests/cases/conformance/internalModules/codeGeneration/exportCodeGen.ts] ////
+
+=== exportCodeGen.ts ===
 // should replace all refs to 'x' in the body,
 // with fully qualified
 module A {
@@ -66,13 +68,12 @@ module E {
 
     export enum Color { Red }
 >Color : Color
->Red : Color
+>Red : Color.Red
 
     export function fn() { }
 >fn : () => void
 
     export interface I { id: number }
->I : I
 >id : number
 
     export class C { name: string }
@@ -95,13 +96,12 @@ module F {
 
     enum Color { Red }
 >Color : Color
->Red : Color
+>Red : Color.Red
 
     function fn() { }
 >fn : () => void
 
     interface I { id: number }
->I : I
 >id : number
 
     class C { name: string }

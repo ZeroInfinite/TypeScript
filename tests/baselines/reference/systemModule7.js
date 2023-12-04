@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/systemModule7.ts] ////
+
 //// [systemModule7.ts]
 // filename: instantiatedModule.ts
 export module M {
@@ -12,16 +14,15 @@ export module M {
 //// [systemModule7.js]
 System.register([], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var M;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
             // filename: instantiatedModule.ts
             (function (M) {
                 var x = 1;
-            })(M || (M = {}));
-            exports_1("M", M);
+            })(M || (exports_1("M", M = {})));
         }
     };
 });

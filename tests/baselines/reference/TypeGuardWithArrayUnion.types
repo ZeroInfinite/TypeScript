@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/typeGuards/TypeGuardWithArrayUnion.ts ===
+//// [tests/cases/conformance/expressions/typeGuards/TypeGuardWithArrayUnion.ts] ////
+
+=== TypeGuardWithArrayUnion.ts ===
 class Message {
 >Message : Message
 
@@ -9,8 +11,6 @@ class Message {
 function saySize(message: Message | Message[]) {
 >saySize : (message: Message | Message[]) => number
 >message : Message | Message[]
->Message : Message
->Message : Message
 
     if (message instanceof Array) {
 >message instanceof Array : boolean

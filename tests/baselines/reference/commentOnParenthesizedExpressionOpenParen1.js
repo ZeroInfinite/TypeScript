@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentOnParenthesizedExpressionOpenParen1.ts] ////
+
 //// [commentOnParenthesizedExpressionOpenParen1.ts]
 var j;
 var f: () => any;
@@ -7,4 +9,4 @@ var f: () => any;
 //// [commentOnParenthesizedExpressionOpenParen1.js]
 var j;
 var f;
-(j = f());
+( /* Preserve */j = f());

@@ -8,17 +8,17 @@ import "./folder/test"
 //// [outputfile.js]
 define("folder/test", ["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
 });
 define("main", ["require", "exports", "folder/test"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
 });
 
 
 //// [outputfile.d.ts]
 declare module "folder/test" {
-    export {  };
+    export {};
 }
 declare module "main" {
     import "folder/test";

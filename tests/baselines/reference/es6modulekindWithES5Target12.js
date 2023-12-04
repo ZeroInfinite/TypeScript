@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/externalModules/es6/es6modulekindWithES5Target12.ts] ////
+
 //// [es6modulekindWithES5Target12.ts]
 export class C {
 }
@@ -37,7 +39,7 @@ export namespace F {
 }
 
 //// [es6modulekindWithES5Target12.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

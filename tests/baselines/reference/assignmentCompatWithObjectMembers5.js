@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembers5.ts] ////
+
 //// [assignmentCompatWithObjectMembers5.ts]
 class C {
     foo: string;
@@ -15,7 +17,7 @@ c = i; // error
 i = c; // error
 
 //// [assignmentCompatWithObjectMembers5.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

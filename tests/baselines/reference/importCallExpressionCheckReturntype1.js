@@ -18,18 +18,20 @@ let p3: Promise<any> = import("./defaultPath");
 //// [anotherModule.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.D = void 0;
 class D {
 }
 exports.D = D;
 //// [defaultPath.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.C = void 0;
 class C {
 }
 exports.C = C;
 //// [1.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-let p1 = Promise.resolve().then(function () { return require("./defaultPath"); });
-let p2 = Promise.resolve().then(function () { return require("./defaultPath"); });
-let p3 = Promise.resolve().then(function () { return require("./defaultPath"); });
+let p1 = Promise.resolve().then(() => require("./defaultPath"));
+let p2 = Promise.resolve().then(() => require("./defaultPath"));
+let p3 = Promise.resolve().then(() => require("./defaultPath"));

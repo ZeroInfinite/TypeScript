@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadresolutionWithConstraintCheckingDeferred.ts] ////
+
 //// [overloadresolutionWithConstraintCheckingDeferred.ts]
 interface A { x }
 interface B { x; y }
@@ -23,7 +25,7 @@ var result3: string = foo(x => { // x has type D
 
 
 //// [overloadresolutionWithConstraintCheckingDeferred.js]
-var G = (function () {
+var G = /** @class */ (function () {
     function G(x) {
     }
     return G;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericClassImplementingGenericInterfaceFromAnotherModule.ts] ////
+
 //// [genericClassImplementingGenericInterfaceFromAnotherModule.ts]
 module foo {
     export interface IFoo<T> { }
@@ -10,7 +12,7 @@ module bar {
 //// [genericClassImplementingGenericInterfaceFromAnotherModule.js]
 var bar;
 (function (bar) {
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
         }
         return Foo;
@@ -20,11 +22,11 @@ var bar;
 
 
 //// [genericClassImplementingGenericInterfaceFromAnotherModule.d.ts]
-declare module foo {
+declare namespace foo {
     interface IFoo<T> {
     }
 }
-declare module bar {
+declare namespace bar {
     class Foo<T> implements foo.IFoo<T> {
     }
 }

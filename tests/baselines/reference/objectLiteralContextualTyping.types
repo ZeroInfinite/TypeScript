@@ -1,12 +1,12 @@
-=== tests/cases/conformance/expressions/contextualTyping/objectLiteralContextualTyping.ts ===
+//// [tests/cases/conformance/expressions/contextualTyping/objectLiteralContextualTyping.ts] ////
+
+=== objectLiteralContextualTyping.ts ===
 // In a contextually typed object literal, each property value expression is contextually typed by
 //      the type of the property with a matching name in the contextual type, if any, or otherwise
 //      for a numerically named property, the numeric index type of the contextual type, if any, or otherwise
 //      the string index type of the contextual type, if any.
 
 interface Item {
->Item : Item
-
     name: string;
 >name : string
 
@@ -17,7 +17,6 @@ interface Item {
 declare function foo(item: Item): string;
 >foo : { (item: Item): string; (item: any): number; }
 >item : Item
->Item : Item
 
 declare function foo(item: any): number;
 >foo : { (item: Item): string; (item: any): number; }
@@ -72,19 +71,16 @@ var w: number;
 >w : number
 
 declare function bar<T>(param: { x?: T }): T;
->bar : <T>(param: { x?: T; }) => T
->T : T
+>bar : <T>(param: {    x?: T;}) => T
 >param : { x?: T; }
 >x : T
->T : T
->T : T
 
 var b = bar({});
->b : {}
->bar({}) : {}
+>b : unknown
+>bar({}) : unknown
 >bar : <T>(param: { x?: T; }) => T
 >{} : {}
 
 var b: {};
->b : {}
+>b : unknown
 

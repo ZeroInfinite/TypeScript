@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5ExportDefaultClassDeclaration4.ts] ////
+
 //// [es5ExportDefaultClassDeclaration4.ts]
 declare module "foo" {
     export var before: C;
@@ -19,7 +21,7 @@ declare module "foo" {
 //// [es5ExportDefaultClassDeclaration4.d.ts]
 declare module "foo" {
     var before: C;
-    class C {
+    export default class C {
         method(): C;
     }
     var after: C;

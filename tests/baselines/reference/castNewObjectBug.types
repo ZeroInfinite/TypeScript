@@ -1,11 +1,10 @@
-=== tests/cases/compiler/castNewObjectBug.ts ===
-interface Foo { }
->Foo : Foo
+//// [tests/cases/compiler/castNewObjectBug.ts] ////
 
+=== castNewObjectBug.ts ===
+interface Foo { }
 var xx = <Foo> new Object();
 >xx : Foo
 ><Foo> new Object() : Foo
->Foo : Foo
 >new Object() : Object
 >Object : ObjectConstructor
 

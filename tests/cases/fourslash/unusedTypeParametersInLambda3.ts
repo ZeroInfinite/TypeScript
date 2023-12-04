@@ -7,4 +7,8 @@
 ////     [|new <T, U, K>(a: T): A<U>;|]
 //// }
 
-verify.rangeAfterCodeFix("new <T, U>(a: T): A<U>;");
+verify.codeFix({
+    description: "Remove unused declaration for: 'K'",
+    index: 0,
+    newRangeContent: "new <T, U>(a: T): A<U>;",
+});

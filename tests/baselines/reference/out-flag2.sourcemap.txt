@@ -2,13 +2,13 @@
 JsFile: c.js
 mapUrl: c.js.map
 sourceRoot: 
-sources: tests/cases/compiler/a.ts,tests/cases/compiler/b.ts
+sources: a.ts,b.ts
 ===================================================================
 -------------------------------------------------------------------
 emittedFile:c.js
-sourceFile:tests/cases/compiler/a.ts
+sourceFile:a.ts
 -------------------------------------------------------------------
->>>var A = (function () {
+>>>var A = /** @class */ (function () {
 1 >
 2 >^^^^^^^^^^^^^^^^^^^->
 1 >
@@ -42,7 +42,7 @@ sourceFile:tests/cases/compiler/a.ts
 2 >^
 3 > 
 4 > ^^^^
-5 >     ^^^^^^^^^^^^^^^^^^->
+5 >     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^->
 1 >
 2 >}
 3 > 
@@ -54,9 +54,9 @@ sourceFile:tests/cases/compiler/a.ts
 ---
 -------------------------------------------------------------------
 emittedFile:c.js
-sourceFile:tests/cases/compiler/b.ts
+sourceFile:b.ts
 -------------------------------------------------------------------
->>>var B = (function () {
+>>>var B = /** @class */ (function () {
 1->
 2 >^^^^^^^^^^^^^^^^^^^->
 1->

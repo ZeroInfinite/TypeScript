@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/subtypesAndSuperTypes/subtypesOfAny.ts] ////
+
 //// [subtypesOfAny.ts]
 // every type is a subtype of any, no errors expected
 
@@ -135,12 +137,12 @@ interface I20 {
 
 //// [subtypesOfAny.js]
 // every type is a subtype of any, no errors expected
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var A2 = (function () {
+var A2 = /** @class */ (function () {
     function A2() {
     }
     return A2;
@@ -153,7 +155,7 @@ function f() { }
 (function (f) {
     f.bar = 1;
 })(f || (f = {}));
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;

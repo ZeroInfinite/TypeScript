@@ -7,7 +7,7 @@
 
 //// var x1 = import("./foo");
 //// x1.then(foo => {
-////    var s: string = foo.bar();    
+////    var s: string = foo.bar();
 //// })
 //// /*1*/
 

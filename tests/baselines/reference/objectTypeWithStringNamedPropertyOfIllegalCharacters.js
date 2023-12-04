@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/members/objectTypeWithStringNamedPropertyOfIllegalCharacters.ts] ////
+
 //// [objectTypeWithStringNamedPropertyOfIllegalCharacters.ts]
 class C {
     "   ": number;
@@ -54,7 +56,7 @@ var r4 = b["~!@#$%^&*()_+{}|:'<>?\/.,`"];
 
 
 //// [objectTypeWithStringNamedPropertyOfIllegalCharacters.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -80,7 +82,7 @@ var r4 = a["~!@#$%^&*()_+{}|:'<>?\/.,`"];
 var b = {
     "   ": 1,
     "a   b": "",
-    "~!@#$%^&*()_+{}|:'<>?\/.,`": 1
+    "~!@#$%^&*()_+{}|:'<>?\/.,`": 1,
 };
 var r = b["   "];
 var r2 = b["    "];

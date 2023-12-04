@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/controlFlowSelfReferentialLoop.ts] ////
+
 //// [controlFlowSelfReferentialLoop.ts]
 // Repro from #12319
 
@@ -100,10 +102,30 @@ function md5(string:string): void {
 }
 export default md5;
 
+// Repro from #26655
+
+interface DataShape {
+  message: { id: string }
+}
+
+function getObject(id: string | number) {
+  return {} as any
+}
+
+;(() => {
+  let id: string | number = 'a'
+  while (1) {
+    const data = getObject(id) as DataShape
+    const message = data.message
+    id = message.id
+  }
+})()
+
+
 //// [controlFlowSelfReferentialLoop.js]
 "use strict";
 // Repro from #12319
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 function md5(string) {
     function FF(a, b, c, d, x, s, ac) {
         return 0;
@@ -203,4 +225,16 @@ function md5(string) {
         b = II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
     }
 }
-exports["default"] = md5;
+exports.default = md5;
+function getObject(id) {
+    return {};
+}
+;
+(function () {
+    var id = 'a';
+    while (1) {
+        var data = getObject(id);
+        var message = data.message;
+        id = message.id;
+    }
+})();

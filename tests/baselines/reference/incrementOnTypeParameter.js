@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/incrementOnTypeParameter.ts] ////
+
 //// [incrementOnTypeParameter.ts]
 class C<T> {
     a: T;
@@ -10,7 +12,7 @@ class C<T> {
 
 
 //// [incrementOnTypeParameter.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

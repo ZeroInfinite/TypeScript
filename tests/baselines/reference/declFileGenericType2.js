@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileGenericType2.ts] ////
+
 //// [declFileGenericType2.ts]
 declare module templa.mvc {
     interface IModel {
@@ -43,10 +45,15 @@ module templa.dom.mvc.composite {
 
 //// [declFileGenericType2.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -59,7 +66,7 @@ var templa;
     (function (dom) {
         var mvc;
         (function (mvc) {
-            var AbstractElementController = (function (_super) {
+            var AbstractElementController = /** @class */ (function (_super) {
                 __extends(AbstractElementController, _super);
                 function AbstractElementController() {
                     return _super.call(this) || this;
@@ -78,7 +85,7 @@ var templa;
         (function (mvc) {
             var composite;
             (function (composite) {
-                var AbstractCompositeElementController = (function (_super) {
+                var AbstractCompositeElementController = /** @class */ (function (_super) {
                     __extends(AbstractCompositeElementController, _super);
                     function AbstractCompositeElementController() {
                         var _this = _super.call(this) || this;
@@ -95,33 +102,33 @@ var templa;
 
 
 //// [declFileGenericType2.d.ts]
-declare module templa.mvc {
+declare namespace templa.mvc {
     interface IModel {
     }
 }
-declare module templa.mvc {
+declare namespace templa.mvc {
     interface IController<ModelType extends templa.mvc.IModel> {
     }
 }
-declare module templa.mvc {
+declare namespace templa.mvc {
     class AbstractController<ModelType extends templa.mvc.IModel> implements mvc.IController<ModelType> {
     }
 }
-declare module templa.mvc.composite {
+declare namespace templa.mvc.composite {
     interface ICompositeControllerModel extends mvc.IModel {
         getControllers(): mvc.IController<mvc.IModel>[];
     }
 }
-declare module templa.dom.mvc {
+declare namespace templa.dom.mvc {
     interface IElementController<ModelType extends templa.mvc.IModel> extends templa.mvc.IController<ModelType> {
     }
 }
-declare module templa.dom.mvc {
+declare namespace templa.dom.mvc {
     class AbstractElementController<ModelType extends templa.mvc.IModel> extends templa.mvc.AbstractController<ModelType> implements IElementController<ModelType> {
         constructor();
     }
 }
-declare module templa.dom.mvc.composite {
+declare namespace templa.dom.mvc.composite {
     class AbstractCompositeElementController<ModelType extends templa.mvc.composite.ICompositeControllerModel> extends templa.dom.mvc.AbstractElementController<ModelType> {
         _controllers: templa.mvc.IController<templa.mvc.IModel>[];
         constructor();

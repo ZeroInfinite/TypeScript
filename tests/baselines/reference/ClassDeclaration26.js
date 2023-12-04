@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/ClassDeclaration26.ts] ////
+
 //// [ClassDeclaration26.ts]
 class C {
     public const var export foo = 10;
@@ -6,10 +8,11 @@ class C {
 }
 
 //// [ClassDeclaration26.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.foo = 10;
     }
     return C;
 }());
-var constructor = function () { };
+var constructor;
+(function () { });

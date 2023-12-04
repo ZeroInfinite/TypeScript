@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/members/duplicatePropertyNames.ts] ////
+
 //// [duplicatePropertyNames.ts]
 // duplicate property names are an error in all types
 
@@ -50,7 +52,7 @@ var b = {
 
 //// [duplicatePropertyNames.js]
 // duplicate property names are an error in all types
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.baz = function () { };
         this.baz = function () { };

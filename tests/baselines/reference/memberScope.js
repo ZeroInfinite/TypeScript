@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/memberScope.ts] ////
+
 //// [memberScope.ts]
 module Salt {
   export class Pepper {}
@@ -10,7 +12,7 @@ module Salt {
 //// [memberScope.js]
 var Salt;
 (function (Salt) {
-    var Pepper = (function () {
+    var Pepper = /** @class */ (function () {
         function Pepper() {
         }
         return Pepper;

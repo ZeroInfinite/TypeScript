@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/enumAssignability.ts] ////
+
 //// [enumAssignability.ts]
 // enums assignable to number, any, Object, errors unless otherwise noted
 
@@ -75,7 +77,7 @@ x = f; // ok
 var Others;
 (function (Others) {
     var a = e; // ok
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

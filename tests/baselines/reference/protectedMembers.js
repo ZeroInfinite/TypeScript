@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/protectedMembers.ts] ////
+
 //// [protectedMembers.ts]
 // Class with protected members
 class C1 {
@@ -117,17 +119,22 @@ class B3 extends A3 {
 
 //// [protectedMembers.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 // Class with protected members
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1() {
     }
     C1.prototype.f = function () {
@@ -139,7 +146,7 @@ var C1 = (function () {
     return C1;
 }());
 // Derived class accessing protected members
-var C2 = (function (_super) {
+var C2 = /** @class */ (function (_super) {
     __extends(C2, _super);
     function C2() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -153,7 +160,7 @@ var C2 = (function (_super) {
     return C2;
 }(C1));
 // Derived class making protected members public
-var C3 = (function (_super) {
+var C3 = /** @class */ (function (_super) {
     __extends(C3, _super);
     function C3() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -184,19 +191,19 @@ c3.x;
 c3.f();
 C3.sx;
 C3.sf();
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function (_super) {
+var B = /** @class */ (function (_super) {
     __extends(B, _super);
     function B() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return B;
 }(A));
-var C = (function (_super) {
+var C = /** @class */ (function (_super) {
     __extends(C, _super);
     function C() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -210,24 +217,24 @@ var C = (function (_super) {
     };
     return C;
 }(A));
-var D = (function (_super) {
+var D = /** @class */ (function (_super) {
     __extends(D, _super);
     function D() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return D;
 }(C));
-var CC = (function () {
+var CC = /** @class */ (function () {
     function CC() {
     }
     return CC;
 }());
-var A1 = (function () {
+var A1 = /** @class */ (function () {
     function A1() {
     }
     return A1;
 }());
-var B1 = (function () {
+var B1 = /** @class */ (function () {
     function B1() {
     }
     return B1;
@@ -236,25 +243,25 @@ var a1;
 var b1;
 a1 = b1; // Error, B1 doesn't derive from A1
 b1 = a1; // Error, x is protected in A1 but public in B1
-var A2 = (function () {
+var A2 = /** @class */ (function () {
     function A2() {
     }
     return A2;
 }());
-var B2 = (function (_super) {
+var B2 = /** @class */ (function (_super) {
     __extends(B2, _super);
     function B2() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return B2;
 }(A2));
-var A3 = (function () {
+var A3 = /** @class */ (function () {
     function A3() {
     }
     return A3;
 }());
 // Error x is protected in B3 but public in A3
-var B3 = (function (_super) {
+var B3 = /** @class */ (function (_super) {
     __extends(B3, _super);
     function B3() {
         return _super !== null && _super.apply(this, arguments) || this;

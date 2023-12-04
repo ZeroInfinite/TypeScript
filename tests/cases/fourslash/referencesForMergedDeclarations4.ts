@@ -2,26 +2,24 @@
 
 // class and instantiated module
 
-////class [|{| "isWriteAccess": true, "isDefinition": true |}testClass|] {
+/////*1*/class /*2*/testClass {
 ////    static staticMethod() { }
 ////    method() { }
 ////}
 ////
-////module [|{| "isWriteAccess": true, "isDefinition": true |}testClass|] {
+/////*3*/module /*4*/testClass {
 ////    export interface Bar {
 ////
 ////    }
 ////    export var s = 0;
 ////}
 ////
-////var c1: [|testClass|];
-////var c2: [|testClass|].Bar;
-////[|testClass|].staticMethod();
-////[|testClass|].prototype.method();
-////[|testClass|].bind(this);
-////[|testClass|].s;
-////new [|testClass|]();
+////var c1: /*5*/testClass;
+////var c2: /*6*/testClass.Bar;
+/////*7*/testClass.staticMethod();
+/////*8*/testClass.prototype.method();
+/////*9*/testClass.bind(this);
+/////*10*/testClass.s;
+////new /*11*/testClass();
 
-const ranges = test.ranges();
-verify.referenceGroups(ranges.slice(0, 8), [{ definition: "class testClass\nnamespace testClass", ranges }]);
-verify.referenceGroups(ranges[8], [{ definition: "constructor testClass(): testClass\nnamespace testClass", ranges }]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11');

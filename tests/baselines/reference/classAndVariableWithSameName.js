@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classAndVariableWithSameName.ts] ////
+
 //// [classAndVariableWithSameName.ts]
 class C { foo: string; } // error
 var C = ''; // error
@@ -11,7 +13,7 @@ module M {
 }
 
 //// [classAndVariableWithSameName.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
@@ -19,7 +21,7 @@ var C = (function () {
 var C = ''; // error
 var M;
 (function (M) {
-    var D = (function () {
+    var D = /** @class */ (function () {
         function D() {
         }
         return D;

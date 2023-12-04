@@ -1,7 +1,7 @@
-=== tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithOverloadedCallAndConstructSignatures.ts ===
-interface Foo {
->Foo : Foo
+//// [tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithOverloadedCallAndConstructSignatures.ts] ////
 
+=== interfaceWithOverloadedCallAndConstructSignatures.ts ===
+interface Foo {
     (): number;
     (x: string): number;
 >x : string
@@ -9,12 +9,10 @@ interface Foo {
     new (): any;
     new (x: string): Object;
 >x : string
->Object : Object
 }
 
 var f: Foo;
 >f : Foo
->Foo : Foo
 
 var r1 = f();
 >r1 : number

@@ -34,19 +34,19 @@ declare module N {
 
 
 //// [file1.js]
-var C1 = (function () {
+var C1 = /** @class */ (function () {
     function C1() {
     }
     return C1;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;
 }());
 function f() { }
 var v = 3;
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;
@@ -59,13 +59,13 @@ var N;
     })(F = N.F || (N.F = {}));
 })(N || (N = {}));
 //// [file2.js]
-var I = (function () {
+var I = /** @class */ (function () {
     function I() {
     }
     return I;
 }()); // error -- cannot merge interface with non-ambient class
 function C2() { } // error -- cannot merge function with non-ambient class
-var f = (function () {
+var f = /** @class */ (function () {
     function f() {
     }
     return f;
@@ -88,8 +88,8 @@ declare var v: number;
 declare class Foo {
     static x: number;
 }
-declare module N {
-    module F {
+declare namespace N {
+    namespace F {
     }
 }
 //// [file2.d.ts]
@@ -101,9 +101,9 @@ declare function C2(): void;
 declare class f {
 }
 declare var v: number;
-declare module Foo {
+declare namespace Foo {
     var x: number;
 }
-declare module N {
+declare namespace N {
     function F(): any;
 }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/detachedCommentAtStartOfLambdaFunction2.ts] ////
+
 //// [detachedCommentAtStartOfLambdaFunction2.ts]
 class TestFile {
     name: string;
@@ -12,7 +14,7 @@ class TestFile {
 }
 
 //// [detachedCommentAtStartOfLambdaFunction2.js]
-var TestFile = (function () {
+var TestFile = /** @class */ (function () {
     function TestFile() {
     }
     TestFile.prototype.foo = function (message) {

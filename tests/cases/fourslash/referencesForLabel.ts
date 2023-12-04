@@ -2,14 +2,12 @@
 
 // Valid References for a label
 
-////[|label|]: while (true) {
-////    if (false) break [|label|];
-////    if (true) continue [|label|];
+/////*1*/label: while (true) {
+////    if (false) /*2*/break /*3*/label;
+////    if (true) /*4*/continue /*5*/label;
 ////}
 ////
-////[|label|]: while (false) { }
+/////*6*/label: while (false) { }
 ////var label = "label";
 
-const [r0, r1, r2, r3] = test.ranges();
-verify.singleReferenceGroup("label", [r0, r1, r2]);
-verify.singleReferenceGroup("label", [r3]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6');

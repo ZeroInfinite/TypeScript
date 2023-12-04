@@ -1,10 +1,11 @@
-=== tests/cases/compiler/checkSuperCallBeforeThisAccessing7.ts ===
+//// [tests/cases/compiler/checkSuperCallBeforeThisAccessing7.ts] ////
+
+=== checkSuperCallBeforeThisAccessing7.ts ===
 class Base {
 >Base : Base
 
     constructor(func: ()=>Base) {
 >func : () => Base
->Base : Base
     }
 }
 class Super extends Base {

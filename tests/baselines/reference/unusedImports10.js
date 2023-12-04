@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedImports10.ts] ////
+
 //// [unusedImports10.ts]
 module A {
     export class Calculator {
@@ -13,7 +15,7 @@ module B {
 //// [unusedImports10.js]
 var A;
 (function (A) {
-    var Calculator = (function () {
+    var Calculator = /** @class */ (function () {
         function Calculator() {
         }
         Calculator.prototype.handelChar = function () {

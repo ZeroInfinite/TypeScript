@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/multiModuleClodule1.ts] ////
+
 //// [multiModuleClodule1.ts]
 class C {
     constructor(x: number) { }
@@ -19,7 +21,7 @@ var c = new C(C.x);
 c.foo = C.foo;
 
 //// [multiModuleClodule1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
     }
     C.prototype.foo = function () { };

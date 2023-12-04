@@ -1,7 +1,7 @@
-=== tests/cases/compiler/paramterDestrcuturingDeclaration.ts ===
-interface C {
->C : C
+//// [tests/cases/compiler/paramterDestrcuturingDeclaration.ts] ////
 
+=== paramterDestrcuturingDeclaration.ts ===
+interface C {
     ({p: name}): any;
 >p : any
 >name : any

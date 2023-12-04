@@ -7,10 +7,10 @@
 ////class /*B*/B extends A {}
 ////class C extends B {
 ////    constructor() {
-////        /*super*/super();
+////        [|/*super*/super|]();
 ////    }
 ////    method() {
-////        /*superExpression*/super.x();
+////        [|/*superExpression*/super|].x();
 ////    }
 ////}
 ////class D {
@@ -20,10 +20,10 @@
 ////}
 
 
-verify.goToDefinition({
+verify.baselineGoToDefinition(
     // Super in call position goes to constructor.
-    super: "ctr",
+    "super",
     // Super in any other position goes to the superclass.
-    superExpression: "B",
-    superBroken: []
-});
+    "superExpression",
+    "superBroken",
+);

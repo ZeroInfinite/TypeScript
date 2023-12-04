@@ -10,9 +10,4 @@
 ////}
 ////var a = new Circle(/**/
 
-goTo.marker('');
-verify.signatureHelpCountIs(1);
-verify.currentSignatureHelpIs("Circle(radius: number): Circle");
-verify.currentParameterHelpArgumentNameIs("radius");
-verify.currentParameterSpanIs("radius: number");
-verify.currentParameterHelpArgumentDocCommentIs("The radius of the circle.");
+verify.baselineSignatureHelp()

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/restParameterWithoutAnnotationIsAnyArray.ts] ////
+
 //// [restParameterWithoutAnnotationIsAnyArray.ts]
 // Rest parameters without type annotations are 'any', errors only for the functions with 2 rest params
 
@@ -46,7 +48,7 @@ var f2 = function () {
         y[_i - 1] = arguments[_i];
     }
 };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

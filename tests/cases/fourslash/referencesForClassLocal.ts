@@ -5,14 +5,14 @@
 ////var n = 14;
 ////
 ////class foo {
-////    private [|{| "isWriteAccess": true, "isDefinition": true |}n|] = 0;
+////    /*1*/private /*2*/n = 0;
 ////
 ////    public bar() {
-////        this.[|n|] = 9;
+////        this./*3*/n = 9;
 ////    }
 ////
 ////    constructor() {
-////        this.[|n|] = 4;
+////        this./*4*/n = 4;
 ////    }
 ////
 ////    public bar2() {
@@ -20,4 +20,4 @@
 ////    }
 ////}
 
-verify.singleReferenceGroup("(property) foo.n: number");
+verify.baselineFindAllReferences('1', '2', '3', '4');

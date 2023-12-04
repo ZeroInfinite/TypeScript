@@ -2,13 +2,13 @@
 JsFile: a.js
 mapUrl: a.js.map
 sourceRoot: 
-sources: ../tests/cases/compiler/a.ts
+sources: ../a.ts
 ===================================================================
 -------------------------------------------------------------------
 emittedFile:out/a.js
-sourceFile:../tests/cases/compiler/a.ts
+sourceFile:../a.ts
 -------------------------------------------------------------------
->>>var c = (function () {
+>>>var c = /** @class */ (function () {
 1 >
 2 >^^^^^^^^^^^^^^^^^^^->
 1 >

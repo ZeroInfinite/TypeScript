@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/newArrays.ts] ////
+
 //// [newArrays.ts]
 module M {
 	class Foo {}
@@ -15,12 +17,12 @@ module M {
 //// [newArrays.js]
 var M;
 (function (M) {
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
         }
         return Foo;
     }());
-    var Gar = (function () {
+    var Gar = /** @class */ (function () {
         function Gar() {
             this.x = 10;
             this.y = 10;

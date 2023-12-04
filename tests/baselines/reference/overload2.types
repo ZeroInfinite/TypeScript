@@ -1,4 +1,6 @@
-=== tests/cases/compiler/overload2.ts ===
+//// [tests/cases/compiler/overload2.ts] ////
+
+=== overload2.ts ===
 enum A { }
 >A : A
 
@@ -8,12 +10,10 @@ enum B { }
 function foo(a: A);
 >foo : { (a: A): any; (b: B): any; }
 >a : A
->A : A
 
 function foo(b: B);
 >foo : { (a: A): any; (b: B): any; }
 >b : B
->B : B
 
 // should be ok
 function foo(x: number) { 
@@ -27,12 +27,10 @@ class C { }
 function foo1(a: A);
 >foo1 : { (a: A): any; (c: C): any; }
 >a : A
->A : A
 
 function foo1(c: C);
 >foo1 : { (a: A): any; (c: C): any; }
 >c : C
->C : C
 
 // should be ok
 function foo1(x: number) { 

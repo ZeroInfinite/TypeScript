@@ -1,7 +1,7 @@
-=== tests/cases/compiler/abstractInterfaceIdentifierName.ts ===
-interface abstract {
->abstract : abstract
+//// [tests/cases/compiler/abstractInterfaceIdentifierName.ts] ////
 
+=== abstractInterfaceIdentifierName.ts ===
+interface abstract {
     abstract(): void;
 >abstract : () => void
 }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5-umd.ts] ////
+
 //// [es5-umd.ts]
 class A
 {
@@ -14,7 +16,7 @@ class A
 
 
 //// [es5-umd.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.B = function () {

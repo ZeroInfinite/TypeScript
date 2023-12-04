@@ -1,10 +1,152 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts ===
+// enum E {
+//      ^
+// | ----------------------------------------------------------------------
+// | enum E
+// | ----------------------------------------------------------------------
+//     e1,
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e1 = 0
+// | ----------------------------------------------------------------------
+//     e2 = 10,
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e2 = 10
+// | ----------------------------------------------------------------------
+//     e3
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e3 = 11
+// | ----------------------------------------------------------------------
+// }
+// var eInstance: E;
+//     ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance: E
+// | ----------------------------------------------------------------------
+//                ^
+// | ----------------------------------------------------------------------
+// | enum E
+// | ----------------------------------------------------------------------
+// eInstance = E.e1;
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance: E
+// | ----------------------------------------------------------------------
+//             ^
+// | ----------------------------------------------------------------------
+// | enum E
+// | ----------------------------------------------------------------------
+//               ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e1 = 0
+// | ----------------------------------------------------------------------
+// eInstance = E.e2;
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance: E
+// | ----------------------------------------------------------------------
+//             ^
+// | ----------------------------------------------------------------------
+// | enum E
+// | ----------------------------------------------------------------------
+//               ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e2 = 10
+// | ----------------------------------------------------------------------
+// eInstance = E.e3;
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance: E
+// | ----------------------------------------------------------------------
+//             ^
+// | ----------------------------------------------------------------------
+// | enum E
+// | ----------------------------------------------------------------------
+//               ^^
+// | ----------------------------------------------------------------------
+// | (enum member) E.e3 = 11
+// | ----------------------------------------------------------------------
+// const enum constE {
+//            ^^^^^^
+// | ----------------------------------------------------------------------
+// | const enum constE
+// | ----------------------------------------------------------------------
+//     e1,
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e1 = 0
+// | ----------------------------------------------------------------------
+//     e2 = 10,
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e2 = 10
+// | ----------------------------------------------------------------------
+//     e3
+//     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e3 = 11
+// | ----------------------------------------------------------------------
+// }
+// var eInstance1: constE;
+//     ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance1: constE
+// | ----------------------------------------------------------------------
+//                 ^^^^^^
+// | ----------------------------------------------------------------------
+// | const enum constE
+// | ----------------------------------------------------------------------
+// eInstance1 = constE.e1;
+// ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance1: constE
+// | ----------------------------------------------------------------------
+//              ^^^^^^
+// | ----------------------------------------------------------------------
+// | const enum constE
+// | ----------------------------------------------------------------------
+//                     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e1 = 0
+// | ----------------------------------------------------------------------
+// eInstance1 = constE.e2;
+// ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance1: constE
+// | ----------------------------------------------------------------------
+//              ^^^^^^
+// | ----------------------------------------------------------------------
+// | const enum constE
+// | ----------------------------------------------------------------------
+//                     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e2 = 10
+// | ----------------------------------------------------------------------
+// eInstance1 = constE.e3;
+// ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var eInstance1: constE
+// | ----------------------------------------------------------------------
+//              ^^^^^^
+// | ----------------------------------------------------------------------
+// | const enum constE
+// | ----------------------------------------------------------------------
+//                     ^^
+// | ----------------------------------------------------------------------
+// | (enum member) constE.e3 = 11
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 5
+      "position": 5,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -25,16 +167,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 13
+      "position": 13,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -87,16 +229,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 21
+      "position": 21,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -149,16 +291,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 34
+      "position": 34,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -211,16 +353,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 43
+      "position": 43,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -253,16 +395,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 54
+      "position": 54,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -283,16 +425,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 57
+      "position": 57,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -325,16 +467,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 69
+      "position": 69,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -355,16 +497,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 71
+      "position": 71,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -417,16 +559,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 75
+      "position": 75,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -459,16 +601,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 87
+      "position": 87,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -489,16 +631,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 89
+      "position": 89,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -551,16 +693,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 93
+      "position": 93,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -593,16 +735,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 105
+      "position": 105,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -623,16 +765,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 107
+      "position": 107,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -685,16 +827,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 122
+      "position": 122,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -723,16 +865,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 135
+      "position": 135,
+      "name": "17"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -785,16 +927,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 143
+      "position": 143,
+      "name": "18"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -847,16 +989,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 156
+      "position": 156,
+      "name": "19"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -909,16 +1051,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 165
+      "position": 165,
+      "name": "20"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -951,16 +1093,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 177
+      "position": 177,
+      "name": "21"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -989,16 +1131,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 185
+      "position": 185,
+      "name": "22"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1031,16 +1173,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 198
+      "position": 198,
+      "name": "23"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -1069,16 +1211,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 205
+      "position": 205,
+      "name": "24"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -1131,16 +1273,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 209
+      "position": 209,
+      "name": "25"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1173,16 +1315,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 222
+      "position": 222,
+      "name": "26"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -1211,16 +1353,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 229
+      "position": 229,
+      "name": "27"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -1273,16 +1415,16 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 233
+      "position": 233,
+      "name": "28"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1315,16 +1457,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 246
+      "position": 246,
+      "name": "29"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum",
       "kindModifiers": "",
       "textSpan": {
@@ -1353,16 +1495,16 @@
           "kind": "enumName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsEnum1.ts",
-      "position": 253
+      "position": 253,
+      "name": "30"
     },
-    "quickInfo": {
+    "item": {
       "kind": "enum member",
       "kindModifiers": "",
       "textSpan": {
@@ -1415,8 +1557,7 @@
           "kind": "numericLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

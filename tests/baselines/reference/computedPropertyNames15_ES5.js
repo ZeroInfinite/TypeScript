@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames15_ES5.ts] ////
+
 //// [computedPropertyNames15_ES5.ts]
 var p1: number | string;
 var p2: number | number[];
@@ -12,7 +14,7 @@ class C {
 var p1;
 var p2;
 var p3;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype[p1] = function () { };

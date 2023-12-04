@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/indexTypeCheck.ts] ////
+
 //// [indexTypeCheck.ts]
 interface Red {
 	[n:number]; // ok
@@ -76,7 +78,7 @@ s[{}]; // ok
 yellow[blue]; // error
 var x;
 x[0];
-var Benchmark = (function () {
+var Benchmark = /** @class */ (function () {
     function Benchmark() {
         this.results = {};
     }

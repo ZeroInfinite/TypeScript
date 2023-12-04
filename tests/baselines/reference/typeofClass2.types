@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/specifyingTypes/typeQueries/typeofClass2.ts ===
+//// [tests/cases/conformance/types/specifyingTypes/typeQueries/typeofClass2.ts] ////
+
+=== typeofClass2.ts ===
 class C {
 >C : C
 
@@ -18,7 +20,6 @@ class C {
     static foo(x: C);
 >foo : { (x: number): any; (x: C): any; }
 >x : C
->C : C
 
     static foo(x) { }
 >foo : { (x: number): any; (x: C): any; }
@@ -43,7 +44,6 @@ class D extends C {
 
 var d: D;
 >d : D
->D : D
 
 var r1: typeof D;
 >r1 : typeof D

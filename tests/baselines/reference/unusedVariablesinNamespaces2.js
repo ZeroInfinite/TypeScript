@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedVariablesinNamespaces2.ts] ////
+
 //// [unusedVariablesinNamespaces2.ts]
 namespace Validation {
     const lettersRegexp = /^[A-Za-z]+$/;
@@ -15,7 +17,7 @@ var Validation;
 (function (Validation) {
     var lettersRegexp = /^[A-Za-z]+$/;
     var numberRegexp = /^[0-9]+$/;
-    var LettersOnlyValidator = (function () {
+    var LettersOnlyValidator = /** @class */ (function () {
         function LettersOnlyValidator() {
         }
         LettersOnlyValidator.prototype.isAcceptable = function (s2) {

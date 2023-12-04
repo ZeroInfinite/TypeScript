@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/capturedLetConstInLoop12.ts] ////
+
 //// [capturedLetConstInLoop12.ts]
 (function() {
     "use strict";
@@ -20,8 +22,8 @@
     "use strict";
     var _loop_1 = function (i) {
         (function () {
-            return _a = [i + 1], i = _a[0], _a;
             var _a;
+            return _a = [i + 1], i = _a[0], _a;
         })();
         out_i_1 = i;
     };
@@ -35,8 +37,8 @@
     "use strict";
     var _loop_2 = function (i) {
         (function () {
-            return (_a = { a: i + 1 }, i = _a.a, _a);
             var _a;
+            return (_a = { a: i + 1 }, i = _a.a, _a);
         })();
         out_i_2 = i;
     };

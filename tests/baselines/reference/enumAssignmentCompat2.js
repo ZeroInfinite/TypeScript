@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/enumAssignmentCompat2.ts] ////
+
 //// [enumAssignmentCompat2.ts]
 enum W {
 
@@ -45,7 +47,7 @@ var W;
     W[W["c"] = 2] = "c";
 })(W || (W = {}));
 (function (W) {
-    var D = (function () {
+    var D = /** @class */ (function () {
         function D() {
         }
         return D;

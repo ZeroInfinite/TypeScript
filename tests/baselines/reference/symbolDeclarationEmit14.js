@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/Symbols/symbolDeclarationEmit14.ts] ////
+
 //// [symbolDeclarationEmit14.ts]
 class C {
     get [Symbol.toPrimitive]() { return ""; }
@@ -13,6 +15,6 @@ class C {
 
 //// [symbolDeclarationEmit14.d.ts]
 declare class C {
-    readonly [Symbol.toPrimitive]: string;
-    readonly [Symbol.toStringTag]: string;
+    get [Symbol.toPrimitive](): string;
+    get [Symbol.toStringTag](): string;
 }

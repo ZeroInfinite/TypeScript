@@ -20,12 +20,11 @@
 //// }
 ////
 //// class SuperBar extends MegaBar {
-////     [|hello() {}|]
+////     [|hello|]() {}
 //// }
 ////
 //// class MegaBar implements Foo {
 ////     hello() {}
 //// }
 
-verify.allRangesAppearInImplementationList("function_call");
-verify.allRangesAppearInImplementationList("element_access");
+verify.baselineGoToImplementation("function_call", "element_access");

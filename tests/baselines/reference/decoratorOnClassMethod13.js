@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/class/method/decoratorOnClassMethod13.ts] ////
+
 //// [decoratorOnClassMethod13.ts]
 declare function dec<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T>;
 
@@ -14,13 +16,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 class C {
-    [_a = "1"]() { }
-    [_b = "b"]() { }
+    ["1"]() { }
+    ["b"]() { }
 }
 __decorate([
     dec
-], C.prototype, _a, null);
+], C.prototype, "1", null);
 __decorate([
     dec
-], C.prototype, _b, null);
-var _a, _b;
+], C.prototype, "b", null);

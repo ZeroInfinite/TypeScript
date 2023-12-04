@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/typeGuards/typeGuardsInForStatement.ts ===
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardsInForStatement.ts] ////
+
+=== typeGuardsInForStatement.ts ===
 let cond: boolean;
 >cond : boolean
 
@@ -11,7 +13,7 @@ function a(x: string | number) {
 >x : string | number
 >undefined : undefined
 >typeof x !== "number" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"number" : "number"
 >x = undefined : undefined
@@ -33,7 +35,7 @@ function b(x: string | number) {
 >x : string | number
 >undefined : undefined
 >typeof x !== "number" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"number" : "number"
 >x = undefined : undefined
@@ -58,7 +60,7 @@ function c(x: string | number) {
 >x : string | number
 >undefined : undefined
 >typeof x !== "number" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"number" : "number"
 >x = undefined : undefined

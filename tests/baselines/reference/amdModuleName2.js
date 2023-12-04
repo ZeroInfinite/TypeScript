@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/amdModuleName2.ts] ////
+
 //// [amdModuleName2.ts]
 ///<amd-module name='FirstModuleName'/>
 ///<amd-module name='SecondModuleName'/>
@@ -15,7 +17,7 @@ define("SecondModuleName", ["require", "exports"], function (require, exports) {
     "use strict";
     ///<amd-module name='FirstModuleName'/>
     ///<amd-module name='SecondModuleName'/>
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
             this.x = 5;
         }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/scopeCheckInsidePublicMethod1.ts] ////
+
 //// [scopeCheckInsidePublicMethod1.ts]
 class C {
    static s;
@@ -7,7 +9,7 @@ class C {
 }
 
 //// [scopeCheckInsidePublicMethod1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.a = function () {

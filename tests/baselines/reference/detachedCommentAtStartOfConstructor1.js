@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/detachedCommentAtStartOfConstructor1.ts] ////
+
 //// [detachedCommentAtStartOfConstructor1.ts]
 class TestFile {
     public message: string;
@@ -11,7 +13,7 @@ class TestFile {
 }
 
 //// [detachedCommentAtStartOfConstructor1.js]
-var TestFile = (function () {
+var TestFile = /** @class */ (function () {
     function TestFile(message) {
         var _this = this;
         /// <summary>Test summary</summary>

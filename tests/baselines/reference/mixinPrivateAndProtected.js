@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/mixinPrivateAndProtected.ts] ////
+
 //// [mixinPrivateAndProtected.ts]
 // Repro from #13830
 
@@ -92,16 +94,21 @@ class Customer extends PersonMixin(Person) {
 //// [mixinPrivateAndProtected.js]
 // Repro from #13830
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
         this.pb = 2;
         this.ptd = 1;
@@ -110,7 +117,7 @@ var A = (function () {
     return A;
 }());
 function mixB(Cls) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_1, _super);
         function class_1() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -122,7 +129,7 @@ function mixB(Cls) {
     }(Cls));
 }
 function mixB2(Cls) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_2, _super);
         function class_2() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -134,7 +141,7 @@ function mixB2(Cls) {
 }
 var AB = mixB(A), AB2 = mixB2(A);
 function mixC(Cls) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_3, _super);
         function class_3() {
             var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -160,7 +167,7 @@ ab2c.pb.toFixed();
 ab2c.ptd.toFixed(); // Error
 ab2c.pvt.toFixed(); // Error
 // Repro from #13924
-var Person = (function () {
+var Person = /** @class */ (function () {
     function Person(name) {
         this.name = name;
     }
@@ -170,7 +177,7 @@ var Person = (function () {
     return Person;
 }());
 function PersonMixin(Base) {
-    return (function (_super) {
+    return /** @class */ (function (_super) {
         __extends(class_4, _super);
         function class_4() {
             var args = [];
@@ -186,7 +193,7 @@ function PersonMixin(Base) {
         return class_4;
     }(Base));
 }
-var Customer = (function (_super) {
+var Customer = /** @class */ (function (_super) {
     __extends(Customer, _super);
     function Customer() {
         return _super !== null && _super.apply(this, arguments) || this;

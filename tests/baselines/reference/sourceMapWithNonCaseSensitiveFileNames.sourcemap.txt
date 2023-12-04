@@ -5,7 +5,7 @@ sourceRoot:
 sources: app.ts,app2.ts
 ===================================================================
 -------------------------------------------------------------------
-emittedFile:tests/cases/compiler/testfiles/fooResult.js
+emittedFile:testfiles/fooResult.js
 sourceFile:app.ts
 -------------------------------------------------------------------
 >>>// Note in the out result we are using same folder name only different in casing
@@ -26,7 +26,7 @@ sourceFile:app.ts
 1->Emitted(2, 1) Source(2, 1) + SourceIndex(0)
 2 >Emitted(2, 107) Source(2, 107) + SourceIndex(0)
 ---
->>>var c = (function () {
+>>>var c = /** @class */ (function () {
 1 >
 2 >^^^^^^^^^^^^^^^^^^^->
 1 >
@@ -62,7 +62,7 @@ sourceFile:app.ts
 2 >^
 3 > 
 4 > ^^^^
-5 >     ^^^^^^^^^^^^^^^^^^->
+5 >     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^->
 1 >
 2 >}
 3 > 
@@ -74,10 +74,10 @@ sourceFile:app.ts
 4 >Emitted(7, 6) Source(4, 2) + SourceIndex(0)
 ---
 -------------------------------------------------------------------
-emittedFile:tests/cases/compiler/testfiles/fooResult.js
+emittedFile:testfiles/fooResult.js
 sourceFile:app2.ts
 -------------------------------------------------------------------
->>>var d = (function () {
+>>>var d = /** @class */ (function () {
 1->
 2 >^^^^^^^^^^^^^^^^^^^->
 1->

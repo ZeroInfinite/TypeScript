@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames47_ES5.ts] ////
+
 //// [computedPropertyNames47_ES5.ts]
 enum E1 { x }
 enum E2 { x }
@@ -6,6 +8,7 @@ var o = {
 };
 
 //// [computedPropertyNames47_ES5.js]
+var _a;
 var E1;
 (function (E1) {
     E1[E1["x"] = 0] = "x";
@@ -17,4 +20,3 @@ var E2;
 var o = (_a = {},
     _a[E1.x || E2.x] = 0,
     _a);
-var _a;

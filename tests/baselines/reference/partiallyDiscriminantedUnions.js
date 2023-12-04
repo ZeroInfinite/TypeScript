@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/partiallyDiscriminantedUnions.ts] ////
+
 //// [partiallyDiscriminantedUnions.ts]
 // Repro from #10586
 
@@ -55,12 +57,12 @@ if (ab.type === 'a') {
     }
 }
 // Repro from #11185
-var Square = (function () {
+var Square = /** @class */ (function () {
     function Square() {
     }
     return Square;
 }());
-var Circle = (function () {
+var Circle = /** @class */ (function () {
     function Circle() {
     }
     return Circle;

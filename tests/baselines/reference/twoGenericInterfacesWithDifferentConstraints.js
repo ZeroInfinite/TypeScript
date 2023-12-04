@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/declarationMerging/twoGenericInterfacesWithDifferentConstraints.ts] ////
+
 //// [twoGenericInterfacesWithDifferentConstraints.ts]
 interface A<T extends Date> {
     x: T;
@@ -40,5 +42,26 @@ module M3 {
         y: T;
     }
 }
+
+interface B<T extends number> {
+  u: T;
+  v: Constraint<T>; // ok
+}
+
+interface B<T> { // ok
+  x: T;
+  y: Constraint<T>; // ok
+}
+
+interface C<T> {
+  x: T;
+}
+
+interface C<T extends number> { // ok
+  y: T;
+}
+
+interface Constraint<T extends number> {}
+
 
 //// [twoGenericInterfacesWithDifferentConstraints.js]

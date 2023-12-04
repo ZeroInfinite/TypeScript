@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/specifyingTypes/typeQueries/typeofClassWithPrivates.ts] ////
+
 //// [typeofClassWithPrivates.ts]
 class C<T> {
     private a: number;
@@ -11,7 +13,7 @@ var r: typeof C;
 var r2: typeof c;
 
 //// [typeofClassWithPrivates.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

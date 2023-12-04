@@ -63,6 +63,7 @@ export var newVar2 = new extMod.m4.m2.c();
 //// [commentsExternalModules2_0.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.m4 = exports.m1 = void 0;
 /** Module comment*/
 var m1;
 (function (m1) {
@@ -74,7 +75,7 @@ var m1;
     var m2;
     (function (m2) {
         /** class comment;*/
-        var c = (function () {
+        var c = /** @class */ (function () {
             function c() {
             }
             return c;
@@ -89,7 +90,7 @@ var m1;
         return foo();
     }
     m1.fooExport = fooExport;
-})(m1 = exports.m1 || (exports.m1 = {}));
+})(m1 || (exports.m1 = m1 = {}));
 m1.fooExport();
 var myvar = new m1.m2.c();
 /** Module comment */
@@ -105,7 +106,7 @@ var m4;
     var m2;
     (function (m2) {
         /** class comment; */
-        var c = (function () {
+        var c = /** @class */ (function () {
             function c() {
             }
             return c;
@@ -120,12 +121,13 @@ var m4;
         return foo();
     }
     m4.fooExport = fooExport;
-})(m4 = exports.m4 || (exports.m4 = {}));
+})(m4 || (exports.m4 = m4 = {}));
 m4.fooExport();
 var myvar2 = new m4.m2.c();
 //// [commentsExternalModules_1.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.newVar2 = exports.newVar = void 0;
 /**This is on import declaration*/
 var extMod = require("./commentsExternalModules2_0"); // trailing comment 1
 extMod.m1.fooExport();
@@ -136,11 +138,11 @@ exports.newVar2 = new extMod.m4.m2.c();
 
 //// [commentsExternalModules2_0.d.ts]
 /** Module comment*/
-export declare module m1 {
+export declare namespace m1 {
     /** b's comment*/
     var b: number;
     /** m2 comments*/
-    module m2 {
+    namespace m2 {
         /** class comment;*/
         class c {
         }
@@ -151,12 +153,12 @@ export declare module m1 {
     function fooExport(): number;
 }
 /** Module comment */
-export declare module m4 {
+export declare namespace m4 {
     /** b's comment */
     var b: number;
     /** m2 comments
     */
-    module m2 {
+    namespace m2 {
         /** class comment; */
         class c {
         }

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/async/es5/awaitClassExpression_es5.ts] ////
+
 //// [awaitClassExpression_es5.ts]
 declare class C { }
 declare var p: Promise<typeof C>;
@@ -23,7 +25,7 @@ function func() {
                     };
                     return [4 /*yield*/, p];
                 case 1:
-                    D = (_a.apply(void 0, [(_b.sent())]));
+                    D = /** @class */ (_a.apply(void 0, [(_b.sent())]));
                     return [2 /*return*/];
             }
         });

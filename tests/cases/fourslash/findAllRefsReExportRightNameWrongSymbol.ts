@@ -1,37 +1,24 @@
 /// <reference path="fourslash.ts" />
 
 // @Filename: /a.ts
-////export const [|{| "isWriteAccess": true, "isDefinition": true |}x|] = 0;
+////[|export const /*a*/[|{| "isWriteAccess": true, "isDefinition": true, "contextRangeIndex": 0 |}x|] = 0;|]
 
 // @Filename: /b.ts
-////export const [|{| "isWriteAccess": true, "isDefinition": true |}x|] = 0;
+////[|export const /*b*/[|{| "isWriteAccess": true, "isDefinition": true, "contextRangeIndex": 2 |}x|] = 0;|]
 
 //@Filename: /c.ts
-////export { [|{| "isWriteAccess": true, "isDefinition": true |}x|] } from "./b";
-////import { [|{| "isWriteAccess": true, "isDefinition": true |}x|] } from "./a";
-////[|x|];
+////[|export { /*cFromB*/[|{| "isWriteAccess": true, "isDefinition": true, "contextRangeIndex": 4 |}x|] } from "./b";|]
+////[|import { /*cFromA*/[|{| "isWriteAccess": true, "isDefinition": true, "contextRangeIndex": 6 |}x|] } from "./a";|]
+/////*cUse*/[|x|];
 
 // @Filename: /d.ts
-////import { [|{| "isWriteAccess": true, "isDefinition": true |}x|] } from "./c";
+////[|import { /*d*/[|{| "isWriteAccess": true, "isDefinition": true, "contextRangeIndex": 9 |}x|] } from "./c";|]
 
 verify.noErrors();
-const [a, b, cFromB, cFromA, cUse, d] = test.ranges();
-const cFromARanges = [cFromA, cUse];
-
-const aGroup = { definition: "const x: 0", ranges: [a] };
-const cFromAGroup = { definition: "import x", ranges: cFromARanges };
-
-verify.referenceGroups(a, [aGroup, cFromAGroup]);
-
-const bGroup = { definition: "const x: 0", ranges: [b] };
-const cFromBGroup = { definition: "import x", ranges: [cFromB] };
-const dGroup = { definition: "import x", ranges: [d] };
-verify.referenceGroups(b, [bGroup, cFromBGroup, dGroup]);
-
-verify.referenceGroups(cFromB, [cFromBGroup, dGroup, bGroup]);
-verify.referenceGroups(cFromARanges, [cFromAGroup, aGroup]);
-
-verify.referenceGroups(d, [dGroup, cFromBGroup, bGroup]);
-
-verify.rangesAreRenameLocations([a, cFromA, cUse]);
-verify.rangesAreRenameLocations([b, cFromB, d]);
+const [aDef, a, bDef, b, cFromBDef, cFromB, cFromADef, cFromA, cUse, dDef, d] = test.ranges();
+verify.baselineFindAllReferences('a', 'b', 'cFromB', 'cFromA', 'cUse', 'd');
+verify.baselineRename(a);
+verify.baselineRename([cFromA, cUse]);
+verify.baselineRename(b);
+verify.baselineRename(cFromB);
+verify.baselineRename(d);

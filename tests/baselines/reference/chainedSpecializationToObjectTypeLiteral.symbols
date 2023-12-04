@@ -1,4 +1,6 @@
-=== tests/cases/compiler/chainedSpecializationToObjectTypeLiteral.ts ===
+//// [tests/cases/compiler/chainedSpecializationToObjectTypeLiteral.ts] ////
+
+=== chainedSpecializationToObjectTypeLiteral.ts ===
 interface Sequence<T> {
 >Sequence : Symbol(Sequence, Decl(chainedSpecializationToObjectTypeLiteral.ts, 0, 0))
 >T : Symbol(T, Decl(chainedSpecializationToObjectTypeLiteral.ts, 0, 19))
@@ -51,9 +53,9 @@ var s2 = s.groupBy(s => s.length);
 >s : Symbol(s, Decl(chainedSpecializationToObjectTypeLiteral.ts, 7, 3))
 >groupBy : Symbol(Sequence.groupBy, Decl(chainedSpecializationToObjectTypeLiteral.ts, 3, 57))
 >s : Symbol(s, Decl(chainedSpecializationToObjectTypeLiteral.ts, 8, 19))
->s.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>s.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >s : Symbol(s, Decl(chainedSpecializationToObjectTypeLiteral.ts, 8, 19))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 
 var s3 = s2.each(x => { x.key /* Type is K, should be number */ });
 >s3 : Symbol(s3, Decl(chainedSpecializationToObjectTypeLiteral.ts, 9, 3))

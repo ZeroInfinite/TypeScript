@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/Symbols/ES5SymbolProperty6.ts] ////
+
 //// [ES5SymbolProperty6.ts]
 class C {
     [Symbol.iterator]() { }
@@ -6,7 +8,7 @@ class C {
 (new C)[Symbol.iterator]
 
 //// [ES5SymbolProperty6.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype[Symbol.iterator] = function () { };

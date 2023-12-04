@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.ts] ////
+
 //// [ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.ts]
 module A {
 
@@ -18,12 +20,12 @@ module A {
 //// [ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.js]
 var A;
 (function (A) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point() {
         }
         return Point;
     }());
-    var points = (function () {
+    var points = /** @class */ (function () {
         function points() {
         }
         return points;

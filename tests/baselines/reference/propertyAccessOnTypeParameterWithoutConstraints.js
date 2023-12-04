@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithoutConstraints.ts] ////
+
 //// [propertyAccessOnTypeParameterWithoutConstraints.ts]
 class C<T> {
     f() {
@@ -32,7 +34,7 @@ var b = {
 var r4 = b.foo(1);
 
 //// [propertyAccessOnTypeParameterWithoutConstraints.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.f = function () {

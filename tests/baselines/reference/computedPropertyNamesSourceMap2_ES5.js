@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNamesSourceMap2_ES5.ts] ////
+
 //// [computedPropertyNamesSourceMap2_ES5.ts]
 var v = {
     ["hello"]() {
@@ -9,6 +11,7 @@ var v = {
 }
 
 //// [computedPropertyNamesSourceMap2_ES5.js]
+var _a;
 var v = (_a = {},
     _a["hello"] = function () {
         debugger;
@@ -17,9 +20,8 @@ var v = (_a = {},
         get: function () {
             return 0;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     }),
     _a);
-var _a;
 //# sourceMappingURL=computedPropertyNamesSourceMap2_ES5.js.map

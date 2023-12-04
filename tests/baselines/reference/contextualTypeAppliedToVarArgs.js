@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/contextualTypeAppliedToVarArgs.ts] ////
+
 //// [contextualTypeAppliedToVarArgs.ts]
 function delegate(instance: any, method: (...args: any[]) => any, data?: any): (...args: any[]) => any {
     return function () { };
@@ -20,7 +22,7 @@ class Foo{
 function delegate(instance, method, data) {
     return function () { };
 }
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.Bar = function () {

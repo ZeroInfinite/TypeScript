@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/computedProperties/computedPropertyNames31_ES6.ts ===
+//// [tests/cases/conformance/es6/computedProperties/computedPropertyNames31_ES6.ts] ////
+
+=== computedPropertyNames31_ES6.ts ===
 class Base {
 >Base : Base
 
@@ -24,6 +26,7 @@ class C extends Base {
 >{                [super.bar()]() { } // needs capture            } : { [x: number]: () => void; }
 
                 [super.bar()]() { } // needs capture
+>[super.bar()] : () => void
 >super.bar() : number
 >super.bar : () => number
 >super : Base

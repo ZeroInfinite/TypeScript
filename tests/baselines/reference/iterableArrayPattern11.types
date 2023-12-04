@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/destructuring/iterableArrayPattern11.ts ===
+//// [tests/cases/conformance/es6/destructuring/iterableArrayPattern11.ts] ////
+
+=== iterableArrayPattern11.ts ===
 class Bar { x }
 >Bar : Bar
 >x : any
@@ -30,9 +32,10 @@ class FooIterator {
     }
 
     [Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => this
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
         return this;
 >this : this

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesThatDifferOnlyByReturnType.ts ===
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesThatDifferOnlyByReturnType.ts] ////
+
+=== callSignaturesThatDifferOnlyByReturnType.ts ===
 // Each pair of signatures in these types has a signature that should cause an error. 
 // Overloads, generic or not, that differ only by return type are an error.
 interface I {
@@ -54,7 +56,7 @@ var a: {
     (x, y): Object;
 >x : Symbol(x, Decl(callSignaturesThatDifferOnlyByReturnType.ts, 20, 5))
 >y : Symbol(y, Decl(callSignaturesThatDifferOnlyByReturnType.ts, 20, 7))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     (x, y): any; // error
 >x : Symbol(x, Decl(callSignaturesThatDifferOnlyByReturnType.ts, 21, 5))

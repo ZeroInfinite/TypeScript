@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5ExportDefaultFunctionDeclaration4.ts] ////
+
 //// [es5ExportDefaultFunctionDeclaration4.ts]
 declare module "bar" {
     var before: typeof func;
@@ -13,6 +15,6 @@ declare module "bar" {
 //// [es5ExportDefaultFunctionDeclaration4.d.ts]
 declare module "bar" {
     var before: typeof func;
-    function func(): typeof func;
+    export default function func(): typeof func;
     var after: typeof func;
 }

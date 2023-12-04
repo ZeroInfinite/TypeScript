@@ -1,4 +1,6 @@
-=== tests/cases/compiler/extendAndImplementTheSameBaseType.ts ===
+//// [tests/cases/compiler/extendAndImplementTheSameBaseType.ts] ////
+
+=== extendAndImplementTheSameBaseType.ts ===
 class C {
 >C : C
 
@@ -11,7 +13,6 @@ class C {
 class D extends C implements C {
 >D : D
 >C : C
->C : C
 
     baz() { }
 >baz : () => void
@@ -19,11 +20,9 @@ class D extends C implements C {
 
 var c: C;
 >c : C
->C : C
 
 var d: D = new D();
 >d : D
->D : D
 >new D() : D
 >D : typeof D
 

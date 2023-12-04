@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/jsxParsingError1.tsx] ////
+
 //// [file.tsx]
 declare module JSX {
 	interface Element { }
@@ -16,5 +18,4 @@ const elem = <div className={class1, class2}/>;
 // This should be a parse error
 var class1 = "foo";
 var class2 = "bar";
-var elem = <div className={class1} class2/>;
-/>;;
+var elem = <div className={class1, class2}/>;

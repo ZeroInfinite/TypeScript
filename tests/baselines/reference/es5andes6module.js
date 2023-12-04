@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5andes6module.ts] ////
+
 //// [es5andes6module.ts]
 export default class A
 {
@@ -14,7 +16,7 @@ export default class A
 
 
 //// [es5andes6module.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.B = function () {

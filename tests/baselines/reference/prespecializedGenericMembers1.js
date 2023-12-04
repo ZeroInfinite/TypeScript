@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/prespecializedGenericMembers1.ts] ////
+
 //// [prespecializedGenericMembers1.ts]
 export interface IKitty {
 
@@ -22,14 +24,15 @@ var catBag = new CatBag(catThing);
 
 //// [prespecializedGenericMembers1.js]
 "use strict";
-exports.__esModule = true;
-var Cat = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CatBag = exports.Cat = void 0;
+var Cat = /** @class */ (function () {
     function Cat() {
     }
     return Cat;
 }());
 exports.Cat = Cat;
-var CatBag = (function () {
+var CatBag = /** @class */ (function () {
     function CatBag(cats) {
     }
     return CatBag;

@@ -1,12 +1,14 @@
-=== tests/cases/conformance/jsx/react.d.ts ===
+//// [tests/cases/conformance/jsx/tsxExternalModuleEmit1.tsx] ////
+
+=== react.d.ts ===
 declare module 'react' {
+>'react' : typeof import("react")
+
 	class Component<T, U> { }
 >Component : Component<T, U>
->T : T
->U : U
 }
 
-=== tests/cases/conformance/jsx/app.tsx ===
+=== app.tsx ===
 import * as React from 'react';
 >React : typeof React
 
@@ -24,13 +26,13 @@ export class App extends React.Component<any, any> {
 >render : () => any
 
         return <Button />;
-><Button /> : any
+><Button /> : error
 >Button : typeof Button
     }
 
 }
 
-=== tests/cases/conformance/jsx/button.tsx ===
+=== button.tsx ===
 import * as React from 'react';
 >React : typeof React
 
@@ -44,7 +46,7 @@ export class Button extends React.Component<any, any> {
 >render : () => any
 
         return <button>Some button</button>;
-><button>Some button</button> : any
+><button>Some button</button> : error
 >button : any
 >button : any
     }

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/getAndSetNotIdenticalType.ts] ////
+
 //// [getAndSetNotIdenticalType.ts]
 class C {
     get x(): number {
@@ -7,7 +9,7 @@ class C {
 }
 
 //// [getAndSetNotIdenticalType.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "x", {
@@ -15,7 +17,7 @@ var C = (function () {
             return 1;
         },
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

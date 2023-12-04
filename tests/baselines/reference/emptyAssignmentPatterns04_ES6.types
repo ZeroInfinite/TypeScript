@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/destructuring/emptyAssignmentPatterns04_ES6.ts ===
+//// [tests/cases/conformance/es6/destructuring/emptyAssignmentPatterns04_ES6.ts] ////
+
+=== emptyAssignmentPatterns04_ES6.ts ===
 var a: any;
 >a : any
 
@@ -29,6 +31,6 @@ let x, y, z, a1, a2, a3;
 >a2 : any
 >a3 : any
 >[] = a : any
->[] : undefined[]
+>[] : []
 >a : any
 

@@ -1,10 +1,94 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsModules.ts ===
+// namespace m {
+//           ^
+// | ----------------------------------------------------------------------
+// | namespace m
+// | ----------------------------------------------------------------------
+//     var namespaceElemWithoutExport = 10;
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var namespaceElemWithoutExport: number
+// | ----------------------------------------------------------------------
+//     export var namespaceElemWithExport = 10;
+//                ^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var m.namespaceElemWithExport: number
+// | ----------------------------------------------------------------------
+// }
+// var a = m;
+//     ^
+// | ----------------------------------------------------------------------
+// | var a: typeof m
+// | ----------------------------------------------------------------------
+//         ^
+// | ----------------------------------------------------------------------
+// | namespace m
+// | ----------------------------------------------------------------------
+// var b: typeof m;
+//     ^
+// | ----------------------------------------------------------------------
+// | var b: typeof m
+// | ----------------------------------------------------------------------
+//               ^
+// | ----------------------------------------------------------------------
+// | namespace m
+// | ----------------------------------------------------------------------
+// namespace m1.m2 {
+//           ^^
+// | ----------------------------------------------------------------------
+// | namespace m1
+// | ----------------------------------------------------------------------
+//              ^^
+// | ----------------------------------------------------------------------
+// | namespace m1.m2
+// | ----------------------------------------------------------------------
+//     var namespaceElemWithoutExport = 10;
+//         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var namespaceElemWithoutExport: number
+// | ----------------------------------------------------------------------
+//     export var namespaceElemWithExport = 10;
+//                ^^^^^^^^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var m1.m2.namespaceElemWithExport: number
+// | ----------------------------------------------------------------------
+// }
+// var x = m1.m2;
+//     ^
+// | ----------------------------------------------------------------------
+// | var x: typeof m1.m2
+// | ----------------------------------------------------------------------
+//         ^^
+// | ----------------------------------------------------------------------
+// | namespace m1
+// | ----------------------------------------------------------------------
+//            ^^
+// | ----------------------------------------------------------------------
+// | namespace m1.m2
+// | ----------------------------------------------------------------------
+// var y: typeof m1.m2;
+//     ^
+// | ----------------------------------------------------------------------
+// | var y: typeof m1.m2
+// | ----------------------------------------------------------------------
+//               ^^
+// | ----------------------------------------------------------------------
+// | namespace m1
+// | ----------------------------------------------------------------------
+//                  ^^
+// | ----------------------------------------------------------------------
+// | namespace m1.m2
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 10
+      "position": 10,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -25,16 +109,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 22
+      "position": 22,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -67,16 +151,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 70
+      "position": 70,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "export",
       "textSpan": {
@@ -117,16 +201,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 106
+      "position": 106,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -167,16 +251,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 110
+      "position": 110,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -197,16 +281,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 117
+      "position": 117,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -247,16 +331,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 127
+      "position": 127,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -277,16 +361,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 140
+      "position": 140,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -307,16 +391,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 143
+      "position": 143,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "export",
       "textSpan": {
@@ -345,16 +429,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 156
+      "position": 156,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -387,16 +471,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 204
+      "position": 204,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "export",
       "textSpan": {
@@ -445,16 +529,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 240
+      "position": 240,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -503,16 +587,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 244
+      "position": 244,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -533,16 +617,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 247
+      "position": 247,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "export",
       "textSpan": {
@@ -571,16 +655,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 255
+      "position": 255,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -629,16 +713,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 265
+      "position": 265,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "",
       "textSpan": {
@@ -659,16 +743,16 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsModules.ts",
-      "position": 268
+      "position": 268,
+      "name": "17"
     },
-    "quickInfo": {
+    "item": {
       "kind": "module",
       "kindModifiers": "export",
       "textSpan": {
@@ -697,8 +781,7 @@
           "kind": "moduleName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

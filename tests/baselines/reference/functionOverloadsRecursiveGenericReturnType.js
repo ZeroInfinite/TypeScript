@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/functionOverloadsRecursiveGenericReturnType.ts] ////
+
 //// [functionOverloadsRecursiveGenericReturnType.ts]
 class B<V>{
     private id: V;
@@ -15,12 +17,12 @@ function Choice<T>(...v_args: any[]): A<T>{
 
 
 //// [functionOverloadsRecursiveGenericReturnType.js]
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     return B;
 }());
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleNewExportBug.ts] ////
+
 //// [moduleNewExportBug.ts]
 module mod1 {
 	interface mInt {
@@ -16,7 +18,7 @@ var c : mod1.C; // ERROR: C should not be visible
 //// [moduleNewExportBug.js]
 var mod1;
 (function (mod1) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.moo = function () { };

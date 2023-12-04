@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/superCalls/errorSuperCalls.ts] ////
+
 //// [errorSuperCalls.ts]
 //super call in class constructor with no base type
 class NoBase {
@@ -76,21 +78,27 @@ class OtherDerived extends OtherBase {
 
 //// [errorSuperCalls.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
 //super call in class constructor with no base type
-var NoBase = (function () {
+var NoBase = /** @class */ (function () {
     function NoBase() {
-        _this = _super.call(this) || this;
+        var _this = _super.call(this) || this;
         //super call in class member initializer with no base type
         this.p = _this = _super.call(this) || this;
+        return _this;
     }
     //super call in class member function with no base type
     NoBase.prototype.fn = function () {
@@ -105,7 +113,7 @@ var NoBase = (function () {
         set: function (v) {
             _this = _super.call(this) || this;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     //super call in static class member function with no base type
@@ -121,35 +129,33 @@ var NoBase = (function () {
         set: function (n) {
             _this = _super.call(this) || this;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     //super call in static class member initializer with no base type
     NoBase.k = _this = _super.call(this) || this;
     return NoBase;
 }());
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base() {
     }
     return Base;
 }());
-var Derived = (function (_super) {
+var Derived = /** @class */ (function (_super) {
     __extends(Derived, _super);
     //super call with type arguments 
     function Derived() {
-        var _this = this;
-        _super.prototype..call(_this);
-        _this = _super.call(this) || this;
-        return _this;
+        var _this = _super.call(this) || this;
+        return _super.call(this) || this;
     }
     return Derived;
 }(Base));
-var OtherBase = (function () {
+var OtherBase = /** @class */ (function () {
     function OtherBase() {
     }
     return OtherBase;
 }());
-var OtherDerived = (function (_super) {
+var OtherDerived = /** @class */ (function (_super) {
     __extends(OtherDerived, _super);
     function OtherDerived() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -170,7 +176,7 @@ var OtherDerived = (function (_super) {
         set: function (n) {
             _this = _super.call(this) || this;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return OtherDerived;

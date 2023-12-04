@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportModuleWithAccessibleTypesOnItsExportedMembers.ts] ////
+
 //// [ExportModuleWithAccessibleTypesOnItsExportedMembers.ts]
 module A {
 
@@ -23,7 +25,7 @@ module A {
 //// [ExportModuleWithAccessibleTypesOnItsExportedMembers.js]
 var A;
 (function (A) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point(x, y) {
             this.x = x;
             this.y = y;
@@ -34,7 +36,7 @@ var A;
     var B;
     (function (B) {
         B.Origin = new Point(0, 0);
-        var Line = (function () {
+        var Line = /** @class */ (function () {
             function Line(start, end) {
             }
             Line.fromOrigin = function (p) {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileForClassWithMultipleBaseClasses.ts] ////
+
 //// [declFileForClassWithMultipleBaseClasses.ts]
 class A {
     foo() { }
@@ -27,19 +29,19 @@ interface I extends A, B {
 }
 
 //// [declFileForClassWithMultipleBaseClasses.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () { };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.bar = function () { };
     return B;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     D.prototype.baz = function () { };

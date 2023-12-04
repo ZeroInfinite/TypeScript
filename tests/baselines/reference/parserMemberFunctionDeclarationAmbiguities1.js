@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/MemberFunctionDeclarations/parserMemberFunctionDeclarationAmbiguities1.ts] ////
+
 //// [parserMemberFunctionDeclarationAmbiguities1.ts]
 class C {
   public() {}
@@ -14,7 +16,7 @@ class C {
 }
 
 //// [parserMemberFunctionDeclarationAmbiguities1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.public = function () { };

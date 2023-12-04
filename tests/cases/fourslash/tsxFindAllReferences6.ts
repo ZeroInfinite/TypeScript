@@ -17,7 +17,6 @@
 ////     optional?: boolean
 //// }
 //// declare function Opt(attributes: OptionPropBag): JSX.Element;
-//// let opt = <Opt [|wrong|] />;  //r1
+//// let opt = <Opt /*1*/wrong />;
 
-const [r1] = test.ranges();
-verify.referencesOf(r1, [r1]);
+verify.baselineFindAllReferences('1');

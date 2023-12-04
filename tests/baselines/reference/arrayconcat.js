@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/arrayconcat.ts] ////
+
 //// [arrayconcat.ts]
 interface IOptions {
     name?: string;
@@ -29,7 +31,7 @@ class parser {
 }
 
 //// [arrayconcat.js]
-var parser = (function () {
+var parser = /** @class */ (function () {
     function parser() {
     }
     parser.prototype.m = function () {

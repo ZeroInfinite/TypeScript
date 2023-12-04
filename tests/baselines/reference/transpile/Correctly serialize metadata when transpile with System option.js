@@ -9,8 +9,8 @@ System.register(["angular2/core"], function (exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var ng, MyClass1;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (ng_1) {
@@ -18,16 +18,16 @@ System.register(["angular2/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            MyClass1 = (function () {
+            MyClass1 = /** @class */ (function () {
                 function MyClass1(_elementRef) {
                     this._elementRef = _elementRef;
                 }
+                var _a;
                 MyClass1 = __decorate([
                     fooexport,
-                    __metadata("design:paramtypes", [typeof (_a = (typeof ng !== "undefined" && ng).ElementRef) === "function" && _a || Object])
+                    __metadata("design:paramtypes", [typeof (_a = typeof ng !== "undefined" && ng.ElementRef) === "function" ? _a : Object])
                 ], MyClass1);
                 return MyClass1;
-                var _a;
             }());
         }
     };

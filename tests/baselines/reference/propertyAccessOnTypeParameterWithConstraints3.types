@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints3.ts ===
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/propertyAccessOnTypeParameterWithConstraints3.ts] ////
+
+=== propertyAccessOnTypeParameterWithConstraints3.ts ===
 // generic types should behave as if they have properties of their constraint type
 
 class A {
@@ -23,17 +25,12 @@ class B extends A {
 
 class C<U extends A, T extends U> {
 >C : C<U, T>
->U : U
->A : A
->T : T
->U : U
 
     f() {
 >f : () => string
 
         var x: T;
 >x : T
->T : T
 
         // BUG 823818
         var a = x['foo'](); // should be string
@@ -55,7 +52,6 @@ class C<U extends A, T extends U> {
     g(x: U) {
 >g : (x: U) => string
 >x : U
->U : U
 
         // BUG 823818
         var a = x['foo'](); // should be string
@@ -82,8 +78,6 @@ var r1a = (new C<A, B>()).f();
 >(new C<A, B>()) : C<A, B>
 >new C<A, B>() : C<A, B>
 >C : typeof C
->A : A
->B : B
 >f : () => string
 
 var r1b = (new C<A, B>()).g(new B());
@@ -93,28 +87,16 @@ var r1b = (new C<A, B>()).g(new B());
 >(new C<A, B>()) : C<A, B>
 >new C<A, B>() : C<A, B>
 >C : typeof C
->A : A
->B : B
 >g : (x: A) => string
 >new B() : B
 >B : typeof B
 
 interface I<U extends A, T extends U> {
->I : I<U, T>
->U : U
->A : A
->T : T
->U : U
-
     foo: T;
 >foo : T
->T : T
 }
 var i: I<A, B>;
 >i : I<A, B>
->I : I<U, T>
->A : A
->B : B
 
 var r2 = i.foo.foo();
 >r2 : string
@@ -135,30 +117,18 @@ var r2b = i.foo['foo']();
 >'foo' : "foo"
 
 var a: {
->a : { <U extends A, T extends U>(): T; <U extends T, T extends A>(x: U): U; }
+>a : { <U extends A, T extends U>(): T; <U_1 extends T_1, T_1 extends A>(x: U_1): U_1; }
 
     <U extends A, T extends U>(): T;
->U : U
->A : A
->T : T
->U : U
->T : T
-
     <U extends T, T extends A>(x: U): U;
->U : U
->T : T
->T : T
->A : A
 >x : U
->U : U
->U : U
 }
 var r3 = a().foo(); // error, no inferences for U so it doesn't satisfy constraint
 >r3 : string
 >a().foo() : string
 >a().foo : () => string
 >a() : A
->a : { <U extends A, T extends U>(): T; <U extends T, T extends A>(x: U): U; }
+>a : { <U extends A, T extends U>(): T; <U_1 extends T_1, T_1 extends A>(x: U_1): U_1; }
 >foo : () => string
 
 var r3b = a()['foo']();
@@ -166,7 +136,7 @@ var r3b = a()['foo']();
 >a()['foo']() : string
 >a()['foo'] : () => string
 >a() : A
->a : { <U extends A, T extends U>(): T; <U extends T, T extends A>(x: U): U; }
+>a : { <U extends A, T extends U>(): T; <U_1 extends T_1, T_1 extends A>(x: U_1): U_1; }
 >'foo' : "foo"
 
 // parameter supplied for type argument inference for U
@@ -175,7 +145,7 @@ var r3c = a(new B()).foo(); // valid call to an invalid function, U is inferred 
 >a(new B()).foo() : string
 >a(new B()).foo : () => string
 >a(new B()) : B
->a : { <U extends A, T extends U>(): T; <U extends T, T extends A>(x: U): U; }
+>a : { <U extends A, T extends U>(): T; <U_1 extends T_1, T_1 extends A>(x: U_1): U_1; }
 >new B() : B
 >B : typeof B
 >foo : () => string
@@ -185,7 +155,7 @@ var r3d = a(new B())['foo'](); // valid call to an invalid function, U is inferr
 >a(new B())['foo']() : string
 >a(new B())['foo'] : () => string
 >a(new B()) : B
->a : { <U extends A, T extends U>(): T; <U extends T, T extends A>(x: U): U; }
+>a : { <U extends A, T extends U>(): T; <U_1 extends T_1, T_1 extends A>(x: U_1): U_1; }
 >new B() : B
 >B : typeof B
 >'foo' : "foo"
@@ -197,12 +167,7 @@ var b = {
     foo: <U extends A, T extends U>(x: T) => {
 >foo : <U extends A, T extends U>(x: T) => string
 ><U extends A, T extends U>(x: T) => {        // BUG 823818        var a = x['foo'](); // should be string        return a + x.foo();    } : <U extends A, T extends U>(x: T) => string
->U : U
->A : A
->T : T
->U : U
 >x : T
->T : T
 
         // BUG 823818
         var a = x['foo'](); // should be string

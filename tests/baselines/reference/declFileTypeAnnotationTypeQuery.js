@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationTypeQuery.ts] ////
+
 //// [declFileTypeAnnotationTypeQuery.ts]
 class c {
 }
@@ -43,27 +45,27 @@ function foo8() {
 }
 
 //// [declFileTypeAnnotationTypeQuery.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;
 }());
 var m;
 (function (m) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
     }());
     m.c = c;
-    var g = (function () {
+    var g = /** @class */ (function () {
         function g() {
         }
         return g;
     }());
     m.g = g;
 })(m || (m = {}));
-var g = (function () {
+var g = /** @class */ (function () {
     function g() {
     }
     return g;
@@ -101,7 +103,7 @@ function foo8() {
 //// [declFileTypeAnnotationTypeQuery.d.ts]
 declare class c {
 }
-declare module m {
+declare namespace m {
     class c {
     }
     class g<T> {

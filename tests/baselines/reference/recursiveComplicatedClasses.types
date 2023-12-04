@@ -1,17 +1,16 @@
-=== tests/cases/compiler/recursiveComplicatedClasses.ts ===
+//// [tests/cases/compiler/recursiveComplicatedClasses.ts] ////
+
+=== recursiveComplicatedClasses.ts ===
 class Signature {
 >Signature : Signature
 
     public parameters: ParameterSymbol[] = null;
 >parameters : ParameterSymbol[]
->ParameterSymbol : ParameterSymbol
->null : null
 }
 
 function aEnclosesB(a: Symbol) {
 >aEnclosesB : (a: Symbol) => boolean
 >a : Symbol
->Symbol : Symbol
 
     return true;
 >true : true
@@ -24,11 +23,10 @@ class Symbol {
 >bound : boolean
 
     public visible() {
->visible : () => any
+>visible : () => boolean
 
         var b: TypeSymbol;
 >b : TypeSymbol
->TypeSymbol : TypeSymbol
 
         return aEnclosesB(b);
 >aEnclosesB(b) : boolean

@@ -1,15 +1,12 @@
-=== tests/cases/compiler/undefinedInferentialTyping.ts ===
+//// [tests/cases/compiler/undefinedInferentialTyping.ts] ////
+
+=== undefinedInferentialTyping.ts ===
 function f<T>(arr: T[], elemnt: T): T {
 >f : <T>(arr: T[], elemnt: T) => T
->T : T
 >arr : T[]
->T : T
 >elemnt : T
->T : T
->T : T
 
     return null;
->null : null
 }
 
 var a = f([], 3); // should be number

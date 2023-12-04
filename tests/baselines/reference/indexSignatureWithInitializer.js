@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/indexSignatureWithInitializer.ts] ////
+
 //// [indexSignatureWithInitializer.ts]
 // These used to be indexers, now they are computed properties
 interface I {
@@ -9,8 +11,9 @@ class C {
 }
 
 //// [indexSignatureWithInitializer.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
+x = 0;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/grammarAmbiguities1.ts] ////
+
 //// [grammarAmbiguities1.ts]
 class A { foo() { } }
 class B { bar() { }}
@@ -11,13 +13,13 @@ f(g < A, B > +(7));
 
 
 //// [grammarAmbiguities1.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () { };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.bar = function () { };

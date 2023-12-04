@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericConstraint2.ts] ////
+
 //// [genericConstraint2.ts]
 interface Comparable<T> {
     comparer(other: T): number;
@@ -29,7 +31,7 @@ function compare(x, y) {
         return 1;
     return x.comparer(y);
 }
-var ComparableString = (function () {
+var ComparableString = /** @class */ (function () {
     function ComparableString(currentValue) {
         this.currentValue = currentValue;
     }

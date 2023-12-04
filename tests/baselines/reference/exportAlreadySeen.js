@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/exportAlreadySeen.ts] ////
+
 //// [exportAlreadySeen.ts]
 module M {
     export export var x = 1;
@@ -27,7 +29,7 @@ var M;
     M.f = f;
     var N;
     (function (N) {
-        var C = (function () {
+        var C = /** @class */ (function () {
             function C() {
             }
             return C;

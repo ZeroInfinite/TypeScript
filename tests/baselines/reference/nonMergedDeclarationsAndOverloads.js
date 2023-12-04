@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/nonMergedDeclarationsAndOverloads.ts] ////
+
 //// [nonMergedDeclarationsAndOverloads.ts]
 class A {
     m1: string;
@@ -9,7 +11,7 @@ class A {
 }
 
 //// [nonMergedDeclarationsAndOverloads.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.f = function () { };

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/innerAliases2.ts] ////
+
 //// [innerAliases2.ts]
 module _provider {
                 export class UsefulClass {
@@ -22,7 +24,7 @@ module consumer {
 //// [innerAliases2.js]
 var _provider;
 (function (_provider) {
-    var UsefulClass = (function () {
+    var UsefulClass = /** @class */ (function () {
         function UsefulClass() {
         }
         UsefulClass.prototype.foo = function () {

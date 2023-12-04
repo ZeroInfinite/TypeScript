@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implementsClauseAlreadySeen.ts] ////
+
 //// [implementsClauseAlreadySeen.ts]
 class C {
     
@@ -7,12 +9,12 @@ class D implements C implements C {
 }
 
 //// [implementsClauseAlreadySeen.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     D.prototype.baz = function () { };

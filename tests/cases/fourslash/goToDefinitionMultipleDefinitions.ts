@@ -14,9 +14,7 @@
 ////    instance3: number;
 ////}
 ////
-////var ifoo: IFo/*interfaceReference*/o;
-
-verify.goToDefinition("interfaceReference", ["interfaceDefinition1", "interfaceDefinition2", "interfaceDefinition3"]);
+////var ifoo: [|IFo/*interfaceReference*/o|];
 
 // @Filename: c.ts
 ////module /*moduleDefinition1*/Module {
@@ -29,6 +27,9 @@ verify.goToDefinition("interfaceReference", ["interfaceDefinition1", "interfaceD
 ////}
 
 // @Filename: e.ts
-////Modul/*moduleReference*/e;
+////[|Modul/*moduleReference*/e|];
 
-verify.goToDefinition("moduleReference", ["moduleDefinition1", "moduleDefinition2"]);
+verify.baselineGoToDefinition(
+    "interfaceReference",
+    "moduleReference"
+);

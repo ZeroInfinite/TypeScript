@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationTypeLiteral.ts] ////
+
 //// [declFileTypeAnnotationTypeLiteral.ts]
 class c {
 }
@@ -39,19 +41,19 @@ var y: (a: string) => string;
 var z: new (a: string) => m.c;
 
 //// [declFileTypeAnnotationTypeLiteral.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     return c;
 }());
-var g = (function () {
+var g = /** @class */ (function () {
     function g() {
     }
     return g;
 }());
 var m;
 (function (m) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
@@ -71,7 +73,7 @@ declare class c {
 }
 declare class g<T> {
 }
-declare module m {
+declare namespace m {
     class c {
     }
 }

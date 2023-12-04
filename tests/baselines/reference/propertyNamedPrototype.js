@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/propertyMemberDeclarations/propertyNamedPrototype.ts] ////
+
 //// [propertyNamedPrototype.ts]
 class C {
     prototype: number; // ok
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [propertyNamedPrototype.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

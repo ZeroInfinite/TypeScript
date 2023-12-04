@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/class/method/decoratorOnClassMethod11.ts] ////
+
 //// [decoratorOnClassMethod11.ts]
 module M {
     class C {
@@ -17,7 +19,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.decorator = function (target, key) { };

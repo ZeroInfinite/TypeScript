@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ErrorRecovery/IfStatements/parserErrorRecoveryIfStatement6.ts] ////
+
 //// [parserErrorRecoveryIfStatement6.ts]
 class Foo {
   f1() {
@@ -11,7 +13,7 @@ class Foo {
 
 
 //// [parserErrorRecoveryIfStatement6.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.f1 = function () {

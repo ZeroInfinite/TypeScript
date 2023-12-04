@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/variableDeclaratorResolvedDuringContextualTyping.ts] ////
+
 //// [variableDeclaratorResolvedDuringContextualTyping.ts]
 module WinJS {
     export interface ValueCallback {
@@ -131,14 +133,14 @@ var WinJS;
 })(WinJS || (WinJS = {}));
 var Errors;
 (function (Errors) {
-    var ConnectionError /* extends Error */ = (function () {
+    var ConnectionError /* extends Error */ = /** @class */ (function () {
         function ConnectionError(request) {
         }
         return ConnectionError;
     }());
     Errors.ConnectionError = ConnectionError;
 })(Errors || (Errors = {}));
-var FileService = (function () {
+var FileService = /** @class */ (function () {
     function FileService() {
     }
     FileService.prototype.uploadData = function () {
@@ -151,7 +153,7 @@ var FileService = (function () {
             data: "someData"
         }).then(function (response) {
             var result = {
-                stat: _this.jsonToStat(newFilePath, "someString"),
+                stat: _this.jsonToStat(newFilePath, "someString"), // _this needs to be emitted to the js file
                 isNew: response.status === 201
             };
             return WinJS.TPromise.as(result);

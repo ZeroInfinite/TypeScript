@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/differentTypesWithSameName.ts] ////
+
 //// [differentTypesWithSameName.ts]
 module m {
   export class variable{
@@ -19,7 +21,7 @@ m.doSomething(v);
 //// [differentTypesWithSameName.js]
 var m;
 (function (m) {
-    var variable = (function () {
+    var variable = /** @class */ (function () {
         function variable() {
         }
         return variable;
@@ -29,7 +31,7 @@ var m;
     }
     m.doSomething = doSomething;
 })(m || (m = {}));
-var variable = (function () {
+var variable = /** @class */ (function () {
     function variable() {
     }
     return variable;

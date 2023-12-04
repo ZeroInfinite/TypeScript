@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sourceMap-Comments.ts] ////
+
 //// [sourceMap-Comments.ts]
 module sas.tools {
     export class Test {
@@ -25,7 +27,7 @@ var sas;
 (function (sas) {
     var tools;
     (function (tools) {
-        var Test = (function () {
+        var Test = /** @class */ (function () {
             function Test() {
             }
             Test.prototype.doX = function () {

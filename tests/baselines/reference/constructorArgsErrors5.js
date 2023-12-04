@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constructorArgsErrors5.ts] ////
+
 //// [constructorArgsErrors5.ts]
 class foo {
     constructor (export a: number) {
@@ -6,7 +8,7 @@ class foo {
 
 
 //// [constructorArgsErrors5.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo(a) {
     }
     return foo;

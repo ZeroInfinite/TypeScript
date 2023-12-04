@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/tsxReactEmit1.tsx] ////
+
 //// [file.tsx]
 declare module JSX {
 	interface Element { }
@@ -42,6 +44,15 @@ var whitespace3 = <div>
 
 
 //// [file.js]
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 var p;
 var selfClosed1 = React.createElement("div", null);
 var selfClosed2 = React.createElement("div", { x: "1" });
@@ -55,16 +66,16 @@ var openClosed2 = React.createElement("div", { n: 'm' }, "foo");
 var openClosed3 = React.createElement("div", { n: 'm' }, p);
 var openClosed4 = React.createElement("div", { n: 'm' }, p < p);
 var openClosed5 = React.createElement("div", { n: 'm', b: true }, p > p);
-var SomeClass = (function () {
+var SomeClass = /** @class */ (function () {
     function SomeClass() {
     }
     SomeClass.prototype.f = function () {
         var _this = this;
         var rewrites1 = React.createElement("div", null, function () { return _this; });
-        var rewrites2 = React.createElement("div", null, [p].concat(p, [p]));
+        var rewrites2 = React.createElement("div", null, __spreadArray(__spreadArray([p], p, true), [p], false));
         var rewrites3 = React.createElement("div", null, { p: p });
         var rewrites4 = React.createElement("div", { a: function () { return _this; } });
-        var rewrites5 = React.createElement("div", { a: [p].concat(p, [p]) });
+        var rewrites5 = React.createElement("div", { a: __spreadArray(__spreadArray([p], p, true), [p], false) });
         var rewrites6 = React.createElement("div", { a: { p: p } });
     };
     return SomeClass;

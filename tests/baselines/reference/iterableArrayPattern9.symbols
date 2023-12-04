@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/destructuring/iterableArrayPattern9.ts ===
+//// [tests/cases/conformance/es6/destructuring/iterableArrayPattern9.ts] ////
+
+=== iterableArrayPattern9.ts ===
 function fun([a, b] = new FooIterator) { }
 >fun : Symbol(fun, Decl(iterableArrayPattern9.ts, 0, 0))
 >a : Symbol(a, Decl(iterableArrayPattern9.ts, 0, 14))
@@ -32,8 +34,9 @@ class FooIterator {
     }
 
     [Symbol.iterator]() {
+>[Symbol.iterator] : Symbol(FooIterator[Symbol.iterator], Decl(iterableArrayPattern9.ts, 9, 5))
 >Symbol.iterator : Symbol(SymbolConstructor.iterator, Decl(lib.es2015.iterable.d.ts, --, --))
->Symbol : Symbol(Symbol, Decl(lib.es2015.symbol.wellknown.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
 >iterator : Symbol(SymbolConstructor.iterator, Decl(lib.es2015.iterable.d.ts, --, --))
 
         return this;

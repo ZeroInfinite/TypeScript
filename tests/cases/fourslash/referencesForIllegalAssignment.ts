@@ -2,13 +2,7 @@
 
 ////f/*1*/oo = fo/*2*/o;
 
-////var [|{| "isWriteAccess": true, "isDefinition": true |}bar|] = function () { };
-////[|{| "isWriteAccess": true |}bar|] = [|bar|] + 1;
+////var /*bar*/bar = function () { };
+////bar = bar + 1;
 
-goTo.marker("1");
-verify.noReferences();
-
-goTo.marker("2");
-verify.noReferences();
-
-verify.singleReferenceGroup("var bar: () => void");
+verify.baselineFindAllReferences('1', '2', 'bar')

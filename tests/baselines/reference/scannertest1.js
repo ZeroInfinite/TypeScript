@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/scanner/ecmascript5/scannertest1.ts] ////
+
 //// [scannertest1.ts]
 ///<reference path='References.ts' />
 
@@ -26,7 +28,7 @@ class CharacterInfo {
 
 //// [scannertest1.js]
 ///<reference path='References.ts' />
-var CharacterInfo = (function () {
+var CharacterInfo = /** @class */ (function () {
     function CharacterInfo() {
     }
     CharacterInfo.isDecimalDigit = function (c) {

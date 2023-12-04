@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/instanceAndStaticMembers/typeOfThisInInstanceMember2.ts] ////
+
 //// [typeOfThisInInstanceMember2.ts]
 class C<T> {
     x = this;
@@ -36,7 +38,7 @@ rs.forEach(x => {
 });
 
 //// [typeOfThisInInstanceMember2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(x) {
         this.x = this;
         var t = this;
@@ -52,7 +54,7 @@ var C = (function () {
         get: function () {
             return this;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

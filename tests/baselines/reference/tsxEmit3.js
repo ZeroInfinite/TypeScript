@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/tsxEmit3.tsx] ////
+
 //// [file.tsx]
 declare module JSX {
 	interface Element { }
@@ -43,7 +45,7 @@ module M {
 //// [file.jsx]
 var M;
 (function (M) {
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
         }
         return Foo;
@@ -51,7 +53,7 @@ var M;
     M.Foo = Foo;
     var S;
     (function (S) {
-        var Bar = (function () {
+        var Bar = /** @class */ (function () {
             function Bar() {
             }
             return Bar;

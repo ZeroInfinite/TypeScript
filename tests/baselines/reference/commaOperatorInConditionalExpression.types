@@ -1,4 +1,6 @@
-=== tests/cases/compiler/commaOperatorInConditionalExpression.ts ===
+//// [tests/cases/compiler/commaOperatorInConditionalExpression.ts] ////
+
+=== commaOperatorInConditionalExpression.ts ===
 function f (m: string) {
 >f : (m: string) => void
 >m : string
@@ -18,9 +20,11 @@ function f (m: string) {
 >true? { [m]: i } : { [m]: i + 1 } : { [x: string]: number; }
 >true : true
 >{ [m]: i } : { [x: string]: number; }
+>[m] : number
 >m : string
 >i : number
 >{ [m]: i + 1 } : { [x: string]: number; }
+>[m] : number
 >m : string
 >i + 1 : number
 >i : number

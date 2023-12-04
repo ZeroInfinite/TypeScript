@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/defaultParameters/emitDefaultParametersMethod.ts] ////
+
 //// [emitDefaultParametersMethod.ts]
 class C {
     constructor(t: boolean, z: string, x: number, y = "hello") { }
@@ -18,7 +20,7 @@ class E {
 
 
 //// [emitDefaultParametersMethod.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(t, z, x, y) {
         if (y === void 0) { y = "hello"; }
     }
@@ -44,13 +46,13 @@ var C = (function () {
     };
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D(y) {
         if (y === void 0) { y = "hello"; }
     }
     return D;
 }());
-var E = (function () {
+var E = /** @class */ (function () {
     function E(y) {
         if (y === void 0) { y = "hello"; }
         var rest = [];

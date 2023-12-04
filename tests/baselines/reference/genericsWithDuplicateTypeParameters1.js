@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericsWithDuplicateTypeParameters1.ts] ////
+
 //// [genericsWithDuplicateTypeParameters1.ts]
 function f<x, x>() { }
 function f2<X, X>(a: X, b: X): X { return null; }
@@ -19,7 +21,7 @@ var m = {
 //// [genericsWithDuplicateTypeParameters1.js]
 function f() { }
 function f2(a, b) { return null; }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.f = function () { };

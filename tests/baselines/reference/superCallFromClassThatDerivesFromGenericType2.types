@@ -1,13 +1,11 @@
-=== tests/cases/compiler/superCallFromClassThatDerivesFromGenericType2.ts ===
+//// [tests/cases/compiler/superCallFromClassThatDerivesFromGenericType2.ts] ////
+
+=== superCallFromClassThatDerivesFromGenericType2.ts ===
 declare class B<T> {
 >B : B<T>
->T : T
 
     m<U>(): B<U>;
 >m : <U>() => B<U>
->U : U
->B : B<T>
->U : U
 }
 
 class D extends B<any> {

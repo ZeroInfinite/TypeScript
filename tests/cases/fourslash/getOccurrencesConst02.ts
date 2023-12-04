@@ -1,13 +1,14 @@
 /// <reference path='fourslash.ts' />
 
 ////module m {
-////    declare [|const|] x;
+////    declare /*1*/const x;
 ////    declare [|const|] enum E {
 ////    }
 ////}
 ////
-////declare [|const|] x;
+////declare /*2*/const x;
 ////declare [|const|] enum E {
 ////}
 
-goTo.eachRange(() => verify.occurrencesAtPositionCount(0));
+verify.baselineDocumentHighlights(); // They are in different scopes, so not counted together.
+verify.baselineDocumentHighlights(test.markers());

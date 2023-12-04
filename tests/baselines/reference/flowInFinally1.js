@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/flowInFinally1.ts] ////
+
 //// [flowInFinally1.ts]
 class A {
   constructor() { }
@@ -15,7 +17,7 @@ try {
 }
 
 //// [flowInFinally1.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.method = function () { };

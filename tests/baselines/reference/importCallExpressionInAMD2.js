@@ -20,6 +20,7 @@ foo(import("./0"));
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.B = void 0;
     class B {
         print() { return "I am B"; }
     }
@@ -35,5 +36,5 @@ define(["require", "exports"], function (require, exports) {
             b.print();
         });
     }
-    foo(new Promise(function (resolve_1, reject_1) { require(["./0"], resolve_1, reject_1); }));
+    foo(new Promise((resolve_1, reject_1) => { require(["./0"], resolve_1, reject_1); }));
 });

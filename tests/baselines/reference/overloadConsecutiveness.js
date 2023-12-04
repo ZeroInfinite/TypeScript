@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadConsecutiveness.ts] ////
+
 //// [overloadConsecutiveness.ts]
 // Making sure compiler won't break with declarations that are consecutive in the AST but not consecutive in the source. Syntax errors intentional.
 
@@ -18,7 +20,7 @@ function f1() { }
 function f2() { }
 function f2() { }
 function f3() { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.m1 = function () { };

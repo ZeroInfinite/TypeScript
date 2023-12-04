@@ -1,9 +1,11 @@
+//// [tests/cases/conformance/es6/for-ofStatements/for-of34.ts] ////
+
 //// [for-of34.ts]
 class StringIterator {
     next() {
         return v;
     }
-    
+
     [Symbol.iterator]() {
         return this;
     }

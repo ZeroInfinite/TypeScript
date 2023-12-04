@@ -1,7 +1,8 @@
 define("subfolder/b", ["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
-    var B = (function () {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.B = void 0;
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;
@@ -10,8 +11,9 @@ define("subfolder/b", ["require", "exports"], function (require, exports) {
 });
 define("a", ["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
-    var A = (function () {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.A = void 0;
+    var A = /** @class */ (function () {
         function A() {
         }
         return A;
@@ -20,8 +22,9 @@ define("a", ["require", "exports"], function (require, exports) {
 });
 define("subfolder/c", ["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
-    var C = (function () {
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.C = void 0;
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

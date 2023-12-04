@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/namedTypes/classWithOnlyPublicMembersEquivalentToInterface2.ts ===
+//// [tests/cases/conformance/types/namedTypes/classWithOnlyPublicMembersEquivalentToInterface2.ts] ////
+
+=== classWithOnlyPublicMembersEquivalentToInterface2.ts ===
 // no errors expected
 
 class C {
@@ -20,13 +22,14 @@ class C {
 
     [x: string]: Object;
 >x : Symbol(x, Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 7, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     [x: number]: Object;
 >x : Symbol(x, Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 8, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     0: number;
+>0 : Symbol(C[0], Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 8, 24))
 
     public static foo: string; // doesn't effect equivalence
 >foo : Symbol(C.foo, Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 9, 14))
@@ -47,13 +50,14 @@ interface I {
 
     [x: string]: Object;
 >x : Symbol(x, Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 18, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     [x: number]: Object;
 >x : Symbol(x, Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 19, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
     0: number;
+>0 : Symbol(I[0], Decl(classWithOnlyPublicMembersEquivalentToInterface2.ts, 19, 24))
 }
 
 var c: C;

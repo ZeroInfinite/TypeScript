@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/async/es5/asyncSetter_es5.ts] ////
+
 //// [asyncSetter_es5.ts]
 class C {
   async set foo(value) {
@@ -5,13 +7,13 @@ class C {
 }
 
 //// [asyncSetter_es5.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "foo", {
         set: function (value) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

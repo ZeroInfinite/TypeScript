@@ -1,4 +1,6 @@
-=== tests/cases/compiler/file1.ts ===
+//// [tests/cases/compiler/augmentExportEquals6.ts] ////
+
+=== file1.ts ===
 class foo {}
 >foo : Symbol(foo, Decl(file1.ts, 0, 0), Decl(file1.ts, 0, 12), Decl(file2.ts, 1, 10))
 
@@ -13,9 +15,9 @@ namespace foo {
 >a : Symbol(a, Decl(file1.ts, 3, 35))
 }
 export = foo;
->foo : Symbol(foo, Decl(file1.ts, 0, 0), Decl(file1.ts, 0, 12))
+>foo : Symbol(foo, Decl(file1.ts, 0, 0), Decl(file1.ts, 0, 12), Decl(file2.ts, 1, 10))
 
-=== tests/cases/compiler/file2.ts ===
+=== file2.ts ===
 import x = require("./file1"); 
 >x : Symbol(x, Decl(file2.ts, 0, 0))
 
@@ -28,6 +30,8 @@ x.B.b = 1;
 
 // OK - './file1' is a namespace
 declare module "./file1" {
+>"./file1" : Symbol(x, Decl(file1.ts, 0, 0), Decl(file1.ts, 0, 12), Decl(file2.ts, 1, 10))
+
     interface A { a: number }
 >A : Symbol(A, Decl(file1.ts, 1, 15), Decl(file2.ts, 4, 26))
 >a : Symbol(A.a, Decl(file2.ts, 5, 17))
@@ -40,7 +44,7 @@ declare module "./file1" {
     }
 }
 
-=== tests/cases/compiler/file3.ts ===
+=== file3.ts ===
 import * as x from "./file1";
 >x : Symbol(x, Decl(file3.ts, 0, 6))
 

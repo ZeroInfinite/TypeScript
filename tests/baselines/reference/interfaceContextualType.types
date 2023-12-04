@@ -1,7 +1,7 @@
-=== tests/cases/compiler/interfaceContextualType.ts ===
-export interface IOptions {
->IOptions : IOptions
+//// [tests/cases/compiler/interfaceContextualType.ts] ////
 
+=== interfaceContextualType.ts ===
+export interface IOptions {
     italic?: boolean;
 >italic : boolean
 
@@ -9,11 +9,8 @@ export interface IOptions {
 >bold : boolean
 }
 export interface IMap {
->IMap : IMap
-
     [s: string]: IOptions;
 >s : string
->IOptions : IOptions
 }
 
 class Bug {
@@ -21,7 +18,6 @@ class Bug {
 
     public values: IMap;
 >values : IMap
->IMap : IMap
 
     ok() {
 >ok : () => void
@@ -41,7 +37,7 @@ class Bug {
 >values : IMap
 >'comments' : "comments"
 >{ italic: true } : { italic: true; }
->italic : boolean
+>italic : true
 >true : true
     }
     shouldBeOK() {
@@ -57,7 +53,7 @@ class Bug {
             comments: { italic: true }
 >comments : { italic: true; }
 >{ italic: true } : { italic: true; }
->italic : boolean
+>italic : true
 >true : true
 
         };

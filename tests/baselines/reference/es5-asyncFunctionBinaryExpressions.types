@@ -1,4 +1,6 @@
-=== tests/cases/compiler/es5-asyncFunctionBinaryExpressions.ts ===
+//// [tests/cases/compiler/es5-asyncFunctionBinaryExpressions.ts] ////
+
+=== es5-asyncFunctionBinaryExpressions.ts ===
 declare var x, y, z, a, b, c;
 >x : any
 >y : any
@@ -379,7 +381,6 @@ async function binaryComma0() {
 
 async function binaryComma1(): Promise<any> {
 >binaryComma1 : () => Promise<any>
->Promise : Promise<T>
 
     return x, await y;
 >x, await y : any

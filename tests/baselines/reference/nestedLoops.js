@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/nestedLoops.ts] ////
+
 //// [nestedLoops.ts]
 export class Test  {
     constructor() {
@@ -20,7 +22,8 @@ export class Test  {
 //// [nestedLoops.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Test = (function () {
+exports.Test = void 0;
+var Test = /** @class */ (function () {
     function Test() {
         var outerArray = [1, 2, 3];
         var innerArray = [1, 2, 3];
@@ -30,8 +33,8 @@ var Test = (function () {
                     var x = outer + inner + newValue;
                 });
             };
-            for (var _i = 0, innerArray_1 = innerArray; _i < innerArray_1.length; _i++) {
-                var inner = innerArray_1[_i];
+            for (var _a = 0, innerArray_1 = innerArray; _a < innerArray_1.length; _a++) {
+                var inner = innerArray_1[_a];
                 _loop_2(inner);
             }
         };

@@ -12,13 +12,14 @@ import * as nameSpaceBinding2 from "es6ImportNameSpaceImportAmd_0"; // elide thi
 //// [es6ImportNameSpaceImportAmd_0.js]
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.a = void 0;
     exports.a = 10;
 });
 //// [es6ImportNameSpaceImportAmd_1.js]
 define(["require", "exports", "es6ImportNameSpaceImportAmd_0"], function (require, exports, nameSpaceBinding) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
     var x = nameSpaceBinding.a;
 });
 
@@ -26,3 +27,4 @@ define(["require", "exports", "es6ImportNameSpaceImportAmd_0"], function (requir
 //// [es6ImportNameSpaceImportAmd_0.d.ts]
 export declare var a: number;
 //// [es6ImportNameSpaceImportAmd_1.d.ts]
+export {};

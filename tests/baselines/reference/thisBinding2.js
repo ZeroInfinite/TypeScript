@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/thisBinding2.ts] ////
+
 //// [thisBinding2.ts]
 class C {
  x: number;
@@ -22,7 +24,7 @@ var messenger = {
 
 
 //// [thisBinding2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         var _this = this;
         this.x = (function () {

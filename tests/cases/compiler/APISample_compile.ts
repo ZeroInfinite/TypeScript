@@ -1,11 +1,18 @@
 ﻿// @module: commonjs
-// @includebuiltfile: typescript_standalone.d.ts
+// @skipLibCheck: true
 // @noImplicitAny:true
 // @strictNullChecks:true
 
+// @filename: node_modules/typescript/package.json
+{
+    "name": "typescript",
+    "types": "/.ts/typescript.d.ts"
+}
+
+// @filename: APISample_compile.ts
 /*
  * Note: This test is a public API sample. The sample sources can be found
-         at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
+ *       at: https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler
  *       Please log a "breaking change" issue for any API breaking change affecting this issue
  */
 

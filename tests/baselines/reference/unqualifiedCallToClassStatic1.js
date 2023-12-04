@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unqualifiedCallToClassStatic1.ts] ////
+
 //// [unqualifiedCallToClassStatic1.ts]
 class Vector {
  static foo = () => {
@@ -7,7 +9,7 @@ class Vector {
 }
 
 //// [unqualifiedCallToClassStatic1.js]
-var Vector = (function () {
+var Vector = /** @class */ (function () {
     function Vector() {
     }
     Vector.foo = function () {

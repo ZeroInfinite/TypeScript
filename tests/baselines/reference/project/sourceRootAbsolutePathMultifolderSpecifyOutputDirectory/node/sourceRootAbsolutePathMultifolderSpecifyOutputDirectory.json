@@ -11,7 +11,9 @@
     "sourceRoot": "tests/cases/projects/outputdir_multifolder/src",
     "resolveSourceRoot": true,
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "ref/m1.ts",
         "../outputdir_multifolder_ref/m2.ts",
         "test.ts"

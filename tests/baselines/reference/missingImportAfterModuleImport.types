@@ -1,4 +1,6 @@
-=== tests/cases/compiler/missingImportAfterModuleImport_1.ts ===
+//// [tests/cases/compiler/missingImportAfterModuleImport.ts] ////
+
+=== missingImportAfterModuleImport_1.ts ===
 ///<reference path='missingImportAfterModuleImport_0.ts'/>
 import SubModule = require('SubModule');
 >SubModule : typeof SubModule
@@ -9,7 +11,6 @@ class MainModule {
     // public static SubModule: SubModule;
     public SubModule: SubModule;
 >SubModule : SubModule
->SubModule : SubModule
 
     constructor() { }
 }
@@ -17,8 +18,10 @@ export = MainModule;
 >MainModule : MainModule
 
 
-=== tests/cases/compiler/missingImportAfterModuleImport_0.ts ===
+=== missingImportAfterModuleImport_0.ts ===
 declare module "SubModule" {
+>"SubModule" : typeof import("SubModule")
+
     class SubModule {
 >SubModule : SubModule
 

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/ClassDeclaration10.ts] ////
+
 //// [ClassDeclaration10.ts]
 class C {
    constructor();
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [ClassDeclaration10.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

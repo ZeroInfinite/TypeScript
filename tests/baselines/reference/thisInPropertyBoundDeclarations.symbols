@@ -1,4 +1,6 @@
-=== tests/cases/compiler/thisInPropertyBoundDeclarations.ts ===
+//// [tests/cases/compiler/thisInPropertyBoundDeclarations.ts] ////
+
+=== thisInPropertyBoundDeclarations.ts ===
 class Bug {
 >Bug : Symbol(Bug, Decl(thisInPropertyBoundDeclarations.ts, 0, 0))
 
@@ -7,7 +9,7 @@ class Bug {
 
     private static func: Function[] = [
 >func : Symbol(Bug.func, Decl(thisInPropertyBoundDeclarations.ts, 1, 25))
->Function : Symbol(Function, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Function : Symbol(Function, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
      (that: Bug, name: string) => {
 >that : Symbol(that, Decl(thisInPropertyBoundDeclarations.ts, 4, 6))

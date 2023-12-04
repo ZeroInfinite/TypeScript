@@ -1,9 +1,12 @@
-=== tests/cases/compiler/b.ts ===
+//// [tests/cases/compiler/commentOnElidedModule1.ts] ////
+
+=== b.ts ===
+
 ///<reference path="a.ts"/>
 module ElidedModule3 {
->ElidedModule3 : any
 }
-=== tests/cases/compiler/a.ts ===
+=== a.ts ===
+
 /*!=================
     Keep this pinned
    =================
@@ -11,11 +14,9 @@ module ElidedModule3 {
 
 /*! Don't keep this pinned comment */
 module ElidedModule {
->ElidedModule : any
 }
 
 // Don't keep this comment.
 module ElidedModule2 {
->ElidedModule2 : any
 }
 

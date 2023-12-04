@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticMemberOfClassAndPublicMemberOfAnotherClassAssignment.ts] ////
+
 //// [staticMemberOfClassAndPublicMemberOfAnotherClassAssignment.ts]
 interface A {
     prop();
@@ -26,13 +28,13 @@ c = a;
 
 
 //// [staticMemberOfClassAndPublicMemberOfAnotherClassAssignment.js]
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.prop = function () { };
     return B;
 }());
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prop = function () { };

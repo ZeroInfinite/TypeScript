@@ -1,4 +1,6 @@
-=== tests/cases/compiler/test.tsx ===
+//// [tests/cases/compiler/jsxFactoryIdentifierAsParameter.ts] ////
+
+=== test.tsx ===
 declare module JSX {
 >JSX : Symbol(JSX, Decl(test.tsx, 0, 0))
 
@@ -18,7 +20,6 @@ export class AppComponent {
 >createElement : Symbol(createElement, Decl(test.tsx, 7, 11))
 
         return <div />;
->div : Symbol(unknown)
     }
 }
 

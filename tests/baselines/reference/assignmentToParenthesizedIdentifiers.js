@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/valuesAndReferences/assignmentToParenthesizedIdentifiers.ts] ////
+
 //// [assignmentToParenthesizedIdentifiers.ts]
 var x: number;
 x = 3; // OK
@@ -126,7 +128,7 @@ var E;
 })(E || (E = {}));
 E = undefined; // Error
 (E) = undefined; // Error
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/functionCalls/forgottenNew.ts] ////
+
 //// [forgottenNew.ts]
 module Tools {
     export class NullLogger { }
@@ -8,7 +10,7 @@ var logger = Tools.NullLogger();
 //// [forgottenNew.js]
 var Tools;
 (function (Tools) {
-    var NullLogger = (function () {
+    var NullLogger = /** @class */ (function () {
         function NullLogger() {
         }
         return NullLogger;

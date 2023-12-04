@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/RegressionTests/parser553699.ts] ////
+
 //// [parser553699.ts]
 class Foo {
   constructor() { }
@@ -9,13 +11,13 @@ class Bar {
 }
 
 //// [parser553699.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.prototype.banana = function (x) { };
     return Foo;
 }());
-var Bar = (function () {
+var Bar = /** @class */ (function () {
     function Bar(c) {
     }
     return Bar;

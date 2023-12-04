@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/typeInference/genericCallWithObjectTypeArgsAndNumericIndexer.ts] ////
+
 //// [genericCallWithObjectTypeArgsAndNumericIndexer.ts]
 // Type inference infers from indexers in target type, no errors expected
 
@@ -63,4 +65,4 @@ function other3(arg) {
 //    var d = r2[1];
 //    // BUG 821629
 //    //var u: U = r2[1]; // ok
-//} 
+//}

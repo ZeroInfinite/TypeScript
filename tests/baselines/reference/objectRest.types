@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/rest/objectRest.ts ===
+//// [tests/cases/conformance/types/rest/objectRest.ts] ////
+
+=== objectRest.ts ===
 var o = { a: 1, b: 'no' }
 >o : { a: number; b: string; }
 >{ a: 1, b: 'no' } : { a: number; b: string; }
@@ -56,11 +58,11 @@ var { d: renamed, ...d } = o2;
 >o2 : { c: string; d: string; }
 
 let nestedrest: { x: number, n1: { y: number, n2: { z: number, n3: { n4: number } } }, rest: number, restrest: number };
->nestedrest : { x: number; n1: { y: number; n2: { z: number; n3: { n4: number; }; }; }; rest: number; restrest: number; }
+>nestedrest : { x: number; n1: {    y: number;    n2: {        z: number;        n3: {            n4: number;        };    };}; rest: number; restrest: number; }
 >x : number
->n1 : { y: number; n2: { z: number; n3: { n4: number; }; }; }
+>n1 : { y: number; n2: {    z: number;    n3: {        n4: number;    };}; }
 >y : number
->n2 : { z: number; n3: { n4: number; }; }
+>n2 : { z: number; n3: {    n4: number;}; }
 >z : number
 >n3 : { n4: number; }
 >n4 : number
@@ -79,7 +81,7 @@ var { x, n1: { y, n2: { z, n3: { ...nr } } }, ...restrest } = nestedrest;
 >nestedrest : { x: number; n1: { y: number; n2: { z: number; n3: { n4: number; }; }; }; rest: number; restrest: number; }
 
 let complex: { x: { ka, ki }, y: number };
->complex : { x: { ka: any; ki: any; }; y: number; }
+>complex : { x: {    ka;    ki;}; y: number; }
 >x : { ka: any; ki: any; }
 >ka : any
 >ki : any
@@ -159,8 +161,6 @@ class Removable {
 >remainder : string
 }
 interface I {
->I : I
-
     m(): void;
 >m : () => void
 
@@ -177,12 +177,11 @@ var removable = new Removable();
 
 var { removed, ...removableRest } = removable;
 >removed : string
->removableRest : { both: number; remainder: string; }
+>removableRest : { remainder: string; }
 >removable : Removable
 
 var i: I = removable;
 >i : I
->I : I
 >removable : Removable
 
 var { removed, ...removableRest2 } = i;
@@ -210,8 +209,10 @@ var { [computed]: stillNotGreat, [computed2]: soSo,  ...o } = o;
 >({ [computed]: stillNotGreat, [computed2]: soSo, ...o } = o) : { a: number; b: string; }
 >{ [computed]: stillNotGreat, [computed2]: soSo, ...o } = o : { a: number; b: string; }
 >{ [computed]: stillNotGreat, [computed2]: soSo, ...o } : { a: number; b: string; }
+>[computed] : any
 >computed : string
 >stillNotGreat : any
+>[computed2] : any
 >computed2 : string
 >soSo : any
 >o : { a: number; b: string; }

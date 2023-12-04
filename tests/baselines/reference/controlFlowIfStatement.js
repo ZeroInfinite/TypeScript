@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/controlFlow/controlFlowIfStatement.ts] ////
+
 //// [controlFlowIfStatement.ts]
 let x: string | number | boolean | RegExp;
 let cond: boolean;
@@ -52,6 +54,15 @@ function d<T extends string>(data: string | T): never {
     }
 }
 
+interface I<T> {
+  p: T;
+}
+function e(x: I<"A" | "B">) {
+    if (x.p === "A") {
+        let a: "A" = (null as unknown as typeof x.p)
+    }
+}
+
 
 //// [controlFlowIfStatement.js]
 var x;
@@ -102,5 +113,10 @@ function d(data) {
     }
     else {
         return data;
+    }
+}
+function e(x) {
+    if (x.p === "A") {
+        var a_1 = null;
     }
 }

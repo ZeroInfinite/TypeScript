@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/for-ofStatements/for-of43.ts ===
+//// [tests/cases/conformance/es6/for-ofStatements/for-of43.ts] ////
+
+=== for-of43.ts ===
 var array = [{ x: "", y: 0 }]
 >array : { x: string; y: number; }[]
 >[{ x: "", y: 0 }] : { x: string; y: number; }[]
@@ -13,7 +15,7 @@ for (var {x: a = "", y: b = true} of array) {
 >a : string
 >"" : ""
 >y : any
->b : number | true
+>b : number | boolean
 >true : true
 >array : { x: string; y: number; }[]
 

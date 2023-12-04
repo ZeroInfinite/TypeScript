@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classBody/classBodyWithStatements.ts] ////
+
 //// [classBodyWithStatements.ts]
 class C {
     var x = 1;
@@ -14,13 +16,13 @@ class C3 {
 }
 
 //// [classBodyWithStatements.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
 var x = 1;
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;
@@ -28,7 +30,7 @@ var C2 = (function () {
 function foo() { }
 var x = 1;
 var y = 2;
-var C3 = (function () {
+var C3 = /** @class */ (function () {
     function C3() {
         this.x = y + 1; // ok, need a var in the statement production
     }

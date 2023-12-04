@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/thisKeyword/thisInObjectLiterals.ts ===
+//// [tests/cases/conformance/expressions/thisKeyword/thisInObjectLiterals.ts] ////
+
+=== thisInObjectLiterals.ts ===
 class MyClass {
 >MyClass : MyClass
 
@@ -25,7 +27,6 @@ class MyClass {
         var t: { x: ContainingThis; y: number };
 >t : { x: this; y: number; }
 >x : this
->ContainingThis : this
 >y : number
     }
 }
@@ -40,7 +41,7 @@ var obj = {
 
         return this.spaaace;
 >this.spaaace : any
->this : any
+>this : { f(): any; }
 >spaaace : any
     }
 };

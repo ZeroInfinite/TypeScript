@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/funClodule.ts] ////
+
 //// [funClodule.ts]
 declare function foo();
 declare module foo {
@@ -25,7 +27,7 @@ function foo3() { }
     function x() { }
     foo3.x = x;
 })(foo3 || (foo3 = {}));
-var foo3 = (function () {
+var foo3 = /** @class */ (function () {
     function foo3() {
     }
     return foo3;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/callOverloads1.ts] ////
+
 //// [callOverloads1.ts]
 class Foo { // error
     bar1() { /*WScript.Echo("bar1");*/ }
@@ -18,7 +20,7 @@ f1.bar1();
 Foo();
 
 //// [callOverloads1.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo(x) {
         // WScript.Echo("Constructor function has executed");
     }

@@ -18,8 +18,6 @@
 ////   "types": "bin/lib/libfile.d.ts"
 //// }
 
-verify.importFixAtPosition([
-`import { f1 } from "package-name/node_modules/package-name2";
-
-f1('');`
+verify.codeFixAvailable([
+    { description: "Add missing function declaration 'f1'" }
 ]);

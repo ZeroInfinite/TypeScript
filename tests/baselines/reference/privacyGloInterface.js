@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privacyGloInterface.ts] ////
+
 //// [privacyGloInterface.ts]
 module m1 {
     export class C1_public {
@@ -122,7 +124,7 @@ interface glo_C3_public extends glo_i_public {
 //// [privacyGloInterface.js]
 var m1;
 (function (m1) {
-    var C1_public = (function () {
+    var C1_public = /** @class */ (function () {
         function C1_public() {
         }
         C1_public.prototype.f1 = function () {
@@ -130,13 +132,13 @@ var m1;
         return C1_public;
     }());
     m1.C1_public = C1_public;
-    var C2_private = (function () {
+    var C2_private = /** @class */ (function () {
         function C2_private() {
         }
         return C2_private;
     }());
 })(m1 || (m1 = {}));
-var C5_public = (function () {
+var C5_public = /** @class */ (function () {
     function C5_public() {
     }
     C5_public.prototype.f1 = function () {

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es7/exponentiationOperator/compoundExponentiationAssignmentLHSIsReference.ts] ////
+
 //// [compoundExponentiationAssignmentLHSIsReference.ts]
 var value: any;
 
@@ -27,6 +29,7 @@ function fn2(x4: number) {
 (x3['a']) **= value;
 
 //// [compoundExponentiationAssignmentLHSIsReference.js]
+var _a, _b, _c;
 var value;
 // identifiers: variable and parameter
 var x1;
@@ -45,4 +48,3 @@ function fn2(x4) {
 }
 (x3.a) = Math.pow((x3.a), value);
 (x3['a']) = Math.pow((x3['a']), value);
-var _a, _b, _c;

@@ -1,10 +1,100 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts ===
+// function outerFoo() {
+//          ^^^^^^^^
+// | ----------------------------------------------------------------------
+// | function outerFoo(): void
+// | ----------------------------------------------------------------------
+//     function foo(param: string, optionalParam?: string, paramWithInitializer = "hello", ...restParam: string[]) {
+//              ^^^
+// | ----------------------------------------------------------------------
+// | (local function) foo(param: string, optionalParam?: string, paramWithInitializer?: string, ...restParam: string[]): void
+// | ----------------------------------------------------------------------
+//     }
+//     function foowithoverload(a: string): string;
+//              ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowithoverload(a: string): string (+1 overload)
+// | ----------------------------------------------------------------------
+//     function foowithoverload(a: number): number;
+//              ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowithoverload(a: number): number (+1 overload)
+// | ----------------------------------------------------------------------
+//     function foowithoverload(a: any): any {
+//              ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowithoverload(a: string): string (+1 overload)
+// | ----------------------------------------------------------------------
+//         return a;
+//     }
+//     function foowith3overload(a: string): string;
+//              ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: string): string (+2 overloads)
+// | ----------------------------------------------------------------------
+//     function foowith3overload(a: number): number;
+//              ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: number): number (+2 overloads)
+// | ----------------------------------------------------------------------
+//     function foowith3overload(a: boolean): boolean;
+//              ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: boolean): boolean (+2 overloads)
+// | ----------------------------------------------------------------------
+//     function foowith3overload(a: any): any {
+//              ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: string): string (+2 overloads)
+// | ----------------------------------------------------------------------
+//         return a;
+//     }
+//     foo("hello");
+//     ^^^
+// | ----------------------------------------------------------------------
+// | (local function) foo(param: string, optionalParam?: string, paramWithInitializer?: string, ...restParam: string[]): void
+// | ----------------------------------------------------------------------
+//     foowithoverload("hello");
+//     ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowithoverload(a: string): string (+1 overload)
+// | ----------------------------------------------------------------------
+//     foowithoverload(10);
+//     ^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowithoverload(a: number): number (+1 overload)
+// | ----------------------------------------------------------------------
+//     foowith3overload("hello");
+//     ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: string): string (+2 overloads)
+// | ----------------------------------------------------------------------
+//     foowith3overload(10);
+//     ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: number): number (+2 overloads)
+// | ----------------------------------------------------------------------
+//     foowith3overload(true);
+//     ^^^^^^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | (local function) foowith3overload(a: boolean): boolean (+2 overloads)
+// | ----------------------------------------------------------------------
+// }
+// outerFoo();
+// ^^^^^^^^
+// | ----------------------------------------------------------------------
+// | function outerFoo(): void
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 9
+      "position": 9,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "function",
       "kindModifiers": "",
       "textSpan": {
@@ -45,16 +135,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 35
+      "position": 35,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -211,16 +301,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 155
+      "position": 155,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -313,16 +403,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 204
+      "position": 204,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -415,16 +505,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 253
+      "position": 253,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -517,16 +607,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 321
+      "position": 321,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -619,16 +709,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 371
+      "position": 371,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -721,16 +811,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 421
+      "position": 421,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -823,16 +913,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 473
+      "position": 473,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -925,16 +1015,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 533
+      "position": 533,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1091,16 +1181,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 551
+      "position": 551,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1193,16 +1283,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 581
+      "position": 581,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1295,16 +1385,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 606
+      "position": 606,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1397,16 +1487,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 637
+      "position": 637,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1499,16 +1589,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 663
+      "position": 663,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "local function",
       "kindModifiers": "",
       "textSpan": {
@@ -1601,16 +1691,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLocalFunction.ts",
-      "position": 689
+      "position": 689,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "function",
       "kindModifiers": "",
       "textSpan": {
@@ -1651,8 +1741,7 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

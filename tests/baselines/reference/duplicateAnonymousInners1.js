@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateAnonymousInners1.ts] ////
+
 //// [duplicateAnonymousInners1.ts]
 module Foo {
 
@@ -28,12 +30,12 @@ module Foo {
 //// [duplicateAnonymousInners1.js]
 var Foo;
 (function (Foo) {
-    var Helper = (function () {
+    var Helper = /** @class */ (function () {
         function Helper() {
         }
         return Helper;
     }());
-    var Inner = (function () {
+    var Inner = /** @class */ (function () {
         function Inner() {
         }
         return Inner;
@@ -43,7 +45,7 @@ var Foo;
 })(Foo || (Foo = {}));
 (function (Foo) {
     // Should not be an error
-    var Helper = (function () {
+    var Helper = /** @class */ (function () {
         function Helper() {
         }
         return Helper;

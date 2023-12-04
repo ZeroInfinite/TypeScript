@@ -9,7 +9,9 @@
     "baselineCheck": true,
     "sourceRoot": "../src",
     "resolvedInputFiles": [
-        "lib.d.ts",
+        "lib.es5.d.ts",
+        "lib.decorators.d.ts",
+        "lib.decorators.legacy.d.ts",
         "ref/m1.ts",
         "test.ts"
     ],

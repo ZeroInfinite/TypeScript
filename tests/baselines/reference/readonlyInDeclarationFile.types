@@ -1,13 +1,12 @@
-=== tests/cases/compiler/readonlyInDeclarationFile.ts ===
-interface Foo {
->Foo : Foo
+//// [tests/cases/compiler/readonlyInDeclarationFile.ts] ////
 
+=== readonlyInDeclarationFile.ts ===
+interface Foo {
     readonly x: number;
 >x : number
 
     readonly [x: string]: Object;
 >x : string
->Object : Object
 }
 
 class C {
@@ -15,7 +14,6 @@ class C {
 
     readonly [x: string]: Object;
 >x : string
->Object : Object
 
     private readonly a1: number;
 >a1 : number
@@ -116,7 +114,6 @@ var z: {
 
     readonly [x: string]: Object;
 >x : string
->Object : Object
 }
 
 function f() {
@@ -150,7 +147,6 @@ function g() {
 
         readonly [x: string]: Object;
 >x : string
->Object : Object
     }
     return x;
 >x : { readonly [x: string]: Object; readonly a: string; }

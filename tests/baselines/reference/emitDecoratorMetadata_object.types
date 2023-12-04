@@ -1,11 +1,11 @@
-=== tests/cases/compiler/emitDecoratorMetadata_object.ts ===
+//// [tests/cases/compiler/emitDecoratorMetadata_object.ts] ////
+
+=== emitDecoratorMetadata_object.ts ===
 declare const MyClassDecorator: ClassDecorator;
 >MyClassDecorator : ClassDecorator
->ClassDecorator : ClassDecorator
 
 declare const MyMethodDecorator: MethodDecorator;
 >MyMethodDecorator : MethodDecorator
->MethodDecorator : MethodDecorator
 
 @MyClassDecorator
 >MyClassDecorator : ClassDecorator

@@ -1,18 +1,14 @@
-=== tests/cases/conformance/expressions/binaryOperators/logicalAndOperator/logicalAndOperatorWithTypeParameters.ts ===
+//// [tests/cases/conformance/expressions/binaryOperators/logicalAndOperator/logicalAndOperatorWithTypeParameters.ts] ////
+
+=== logicalAndOperatorWithTypeParameters.ts ===
 // The && operator permits the operands to be of any type and produces a result of the same
 // type as the second operand.
 
 function foo<T, U, V/* extends T*/>(t: T, u: U, v: V) {
 >foo : <T, U, V>(t: T, u: U, v: V) => void
->T : T
->U : U
->V : V
 >t : T
->T : T
 >u : U
->U : U
 >v : V
->V : V
 
     var r1 = t && t;
 >r1 : T

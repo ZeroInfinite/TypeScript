@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/methodSignatures/objectTypesWithOptionalProperties.ts] ////
+
 //// [objectTypesWithOptionalProperties.ts]
 // Basic uses of optional properties
 
@@ -28,12 +30,12 @@ var b = {
 //// [objectTypesWithOptionalProperties.js]
 // Basic uses of optional properties
 var a;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;

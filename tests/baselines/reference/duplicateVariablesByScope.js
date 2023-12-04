@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateVariablesByScope.ts] ////
+
 //// [duplicateVariablesByScope.ts]
 // duplicate local variables are only reported at global scope
 
@@ -50,7 +52,7 @@ function foo() {
         var result = 2;
     }
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

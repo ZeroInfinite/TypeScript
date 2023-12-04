@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/thisType/fluentClasses.ts ===
+//// [tests/cases/conformance/types/thisType/fluentClasses.ts] ////
+
+=== fluentClasses.ts ===
 class A {
 >A : A
 
@@ -33,7 +35,6 @@ class C extends B {
 }
 var c: C;
 >c : C
->C : C
 
 var z = c.foo().bar().baz();  // Fluent pattern
 >z : C

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/never/neverType.ts] ////
+
 //// [neverType.ts]
 function error(message: string): never {
     throw new Error(message);
@@ -131,7 +133,7 @@ function move2(direction) {
 function check(x) {
     return x || error("Undefined value");
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.void1 = function () {
@@ -180,7 +182,7 @@ declare function infiniteLoop1(): void;
 declare function infiniteLoop2(): never;
 declare function move1(direction: "up" | "down"): 1 | -1;
 declare function move2(direction: "up" | "down"): 1 | -1;
-declare function check<T>(x: T | undefined): T;
+declare function check<T>(x: T | undefined): NonNullable<T>;
 declare class C {
     void1(): void;
     void2(): void;

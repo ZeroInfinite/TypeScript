@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithNumberAndEnum.ts ===
+//// [tests/cases/conformance/expressions/binaryOperators/additionOperator/additionOperatorWithNumberAndEnum.ts] ////
+
+=== additionOperatorWithNumberAndEnum.ts ===
 enum E { a, b }
 >E : E
 >a : E.a
@@ -14,12 +16,9 @@ var a: number;
 
 var b: E;
 >b : E
->E : E
 
 var c: E | F;
 >c : E | F
->E : E
->F : F
 
 var r1 = a + a;
 >r1 : number

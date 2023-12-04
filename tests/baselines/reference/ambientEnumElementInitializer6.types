@@ -1,4 +1,6 @@
-=== tests/cases/compiler/ambientEnumElementInitializer6.ts ===
+//// [tests/cases/compiler/ambientEnumElementInitializer6.ts] ////
+
+=== ambientEnumElementInitializer6.ts ===
 declare module M {
 >M : typeof M
 
@@ -6,7 +8,7 @@ declare module M {
 >E : E
 
         e = 3
->e : E
+>e : E.e
 >3 : 3
     }
 }

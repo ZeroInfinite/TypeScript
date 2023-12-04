@@ -27,7 +27,7 @@ var sum = z.p1 + z.p2
 //// [m1.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Decl = (function () {
+var Decl = /** @class */ (function () {
     function Decl() {
     }
     return Decl;
@@ -37,7 +37,7 @@ exports.default = Decl;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var m1_1 = require("m1");
-m1_1.default();
+(0, m1_1.default)();
 var x;
 var y;
 var z = new m1_1.default();

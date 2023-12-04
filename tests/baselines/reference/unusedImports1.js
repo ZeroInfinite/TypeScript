@@ -10,8 +10,9 @@ import {Calculator} from "./file1"
 
 //// [file1.js]
 "use strict";
-exports.__esModule = true;
-var Calculator = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Calculator = void 0;
+var Calculator = /** @class */ (function () {
     function Calculator() {
     }
     return Calculator;
@@ -19,4 +20,4 @@ var Calculator = (function () {
 exports.Calculator = Calculator;
 //// [file2.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });

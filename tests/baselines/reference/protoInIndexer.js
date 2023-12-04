@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/protoInIndexer.ts] ////
+
 //// [protoInIndexer.ts]
 class X {
     constructor() {
@@ -6,7 +8,7 @@ class X {
 }
 
 //// [protoInIndexer.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
         this['__proto__'] = null; // used to cause ICE
     }

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/interfaces/declarationMerging/mergeThreeInterfaces2.ts ===
+//// [tests/cases/conformance/interfaces/declarationMerging/mergeThreeInterfaces2.ts] ////
+
+=== mergeThreeInterfaces2.ts ===
 // two interfaces with the same root module should merge
 
 // root module now multiple module declarations
@@ -6,15 +8,12 @@ module M2 {
 >M2 : typeof M2
 
     export interface A {
->A : A
-
         foo: string;
 >foo : string
     }
 
     var a: A;
 >a : A
->A : A
 
     var r1 = a.foo;
 >r1 : string
@@ -33,22 +32,17 @@ module M2 {
 >M2 : typeof M2
 
     export interface A {
->A : A
-
         bar: number;
 >bar : number
     }
 
     export interface A {
->A : A
-
         baz: boolean;
 >baz : boolean
     }
 
     var a: A;
 >a : A
->A : A
 
     var r1 = a.foo;
 >r1 : string
@@ -77,15 +71,12 @@ module M2 {
 >M3 : typeof M3
 
         export interface A {
->A : A
-
             foo: string;
 >foo : string
         }
 
         var a: A;
 >a : A
->A : A
 
         var r1 = a.foo;
 >r1 : string
@@ -108,15 +99,12 @@ module M2 {
 >M3 : typeof M3
 
         export interface A {
->A : A
-
             bar: number;
 >bar : number
         }
 
         var a: A;
 >a : A
->A : A
 
         var r1 = a.foo
 >r1 : string
@@ -145,15 +133,12 @@ module M2 {
 >M3 : typeof M3
 
         export interface A {
->A : A
-
             baz: boolean;
 >baz : boolean
         }
 
         var a: A;
 >a : A
->A : A
 
         var r1 = a.foo
 >r1 : string

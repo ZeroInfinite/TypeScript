@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privacyTypeParameterOfFunction.ts] ////
+
 //// [privacyTypeParameterOfFunction.ts]
 class privateClass {
 }
@@ -134,19 +136,20 @@ function privateFunctionWithPublicTypeParametersWithoutExtends<T>() {
 
 //// [privacyTypeParameterOfFunction.js]
 "use strict";
-exports.__esModule = true;
-var privateClass = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.publicFunctionWithPublicTypeParametersWithoutExtends = exports.publicClassWithWithPublicTypeParametersWithoutExtends = exports.publicFunctionWithPublicTypeParameters = exports.publicFunctionWithPrivateTypeParameters = exports.publicClassWithWithPublicTypeParameters = exports.publicClassWithWithPrivateTypeParameters = exports.publicClass = void 0;
+var privateClass = /** @class */ (function () {
     function privateClass() {
     }
     return privateClass;
 }());
-var publicClass = (function () {
+var publicClass = /** @class */ (function () {
     function publicClass() {
     }
     return publicClass;
 }());
 exports.publicClass = publicClass;
-var publicClassWithWithPrivateTypeParameters = (function () {
+var publicClassWithWithPrivateTypeParameters = /** @class */ (function () {
     function publicClassWithWithPrivateTypeParameters() {
     }
     // TypeParameter_0_of_public_static_method_from_exported_class_has_or_is_using_private_type_1
@@ -162,7 +165,7 @@ var publicClassWithWithPrivateTypeParameters = (function () {
     return publicClassWithWithPrivateTypeParameters;
 }());
 exports.publicClassWithWithPrivateTypeParameters = publicClassWithWithPrivateTypeParameters;
-var publicClassWithWithPublicTypeParameters = (function () {
+var publicClassWithWithPublicTypeParameters = /** @class */ (function () {
     function publicClassWithWithPublicTypeParameters() {
     }
     publicClassWithWithPublicTypeParameters.myPublicStaticMethod = function () {
@@ -176,7 +179,7 @@ var publicClassWithWithPublicTypeParameters = (function () {
     return publicClassWithWithPublicTypeParameters;
 }());
 exports.publicClassWithWithPublicTypeParameters = publicClassWithWithPublicTypeParameters;
-var privateClassWithWithPrivateTypeParameters = (function () {
+var privateClassWithWithPrivateTypeParameters = /** @class */ (function () {
     function privateClassWithWithPrivateTypeParameters() {
     }
     privateClassWithWithPrivateTypeParameters.myPublicStaticMethod = function () {
@@ -189,7 +192,7 @@ var privateClassWithWithPrivateTypeParameters = (function () {
     };
     return privateClassWithWithPrivateTypeParameters;
 }());
-var privateClassWithWithPublicTypeParameters = (function () {
+var privateClassWithWithPublicTypeParameters = /** @class */ (function () {
     function privateClassWithWithPublicTypeParameters() {
     }
     privateClassWithWithPublicTypeParameters.myPublicStaticMethod = function () {
@@ -213,7 +216,7 @@ function privateFunctionWithPrivateTypeParameters() {
 }
 function privateFunctionWithPublicTypeParameters() {
 }
-var publicClassWithWithPublicTypeParametersWithoutExtends = (function () {
+var publicClassWithWithPublicTypeParametersWithoutExtends = /** @class */ (function () {
     function publicClassWithWithPublicTypeParametersWithoutExtends() {
     }
     publicClassWithWithPublicTypeParametersWithoutExtends.myPublicStaticMethod = function () {
@@ -227,7 +230,7 @@ var publicClassWithWithPublicTypeParametersWithoutExtends = (function () {
     return publicClassWithWithPublicTypeParametersWithoutExtends;
 }());
 exports.publicClassWithWithPublicTypeParametersWithoutExtends = publicClassWithWithPublicTypeParametersWithoutExtends;
-var privateClassWithWithPublicTypeParametersWithoutExtends = (function () {
+var privateClassWithWithPublicTypeParametersWithoutExtends = /** @class */ (function () {
     function privateClassWithWithPublicTypeParametersWithoutExtends() {
     }
     privateClassWithWithPublicTypeParametersWithoutExtends.myPublicStaticMethod = function () {

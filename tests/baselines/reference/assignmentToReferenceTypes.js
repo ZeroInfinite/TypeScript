@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/assignmentToReferenceTypes.ts] ////
+
 //// [assignmentToReferenceTypes.ts]
 // Should all be allowed
 
@@ -26,7 +28,7 @@ function g(x) {
 //// [assignmentToReferenceTypes.js]
 // Should all be allowed
 M = null;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/undefinedTypeAssignment4.ts] ////
+
 //// [undefinedTypeAssignment4.ts]
 class undefined {
 	foo: string;
@@ -13,7 +15,7 @@ var y: typeof undefined;
 
 
 //// [undefinedTypeAssignment4.js]
-var undefined = (function () {
+var undefined = /** @class */ (function () {
     function undefined() {
     }
     return undefined;

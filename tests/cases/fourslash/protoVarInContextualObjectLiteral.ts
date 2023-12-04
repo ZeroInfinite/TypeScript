@@ -39,56 +39,35 @@
 ////        /*6*/
 ////    };
 
-goTo.marker('1');
-verify.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
-edit.insert('__proto__: 10,');
-verify.not.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
+const tripleProto: FourSlashInterface.ExpectedCompletionEntry = { name: "___proto__", text: "(property) ___proto__: string" };
+const proto: FourSlashInterface.ExpectedCompletionEntry = { name: "__proto__", text: "(property) __proto__: number" };
+const protoQuoted: FourSlashInterface.ExpectedCompletionEntry = { name: "__proto__", text: '(property) "__proto__": number' };
+const p: FourSlashInterface.ExpectedCompletionEntry = { name: "p", text: "(property) p: number" };
 
-goTo.marker('2');
-verify.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ marker: "1", unsorted: [proto, p] });
+edit.insert('__proto__: 10,');
+verify.completions({ exact: p });
+
+verify.completions({ marker: "2", unsorted: [proto, p] });
 edit.insert('"__proto__": 10,');
-verify.not.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ exact: p });
 
-goTo.marker('3');
-verify.completionListContains("__proto__", '(property) "__proto__": number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ marker: "3", unsorted: [protoQuoted, p] })
 edit.insert('__proto__: 10,');
-verify.not.completionListContains("__proto__", '(property) "__proto__": number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ exact: p });
 
-goTo.marker('4');
-verify.completionListContains("__proto__", '(property) "__proto__": number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ marker: "4", unsorted: [protoQuoted, p] });
 edit.insert('"__proto__": 10,');
-verify.not.completionListContains("__proto__", '(property) "__proto__": number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ exact: p });
 
-goTo.marker('5');
-verify.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ marker: "5", unsorted: [proto, tripleProto, p] });
 edit.insert('__proto__: 10,');
-verify.not.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ unsorted: [tripleProto, p] });
 edit.insert('"___proto__": "10",');
-verify.not.completionListContains("__proto__", '(property) __proto__: number');
-verify.not.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ exact: p });
 
-goTo.marker('6');
-verify.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("__proto__", '(property) __proto__: number');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ marker: "6", unsorted: [proto, tripleProto, p] });
 edit.insert('___proto__: "10",');
-verify.completionListContains("__proto__", '(property) __proto__: number');
-verify.not.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ unsorted: [proto, p] });
 edit.insert('"__proto__": 10,');
-verify.not.completionListContains("__proto__", '(property) __proto__: number');
-verify.not.completionListContains("___proto__", '(property) ___proto__: string');
-verify.completionListContains("p", '(property) p: number');
+verify.completions({ exact: p });

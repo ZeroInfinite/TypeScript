@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/noErrorsInCallback.ts] ////
+
 //// [noErrorsInCallback.ts]
 class Bar {
     constructor(public foo: string) { }
@@ -9,7 +11,7 @@ var one = new Bar({}); // Error
  
 
 //// [noErrorsInCallback.js]
-var Bar = (function () {
+var Bar = /** @class */ (function () {
     function Bar(foo) {
         this.foo = foo;
     }

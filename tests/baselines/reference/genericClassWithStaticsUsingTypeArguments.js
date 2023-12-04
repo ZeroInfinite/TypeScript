@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericClassWithStaticsUsingTypeArguments.ts] ////
+
 //// [genericClassWithStaticsUsingTypeArguments.ts]
 // Should be error to use 'T' in all declarations within Foo.
 class Foo<T> {
@@ -19,7 +21,7 @@ class Foo<T> {
 
 //// [genericClassWithStaticsUsingTypeArguments.js]
 // Should be error to use 'T' in all declarations within Foo.
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Foo.f = function (xs) {

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/primitives/number/validNumberAssignments.ts ===
+//// [tests/cases/conformance/types/primitives/number/validNumberAssignments.ts] ////
+
+=== validNumberAssignments.ts ===
 var x = 1;
 >x : Symbol(x, Decl(validNumberAssignments.ts, 0, 3))
 
@@ -8,7 +10,7 @@ var a: any = x;
 
 var b: Object = x;
 >b : Symbol(b, Decl(validNumberAssignments.ts, 3, 3))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(validNumberAssignments.ts, 0, 3))
 
 var c: number = x;

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/narrowTypeByInstanceof.ts ===
+//// [tests/cases/compiler/narrowTypeByInstanceof.ts] ////
+
+=== narrowTypeByInstanceof.ts ===
     class Match {
 >Match : Match
 
@@ -22,16 +24,12 @@
     }
 
 type FileMatchOrMatch = FileMatch | Match;
->FileMatchOrMatch : FileMatchOrMatch
->FileMatch : FileMatch
->Match : Match
+>FileMatchOrMatch : Match | FileMatch
 
 
 let elementA: FileMatchOrMatch, elementB: FileMatchOrMatch;
 >elementA : FileMatchOrMatch
->FileMatchOrMatch : FileMatchOrMatch
 >elementB : FileMatchOrMatch
->FileMatchOrMatch : FileMatchOrMatch
 
 if (elementA instanceof FileMatch && elementB instanceof FileMatch) {
 >elementA instanceof FileMatch && elementB instanceof FileMatch : boolean

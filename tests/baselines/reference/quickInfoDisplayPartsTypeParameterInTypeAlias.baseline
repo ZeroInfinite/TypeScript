@@ -1,10 +1,40 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts ===
+// type List<T> = T[]
+//      ^^^^
+// | ----------------------------------------------------------------------
+// | type List<T> = T[]
+// | ----------------------------------------------------------------------
+//           ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in type List<T>
+// | ----------------------------------------------------------------------
+//                ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in type List<T>
+// | ----------------------------------------------------------------------
+// type List2<T extends string> = T[];
+//      ^^^^^
+// | ----------------------------------------------------------------------
+// | type List2<T extends string> = T[]
+// | ----------------------------------------------------------------------
+//            ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in type List2<T extends string>
+// | ----------------------------------------------------------------------
+//                                ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in type List2<T extends string>
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 5
+      "position": 5,
+      "name": "0"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type",
       "kindModifiers": "",
       "textSpan": {
@@ -61,16 +91,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 10
+      "position": 10,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -135,16 +165,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 15
+      "position": 15,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -209,16 +239,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 24
+      "position": 24,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type",
       "kindModifiers": "",
       "textSpan": {
@@ -291,16 +321,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 30
+      "position": 30,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -381,16 +411,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInTypeAlias.ts",
-      "position": 50
+      "position": 50,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -471,8 +501,7 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

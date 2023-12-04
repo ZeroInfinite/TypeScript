@@ -1,7 +1,7 @@
-=== tests/cases/compiler/interfaceOnly.ts ===
-interface foo {
->foo : foo
+//// [tests/cases/compiler/interfaceOnly.ts] ////
 
+=== interfaceOnly.ts ===
+interface foo {
     foo();
 >foo : () => any
 

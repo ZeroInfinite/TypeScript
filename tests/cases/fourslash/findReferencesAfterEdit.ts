@@ -2,19 +2,17 @@
 
 // @Filename: a.ts
 ////interface A {
-////    [|{| "isWriteAccess": true, "isDefinition": true |}foo|]: string;
+////    /*1*/foo: string;
 ////}
 
 // @Filename: b.ts
 ///////<reference path='a.ts'/>
 /////**/
 ////function foo(x: A) {
-////    x.[|foo|]
+////    x./*2*/foo
 ////}
 
-verify.singleReferenceGroup("(property) A.foo: string");
-
+verify.baselineFindAllReferences("1", "2");
 goTo.marker("");
-edit.insert("\r\n");
-
-verify.singleReferenceGroup("(property) A.foo: string");
+edit.insert("\n");
+verify.baselineFindAllReferences("1", "2");

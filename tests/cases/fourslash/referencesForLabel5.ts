@@ -2,16 +2,14 @@
 
 // References to shadowed label
 
-////[|label|]:  while (true) {
-////            if (false) break [|label|];
+/////*1*/label:  while (true) {
+////            if (false) /*2*/break /*3*/label;
 ////            function blah() {
-////[|label|]:          while (true) {
-////                    if (false) break [|label|];
+/////*4*/label:          while (true) {
+////                    if (false) /*5*/break /*6*/label;
 ////                }
 ////            }
-////            if (false) break [|label|];
+////            if (false) /*7*/break /*8*/label;
 ////        }
 
-const [outer1, outer2, inner1, inner2, outer3] = test.ranges();
-verify.singleReferenceGroup("label", [outer1, outer2, outer3]);
-verify.singleReferenceGroup("label", [inner1, inner2]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6', '7', '8');

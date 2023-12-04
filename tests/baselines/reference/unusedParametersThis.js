@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedParametersThis.ts] ////
+
 //// [unusedParametersThis.ts]
 class A {
     public a: number;
@@ -34,7 +36,7 @@ var f2 = function f2(this: A): number {
 };
 
 //// [unusedParametersThis.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.method = function () {

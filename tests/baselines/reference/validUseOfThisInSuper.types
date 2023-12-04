@@ -1,10 +1,11 @@
-=== tests/cases/compiler/validUseOfThisInSuper.ts ===
+//// [tests/cases/compiler/validUseOfThisInSuper.ts] ////
+
+=== validUseOfThisInSuper.ts ===
 class Base {
 >Base : Base
 
     constructor(public b: Base) {
 >b : Base
->Base : Base
     }
 }
 class Super extends Base {

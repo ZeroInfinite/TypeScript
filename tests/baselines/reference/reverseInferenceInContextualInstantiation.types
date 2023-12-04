@@ -1,11 +1,10 @@
-=== tests/cases/compiler/reverseInferenceInContextualInstantiation.ts ===
+//// [tests/cases/compiler/reverseInferenceInContextualInstantiation.ts] ////
+
+=== reverseInferenceInContextualInstantiation.ts ===
 function compare<T>(a: T, b: T): number { return 0; }
 >compare : <T>(a: T, b: T) => number
->T : T
 >a : T
->T : T
 >b : T
->T : T
 >0 : 0
 
 var x: number[];

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/switchComparableCompatForBrands.ts] ////
+
 //// [switchComparableCompatForBrands.ts]
 class MyBrand
 {
@@ -15,7 +17,7 @@ function test(strInput: string & MyBrand) {
 
 
 //// [switchComparableCompatForBrands.js]
-var MyBrand = (function () {
+var MyBrand = /** @class */ (function () {
     function MyBrand() {
     }
     return MyBrand;

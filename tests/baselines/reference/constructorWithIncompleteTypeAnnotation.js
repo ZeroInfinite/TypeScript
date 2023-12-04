@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constructorWithIncompleteTypeAnnotation.ts] ////
+
 //// [constructorWithIncompleteTypeAnnotation.ts]
 declare module "fs" {
     export class File {
@@ -281,10 +283,15 @@ TypeScriptAllInOne.Program.Main();
 
 //// [constructorWithIncompleteTypeAnnotation.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -294,9 +301,9 @@ var fs = module;
 ("fs");
 var TypeScriptAllInOne;
 (function (TypeScriptAllInOne) {
-    var Program = (function () {
+    var Program = /** @class */ (function () {
         function Program() {
-            this["case"] = bfs.STATEMENTS(4);
+            this.case = bfs.STATEMENTS(4);
         }
         Program.Main = function () {
             var args = [];
@@ -309,42 +316,43 @@ var TypeScriptAllInOne;
                 retValue = bfs.VARIABLES();
                 if (retValue != 0)
                      ^= {
-                        "return": 1
+                        return: 1
                     };
             }
             finally {
             }
         };
-        Program.prototype["if"] = function (retValue) {
-            if (retValue === void 0) { retValue =  != 0; }
-            return 1;
-                ^
-                    retValue;
-            bfs.TYPES();
-            if (retValue != 0) {
-                return 1 &&
-                ;
-            }
-            retValue = bfs.OPERATOR;
-            ' );;
-            if (retValue != 0) {
-                return 1;
-            }
-        };
-        Program.prototype["catch"] = function (e) {
-            console.log(e);
-        };
+        Program.prototype.if = function (retValue) { };
         return Program;
     }());
     TypeScriptAllInOne.Program = Program;
+     != 0;
+    {
+        return 1;
+            ^
+                retValue;
+        bfs.TYPES();
+        if (retValue != 0) {
+            return 1 &&
+            ;
+        }
+        retValue = bfs.OPERATOR;
+        ' );;
+        if (retValue != 0) {
+            return 1;
+        }
+    }
     try {
+    }
+    catch (e) {
+        console.log(e);
     }
     finally {
     }
     console.log('Done');
     return 0;
 })(TypeScriptAllInOne || (TypeScriptAllInOne = {}));
-var BasicFeatures = (function () {
+var BasicFeatures = /** @class */ (function () {
     function BasicFeatures() {
     }
     /// <summary>
@@ -368,7 +376,7 @@ var BasicFeatures = (function () {
         ;
         var quoted = '"', quoted2 = "'";
         var reg = /\w*/;
-        var objLit = { "var": number = 42, equals: function (x) { return x["var"] === 42; }, "instanceof": function () { return 'objLit{42}'; } };
+        var objLit = { "var": number = 42, equals: function (x) { return x["var"] === 42; }, instanceof: function () { return 'objLit{42}'; } };
         var weekday = Weekdays.Monday;
         var con = char + f + hexchar + float.toString() + float2.toString() + reg.toString() + objLit + weekday;
         //
@@ -441,7 +449,7 @@ var BasicFeatures = (function () {
         var xx = c;
         retVal += ;
         try { }
-        catch () { }
+        catch (_a) { }
         Property;
         retVal += c.Member();
         retVal += xx.Foo() ? 0 : 1;
@@ -489,13 +497,13 @@ var BasicFeatures = (function () {
     };
     return BasicFeatures;
 }());
-var CLASS = (function () {
+var CLASS = /** @class */ (function () {
     function CLASS() {
         this.d = function () { yield 0; };
     }
     Object.defineProperty(CLASS.prototype, "Property", {
         get: function () { return 0; },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     CLASS.prototype.Member = function () {
@@ -513,7 +521,7 @@ var CLASS = (function () {
     return CLASS;
 }());
 // todo: use these
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
@@ -526,7 +534,7 @@ method2();
 {
     return 2 * this.method1(2);
 }
-var B = (function (_super) {
+var B = /** @class */ (function (_super) {
     __extends(B, _super);
     function B() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -536,7 +544,7 @@ var B = (function (_super) {
     };
     return B;
 }(A));
-var Overloading = (function () {
+var Overloading = /** @class */ (function () {
     function Overloading() {
         this.otherValue = 42;
     }

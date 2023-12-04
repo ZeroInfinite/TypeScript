@@ -7,18 +7,18 @@
 /////**
 //// * @param /*use*/[|foo|] I pity the foo
 //// */
-////function f([|/*def*/{| "isWriteAccess": true, "isDefinition": true |}foo|]: I) {
-////    return [|foo|];
+////function f([|[|/*def*/{| "contextRangeIndex": 1 |}foo|]: I|]) {
+////    return /*use2*/[|foo|];
 ////}
 
-const ranges = test.ranges();
-goTo.marker("use");
-verify.goToDefinitionIs("def");
-verify.goToType("use", "I");
+const [r0, r1Def, r1, r2] = test.ranges();
+const ranges = [r0, r1, r2];
 
 goTo.marker("use");
 verify.quickInfoIs("(parameter) foo: I", "I pity the foo");
 
-verify.singleReferenceGroup("(parameter) foo: I");
-verify.rangesAreDocumentHighlights();
-verify.rangesAreRenameLocations();
+verify.baselineFindAllReferences("use", "def", "use2");
+verify.baselineRename(ranges);
+verify.baselineDocumentHighlights(ranges);
+verify.baselineGoToType("use");
+verify.baselineGetDefinitionAtPosition("use");

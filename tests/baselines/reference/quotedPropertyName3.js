@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/quotedPropertyName3.ts] ////
+
 //// [quotedPropertyName3.ts]
 class Test {
     "prop1": number;
@@ -8,7 +10,7 @@ class Test {
 }
 
 //// [quotedPropertyName3.js]
-var Test = (function () {
+var Test = /** @class */ (function () {
     function Test() {
     }
     Test.prototype.foo = function () {

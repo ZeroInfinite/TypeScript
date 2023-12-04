@@ -1,10 +1,12 @@
+//// [tests/cases/conformance/parser/ecmascript5/MemberAccessorDeclarations/parserMemberAccessorDeclaration18.ts] ////
+
 //// [parserMemberAccessorDeclaration18.ts]
 class C {
    set Foo(...a) { }
 }
 
 //// [parserMemberAccessorDeclaration18.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "Foo", {
@@ -14,7 +16,7 @@ var C = (function () {
                 a[_i] = arguments[_i];
             }
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

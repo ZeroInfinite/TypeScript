@@ -1,7 +1,7 @@
-=== tests/cases/compiler/topLevel.ts ===
-interface IPoint {
->IPoint : IPoint
+//// [tests/cases/compiler/topLevel.ts] ////
 
+=== topLevel.ts ===
+interface IPoint {
     x:number;
 >x : number
 
@@ -11,7 +11,6 @@ interface IPoint {
 
 class Point implements IPoint {
 >Point : Point
->IPoint : IPoint
 
     constructor(public x,public y){}
 >x : any

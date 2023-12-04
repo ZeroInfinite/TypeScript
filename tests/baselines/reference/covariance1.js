@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/covariance1.ts] ////
+
 //// [covariance1.ts]
 module M {
 
@@ -20,7 +22,7 @@ module M {
 //// [covariance1.js]
 var M;
 (function (M) {
-    var XX = (function () {
+    var XX = /** @class */ (function () {
         function XX(m1) {
             this.m1 = m1;
         }

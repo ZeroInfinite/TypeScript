@@ -1,17 +1,18 @@
-=== tests/cases/compiler/objectLitGetterSetter.ts ===
+//// [tests/cases/compiler/objectLitGetterSetter.ts] ////
+
+=== objectLitGetterSetter.ts ===
             var obj = {};
 >obj : {}
 >{} : {}
 
             Object.defineProperty(obj, "accProperty", <PropertyDescriptor>({
->Object.defineProperty(obj, "accProperty", <PropertyDescriptor>({                get: function () {                    eval("public = 1;");                    return 11;                },                set: function (v) {                }            })) : any
->Object.defineProperty : (o: any, p: string, attributes: PropertyDescriptor & ThisType<any>) => any
+>Object.defineProperty(obj, "accProperty", <PropertyDescriptor>({                get: function () {                    eval("public = 1;");                    return 11;                },                set: function (v) {                }            })) : {}
+>Object.defineProperty : <T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>) => T
 >Object : ObjectConstructor
->defineProperty : (o: any, p: string, attributes: PropertyDescriptor & ThisType<any>) => any
+>defineProperty : <T>(o: T, p: PropertyKey, attributes: PropertyDescriptor & ThisType<any>) => T
 >obj : {}
 >"accProperty" : "accProperty"
 ><PropertyDescriptor>({                get: function () {                    eval("public = 1;");                    return 11;                },                set: function (v) {                }            }) : PropertyDescriptor
->PropertyDescriptor : PropertyDescriptor
 >({                get: function () {                    eval("public = 1;");                    return 11;                },                set: function (v) {                }            }) : { get: () => number; set: (v: any) => void; }
 >{                get: function () {                    eval("public = 1;");                    return 11;                },                set: function (v) {                }            } : { get: () => number; set: (v: any) => void; }
 

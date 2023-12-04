@@ -3,12 +3,15 @@
     "pos": 1,
     "end": 4,
     "flags": "JSDoc",
+    "modifierFlagsCache": 0,
+    "transformFlags": 1,
     "typeName": {
         "kind": "Identifier",
         "pos": 1,
         "end": 4,
         "flags": "JSDoc",
-        "originalKeywordKind": "VarKeyword",
-        "text": "var"
+        "modifierFlagsCache": 0,
+        "transformFlags": 0,
+        "escapedText": "var"
     }
 }

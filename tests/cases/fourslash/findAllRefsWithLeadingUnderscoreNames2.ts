@@ -1,16 +1,10 @@
 /// <reference path='fourslash.ts'/>
 
 ////class Foo {
-////    public [|{| "isWriteAccess": true, "isDefinition": true |}__bar|]() { return 0; }
+////    /*1*/public /*2*/__bar() { return 0; }
 ////}
 ////
 ////var x: Foo;
-////x.[|__bar|];
+////x./*3*/__bar;
 
-const ranges = test.ranges();
-const [r0, r1] = ranges;
-verify.referenceGroups(r0, [{ definition: "(method) Foo.__bar(): number", ranges }]);
-verify.referenceGroups(r1, [
-    { definition: "(method) Foo.__bar(): number", ranges: [r0] },
-    { definition: "(method) Foo.__bar(): number", ranges: [r1] }
-]);
+verify.baselineFindAllReferences('1', '2', '3');

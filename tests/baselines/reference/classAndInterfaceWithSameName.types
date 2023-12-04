@@ -1,10 +1,11 @@
-=== tests/cases/conformance/classes/classDeclarations/classAndInterfaceWithSameName.ts ===
+//// [tests/cases/conformance/classes/classDeclarations/classAndInterfaceWithSameName.ts] ////
+
+=== classAndInterfaceWithSameName.ts ===
 class C { foo: string; }
 >C : C
 >foo : string
 
 interface C { foo: string; }
->C : C
 >foo : string
 
 module M {
@@ -18,8 +19,6 @@ module M {
     }
 
     interface D {
->D : D
-
         bar: string;
 >bar : string
     }

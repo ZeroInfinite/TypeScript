@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/propertyWrappedInTry.ts] ////
+
 //// [propertyWrappedInTry.ts]
 class Foo {
 
@@ -20,7 +22,7 @@ class Foo {
 
 
 //// [propertyWrappedInTry.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;

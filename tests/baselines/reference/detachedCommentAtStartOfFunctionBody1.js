@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/detachedCommentAtStartOfFunctionBody1.ts] ////
+
 //// [detachedCommentAtStartOfFunctionBody1.ts]
 class TestFile {
     foo(message: string): () => string {
@@ -9,7 +11,7 @@ class TestFile {
 }
 
 //// [detachedCommentAtStartOfFunctionBody1.js]
-var TestFile = (function () {
+var TestFile = /** @class */ (function () {
     function TestFile() {
     }
     TestFile.prototype.foo = function (message) {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/systemModuleTrailingComments.ts] ////
+
 //// [systemModuleTrailingComments.ts]
 export const test = "TEST";
 
@@ -6,13 +8,13 @@ export const test = "TEST";
 //// [systemModuleTrailingComments.js]
 System.register([], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var test;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {
             exports_1("test", test = "TEST");
-            //some comment 
+            //some comment
         }
     };
 });

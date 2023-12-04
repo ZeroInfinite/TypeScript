@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParametersInStaticMethods.ts] ////
+
 //// [typeParametersInStaticMethods.ts]
 class foo<T> {
     static M(x: (x: T) => { x: { y: T } }) {
@@ -5,7 +7,7 @@ class foo<T> {
 } 
 
 //// [typeParametersInStaticMethods.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo() {
     }
     foo.M = function (x) {

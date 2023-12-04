@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/localTypes/localTypes5.ts] ////
+
 //// [localTypes5.ts]
 function foo<A>() {
     class X {
@@ -17,12 +19,12 @@ var x = foo<void>();
 
 //// [localTypes5.js]
 function foo() {
-    var X = (function () {
+    var X = /** @class */ (function () {
         function X() {
         }
         X.prototype.m = function () {
             return (function () {
-                var Y = (function () {
+                var Y = /** @class */ (function () {
                     function Y() {
                     }
                     return Y;

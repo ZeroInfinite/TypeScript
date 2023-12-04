@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implicitAnyAnyReturningFunction.ts] ////
+
 //// [implicitAnyAnyReturningFunction.ts]
 function A() {
     return <any>"";
@@ -28,7 +30,7 @@ function B() {
     var someLocal = {};
     return someLocal;
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.A = function () {

@@ -1,11 +1,11 @@
 /// <reference path='fourslash.ts'/>
 ////interface Gen {
 ////    x: number
-////    [|{| "isWriteAccess": true, "isDefinition": true |}parent|]: Gen;
+////    /*1*/parent: Gen;
 ////    millenial: string;
 ////}
 ////let t: Gen;
 ////var { x, ...rest } = t;
-////rest.[|parent|];
+////rest./*2*/parent;
 
-verify.singleReferenceGroup("(property) Gen.parent: Gen");
+verify.baselineFindAllReferences('1', '2');

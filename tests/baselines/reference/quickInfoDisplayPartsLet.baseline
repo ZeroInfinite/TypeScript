@@ -1,10 +1,108 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsLet.ts ===
+// let a = 10;
+//     ^
+// | ----------------------------------------------------------------------
+// | let a: number
+// | ----------------------------------------------------------------------
+// function foo() {
+//     let b = a;
+//         ^
+// | ----------------------------------------------------------------------
+// | let b: number
+// | ----------------------------------------------------------------------
+//             ^
+// | ----------------------------------------------------------------------
+// | let a: number
+// | ----------------------------------------------------------------------
+//     if (b) {
+//         let b1 = 10;
+//             ^^
+// | ----------------------------------------------------------------------
+// | let b1: number
+// | ----------------------------------------------------------------------
+//     }
+// }
+// module m {
+//     let c = 10;
+//         ^
+// | ----------------------------------------------------------------------
+// | let c: number
+// | ----------------------------------------------------------------------
+//     export let d = 10;
+//                ^
+// | ----------------------------------------------------------------------
+// | let m.d: number
+// | ----------------------------------------------------------------------
+//     if (c) {
+//         let e = 10;
+//             ^
+// | ----------------------------------------------------------------------
+// | let e: number
+// | ----------------------------------------------------------------------
+//     }
+// }
+// let f: () => number;
+//     ^
+// | ----------------------------------------------------------------------
+// | let f: () => number
+// | ----------------------------------------------------------------------
+// let g = f;
+//     ^
+// | ----------------------------------------------------------------------
+// | let g: () => number
+// | ----------------------------------------------------------------------
+//         ^
+// | ----------------------------------------------------------------------
+// | let f: () => number
+// | ----------------------------------------------------------------------
+// f();
+// ^
+// | ----------------------------------------------------------------------
+// | let f: () => number
+// | ----------------------------------------------------------------------
+// let h: { (a: string): number; (a: number): string; };
+//     ^
+// | ----------------------------------------------------------------------
+// | let h: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+// let i = h;
+//     ^
+// | ----------------------------------------------------------------------
+// | let i: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+//         ^
+// | ----------------------------------------------------------------------
+// | let h: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+// h(10);
+// ^
+// | ----------------------------------------------------------------------
+// | let h: (a: number) => string (+1 overload)
+// | ----------------------------------------------------------------------
+// h("hello");
+// ^
+// | ----------------------------------------------------------------------
+// | let h: (a: string) => number (+1 overload)
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 4
+      "position": 4,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -37,16 +135,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 37
+      "position": 37,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -79,16 +177,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 41
+      "position": 41,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -121,16 +219,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 69
+      "position": 69,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -163,16 +261,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 105
+      "position": 105,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -205,16 +303,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 128
+      "position": 128,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "export",
       "textSpan": {
@@ -255,16 +353,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 161
+      "position": 161,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -297,16 +395,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 181
+      "position": 181,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -359,16 +457,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 202
+      "position": 202,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -421,16 +519,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 206
+      "position": 206,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -483,16 +581,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 209
+      "position": 209,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -545,16 +643,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 218
+      "position": 218,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -691,16 +789,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 272
+      "position": 272,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -837,16 +935,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 276
+      "position": 276,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -983,16 +1081,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 279
+      "position": 279,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -1089,16 +1187,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsLet.ts",
-      "position": 286
+      "position": 286,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "let",
       "kindModifiers": "",
       "textSpan": {
@@ -1195,8 +1293,7 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

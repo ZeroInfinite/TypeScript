@@ -1,4 +1,6 @@
-=== tests/cases/compiler/enumAssignmentCompat4.ts ===
+//// [tests/cases/compiler/enumAssignmentCompat4.ts] ////
+
+=== enumAssignmentCompat4.ts ===
 namespace M {
 >M : typeof M
 
@@ -6,7 +8,7 @@ namespace M {
 >MyEnum : MyEnum
 
         BAR
->BAR : MyEnum
+>BAR : MyEnum.BAR
     }
     export var object2 = {
 >object2 : { foo: MyEnum; }
@@ -28,7 +30,7 @@ namespace N {
 >MyEnum : MyEnum
 
         FOO
->FOO : MyEnum
+>FOO : MyEnum.FOO
 
     };
     export var object1 = {

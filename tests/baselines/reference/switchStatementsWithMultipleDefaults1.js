@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/switchStatementsWithMultipleDefaults1.ts] ////
+
 //// [switchStatementsWithMultipleDefaults1.ts]
     var x = 10;
     
@@ -17,7 +19,7 @@ var x = 10;
 switch (x) {
     case 1:
     case 2:
-    default:// No issues.
+    default: // No issues.
         break;
     default: // Error; second 'default' clause.
     default: // Error; third 'default' clause.

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticsNotInScopeInClodule.ts] ////
+
 //// [staticsNotInScopeInClodule.ts]
 class Clod {
     static x = 10;
@@ -8,7 +10,7 @@ module Clod {
 }
 
 //// [staticsNotInScopeInClodule.js]
-var Clod = (function () {
+var Clod = /** @class */ (function () {
     function Clod() {
     }
     Clod.x = 10;

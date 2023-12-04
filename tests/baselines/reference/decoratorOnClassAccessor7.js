@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/class/accessor/decoratorOnClassAccessor7.ts] ////
+
 //// [decoratorOnClassAccessor7.ts]
 declare function dec1<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T>;
 declare function dec2<T>(target: any, propertyKey: string, descriptor: TypedPropertyDescriptor<T>): TypedPropertyDescriptor<T>;
@@ -39,13 +41,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     Object.defineProperty(A.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([
@@ -53,13 +55,13 @@ var A = (function () {
     ], A.prototype, "x", null);
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     Object.defineProperty(B.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([
@@ -67,13 +69,13 @@ var B = (function () {
     ], B.prototype, "x", null);
     return B;
 }());
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([
@@ -81,13 +83,13 @@ var C = (function () {
     ], C.prototype, "x", null);
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     Object.defineProperty(D.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([
@@ -95,13 +97,13 @@ var D = (function () {
     ], D.prototype, "x", null);
     return D;
 }());
-var E = (function () {
+var E = /** @class */ (function () {
     function E() {
     }
     Object.defineProperty(E.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([
@@ -109,13 +111,13 @@ var E = (function () {
     ], E.prototype, "x", null);
     return E;
 }());
-var F = (function () {
+var F = /** @class */ (function () {
     function F() {
     }
     Object.defineProperty(F.prototype, "x", {
         get: function () { return 0; },
         set: function (value) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     __decorate([

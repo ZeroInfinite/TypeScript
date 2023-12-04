@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/functions/typeOfThisInFunctionExpression.ts] ////
+
 //// [typeOfThisInFunctionExpression.ts]
 // type of 'this' in FunctionExpression is Any
 
@@ -59,7 +61,7 @@ var t2 = function f() {
     var x = this;
     var x;
 };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = function () {
             var q;

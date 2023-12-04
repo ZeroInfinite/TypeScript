@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembers.ts] ////
+
 //// [assignmentCompatWithObjectMembers.ts]
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 // no errors expected
@@ -90,12 +92,12 @@ module ObjectTypes {
 // no errors expected
 var SimpleTypes;
 (function (SimpleTypes) {
-    var S = (function () {
+    var S = /** @class */ (function () {
         function S() {
         }
         return S;
     }());
-    var T = (function () {
+    var T = /** @class */ (function () {
         function T() {
         }
         return T;
@@ -130,12 +132,12 @@ var SimpleTypes;
 })(SimpleTypes || (SimpleTypes = {}));
 var ObjectTypes;
 (function (ObjectTypes) {
-    var S = (function () {
+    var S = /** @class */ (function () {
         function S() {
         }
         return S;
     }());
-    var T = (function () {
+    var T = /** @class */ (function () {
         function T() {
         }
         return T;

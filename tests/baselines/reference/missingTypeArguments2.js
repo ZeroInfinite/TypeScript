@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/missingTypeArguments2.ts] ////
+
 //// [missingTypeArguments2.ts]
 class A<T> { }
 
@@ -7,7 +9,7 @@ var y: A<A>;
 (): A => null;
 
 //// [missingTypeArguments2.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;

@@ -7,5 +7,7 @@
 ////     }
 //// }
 
-verify.rangeAfterCodeFix("for(; ;)");
-
+verify.codeFix({
+    description: "Remove unused declaration for: 'i'",
+    newRangeContent: "for(; ;) ",
+});

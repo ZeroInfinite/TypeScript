@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/decoratorMetadataForMethodWithNoReturnTypeAnnotation01.ts] ////
+
 //// [decoratorMetadataForMethodWithNoReturnTypeAnnotation01.ts]
 declare var decorator: any;
 
@@ -14,7 +16,7 @@ class MyClass {
 
 
 //// [decoratorMetadataForMethodWithNoReturnTypeAnnotation01.js]
-var MyClass = (function () {
+var MyClass = /** @class */ (function () {
     function MyClass(test, test2) {
     }
     MyClass.prototype.doSomething = function () {

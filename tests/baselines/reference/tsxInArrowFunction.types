@@ -1,13 +1,9 @@
-=== tests/cases/conformance/jsx/tsxInArrowFunction.tsx ===
+//// [tests/cases/conformance/jsx/tsxInArrowFunction.tsx] ////
+
+=== tsxInArrowFunction.tsx ===
 declare namespace JSX {
->JSX : any
-
     interface Element { }
->Element : Element
-
     interface IntrinsicElements {
->IntrinsicElements : IntrinsicElements
-
         div: {
 >div : { text?: string; }
 

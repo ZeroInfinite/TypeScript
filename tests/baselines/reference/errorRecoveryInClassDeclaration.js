@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/errorRecoveryInClassDeclaration.ts] ////
+
 //// [errorRecoveryInClassDeclaration.ts]
 class C {
     public bar() {
@@ -8,7 +10,7 @@ class C {
 }
 
 //// [errorRecoveryInClassDeclaration.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.bar = function () {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/duplicateSymbolsExportMatching.ts] ////
+
 //// [duplicateSymbolsExportMatching.ts]
 module M {
     export interface E { }
@@ -68,7 +70,7 @@ export interface D { }
 //// [duplicateSymbolsExportMatching.js]
 define(["require", "exports"], function (require, exports) {
     "use strict";
-    exports.__esModule = true;
+    Object.defineProperty(exports, "__esModule", { value: true });
     // Should report error only once for instantiated module
     var M;
     (function (M) {
@@ -95,7 +97,7 @@ define(["require", "exports"], function (require, exports) {
         M.F = F;
     })(M || (M = {}));
     (function (M) {
-        var C = (function () {
+        var C = /** @class */ (function () {
             function C() {
             }
             return C;

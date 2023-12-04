@@ -3,7 +3,7 @@
 // @Filename: foo.ts
 //// export function foo() { return "foo"; }
 
-//// import("[|./foo|]")
-//// var x = import("[|./foo|]")
+//// /*1*/import("/*2*/./foo")
+//// /*3*/var x = import("/*4*/./foo")
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1', '2', '3', '4');

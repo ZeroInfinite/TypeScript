@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/argsInScope.ts] ////
+
 //// [argsInScope.ts]
 class C {
     P(ii:number, j:number, k:number) {
@@ -12,7 +14,7 @@ c.P(1,2,3);
 
 
 //// [argsInScope.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.P = function (ii, j, k) {

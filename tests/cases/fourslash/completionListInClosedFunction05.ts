@@ -6,16 +6,8 @@
 ////    }
 ////}
 
-goTo.marker("1");
-
-verify.completionListContains("foo");
-verify.completionListContains("x");
-verify.completionListContains("y");
-verify.completionListContains("z");
-
-verify.completionListContains("bar");
-verify.completionListContains("a");
-verify.completionListContains("b");
-verify.completionListContains("c");
-
-verify.completionListContains("v"); // questionable
+verify.completions({
+    marker: "1",
+    includes: ["foo", "x", "y", "z", "bar", "a", "b", "c"],
+    isNewIdentifierLocation: true,
+});

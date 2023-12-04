@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/noImplicitReturnInConstructors.ts] ////
+
 //// [noImplicitReturnInConstructors.ts]
 class C {
   constructor() {
@@ -6,7 +8,7 @@ class C {
 }
 
 //// [noImplicitReturnInConstructors.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         return;
     }

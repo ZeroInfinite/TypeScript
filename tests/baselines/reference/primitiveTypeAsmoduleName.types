@@ -1,4 +1,5 @@
-=== tests/cases/compiler/primitiveTypeAsmoduleName.ts ===
-module string {}
->string : any
+//// [tests/cases/compiler/primitiveTypeAsmoduleName.ts] ////
 
+=== primitiveTypeAsmoduleName.ts ===
+
+module string {}

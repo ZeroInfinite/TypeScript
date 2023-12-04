@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/deleteOperator/deleteOperatorWithStringType.ts] ////
+
 //// [deleteOperatorWithStringType.ts]
 // delete  operator on string type
 var STRING: string;
@@ -49,7 +51,7 @@ delete objA.a,M.n;
 var STRING;
 var STRING1 = ["", "abc"];
 function foo() { return "abc"; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return ""; };

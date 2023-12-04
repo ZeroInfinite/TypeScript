@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParameterAssignmentCompat1.ts] ////
+
 //// [typeParameterAssignmentCompat1.ts]
 interface Foo<T> {
     frobble(value: T): T;
@@ -26,7 +28,7 @@ function f() {
     x = y; // should be an error
     return x;
 }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.f = function () {

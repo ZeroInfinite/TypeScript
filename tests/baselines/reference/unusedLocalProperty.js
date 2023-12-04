@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedLocalProperty.ts] ////
+
 //// [unusedLocalProperty.ts]
 declare var console: { log(msg: any): void; }
 class Animal {
@@ -13,7 +15,7 @@ class Animal {
 
 
 //// [unusedLocalProperty.js]
-var Animal = (function () {
+var Animal = /** @class */ (function () {
     function Animal(species) {
         this.species = species;
     }

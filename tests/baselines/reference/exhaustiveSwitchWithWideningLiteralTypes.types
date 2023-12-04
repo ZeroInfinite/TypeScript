@@ -1,4 +1,6 @@
-=== tests/cases/compiler/exhaustiveSwitchWithWideningLiteralTypes.ts ===
+//// [tests/cases/compiler/exhaustiveSwitchWithWideningLiteralTypes.ts] ////
+
+=== exhaustiveSwitchWithWideningLiteralTypes.ts ===
 // Repro from #12529
 
 class A {
@@ -20,8 +22,6 @@ class B {
 function f(value: A | B): number {
 >f : (value: A | B) => number
 >value : A | B
->A : A
->B : B
 
     switch(value.kind) {
 >value.kind : "A" | "B"

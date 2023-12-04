@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/scopeCheckStaticInitializer.ts] ////
+
 //// [scopeCheckStaticInitializer.ts]
 class X {
     static illegalBeforeProperty = X.data;
@@ -16,7 +18,7 @@ class After {
 
 
 //// [scopeCheckStaticInitializer.js]
-var X = (function () {
+var X = /** @class */ (function () {
     function X() {
     }
     X.method = function () { };
@@ -27,7 +29,7 @@ var X = (function () {
     X.data = 13;
     return X;
 }());
-var After = (function () {
+var After = /** @class */ (function () {
     function After() {
     }
     After.method = function () { };

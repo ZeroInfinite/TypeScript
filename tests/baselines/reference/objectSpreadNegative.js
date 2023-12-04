@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/spread/objectSpreadNegative.ts] ////
+
 //// [objectSpreadNegative.ts]
 let o = { a: 1, b: 'no' }
 
@@ -8,12 +10,12 @@ class PrivateOptionalX {
 class PublicX {
     public x: number;
 }
-let publicX: PublicX;
-let privateOptionalX: PrivateOptionalX;
+declare let publicX: PublicX;
+declare let privateOptionalX: PrivateOptionalX;
 let o2 = { ...publicX, ...privateOptionalX };
 let sn: number = o2.x; // error, x is private
-let optionalString: { sn?: string };
-let optionalNumber: { sn?: number };
+declare let optionalString: { sn?: string };
+declare let optionalNumber: { sn?: number };
 let allOptional: { sn: string | number } = { ...optionalString, ...optionalNumber };
 // error, 'sn' is optional in source, required in target
 
@@ -28,13 +30,30 @@ spread = b; // error, missing 's'
 // literal repeats are not allowed, but spread repeats are fine
 let duplicated = { b: 'bad', ...o, b: 'bad', ...o2, b: 'bad' }
 let duplicatedSpread = { ...o, ...o }
+// Note: ignore changes the order that properties are printed
+let ignore: { a: number, b: string } =
+    { b: 'ignored', ...o }
 
-// primitives are not allowed
+let o3 = { a: 1, b: 'no' }
+let o4 = { b: 'yes', c: true }
+let combinedBefore: { a: number, b: string, c: boolean } =
+    { b: 'ok', ...o3, ...o4 }
+let combinedMid: { a: number, b: string, c: boolean } =
+    { ...o3, b: 'ok', ...o4 }
+let combinedNested: { a: number, b: boolean, c: string, d: string } =
+    { ...{ a: 4, ...{ b: false, c: 'overriden' } }, d: 'actually new', ...{ a: 5, d: 'maybe new' } }
+let changeTypeBefore: { a: number, b: string } =
+    { a: 'wrong type?', ...o3 };
+let computedMiddle: { a: number, b: string, c: boolean, "in the middle": number } =
+    { ...o3, ['in the middle']: 13, b: 'maybe?', ...o4 }
+
+// primitives are not allowed, except for falsy ones
 let spreadNum = { ...12 };
 let spreadSum = { ...1 + 1 };
-spreadSum.toFixed(); // error, no methods from number
-let spreadBool = { ...false };
-spreadBool.valueOf(); // error, what were you thinking?
+let spreadZero = { ...0 };
+spreadZero.toFixed(); // error, no methods even from a falsy number
+let spreadBool = { ...true };
+spreadBool.valueOf();
 let spreadStr = { ...'foo' };
 spreadStr.length; // error, no 'length'
 spreadStr.charAt(1); // error, no methods either
@@ -57,61 +76,35 @@ let obj: object = { a: 123 };
 let spreadObj = { ...obj };
 spreadObj.a; // error 'a' is not in {}
 
-// generics
-function f<T, U>(t: T, u: U) {
-    return { ...t, ...u, id: 'id' };
-}
-function override<U>(initial: U, override: U): U {
-    return { ...initial, ...override };
-}
-let exclusive: { id: string, a: number, b: string, c: string, d: boolean } =
-    f({ a: 1, b: 'yes' }, { c: 'no', d: false })
-let overlap: { id: string, a: number, b: string } =
-    f({ a: 1 }, { a: 2, b: 'extra' })
-let overlapConflict: { id:string, a: string } =
-    f({ a: 1 }, { a: 'mismatch' })
-let overwriteId: { id: string, a: number, c: number, d: string } =
-    f({ a: 1, id: true }, { c: 1, d: 'no' })
-
-// excess property checks
-type A = { a: string, b: string };
-type Extra = { a: string, b: string, extra: string };
-const extra1: A = { a: "a", b: "b", extra: "extra" };
-const extra2 = { a: "a", b: "b", extra: "extra" };
-const a1: A = { ...extra1 }; // error spans should be here
-const a2: A = { ...extra2 }; // not on the symbol declarations above
-const extra3: Extra = { a: "a", b: "b", extra: "extra" };
-const a3: A = { ...extra3 }; // same here
-
 
 //// [objectSpreadNegative.js]
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
+var _a;
 var o = { a: 1, b: 'no' };
 /// private propagates
-var PrivateOptionalX = (function () {
+var PrivateOptionalX = /** @class */ (function () {
     function PrivateOptionalX() {
     }
     return PrivateOptionalX;
 }());
-var PublicX = (function () {
+var PublicX = /** @class */ (function () {
     function PublicX() {
     }
     return PublicX;
 }());
-var publicX;
-var privateOptionalX;
-var o2 = __assign({}, publicX, privateOptionalX);
+var o2 = __assign(__assign({}, publicX), privateOptionalX);
 var sn = o2.x; // error, x is private
-var optionalString;
-var optionalNumber;
-var allOptional = __assign({}, optionalString, optionalNumber);
+var allOptional = __assign(__assign({}, optionalString), optionalNumber);
 ;
 ;
 var spread = __assign({ b: true }, { s: "foo" });
@@ -119,14 +112,24 @@ spread = { s: "foo" }; // error, missing 'b'
 var b = { b: false };
 spread = b; // error, missing 's'
 // literal repeats are not allowed, but spread repeats are fine
-var duplicated = __assign({ b: 'bad' }, o, { b: 'bad' }, o2, { b: 'bad' });
-var duplicatedSpread = __assign({}, o, o);
-// primitives are not allowed
+var duplicated = __assign(__assign(__assign(__assign({ b: 'bad' }, o), { b: 'bad' }), o2), { b: 'bad' });
+var duplicatedSpread = __assign(__assign({}, o), o);
+// Note: ignore changes the order that properties are printed
+var ignore = __assign({ b: 'ignored' }, o);
+var o3 = { a: 1, b: 'no' };
+var o4 = { b: 'yes', c: true };
+var combinedBefore = __assign(__assign({ b: 'ok' }, o3), o4);
+var combinedMid = __assign(__assign(__assign({}, o3), { b: 'ok' }), o4);
+var combinedNested = __assign(__assign(__assign({}, __assign({ a: 4 }, { b: false, c: 'overriden' })), { d: 'actually new' }), { a: 5, d: 'maybe new' });
+var changeTypeBefore = __assign({ a: 'wrong type?' }, o3);
+var computedMiddle = __assign(__assign(__assign({}, o3), (_a = {}, _a['in the middle'] = 13, _a.b = 'maybe?', _a)), o4);
+// primitives are not allowed, except for falsy ones
 var spreadNum = __assign({}, 12);
 var spreadSum = __assign({}, 1 + 1);
-spreadSum.toFixed(); // error, no methods from number
-var spreadBool = __assign({}, false);
-spreadBool.valueOf(); // error, what were you thinking?
+var spreadZero = __assign({}, 0);
+spreadZero.toFixed(); // error, no methods even from a falsy number
+var spreadBool = __assign({}, true);
+spreadBool.valueOf();
 var spreadStr = __assign({}, 'foo');
 spreadStr.length; // error, no 'length'
 spreadStr.charAt(1); // error, no methods either
@@ -137,7 +140,7 @@ spreadFunc(); // error, no call signature
 var setterOnly = __assign({ set b(bad) { } });
 setterOnly.b = 12; // error, 'b' does not exist
 // methods are skipped because they aren't enumerable
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.p = 1;
     }
@@ -151,20 +154,3 @@ spreadC.m(); // error 'm' is not in '{ ... c }'
 var obj = { a: 123 };
 var spreadObj = __assign({}, obj);
 spreadObj.a; // error 'a' is not in {}
-// generics
-function f(t, u) {
-    return __assign({}, t, u, { id: 'id' });
-}
-function override(initial, override) {
-    return __assign({}, initial, override);
-}
-var exclusive = f({ a: 1, b: 'yes' }, { c: 'no', d: false });
-var overlap = f({ a: 1 }, { a: 2, b: 'extra' });
-var overlapConflict = f({ a: 1 }, { a: 'mismatch' });
-var overwriteId = f({ a: 1, id: true }, { c: 1, d: 'no' });
-var extra1 = { a: "a", b: "b", extra: "extra" };
-var extra2 = { a: "a", b: "b", extra: "extra" };
-var a1 = __assign({}, extra1); // error spans should be here
-var a2 = __assign({}, extra2); // not on the symbol declarations above
-var extra3 = { a: "a", b: "b", extra: "extra" };
-var a3 = __assign({}, extra3); // same here

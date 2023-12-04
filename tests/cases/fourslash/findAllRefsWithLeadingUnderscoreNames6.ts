@@ -2,15 +2,15 @@
 
 ////class Foo {
 ////    public _bar;
-////    public [|{| "isWriteAccess": true, "isDefinition": true |}__bar|];
+////    /*1*/public /*2*/__bar;
 ////    public ___bar;
 ////    public ____bar;
 ////}
 ////
 ////var x: Foo;
 ////x._bar;
-////x.[|__bar|];
+////x./*3*/__bar;
 ////x.___bar;
 ////x.____bar;
 
-verify.singleReferenceGroup("(property) Foo.__bar: any");
+verify.baselineFindAllReferences('1', '2', '3');

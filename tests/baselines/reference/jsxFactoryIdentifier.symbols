@@ -1,4 +1,6 @@
-=== tests/cases/compiler/Element.ts ===
+//// [tests/cases/compiler/jsxFactoryIdentifier.ts] ////
+
+=== Element.ts ===
 declare namespace JSX {
 >JSX : Symbol(JSX, Decl(Element.ts, 0, 0))
 
@@ -76,7 +78,7 @@ function toCamelCase(text: string): string {
 >substring : Symbol(String.substring, Decl(lib.es5.d.ts, --, --))
 }
 
-=== tests/cases/compiler/test.tsx ===
+=== test.tsx ===
 import { Element} from './Element';
 >Element : Symbol(Element, Decl(test.tsx, 0, 8))
 
@@ -105,20 +107,17 @@ class A {
 
 		return [
 			<meta content="helloworld"></meta>,
->meta : Symbol(unknown)
 >content : Symbol(content, Decl(test.tsx, 11, 8))
->meta : Symbol(unknown)
 
 			<meta content={c.a!.b}></meta>
->meta : Symbol(unknown)
 >content : Symbol(content, Decl(test.tsx, 12, 8))
 >c.a!.b : Symbol(b, Decl(test.tsx, 3, 6))
 >c.a : Symbol(a, Decl(test.tsx, 2, 8))
 >c : Symbol(c, Decl(test.tsx, 2, 3))
 >a : Symbol(a, Decl(test.tsx, 2, 8))
 >b : Symbol(b, Decl(test.tsx, 3, 6))
->meta : Symbol(unknown)
 
 		];
 	}
 }
+

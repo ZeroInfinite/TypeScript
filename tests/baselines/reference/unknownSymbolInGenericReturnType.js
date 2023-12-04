@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unknownSymbolInGenericReturnType.ts] ////
+
 //// [unknownSymbolInGenericReturnType.ts]
 class Linq {
     public static select<T, S>(values: T[], func: (v: T) => A): any[] {
@@ -13,7 +15,7 @@ class Linq {
 
 
 //// [unknownSymbolInGenericReturnType.js]
-var Linq = (function () {
+var Linq = /** @class */ (function () {
     function Linq() {
     }
     Linq.select = function (values, func) {

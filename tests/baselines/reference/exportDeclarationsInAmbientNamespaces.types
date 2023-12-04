@@ -1,11 +1,12 @@
-=== tests/cases/compiler/exportDeclarationsInAmbientNamespaces.ts ===
+//// [tests/cases/compiler/exportDeclarationsInAmbientNamespaces.ts] ////
+
+=== exportDeclarationsInAmbientNamespaces.ts ===
 declare namespace Q {
 >Q : typeof Q
 
     function _try(method: Function, ...args: any[]): any;
 >_try : (method: Function, ...args: any[]) => any
 >method : Function
->Function : Function
 >args : any[]
 
     export { _try as try };

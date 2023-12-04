@@ -1,6 +1,7 @@
-=== tests/cases/compiler/declInput3.ts ===
+//// [tests/cases/compiler/declInput3.ts] ////
+
+=== declInput3.ts ===
 interface bar2 {
->bar2 : bar2
 
 }
 
@@ -16,8 +17,6 @@ class bar {
 >{a: <bar>null, b: undefined, c: void 4 } : { a: bar; b: undefined; c: undefined; }
 >a : bar
 ><bar>null : bar
->bar : bar
->null : null
 >b : undefined
 >undefined : undefined
 >c : undefined
@@ -29,7 +28,6 @@ class bar {
 >x : number
 >4 : 4
 >y : any
->null : null
 >z : string
 >'' : ""
 >x++ : number

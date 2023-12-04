@@ -1,9 +1,8 @@
-=== tests/cases/compiler/internalAliasInterfaceInsideTopLevelModuleWithExport.ts ===
-export module a {
->a : any
+//// [tests/cases/compiler/internalAliasInterfaceInsideTopLevelModuleWithExport.ts] ////
 
+=== internalAliasInterfaceInsideTopLevelModuleWithExport.ts ===
+export module a {
     export interface I {
->I : I
     }
 }
 
@@ -14,5 +13,4 @@ export import b = a.I;
 
 export var x: b;
 >x : b
->b : b
 

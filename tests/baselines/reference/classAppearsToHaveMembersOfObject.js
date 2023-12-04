@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classHeritageSpecification/classAppearsToHaveMembersOfObject.ts] ////
+
 //// [classAppearsToHaveMembersOfObject.ts]
 class C { foo: string; }
 
@@ -9,7 +11,7 @@ var o2: {} = c;
 
 
 //// [classAppearsToHaveMembersOfObject.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

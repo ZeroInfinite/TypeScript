@@ -1,9 +1,8 @@
-=== tests/cases/conformance/jsx/file1.tsx ===
-declare module JSX {
->JSX : any
+//// [tests/cases/conformance/jsx/tsxElementResolution5.tsx] ////
 
+=== file1.tsx ===
+declare module JSX {
 	interface Element { }
->Element : Element
 }
 
 // OK, but implicit any

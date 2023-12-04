@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/voidOperator/voidOperatorWithAnyOtherType.ts] ////
+
 //// [voidOperatorWithAnyOtherType.ts]
 // void  operator on any type
 
@@ -71,7 +73,7 @@ function foo() {
     var a;
     return a;
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () {

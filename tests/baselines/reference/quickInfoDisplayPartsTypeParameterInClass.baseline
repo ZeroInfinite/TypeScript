@@ -1,10 +1,198 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts ===
+// class c<T> {
+//       ^
+// | ----------------------------------------------------------------------
+// | class c<T>
+// | ----------------------------------------------------------------------
+//         ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c<T>
+// | ----------------------------------------------------------------------
+//     constructor(a: T) {
+//     ^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | constructor c<T>(a: T): c<T>
+// | ----------------------------------------------------------------------
+//                 ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: T
+// | ----------------------------------------------------------------------
+//                    ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c<T>
+// | ----------------------------------------------------------------------
+//     }
+//     method<U>(a: U, b: T) {
+//     ^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c<T>.method<U>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//            ^
+// | ----------------------------------------------------------------------
+// | (type parameter) U in c<T>.method<U>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//               ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: U
+// | ----------------------------------------------------------------------
+//                  ^
+// | ----------------------------------------------------------------------
+// | (type parameter) U in c<T>.method<U>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//                     ^
+// | ----------------------------------------------------------------------
+// | (parameter) b: T
+// | ----------------------------------------------------------------------
+//                        ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c<T>
+// | ----------------------------------------------------------------------
+//         return a;
+//                ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: U
+// | ----------------------------------------------------------------------
+//     }
+// }
+// var cInstance = new c("Hello");
+//     ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c<string>
+// | ----------------------------------------------------------------------
+//                     ^
+// | ----------------------------------------------------------------------
+// | constructor c<string>(a: string): c<string>
+// | ----------------------------------------------------------------------
+// var cVal = c;
+//     ^^^^
+// | ----------------------------------------------------------------------
+// | var cVal: typeof c
+// | ----------------------------------------------------------------------
+//            ^
+// | ----------------------------------------------------------------------
+// | class c<T>
+// | ----------------------------------------------------------------------
+// cInstance.method("hello", "cello");
+// ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c<string>
+// | ----------------------------------------------------------------------
+//           ^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c<string>.method<"hello">(a: "hello", b: string): "hello"
+// | ----------------------------------------------------------------------
+// class c2<T extends c<string>> {
+//       ^^
+// | ----------------------------------------------------------------------
+// | class c2<T extends c<string>>
+// | ----------------------------------------------------------------------
+//          ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c2<T extends c<string>>
+// | ----------------------------------------------------------------------
+//                    ^
+// | ----------------------------------------------------------------------
+// | class c<T>
+// | ----------------------------------------------------------------------
+//     constructor(a: T) {
+//     ^^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | constructor c2<T extends c<string>>(a: T): c2<T>
+// | ----------------------------------------------------------------------
+//                 ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: T extends c<string>
+// | ----------------------------------------------------------------------
+//                    ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c2<T extends c<string>>
+// | ----------------------------------------------------------------------
+//     }
+//     method<U extends c<string>>(a: U, b: T) {
+//     ^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c2<T extends c<string>>.method<U extends c<string>>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//            ^
+// | ----------------------------------------------------------------------
+// | (type parameter) U in c2<T extends c<string>>.method<U extends c<string>>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//                      ^
+// | ----------------------------------------------------------------------
+// | class c<T>
+// | ----------------------------------------------------------------------
+//                                 ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: U extends c<string>
+// | ----------------------------------------------------------------------
+//                                    ^
+// | ----------------------------------------------------------------------
+// | (type parameter) U in c2<T extends c<string>>.method<U extends c<string>>(a: U, b: T): U
+// | ----------------------------------------------------------------------
+//                                       ^
+// | ----------------------------------------------------------------------
+// | (parameter) b: T extends c<string>
+// | ----------------------------------------------------------------------
+//                                          ^
+// | ----------------------------------------------------------------------
+// | (type parameter) T in c2<T extends c<string>>
+// | ----------------------------------------------------------------------
+//         return a;
+//                ^
+// | ----------------------------------------------------------------------
+// | (parameter) a: U extends c<string>
+// | ----------------------------------------------------------------------
+//     }
+// }
+// var cInstance1 = new c2(cInstance);
+//     ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance1: c2<c<string>>
+// | ----------------------------------------------------------------------
+//                      ^^
+// | ----------------------------------------------------------------------
+// | constructor c2<c<string>>(a: c<string>): c2<c<string>>
+// | ----------------------------------------------------------------------
+//                         ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c<string>
+// | ----------------------------------------------------------------------
+// var cVal2 = c2;
+//     ^^^^^
+// | ----------------------------------------------------------------------
+// | var cVal2: typeof c2
+// | ----------------------------------------------------------------------
+//             ^^
+// | ----------------------------------------------------------------------
+// | class c2<T extends c<string>>
+// | ----------------------------------------------------------------------
+// cInstance1.method(cInstance, cInstance);
+// ^^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance1: c2<c<string>>
+// | ----------------------------------------------------------------------
+//            ^^^^^^
+// | ----------------------------------------------------------------------
+// | (method) c2<c<string>>.method<c<string>>(a: c<string>, b: c<string>): c<string>
+// | ----------------------------------------------------------------------
+//                   ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c<string>
+// | ----------------------------------------------------------------------
+//                              ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c<string>
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 6
+      "position": 6,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -37,16 +225,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 8
+      "position": 8,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -103,16 +291,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 17
+      "position": 17,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "constructor",
       "kindModifiers": "",
       "textSpan": {
@@ -193,16 +381,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 29
+      "position": 29,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -243,16 +431,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 32
+      "position": 32,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -309,16 +497,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 47
+      "position": 47,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "",
       "textSpan": {
@@ -439,16 +627,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 54
+      "position": 54,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -585,16 +773,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 57
+      "position": 57,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -635,16 +823,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 60
+      "position": 60,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -781,16 +969,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 63
+      "position": 63,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -831,16 +1019,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 66
+      "position": 66,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -897,16 +1085,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 86
+      "position": 86,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -947,16 +1135,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 101
+      "position": 101,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1001,16 +1189,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 117
+      "position": 117,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "constructor",
       "kindModifiers": "",
       "textSpan": {
@@ -1091,16 +1279,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 133
+      "position": 133,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1141,16 +1329,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 140
+      "position": 140,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -1183,16 +1371,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 143
+      "position": 143,
+      "name": "17"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -1237,16 +1425,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 153
+      "position": 153,
+      "name": "18"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "",
       "textSpan": {
@@ -1367,16 +1555,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 185
+      "position": 185,
+      "name": "19"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -1437,16 +1625,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 188
+      "position": 188,
+      "name": "20"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -1531,16 +1719,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 198
+      "position": 198,
+      "name": "21"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -1573,16 +1761,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 215
+      "position": 215,
+      "name": "22"
     },
-    "quickInfo": {
+    "item": {
       "kind": "constructor",
       "kindModifiers": "",
       "textSpan": {
@@ -1691,16 +1879,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 227
+      "position": 227,
+      "name": "23"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -1769,16 +1957,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 230
+      "position": 230,
+      "name": "24"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -1863,16 +2051,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 245
+      "position": 245,
+      "name": "25"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "",
       "textSpan": {
@@ -2049,16 +2237,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 252
+      "position": 252,
+      "name": "26"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2251,16 +2439,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 262
+      "position": 262,
+      "name": "27"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -2293,16 +2481,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 273
+      "position": 273,
+      "name": "28"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2371,16 +2559,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 276
+      "position": 276,
+      "name": "29"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2573,16 +2761,16 @@
           "kind": "typeParameterName"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 279
+      "position": 279,
+      "name": "30"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2651,16 +2839,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 282
+      "position": 282,
+      "name": "31"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2745,16 +2933,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 302
+      "position": 302,
+      "name": "32"
     },
-    "quickInfo": {
+    "item": {
       "kind": "parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -2823,16 +3011,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 317
+      "position": 317,
+      "name": "33"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -2889,16 +3077,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 334
+      "position": 334,
+      "name": "34"
     },
-    "quickInfo": {
+    "item": {
       "kind": "constructor",
       "kindModifiers": "",
       "textSpan": {
@@ -3015,16 +3203,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 337
+      "position": 337,
+      "name": "35"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -3069,16 +3257,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 353
+      "position": 353,
+      "name": "36"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -3119,16 +3307,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 361
+      "position": 361,
+      "name": "37"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -3189,16 +3377,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 365
+      "position": 365,
+      "name": "38"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -3255,16 +3443,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 376
+      "position": 376,
+      "name": "39"
     },
-    "quickInfo": {
+    "item": {
       "kind": "method",
       "kindModifiers": "",
       "textSpan": {
@@ -3445,16 +3633,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 383
+      "position": 383,
+      "name": "40"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -3499,16 +3687,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInClass.ts",
-      "position": 394
+      "position": 394,
+      "name": "41"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -3553,8 +3741,7 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

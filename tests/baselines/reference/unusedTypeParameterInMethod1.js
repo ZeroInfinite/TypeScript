@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedTypeParameterInMethod1.ts] ////
+
 //// [unusedTypeParameterInMethod1.ts]
 class A {
     public f1<X, Y, Z>() {
@@ -9,7 +11,7 @@ class A {
 }
 
 //// [unusedTypeParameterInMethod1.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.f1 = function () {

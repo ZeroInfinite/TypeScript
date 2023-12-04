@@ -10,8 +10,10 @@
 //// let y = { ONE: '' };
 //// var x = <div {...y} /**/ />;
 
-goTo.marker();
-
-verify.completionListContains("ONE");
-verify.completionListContains("TWO");
-verify.not.completionListAllowsNewIdentifier();
+verify.completions({
+  marker: "",
+  exact: [
+    { name: "TWO", kind: "property", kindModifiers: "declare", sortText: completion.SortText.LocationPriority },
+    { name: "ONE", kind: "property", kindModifiers: "declare", sortText: completion.SortText.MemberDeclaredBySpreadAssignment },
+  ]
+});

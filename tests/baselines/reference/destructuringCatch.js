@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringCatch.ts] ////
+
 //// [destructuringCatch.ts]
 try {
     throw [0, 1];
@@ -53,6 +55,6 @@ catch (_c) {
 // Test of comment ranges. A fix to GH#11755 should update this.
 try {
 }
-catch (_e) {
+catch ( /*Test comment ranges*/_e) {
     var /*a*/ a = _e[0];
 }

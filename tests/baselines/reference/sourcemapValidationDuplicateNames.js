@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sourcemapValidationDuplicateNames.ts] ////
+
 //// [sourcemapValidationDuplicateNames.ts]
 module m1 {
     var x = 10;
@@ -12,7 +14,7 @@ module m1 {
 var m1;
 (function (m1) {
     var x = 10;
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;

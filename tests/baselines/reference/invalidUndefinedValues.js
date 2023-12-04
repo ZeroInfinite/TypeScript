@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/undefined/invalidUndefinedValues.ts] ////
+
 //// [invalidUndefinedValues.ts]
 var x: typeof undefined;
 
@@ -39,7 +41,7 @@ x = true;
 var a;
 x = a;
 x = null;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

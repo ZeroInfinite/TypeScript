@@ -1,10 +1,12 @@
+//// [tests/cases/compiler/restParamModifier2.ts] ////
+
 //// [restParamModifier2.ts]
 class C {
     constructor(public ...rest: string[]) {}
 }
 
 //// [restParamModifier2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         var rest = [];
         for (var _i = 0; _i < arguments.length; _i++) {

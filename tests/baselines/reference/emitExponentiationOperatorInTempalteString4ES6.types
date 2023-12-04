@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es7/exponentiationOperator/emitExponentiationOperatorInTempalteString4ES6.ts ===
+//// [tests/cases/conformance/es7/exponentiationOperator/emitExponentiationOperatorInTempalteString4ES6.ts] ////
+
+=== emitExponentiationOperatorInTempalteString4ES6.ts ===
 var t1 = 10;
 >t1 : number
 >10 : 10
@@ -63,7 +65,7 @@ var s;
 
 `${typeof (t1 ** t2 ** t1) } world`;
 >`${typeof (t1 ** t2 ** t1) } world` : string
->typeof (t1 ** t2 ** t1) : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof (t1 ** t2 ** t1) : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >(t1 ** t2 ** t1) : number
 >t1 ** t2 ** t1 : number
 >t1 : number
@@ -161,14 +163,14 @@ var s;
 
 `${typeof (t1 ** t2 ** t1)} hello world ${typeof (t1 ** t2 ** t1)}`;
 >`${typeof (t1 ** t2 ** t1)} hello world ${typeof (t1 ** t2 ** t1)}` : string
->typeof (t1 ** t2 ** t1) : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof (t1 ** t2 ** t1) : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >(t1 ** t2 ** t1) : number
 >t1 ** t2 ** t1 : number
 >t1 : number
 >t2 ** t1 : number
 >t2 : number
 >t1 : number
->typeof (t1 ** t2 ** t1) : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof (t1 ** t2 ** t1) : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >(t1 ** t2 ** t1) : number
 >t1 ** t2 ** t1 : number
 >t1 : number
@@ -222,7 +224,7 @@ var s;
 
 `hello ${typeof (t1 ** t2 ** t1)}`;
 >`hello ${typeof (t1 ** t2 ** t1)}` : string
->typeof (t1 ** t2 ** t1) : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof (t1 ** t2 ** t1) : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >(t1 ** t2 ** t1) : number
 >t1 ** t2 ** t1 : number
 >t1 : number

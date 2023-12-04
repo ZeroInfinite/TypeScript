@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileForClassWithPrivateOverloadedFunction.ts] ////
+
 //// [declFileForClassWithPrivateOverloadedFunction.ts]
 class C {
     private foo(x: number);
@@ -6,7 +8,7 @@ class C {
 }
 
 //// [declFileForClassWithPrivateOverloadedFunction.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x) { };
@@ -16,6 +18,5 @@ var C = (function () {
 
 //// [declFileForClassWithPrivateOverloadedFunction.d.ts]
 declare class C {
-    private foo(x);
-    private foo(x);
+    private foo;
 }

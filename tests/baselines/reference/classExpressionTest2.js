@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classExpressionTest2.ts] ////
+
 //// [classExpressionTest2.ts]
 function M() {
     var m = class C<X> {
@@ -14,7 +16,7 @@ function M() {
 
 //// [classExpressionTest2.js]
 function M() {
-    var m = (function () {
+    var m = /** @class */ (function () {
         function C() {
         }
         C.prototype.f = function () {

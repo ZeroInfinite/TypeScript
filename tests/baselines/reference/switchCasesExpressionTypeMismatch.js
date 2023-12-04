@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/switchCasesExpressionTypeMismatch.ts] ////
+
 //// [switchCasesExpressionTypeMismatch.ts]
 class Foo { }
 
@@ -6,6 +8,17 @@ switch (0) {
     case "sss": break;  // Error
     case 123: break;    // Error
     case true: break;   // Error
+}
+
+declare var q: string
+declare var r: number | "hello"
+
+switch (r) {
+    case q: break
+    case 42: break
+    case true: break // Error
+    case "hello": break
+    case "world": break // Error
 }
 
 var s: any = 0;
@@ -20,7 +33,7 @@ switch (s) {
 
 
 //// [switchCasesExpressionTypeMismatch.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;
@@ -30,6 +43,13 @@ switch (0) {
     case "sss": break; // Error
     case 123: break; // Error
     case true: break; // Error
+}
+switch (r) {
+    case q: break;
+    case 42: break;
+    case true: break; // Error
+    case "hello": break;
+    case "world": break; // Error
 }
 var s = 0;
 // No error for all

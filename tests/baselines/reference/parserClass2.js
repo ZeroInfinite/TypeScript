@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ClassDeclarations/parserClass2.ts] ////
+
 //// [parserClass2.ts]
     export class LoggerAdapter implements ILogger {
         constructor (public logger: ILogger) { 
@@ -7,8 +9,9 @@
 
 //// [parserClass2.js]
 "use strict";
-exports.__esModule = true;
-var LoggerAdapter = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoggerAdapter = void 0;
+var LoggerAdapter = /** @class */ (function () {
     function LoggerAdapter(logger) {
         this.logger = logger;
         this._information = this.logger.information();

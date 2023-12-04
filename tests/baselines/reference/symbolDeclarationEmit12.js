@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/Symbols/symbolDeclarationEmit12.ts] ////
+
 //// [symbolDeclarationEmit12.ts]
 module M {
     interface I { }
@@ -16,7 +18,7 @@ module M {
 var M;
 (function (M) {
     class C {
-        [Symbol.toPrimitive](x) { }
+        [(Symbol.iterator, Symbol.toPrimitive)](x) { }
         [Symbol.isConcatSpreadable]() {
             return undefined;
         }
@@ -25,3 +27,17 @@ var M;
     }
     M.C = C;
 })(M || (M = {}));
+
+
+//// [symbolDeclarationEmit12.d.ts]
+declare namespace M {
+    interface I {
+    }
+    export class C {
+        [Symbol.iterator]: I;
+        [Symbol.isConcatSpreadable](): I;
+        get [Symbol.toPrimitive](): I;
+        set [Symbol.toPrimitive](x: I);
+    }
+    export {};
+}

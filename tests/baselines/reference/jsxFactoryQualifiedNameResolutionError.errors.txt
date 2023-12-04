@@ -1,7 +1,7 @@
-tests/cases/compiler/test.tsx(9,17): error TS2304: Cannot find name 'MyElement'.
+test.tsx(9,17): error TS2552: Cannot find name 'MyElement'. Did you mean 'Element'?
 
 
-==== tests/cases/compiler/test.tsx (1 errors) ====
+==== test.tsx (1 errors) ====
     declare module JSX {
         interface IntrinsicElements {
             [s: string]: any;
@@ -12,6 +12,7 @@ tests/cases/compiler/test.tsx(9,17): error TS2304: Cannot find name 'MyElement'.
         render(createElement) {
             return <div />;
                     ~~~
-!!! error TS2304: Cannot find name 'MyElement'.
+!!! error TS2552: Cannot find name 'MyElement'. Did you mean 'Element'?
+!!! related TS2728 lib.dom.d.ts:--:--: 'Element' is declared here.
         }
     }

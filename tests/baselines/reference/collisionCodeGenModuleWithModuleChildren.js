@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/collisionCodeGenModuleWithModuleChildren.ts] ////
+
 //// [collisionCodeGenModuleWithModuleChildren.ts]
 module M {
     export var x = 3;
@@ -55,7 +57,7 @@ var M;
 (function (M_2) {
     var m2;
     (function (m2) {
-        var M = (function () {
+        var M = /** @class */ (function () {
             function M() {
             }
             return M;

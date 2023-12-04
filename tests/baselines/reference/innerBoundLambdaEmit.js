@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/innerBoundLambdaEmit.ts] ////
+
 //// [innerBoundLambdaEmit.ts]
 module M {
     export class Foo {
@@ -12,7 +14,7 @@ interface Array<T> {
 //// [innerBoundLambdaEmit.js]
 var M;
 (function (M) {
-    var Foo = (function () {
+    var Foo = /** @class */ (function () {
         function Foo() {
         }
         return Foo;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/narrowedImports.ts] ////
+
 === /x.ts ===
 import a0, { a1, a1 as a2 } from "./a";
 >a0 : number | undefined
@@ -59,8 +61,6 @@ declare const b: number | undefined;
 >b : number | undefined
 
 declare namespace b {}
->b : number | undefined
-
 export = b;
 >b : number | undefined
 

@@ -1,9 +1,6 @@
 /// <reference path='fourslash.ts' />
-////let o = { ["[|{| "isDefinition": true |}foo|]"]: 12 };
-////let y = o.[|foo|];
-////let z = o['[|foo|]'];
+////let o = { /*1*/["/*2*/foo"]: 12 };
+////let y = o./*3*/foo;
+////let z = o['/*4*/foo'];
 
-const ranges = test.ranges();
-const [r0, r1, r2] = ranges;
-verify.referenceGroups(r0, [{ definition: '(property) ["foo"]: number', ranges }]);
-verify.referenceGroups([r1, r2], undefined); // TODO: fix
+verify.baselineFindAllReferences('1', '2', '3', '4');

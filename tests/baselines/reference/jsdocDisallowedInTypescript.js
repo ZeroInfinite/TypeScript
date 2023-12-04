@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsdoc/jsdocDisallowedInTypescript.ts] ////
+
 //// [jsdocDisallowedInTypescript.ts]
 // grammar error from checker
 var ara: Array.<number> = [1,2,3];
@@ -14,10 +16,14 @@ function hof2(f: function(this: number, string): string) {
 var whatevs: * = 1001;
 var ques: ? = 'what';
 var g: function(number, number): number = (n,m) => n + m;
-var variadic: ...boolean = [true, false, true];
 var most: !string = 'definite';
 var postfixdef: number! = 101;
 var postfixopt: number? = undefined;
+
+var nns: Array<?number>;
+var dns: Array<!number>;
+var anys: Array<*>;
+
 
 
 //// [jsdocDisallowedInTypescript.js]
@@ -36,7 +42,9 @@ function hof2(f) {
 var whatevs = 1001;
 var ques = 'what';
 var g = function (n, m) { return n + m; };
-var variadic = [true, false, true];
 var most = 'definite';
 var postfixdef = 101;
 var postfixopt = undefined;
+var nns;
+var dns;
+var anys;

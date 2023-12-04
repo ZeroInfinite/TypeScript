@@ -18,5 +18,4 @@
 
 goTo.marker();
 edit.insert('.baz.');
-verify.completionListContains("substr", /*displayText*/ undefined, /*documentation*/ undefined, "method");
-
+verify.completions({ includes: { name: "substring", kind: "method", kindModifiers: "declare" } });

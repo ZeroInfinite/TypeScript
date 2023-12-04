@@ -3,24 +3,21 @@
 // Class references should work across file and not find local variables.
 
 // @Filename: referenceToClass_1.ts
-////class [|{| "isWriteAccess": true, "isDefinition": true |}foo|] {
-////    public n: [|foo|];
+////class /*1*/foo {
+////    public n: /*2*/foo;
 ////    public foo: number;
 ////}
 ////
 ////class bar {
-////    public n: [|foo|];
-////    public k = new [|foo|]();
+////    public n: /*3*/foo;
+////    public k = new /*4*/foo();
 ////}
 ////
 ////module mod {
-////    var k: [|foo|] = null;
+////    var k: /*5*/foo = null;
 ////}
 
 // @Filename: referenceToClass_2.ts
-////var k: [|foo|];
+////var k: /*6*/foo;
 
-const ranges = test.ranges();
-const [r0, r1, r2, r3, r4, r5] = ranges;
-verify.referenceGroups([r0, r1, r2, r4, r5], [{ definition: "class foo", ranges }]);
-verify.referenceGroups(r3, [{ definition: "constructor foo(): foo", ranges }]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6')

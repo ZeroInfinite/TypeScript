@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/conditonalOperator/conditionalOperatorConditionIsNumberType.ts ===
+//// [tests/cases/conformance/expressions/conditonalOperator/conditionalOperatorConditionIsNumberType.ts] ////
+
+=== conditionalOperatorConditionIsNumberType.ts ===
 //Cond ? Expr1 : Expr2,  Cond is of number type, Expr1 and Expr2 have the same type
 var condNumber: number;
 >condNumber : number
@@ -17,7 +19,6 @@ var exprString1: string;
 
 var exprIsObject1: Object;
 >exprIsObject1 : Object
->Object : Object
 
 var exprAny2: any;
 >exprAny2 : any
@@ -33,7 +34,6 @@ var exprString2: string;
 
 var exprIsObject2: Object;
 >exprIsObject2 : Object
->Object : Object
 
 //Cond is a number type variable
 condNumber ? exprAny1 : exprAny2;

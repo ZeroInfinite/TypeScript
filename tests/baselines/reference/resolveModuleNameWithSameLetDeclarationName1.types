@@ -1,9 +1,9 @@
-=== tests/cases/compiler/resolveModuleNameWithSameLetDeclarationName1.ts ===
+//// [tests/cases/compiler/resolveModuleNameWithSameLetDeclarationName1.ts] ////
+
+=== resolveModuleNameWithSameLetDeclarationName1.ts ===
 declare module foo {
->foo : Bar
 
     interface Bar {
->Bar : Bar
 
     }
 }
@@ -11,5 +11,4 @@ declare module foo {
 let foo: foo.Bar; 
 >foo : foo.Bar
 >foo : any
->Bar : foo.Bar
 

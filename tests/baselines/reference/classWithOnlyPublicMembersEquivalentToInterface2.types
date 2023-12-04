@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/namedTypes/classWithOnlyPublicMembersEquivalentToInterface2.ts ===
+//// [tests/cases/conformance/types/namedTypes/classWithOnlyPublicMembersEquivalentToInterface2.ts] ////
+
+=== classWithOnlyPublicMembersEquivalentToInterface2.ts ===
 // no errors expected
 
 class C {
@@ -10,7 +12,6 @@ class C {
     public y(a: number): number { return null; }
 >y : (a: number) => number
 >a : number
->null : null
 
     public get z() { return 1; }
 >z : number
@@ -22,21 +23,18 @@ class C {
 
     [x: string]: Object;
 >x : string
->Object : Object
 
     [x: number]: Object;
 >x : number
->Object : Object
 
     0: number;
+>0 : number
 
     public static foo: string; // doesn't effect equivalence
 >foo : string
 }
 
 interface I {
->I : I
-
     x: string;
 >x : string
 
@@ -49,22 +47,19 @@ interface I {
 
     [x: string]: Object;
 >x : string
->Object : Object
 
     [x: number]: Object;
 >x : number
->Object : Object
 
     0: number;
+>0 : number
 }
 
 var c: C;
 >c : C
->C : C
 
 var i: I;
 >i : I
->I : I
 
 c = i;
 >c = i : I

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericConstraintDeclaration.ts] ////
+
 //// [genericConstraintDeclaration.ts]
 class List<T extends {}>{
     static empty<T extends {}>(): List<T>{return null;}
@@ -9,7 +11,7 @@ class List<T extends {}>{
 
 
 //// [genericConstraintDeclaration.js]
-var List = (function () {
+var List = /** @class */ (function () {
     function List() {
     }
     List.empty = function () { return null; };

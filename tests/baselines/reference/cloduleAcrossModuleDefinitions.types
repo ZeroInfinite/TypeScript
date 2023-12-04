@@ -1,4 +1,6 @@
-=== tests/cases/compiler/cloduleAcrossModuleDefinitions.ts ===
+//// [tests/cases/compiler/cloduleAcrossModuleDefinitions.ts] ////
+
+=== cloduleAcrossModuleDefinitions.ts ===
 module A {
 >A : typeof A
 
@@ -28,5 +30,4 @@ module A {
 var b: A.B; // ok
 >b : A.B
 >A : any
->B : A.B
 

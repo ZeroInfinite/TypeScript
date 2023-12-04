@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource12.ts] ////
+
 //// [parserRealSource12.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -536,7 +538,7 @@ module TypeScript {
 ///<reference path='typescript.ts' />
 var TypeScript;
 (function (TypeScript) {
-    var AstWalkOptions = (function () {
+    var AstWalkOptions = /** @class */ (function () {
         function AstWalkOptions() {
             this.goChildren = true;
             this.goNextSibling = true;
@@ -550,7 +552,7 @@ var TypeScript;
         return AstWalkOptions;
     }());
     TypeScript.AstWalkOptions = AstWalkOptions;
-    var AstWalker = (function () {
+    var AstWalker = /** @class */ (function () {
         function AstWalker(childrenWalkers, pre, post, options, state) {
             this.childrenWalkers = childrenWalkers;
             this.pre = pre;
@@ -587,7 +589,7 @@ var TypeScript;
         };
         return AstWalker;
     }());
-    var AstWalkerFactory = (function () {
+    var AstWalkerFactory = /** @class */ (function () {
         function AstWalkerFactory() {
             this.childrenWalkers = [];
             this.initChildrenWalkers();

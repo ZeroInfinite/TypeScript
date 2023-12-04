@@ -1,4 +1,6 @@
-=== tests/cases/conformance/controlFlow/controlFlowIteration.ts ===
+//// [tests/cases/conformance/controlFlow/controlFlowIteration.ts] ////
+
+=== controlFlowIteration.ts ===
 let cond: boolean;
 >cond : Symbol(cond, Decl(controlFlowIteration.ts, 0, 3))
 
@@ -20,17 +22,17 @@ function ff() {
 >x : Symbol(x, Decl(controlFlowIteration.ts, 3, 7))
 
                 x.length;
->x.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>x.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(controlFlowIteration.ts, 3, 7))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
             }
             if (x) {
 >x : Symbol(x, Decl(controlFlowIteration.ts, 3, 7))
 
                 x.length;
->x.length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>x.length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
 >x : Symbol(x, Decl(controlFlowIteration.ts, 3, 7))
->length : Symbol(String.length, Decl(lib.d.ts, --, --))
+>length : Symbol(String.length, Decl(lib.es5.d.ts, --, --))
             }
         }
     }

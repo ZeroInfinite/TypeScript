@@ -14,12 +14,9 @@
 ////  */
 ////
 //// /** @type {Person} */
-//// var person; person.personName/*3*/
+//// var person; person.[|personName/*3*/|]
 ////
 //// /** @type {Animal} */
-//// var animal; animal.animalName/*4*/
+//// var animal; animal.[|animalName/*4*/|]
 
-verify.goToDefinition({
-    3: "1",
-    4: "2"
-});
+verify.baselineGoToDefinition("3", "4");

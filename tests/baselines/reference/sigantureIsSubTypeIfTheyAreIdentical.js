@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sigantureIsSubTypeIfTheyAreIdentical.ts] ////
+
 //// [sigantureIsSubTypeIfTheyAreIdentical.ts]
 interface ICache {
     get<T>(key: string): T;
@@ -9,7 +11,7 @@ class CacheService implements ICache { // Should not error that property type of
 }
 
 //// [sigantureIsSubTypeIfTheyAreIdentical.js]
-var CacheService = (function () {
+var CacheService = /** @class */ (function () {
     function CacheService() {
     }
     CacheService.prototype.get = function (key) {

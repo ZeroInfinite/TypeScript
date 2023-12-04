@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/autolift3.ts] ////
+
 //// [autolift3.ts]
 class B {
 
@@ -31,7 +33,7 @@ b.foo();
 
 
 //// [autolift3.js]
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
         function foo() { }
         foo();

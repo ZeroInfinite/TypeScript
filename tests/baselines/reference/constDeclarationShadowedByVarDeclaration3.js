@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constDeclarationShadowedByVarDeclaration3.ts] ////
+
 //// [constDeclarationShadowedByVarDeclaration3.ts]
 // Ensure only checking for const declarations shadowed by vars
 class Rule {
@@ -11,7 +13,7 @@ class Rule {
 
 //// [constDeclarationShadowedByVarDeclaration3.js]
 // Ensure only checking for const declarations shadowed by vars
-var Rule = (function () {
+var Rule = /** @class */ (function () {
     function Rule(name) {
         this.regex = new RegExp('');
         this.name = '';

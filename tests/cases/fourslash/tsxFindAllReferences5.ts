@@ -15,11 +15,11 @@
 ////     propString: string
 ////     optional?: boolean
 //// }
-//// declare function [|Opt|](attributes: OptionPropBag): JSX.Element;
-//// let opt = <[|Opt|] />;
-//// let opt1 = <[|Opt|] propx={100} propString />;
-//// let opt2 = <[|Opt|] propx={100} optional/>;
-//// let opt3 = <[|Opt|] wrong />;
-//// let opt4 = <[|Opt|] propx={100} propString="hi" />;
+//// /*1*/declare function /*2*/Opt(attributes: OptionPropBag): JSX.Element;
+//// let opt = /*3*/</*4*/Opt />;
+//// let opt1 = /*5*/</*6*/Opt propx={100} propString />;
+//// let opt2 = /*7*/</*8*/Opt propx={100} optional/>;
+//// let opt3 = /*9*/</*10*/Opt wrong />;
+//// let opt4 = /*11*/</*12*/Opt propx={100} propString="hi" />;
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12');

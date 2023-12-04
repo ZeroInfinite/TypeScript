@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/listFailure.ts] ////
+
 //// [listFailure.ts]
 module Editor {
 
@@ -44,7 +46,7 @@ module Editor {
 //// [listFailure.js]
 var Editor;
 (function (Editor) {
-    var Buffer = (function () {
+    var Buffer = /** @class */ (function () {
         function Buffer() {
             this.lines = ListMakeHead();
         }
@@ -68,7 +70,7 @@ var Editor;
         return null;
     }
     Editor.ListMakeEntry = ListMakeEntry;
-    var List = (function () {
+    var List = /** @class */ (function () {
         function List() {
         }
         List.prototype.add = function (data) {
@@ -80,7 +82,7 @@ var Editor;
         };
         return List;
     }());
-    var Line = (function () {
+    var Line = /** @class */ (function () {
         function Line() {
         }
         return Line;

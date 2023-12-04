@@ -1,9 +1,12 @@
-=== tests/cases/compiler/external.d.ts ===
+//// [tests/cases/compiler/exportsInAmbientModules2.ts] ////
+
+=== external.d.ts ===
 export default class C {}
 >C : C
 
-=== tests/cases/compiler/main.ts ===
+=== main.ts ===
 declare module "M" {
-No type information for this code.    export * from "external"
-No type information for this code.}
-No type information for this code.
+>"M" : typeof import("M")
+
+    export * from "external"
+}

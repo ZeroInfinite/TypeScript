@@ -1,11 +1,12 @@
-=== tests/cases/conformance/classes/classDeclarations/classBody/classWithEmptyBody.ts ===
+//// [tests/cases/conformance/classes/classDeclarations/classBody/classWithEmptyBody.ts] ////
+
+=== classWithEmptyBody.ts ===
 class C {
 >C : C
 }
 
 var c: C;
 >c : C
->C : C
 
 var o: {} = c;
 >o : {}
@@ -39,7 +40,6 @@ class D {
 
 var d: D;
 >d : D
->D : D
 
 var o: {} = d;
 >o : {}

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignatureWithOptionalParameterAndInitializer.ts] ////
+
 //// [callSignatureWithOptionalParameterAndInitializer.ts]
 // Optional parameters cannot also have initializer expressions, these are all errors
 
@@ -72,7 +74,7 @@ f(1);
 f();
 f2(1);
 f2(1, 2);
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x) {

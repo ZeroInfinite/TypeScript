@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/unusedTypeParameterInLambda2.ts] ////
+
 //// [unusedTypeParameterInLambda2.ts]
 class A {
     public f1() {
@@ -9,7 +11,7 @@ class A {
 }
 
 //// [unusedTypeParameterInLambda2.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.f1 = function () {

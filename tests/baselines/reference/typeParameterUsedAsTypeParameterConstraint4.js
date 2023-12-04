@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/typeParameterUsedAsTypeParameterConstraint4.ts] ////
+
 //// [typeParameterUsedAsTypeParameterConstraint4.ts]
 // Type parameters are in scope in their own and other type parameter lists
 // Some negative cases
@@ -56,7 +58,7 @@ var f4 = <U extends T, T>(x: V, y: X) => { // error
 //// [typeParameterUsedAsTypeParameterConstraint4.js]
 // Type parameters are in scope in their own and other type parameter lists
 // Some negative cases
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x) {

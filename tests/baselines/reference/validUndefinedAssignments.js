@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/primitives/undefined/validUndefinedAssignments.ts] ////
+
 //// [validUndefinedAssignments.ts]
 var x: typeof undefined;
 
@@ -31,7 +33,7 @@ var c = x;
 var d = x;
 var e = x;
 e = x; // should work
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/primitives/enum/validEnumAssignments.ts ===
+//// [tests/cases/conformance/types/primitives/enum/validEnumAssignments.ts] ////
+
+=== validEnumAssignments.ts ===
 enum E {
 >E : E
 
@@ -17,7 +19,6 @@ var a: any;
 
 var e: E;
 >e : E
->E : E
 
 n = e;
 >n = e : E
@@ -75,7 +76,6 @@ e = n;
 e = null;
 >e = null : null
 >e : E
->null : null
 
 e = undefined;
 >e = undefined : undefined

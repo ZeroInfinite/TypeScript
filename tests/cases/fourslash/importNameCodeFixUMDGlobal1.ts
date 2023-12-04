@@ -1,5 +1,8 @@
 /// <reference path="fourslash.ts" />
 
+// @AllowSyntheticDefaultImports: false
+// @Module: esnext
+
 // @Filename: a/f1.ts
 //// [|import { bar } from "./foo";
 ////
@@ -11,8 +14,8 @@
 //// export as namespace bar1; 
 
 verify.importFixAtPosition([
-`import { bar } from "./foo";
-import * as bar1 from "./foo";
+`import * as bar1 from "./foo";
+import { bar } from "./foo";
 
 export function test() { };
 bar1.bar();`

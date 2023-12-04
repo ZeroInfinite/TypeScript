@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es6ModuleWithModuleGenTargetCommonjs.ts] ////
+
 //// [es6ModuleWithModuleGenTargetCommonjs.ts]
 export class A
 {
@@ -14,6 +16,7 @@ export class A
 //// [es6ModuleWithModuleGenTargetCommonjs.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.A = void 0;
 class A {
     constructor() {
     }

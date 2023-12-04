@@ -1,10 +1,38 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsClass.ts ===
+// class c {
+//       ^
+// | ----------------------------------------------------------------------
+// | class c
+// | ----------------------------------------------------------------------
+// }
+// var cInstance = new c();
+//     ^^^^^^^^^
+// | ----------------------------------------------------------------------
+// | var cInstance: c
+// | ----------------------------------------------------------------------
+//                     ^
+// | ----------------------------------------------------------------------
+// | constructor c(): c
+// | ----------------------------------------------------------------------
+// var cVal = c;
+//     ^^^^
+// | ----------------------------------------------------------------------
+// | var cVal: typeof c
+// | ----------------------------------------------------------------------
+//            ^
+// | ----------------------------------------------------------------------
+// | class c
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClass.ts",
-      "position": 6
+      "position": 6,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -25,16 +53,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClass.ts",
-      "position": 16
+      "position": 16,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -67,16 +95,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClass.ts",
-      "position": 32
+      "position": 32,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "constructor",
       "kindModifiers": "",
       "textSpan": {
@@ -117,16 +145,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClass.ts",
-      "position": 41
+      "position": 41,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "var",
       "kindModifiers": "",
       "textSpan": {
@@ -167,16 +195,16 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsClass.ts",
-      "position": 48
+      "position": 48,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "class",
       "kindModifiers": "",
       "textSpan": {
@@ -197,8 +225,7 @@
           "kind": "className"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

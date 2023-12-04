@@ -43,6 +43,7 @@ export class D {
 //// [0.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.foo = exports.B = void 0;
 class B {
     print() { return "I am B"; }
 }
@@ -52,37 +53,39 @@ exports.foo = foo;
 //// [1.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.backup = void 0;
 function backup() { return "backup"; }
 exports.backup = backup;
 //// [2.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.D = void 0;
 class C {
     constructor() {
-        this.myModule = Promise.resolve().then(function () { return require("./0"); });
+        this.myModule = Promise.resolve().then(() => require("./0"));
     }
     method() {
-        const loadAsync = Promise.resolve().then(function () { return require("./0"); });
+        const loadAsync = Promise.resolve().then(() => require("./0"));
         this.myModule.then(Zero => {
             console.log(Zero.foo());
         }, async (err) => {
             console.log(err);
-            let one = await Promise.resolve().then(function () { return require("./1"); });
+            let one = await Promise.resolve().then(() => require("./1"));
             console.log(one.backup());
         });
     }
 }
 class D {
     constructor() {
-        this.myModule = Promise.resolve().then(function () { return require("./0"); });
+        this.myModule = Promise.resolve().then(() => require("./0"));
     }
     method() {
-        const loadAsync = Promise.resolve().then(function () { return require("./0"); });
+        const loadAsync = Promise.resolve().then(() => require("./0"));
         this.myModule.then(Zero => {
             console.log(Zero.foo());
         }, async (err) => {
             console.log(err);
-            let one = await Promise.resolve().then(function () { return require("./1"); });
+            let one = await Promise.resolve().then(() => require("./1"));
             console.log(one.backup());
         });
     }

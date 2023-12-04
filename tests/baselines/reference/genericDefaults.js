@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericDefaults.ts] ////
+
 //// [genericDefaults.ts]
 interface A { a: number; }
 interface B { b: number; }
@@ -489,6 +491,9 @@ const t03c02 = (<t03<number, number>>x).a;
 const t03c03 = (<t03<1, 1>>x).a;
 const t03c04 = (<t03<number, 1>>x).a;
 
+// https://github.com/Microsoft/TypeScript/issues/16221
+interface SelfReference<T = SelfReference<string>> {}
+
 //// [genericDefaults.js]
 // no inference
 f00();
@@ -946,12 +951,12 @@ interface i04<T = number, U = string> {
 interface i05<T = T> {
     a: T;
 }
-declare const i05c00: {};
+declare const i05c00: any;
 declare const i05c01: number;
 interface i06<T = U, U = T> {
     a: [T, U];
 }
-declare const i06c00: [{}, {}];
+declare const i06c00: [any, any];
 declare const i06c01: [number, number];
 declare const i06c02: [number, string];
 interface i07 {
@@ -977,7 +982,7 @@ declare const Base01c02: Base01<number>;
 declare const Base01c03: Base01<number>;
 declare class Derived01<T> extends Base01<T> {
 }
-declare const Derived01c00: Derived01<{}>;
+declare const Derived01c00: Derived01<unknown>;
 declare const Derived01c01: Derived01<number>;
 declare const Derived01c02: Derived01<number>;
 declare const Derived01c03: Derived01<number>;
@@ -997,18 +1002,18 @@ declare class Derived03 extends Base02 {
 }
 declare const Derived03c00: Derived03;
 declare const Derived03c01: number;
-declare type DerivedProps = keyof Derived03;
-declare type t00<T = number> = {
+type DerivedProps = keyof Derived03;
+type t00<T = number> = {
     a: T;
 };
 declare const t00c00: number;
 declare const t00c01: number;
-declare type t01<T, U = T> = {
+type t01<T, U = T> = {
     a: [T, U];
 };
 declare const t01c00: [number, number];
 declare const t01c01: [number, string];
-declare type t02<T extends number, U = T> = {
+type t02<T extends number, U = T> = {
     a: [T, U];
 };
 declare const t02c00: [number, number];
@@ -1016,7 +1021,7 @@ declare const t02c01: [1, 1];
 declare const t02c02: [number, number];
 declare const t02c03: [1, number];
 declare const t02c04: [number, 1];
-declare type t03<T extends number, U extends T = T> = {
+type t03<T extends number, U extends T = T> = {
     a: [T, U];
 };
 declare const t03c00: [number, number];
@@ -1024,3 +1029,5 @@ declare const t03c01: [1, 1];
 declare const t03c02: [number, number];
 declare const t03c03: [1, 1];
 declare const t03c04: [number, 1];
+interface SelfReference<T = SelfReference<string>> {
+}

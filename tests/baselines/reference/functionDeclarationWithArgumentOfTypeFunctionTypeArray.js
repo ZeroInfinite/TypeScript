@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/functionDeclarationWithArgumentOfTypeFunctionTypeArray.ts] ////
+
 //// [functionDeclarationWithArgumentOfTypeFunctionTypeArray.ts]
 function foo(args: { (x): number }[]) {
     return args.length;
@@ -12,5 +14,5 @@ function foo(args) {
 
 //// [functionDeclarationWithArgumentOfTypeFunctionTypeArray.d.ts]
 declare function foo(args: {
-    (x): number;
+    (x: any): number;
 }[]): number;

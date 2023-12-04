@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/emitDecoratorMetadata_object.ts] ////
+
 //// [emitDecoratorMetadata_object.ts]
 declare const MyClassDecorator: ClassDecorator;
 declare const MyMethodDecorator: MethodDecorator;
@@ -20,7 +22,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var A = (function () {
+var A = /** @class */ (function () {
     function A(hi) {
     }
     A.prototype.method = function (there) { };

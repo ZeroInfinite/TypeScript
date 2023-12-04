@@ -1,4 +1,6 @@
-=== tests/cases/compiler/moduledecl.ts ===
+//// [tests/cases/compiler/moduledecl.ts] ////
+
+=== moduledecl.ts ===
 module a {
 >a : Symbol(a, Decl(moduledecl.ts, 0, 0))
 }
@@ -80,7 +82,7 @@ module m0 {
 >i1 : Symbol(i1, Decl(moduledecl.ts, 31, 5))
 
         () : Object;
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
         [n: number]: c1;
 >n : Symbol(n, Decl(moduledecl.ts, 35, 9))
@@ -174,7 +176,7 @@ module m1 {
 >i1 : Symbol(i1, Decl(moduledecl.ts, 68, 5))
 
         () : Object;
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 
         [n: number]: c1;
 >n : Symbol(n, Decl(moduledecl.ts, 72, 9))
@@ -300,6 +302,8 @@ declare module m55 {
 }
 
 declare module "m3" {
+>"m3" : Symbol("m3", Decl(moduledecl.ts, 131, 1))
+
     export var b: number;
 >b : Symbol(b, Decl(moduledecl.ts, 134, 14))
 }

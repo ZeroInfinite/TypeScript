@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/functionOverloads6.ts] ////
+
 //// [functionOverloads6.ts]
 class foo { 
    static fnOverload();
@@ -7,7 +9,7 @@ class foo {
 
 
 //// [functionOverloads6.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo() {
     }
     foo.fnOverload = function (foo) { };

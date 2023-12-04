@@ -16,13 +16,14 @@ foo();
 //// [0.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.B = void 0;
 class B {
     print() { return "I am B"; }
 }
 exports.B = B;
 //// [2.js]
 async function foo() {
-    class C extends (await Promise.resolve().then(function () { return require("./0"); })).B {
+    class C extends (await Promise.resolve().then(() => require("./0"))).B {
     }
     var c = new C();
     c.print();

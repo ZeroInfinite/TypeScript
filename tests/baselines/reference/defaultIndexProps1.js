@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/defaultIndexProps1.ts] ////
+
 //// [defaultIndexProps1.ts]
 class Foo {
 	public v = "Yo";
@@ -13,7 +15,7 @@ var q2 = o["v"];
 
 
 //// [defaultIndexProps1.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.v = "Yo";
     }

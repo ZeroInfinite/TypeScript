@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/generativeRecursionWithTypeOf.ts] ////
+
 //// [generativeRecursionWithTypeOf.ts]
 class C<T> {
     static foo(x: number) { }
@@ -11,7 +13,7 @@ module M {
 }
 
 //// [generativeRecursionWithTypeOf.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.foo = function (x) { };

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/constructorArgWithGenericCallSignature.ts] ////
+
 //// [constructorArgWithGenericCallSignature.ts]
 module Test {
     export interface MyFunc {
@@ -17,7 +19,7 @@ var test = new Test.MyClass(func); // Should be OK
 //// [constructorArgWithGenericCallSignature.js]
 var Test;
 (function (Test) {
-    var MyClass = (function () {
+    var MyClass = /** @class */ (function () {
         function MyClass(func) {
         }
         return MyClass;

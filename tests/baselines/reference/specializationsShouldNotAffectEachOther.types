@@ -1,14 +1,13 @@
-=== tests/cases/compiler/specializationsShouldNotAffectEachOther.ts ===
-interface Series  {
->Series : Series
+//// [tests/cases/compiler/specializationsShouldNotAffectEachOther.ts] ////
 
+=== specializationsShouldNotAffectEachOther.ts ===
+interface Series  {
     data: string[];
 >data : string[]
 }
 
 var series: Series;
 >series : Series
->Series : Series
 
 
 function foo() {
@@ -18,7 +17,6 @@ function foo() {
 >seriesExtent : (series: any) => any
 >(series) => null : (series: any) => any
 >series : any
->null : null
 
     var series2: number[];
 >series2 : number[]
@@ -31,7 +29,6 @@ function foo() {
 >seriesExtent : (series: any) => any
 
     return null;
->null : null
 }
 
 

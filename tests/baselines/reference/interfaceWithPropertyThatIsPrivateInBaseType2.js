@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/interfaceDeclarations/interfaceWithPropertyThatIsPrivateInBaseType2.ts] ////
+
 //// [interfaceWithPropertyThatIsPrivateInBaseType2.ts]
 class Base {
     private x() {}
@@ -16,13 +18,13 @@ interface Foo2<T> extends Base2<T> { // error
 }
 
 //// [interfaceWithPropertyThatIsPrivateInBaseType2.js]
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base() {
     }
     Base.prototype.x = function () { };
     return Base;
 }());
-var Base2 = (function () {
+var Base2 = /** @class */ (function () {
     function Base2() {
     }
     Base2.prototype.x = function () { };

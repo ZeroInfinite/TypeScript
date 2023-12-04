@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticInstanceResolution4.ts] ////
+
 //// [staticInstanceResolution4.ts]
 class A {
    public foo() {}
@@ -6,7 +8,7 @@ class A {
 A.foo();
 
 //// [staticInstanceResolution4.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () { };

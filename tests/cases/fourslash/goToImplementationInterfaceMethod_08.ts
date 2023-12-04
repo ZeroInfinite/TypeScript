@@ -7,7 +7,7 @@
 //// }
 ////
 //// class SuperBar implements Foo {
-////    [|hello() {}|]
+////    [|hello|]() {}
 //// }
 ////
 //// class Bar extends SuperBar {
@@ -15,8 +15,8 @@
 //// }
 ////
 //// class SubBar extends Bar {
-////    [|hello() {}|]
+////    [|hello|]() {}
 //// }
 
 
-verify.allRangesAppearInImplementationList("function_call");
+verify.baselineGoToImplementation("function_call");

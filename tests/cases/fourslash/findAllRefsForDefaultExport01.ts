@@ -1,13 +1,10 @@
 /// <reference path='fourslash.ts'/>
 
-////export default class [|{| "isWriteAccess": true, "isDefinition": true |}DefaultExportedClass|] {
+/////*1*/export default class /*2*/DefaultExportedClass {
 ////}
 ////
-////var x: [|DefaultExportedClass|];
+////var x: /*3*/DefaultExportedClass;
 ////
-////var y = new [|DefaultExportedClass|];
+////var y = new /*4*/DefaultExportedClass;
 
-const ranges = test.ranges();
-const [r0, r1, r2] = ranges;
-verify.referenceGroups([r0, r1], [{ definition: "class DefaultExportedClass", ranges }]);
-verify.referenceGroups(r2, [{ definition: "constructor DefaultExportedClass(): DefaultExportedClass", ranges }]);
+verify.baselineFindAllReferences('1', '2', '3', '4');

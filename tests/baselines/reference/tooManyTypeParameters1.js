@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/tooManyTypeParameters1.ts] ////
+
 //// [tooManyTypeParameters1.ts]
 function f<T>() { }
 f<string, string>();
@@ -16,7 +18,7 @@ function f() { }
 f();
 var x = function () { };
 x();
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

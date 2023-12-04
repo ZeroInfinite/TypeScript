@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardFunctionOfFormThisErrors.ts] ////
+
 //// [typeGuardFunctionOfFormThisErrors.ts]
 class RoyalGuard {
     isLeader(): this is LeadGuard {
@@ -61,16 +63,21 @@ else {
 
 //// [typeGuardFunctionOfFormThisErrors.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var RoyalGuard = (function () {
+var RoyalGuard = /** @class */ (function () {
     function RoyalGuard() {
     }
     RoyalGuard.prototype.isLeader = function () {
@@ -81,7 +88,7 @@ var RoyalGuard = (function () {
     };
     return RoyalGuard;
 }());
-var LeadGuard = (function (_super) {
+var LeadGuard = /** @class */ (function (_super) {
     __extends(LeadGuard, _super);
     function LeadGuard() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -90,7 +97,7 @@ var LeadGuard = (function (_super) {
     ;
     return LeadGuard;
 }(RoyalGuard));
-var FollowerGuard = (function (_super) {
+var FollowerGuard = /** @class */ (function (_super) {
     __extends(FollowerGuard, _super);
     function FollowerGuard() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -152,6 +159,6 @@ declare let b: GuardInterface;
 declare function invalidGuard(c: any): this is number;
 declare let c: number | number[];
 declare let holder: {
-    invalidGuard: (c: any) => this is number;
+    invalidGuard: typeof invalidGuard;
 };
 declare let detached: () => this is FollowerGuard;

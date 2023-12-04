@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/exportDeclarations/ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.ts ===
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.ts] ////
+
+=== ExportClassWithInaccessibleTypeInIndexerTypeAnnotations.ts ===
 module A {
 >A : typeof A
 
@@ -17,11 +19,9 @@ module A {
 
         [idx: number]: Point;
 >idx : number
->Point : Point
 
         [idx: string]: Point;
 >idx : string
->Point : Point
     }
 }
 

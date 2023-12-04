@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classExpressions/classExpression4.ts] ////
+
 //// [classExpression4.ts]
 let C = class {
     foo() {
@@ -8,12 +10,12 @@ let x = (new C).foo();
 
 
 //// [classExpression4.js]
-var C = (function () {
-    function class_1() {
+var C = /** @class */ (function () {
+    function C() {
     }
-    class_1.prototype.foo = function () {
+    C.prototype.foo = function () {
         return new C();
     };
-    return class_1;
+    return C;
 }());
 var x = (new C).foo();

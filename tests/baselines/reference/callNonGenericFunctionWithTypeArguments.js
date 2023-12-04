@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeArgumentLists/callNonGenericFunctionWithTypeArguments.ts] ////
+
 //// [callNonGenericFunctionWithTypeArguments.ts]
 // it is always illegal to provide type arguments to a non-generic function
 // all invocations here are illegal
@@ -52,7 +54,7 @@ var f2 = function (x) { return null; };
 var r2 = f2(1);
 var f3;
 var r3 = f3(1);
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.f = function (x) {
@@ -63,7 +65,7 @@ var C = (function () {
 var r4 = (new C()).f(1);
 var i;
 var r5 = i.f(1);
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     C2.prototype.f = function (x) {

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParametersInStaticAccessors.ts] ////
+
 //// [typeParametersInStaticAccessors.ts]
 class foo<T> {
     static get Foo(): () => T { return null; }
@@ -5,17 +7,17 @@ class foo<T> {
 } 
 
 //// [typeParametersInStaticAccessors.js]
-var foo = (function () {
+var foo = /** @class */ (function () {
     function foo() {
     }
     Object.defineProperty(foo, "Foo", {
         get: function () { return null; },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(foo, "Bar", {
         set: function (v) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return foo;

@@ -16,7 +16,7 @@
 //// }
 ////
 //// class FooImpl implements Foo {
-////  	 [|hello() {/**FooImpl*/}|]
+////  	 [|hello|]() {/**FooImpl*/}
 ////  	 aloha() {}
 //// }
 ////
@@ -25,12 +25,12 @@
 //// }
 ////
 //// class BarImpl implements Bar {
-//// 	 [|hello() {/**BarImpl*/}|]
+//// 	 [|hello|]() {/**BarImpl*/}
 //// 	 goodbye() {}
 //// }
 ////
 //// class FooAndBarImpl implements Foo, Bar {
-//// 	 [|hello() {/**FooAndBarImpl*/}|]
+//// 	 [|hello|]() {/**FooAndBarImpl*/}
 //// 	 aloha() {}
 //// 	 goodbye() {}
 //// }
@@ -43,6 +43,4 @@
 //// 	 x.he/*function_call1*/llo();
 //// }
 
-for (var i = 0; i < 2; i++) {
-    verify.allRangesAppearInImplementationList("function_call" + i);
-}
+verify.baselineGoToImplementation("function_call0", "function_call1");

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/constructorFunctionTypes/classWithConstructors.ts] ////
+
 //// [classWithConstructors.ts]
 module NonGeneric {
     class C {
@@ -51,10 +53,15 @@ module Generics {
 
 //// [classWithConstructors.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -62,14 +69,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var NonGeneric;
 (function (NonGeneric) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C(x) {
         }
         return C;
     }());
     var c = new C(); // error
     var c2 = new C(''); // ok
-    var C2 = (function () {
+    var C2 = /** @class */ (function () {
         function C2(x) {
         }
         return C2;
@@ -77,7 +84,7 @@ var NonGeneric;
     var c3 = new C2(); // error
     var c4 = new C2(''); // ok
     var c5 = new C2(1); // ok
-    var D = (function (_super) {
+    var D = /** @class */ (function (_super) {
         __extends(D, _super);
         function D() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -90,14 +97,14 @@ var NonGeneric;
 })(NonGeneric || (NonGeneric = {}));
 var Generics;
 (function (Generics) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C(x) {
         }
         return C;
     }());
     var c = new C(); // error
     var c2 = new C(''); // ok
-    var C2 = (function () {
+    var C2 = /** @class */ (function () {
         function C2(x) {
         }
         return C2;
@@ -105,7 +112,7 @@ var Generics;
     var c3 = new C2(); // error
     var c4 = new C2(''); // ok
     var c5 = new C2(1, 2); // ok
-    var D = (function (_super) {
+    var D = /** @class */ (function (_super) {
         __extends(D, _super);
         function D() {
             return _super !== null && _super.apply(this, arguments) || this;

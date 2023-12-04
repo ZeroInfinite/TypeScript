@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/classDeclarations/classAbstractKeyword/classAbstractAccessor.ts] ////
+
 //// [classAbstractAccessor.ts]
 abstract class A {
    abstract get a();
@@ -8,19 +10,19 @@ abstract class A {
 
 
 //// [classAbstractAccessor.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     Object.defineProperty(A.prototype, "aa", {
         get: function () { return 1; } // error
         ,
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Object.defineProperty(A.prototype, "bb", {
         set: function (x) { } // error
         ,
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return A;

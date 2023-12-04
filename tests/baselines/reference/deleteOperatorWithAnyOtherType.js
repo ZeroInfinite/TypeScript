@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/deleteOperator/deleteOperatorWithAnyOtherType.ts] ////
+
 //// [deleteOperatorWithAnyOtherType.ts]
 // delete  operator on any type
 
@@ -72,7 +74,7 @@ function foo() {
     var a;
     return a;
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () {

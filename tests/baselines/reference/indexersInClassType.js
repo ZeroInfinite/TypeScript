@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/classTypes/indexersInClassType.ts] ////
+
 //// [indexersInClassType.ts]
 class C {
     [x: number]: Date;
@@ -18,7 +20,7 @@ var r3 = r.a
 
 
 //// [indexersInClassType.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.fn = function () {

@@ -1,15 +1,15 @@
 /// <reference path='fourslash.ts'/>
 
 ////interface interface1 {
-////    [|{| "isWriteAccess": true, "isDefinition": true |}doStuff|](): void;
+////    /*1*/doStuff(): void;
 ////}
 ////
 ////interface interface2  extends interface1{
-////    [|{| "isWriteAccess": true, "isDefinition": true |}doStuff|](): void;
+////    /*2*/doStuff(): void;
 ////}
 ////
 ////class class1 implements interface2 {
-////    [|{| "isWriteAccess": true, "isDefinition": true |}doStuff|]() {
+////    /*3*/doStuff() {
 ////
 ////    }
 ////}
@@ -19,23 +19,6 @@
 ////}
 ////
 ////var v: class2;
-////v.[|doStuff|]();
+////v./*4*/doStuff();
 
-const ranges = test.ranges();
-const [r0, r1, r2, r3] = ranges;
-verify.referenceGroups(r0, [{ definition: "(method) interface1.doStuff(): void", ranges }]);
-verify.referenceGroups(r1, [
-    { definition: "(method) interface1.doStuff(): void", ranges: [r0] },
-    { definition: "(method) interface2.doStuff(): void", ranges: [r1, r2, r3] }
-]);
-verify.referenceGroups(r2, [
-    { definition: "(method) interface1.doStuff(): void", ranges: [r0] },
-    { definition: "(method) interface2.doStuff(): void", ranges: [r1] },
-    { definition: "(method) class1.doStuff(): void", ranges: [r2, r3] }
-]);
-verify.referenceGroups(r3, [
-    { definition: "(method) interface1.doStuff(): void", ranges: [r0] },
-    { definition: "(method) interface2.doStuff(): void", ranges: [r1] },
-    { definition: "(method) class1.doStuff(): void", ranges: [r2] },
-    { definition: "(method) class1.doStuff(): void", ranges: [r3] }
-]);
+verify.baselineFindAllReferences('1', '2', '3', '4')

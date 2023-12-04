@@ -1,4 +1,6 @@
-=== tests/cases/compiler/inheritSameNamePrivatePropertiesFromSameOrigin.ts ===
+//// [tests/cases/compiler/inheritSameNamePrivatePropertiesFromSameOrigin.ts] ////
+
+=== inheritSameNamePrivatePropertiesFromSameOrigin.ts ===
 class B {
 >B : B
 
@@ -14,10 +16,6 @@ class C2 extends B { }
 >B : B
 
 interface A extends C, C2 { // ok
->A : A
->C : C
->C2 : C2
-
     y: string;
 >y : string
 }

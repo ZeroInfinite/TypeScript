@@ -20,11 +20,11 @@
 //// let x8: Foo[]          = [|[{ hello ()         { /**arrayType*/} }]|];
 //// let x9: { y: Foo }     = [|{ y: { hello ()     { /**typeLiteral*/} } }|];
 //// let x10 = [|{|"parts": ["(","anonymous local class",")"], "kind": "local class"|}class implements Foo { hello() {} }|]
-//// let x11 = [|{|"parts": ["(","local class",")"," ","C"], "kind": "local class"|}class C implements Foo { hello() {} }|]
+//// let x11 = class [|{|"parts": ["(","local class",")"," ","C"], "kind": "local class"|}C|] implements Foo { hello() {} }
 ////
 //// // Should not do anything for type predicates
 //// function isFoo(a: any): a is Foo {
 ////     return true;
 //// }
 
-verify.allRangesAppearInImplementationList("interface_definition");
+verify.baselineGoToImplementation("interface_definition");

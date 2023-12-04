@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classOrder1.ts] ////
+
 //// [classOrder1.ts]
 class A {
     public foo() {
@@ -12,7 +14,7 @@ a.foo();
 
 
 //// [classOrder1.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () {

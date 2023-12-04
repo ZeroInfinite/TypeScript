@@ -1,4 +1,6 @@
-=== tests/cases/compiler/decoratorMetadataOnInferredType.ts ===
+//// [tests/cases/compiler/decoratorMetadataOnInferredType.ts] ////
+
+=== decoratorMetadataOnInferredType.ts ===
 declare var console: {
 >console : { log(msg: string): void; }
 
@@ -22,7 +24,6 @@ class A {
 function decorator(target: Object, propertyKey: string) {
 >decorator : (target: Object, propertyKey: string) => void
 >target : Object
->Object : Object
 >propertyKey : string
 }
 

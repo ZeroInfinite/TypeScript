@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/parametersWithNoAnnotationAreAny.ts] ////
+
 //// [parametersWithNoAnnotationAreAny.ts]
 function foo(x) { return x; }
 var f = function foo(x) { return x; }
@@ -34,7 +36,7 @@ function foo(x) { return x; }
 var f = function foo(x) { return x; };
 var f2 = function (x) { return x; };
 var f3 = function (x) { return x; };
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function (x) {

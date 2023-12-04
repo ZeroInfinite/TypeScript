@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/never/neverType.ts ===
+//// [tests/cases/conformance/types/never/neverType.ts] ////
+
+=== neverType.ts ===
 function error(message: string): never {
 >error : (message: string) => never
 >message : string
@@ -112,13 +114,11 @@ function move2(direction: "up" | "down") {
 }
 
 function check<T>(x: T | undefined) {
->check : <T>(x: T | undefined) => T
->T : T
+>check : <T>(x: T | undefined) => NonNullable<T>
 >x : T | undefined
->T : T
 
     return x || error("Undefined value");
->x || error("Undefined value") : T
+>x || error("Undefined value") : NonNullable<T>
 >x : T | undefined
 >error("Undefined value") : never
 >error : (message: string) => never
@@ -162,7 +162,7 @@ function f1(x: string | number) {
 
     if (typeof x === "boolean") {
 >typeof x === "boolean" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"boolean" : "boolean"
 
@@ -180,7 +180,7 @@ function f2(x: string | number) {
 
         if (typeof x === "boolean") {
 >typeof x === "boolean" : boolean
->typeof x : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof x : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >x : string | number
 >"boolean" : "boolean"
 

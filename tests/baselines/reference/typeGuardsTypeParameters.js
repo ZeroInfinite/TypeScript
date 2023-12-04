@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/controlFlow/typeGuardsTypeParameters.ts] ////
+
 //// [typeGuardsTypeParameters.ts]
 // Type guards involving type parameters produce intersection types
 
@@ -36,7 +38,7 @@ function fun<T>(item: { [P in keyof T]: T[P] }) {
 
 //// [typeGuardsTypeParameters.js]
 // Type guards involving type parameters produce intersection types
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

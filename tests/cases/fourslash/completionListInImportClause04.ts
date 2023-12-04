@@ -11,7 +11,7 @@
 // @Filename: app.ts
 ////import {/*1*/} from './foo';
 
-verify.completionsAt("1", ["prototype", "prop1", "prop2"]);
+verify.completions({ marker: "1", unsorted: ["prototype", "prop1", "prop2", { name: "type", sortText: completion.SortText.GlobalsOrKeywords }] });
 verify.noErrors();
 goTo.marker('2');
 verify.noErrors();

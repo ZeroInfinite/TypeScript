@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/trailingCommaInHeterogenousArrayLiteral1.ts] ////
+
 //// [trailingCommaInHeterogenousArrayLiteral1.ts]
 class arrTest {
     test(arg1: number[]) {    }
@@ -10,7 +12,7 @@ class arrTest {
 
 
 //// [trailingCommaInHeterogenousArrayLiteral1.js]
-var arrTest = (function () {
+var arrTest = /** @class */ (function () {
     function arrTest() {
     }
     arrTest.prototype.test = function (arg1) { };

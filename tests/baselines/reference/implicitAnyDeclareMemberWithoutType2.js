@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implicitAnyDeclareMemberWithoutType2.ts] ////
+
 //// [implicitAnyDeclareMemberWithoutType2.ts]
 // this should be an error
 class C {
@@ -11,7 +13,7 @@ class C {
 
 //// [implicitAnyDeclareMemberWithoutType2.js]
 // this should be an error
-var C = (function () {
+var C = /** @class */ (function () {
     function C(c1, c2, c3) {
         this.x = null; // error at "x"
     } // error at "c1, c2"

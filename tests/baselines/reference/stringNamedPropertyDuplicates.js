@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/propertySignatures/stringNamedPropertyDuplicates.ts] ////
+
 //// [stringNamedPropertyDuplicates.ts]
 class C {
     "a b": number;
@@ -22,7 +24,7 @@ var b = {
 }
 
 //// [stringNamedPropertyDuplicates.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

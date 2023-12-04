@@ -1,10 +1,12 @@
-=== tests/cases/conformance/classes/members/inheritanceAndOverriding/derivedClassOverridesIndexersWithAssignmentCompatibility.ts ===
+//// [tests/cases/conformance/classes/members/inheritanceAndOverriding/derivedClassOverridesIndexersWithAssignmentCompatibility.ts] ////
+
+=== derivedClassOverridesIndexersWithAssignmentCompatibility.ts ===
 class Base {
 >Base : Symbol(Base, Decl(derivedClassOverridesIndexersWithAssignmentCompatibility.ts, 0, 0))
 
     [x: string]: Object;
 >x : Symbol(x, Decl(derivedClassOverridesIndexersWithAssignmentCompatibility.ts, 1, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 }
 
 // ok, use assignment compatibility
@@ -21,7 +23,7 @@ class Base2 {
 
     [x: number]: Object;
 >x : Symbol(x, Decl(derivedClassOverridesIndexersWithAssignmentCompatibility.ts, 10, 5))
->Object : Symbol(Object, Decl(lib.d.ts, --, --), Decl(lib.d.ts, --, --))
+>Object : Symbol(Object, Decl(lib.es5.d.ts, --, --), Decl(lib.es5.d.ts, --, --))
 }
 
 // ok, use assignment compatibility

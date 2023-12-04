@@ -1,4 +1,6 @@
-=== tests/cases/conformance/es6/destructuring/emptyAssignmentPatterns03_ES5iterable.ts ===
+//// [tests/cases/conformance/es6/destructuring/emptyAssignmentPatterns03_ES5iterable.ts] ////
+
+=== emptyAssignmentPatterns03_ES5iterable.ts ===
 var a: any;
 >a : any
 
@@ -13,8 +15,8 @@ var a: any;
 ([] = [] = a);
 >([] = [] = a) : any
 >[] = [] = a : any
->[] : undefined[]
+>[] : []
 >[] = a : any
->[] : undefined[]
+>[] : []
 >a : any
 

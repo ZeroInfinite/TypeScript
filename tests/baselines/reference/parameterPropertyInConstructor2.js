@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/parameterPropertyInConstructor2.ts] ////
+
 //// [parameterPropertyInConstructor2.ts]
 module mod {
   class Customers {
@@ -11,7 +13,7 @@ module mod {
 //// [parameterPropertyInConstructor2.js]
 var mod;
 (function (mod) {
-    var Customers = (function () {
+    var Customers = /** @class */ (function () {
         function Customers(names, ages) {
             this.names = names;
             this.ages = ages;

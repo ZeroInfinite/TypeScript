@@ -1,12 +1,15 @@
+//// [tests/cases/compiler/classMemberWithMissingIdentifier.ts] ////
+
 //// [classMemberWithMissingIdentifier.ts]
 class C { 
     public {};
 }
 
 //// [classMemberWithMissingIdentifier.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
-        this. = {};
     }
     return C;
 }());
+{ }
+;

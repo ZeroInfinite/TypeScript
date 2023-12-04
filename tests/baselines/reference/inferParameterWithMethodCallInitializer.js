@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/inferParameterWithMethodCallInitializer.ts] ////
+
 //// [inferParameterWithMethodCallInitializer.ts]
 function getNumber(): number {
     return 1;
@@ -24,7 +26,7 @@ class Weird {
 function getNumber() {
     return 1;
 }
-var Example = (function () {
+var Example = /** @class */ (function () {
     function Example() {
     }
     Example.prototype.getNumber = function () {
@@ -40,7 +42,7 @@ function weird(a) {
     if (a === void 0) { a = this.getNumber(); }
     return a;
 }
-var Weird = (function () {
+var Weird = /** @class */ (function () {
     function Weird() {
     }
     Weird.prototype.doSomething = function (a) {

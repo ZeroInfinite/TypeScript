@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericTypeWithCallableMembers.ts] ////
+
 //// [genericTypeWithCallableMembers.ts]
 interface Constructable {
     new (): Constructable;
@@ -13,7 +15,7 @@ class C<T extends Constructable> {
 
 
 //// [genericTypeWithCallableMembers.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(data, data2) {
         this.data = data;
         this.data2 = data2;

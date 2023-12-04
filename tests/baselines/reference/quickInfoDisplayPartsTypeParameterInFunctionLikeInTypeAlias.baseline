@@ -1,10 +1,28 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInFunctionLikeInTypeAlias.ts ===
+// type MixinCtor<A> = new () => A & { constructor: MixinCtor<A> };
+//                               ^
+// | ----------------------------------------------------------------------
+// | (type parameter) A in type MixinCtor<A>
+// | ----------------------------------------------------------------------
+//                                                            ^
+// | ----------------------------------------------------------------------
+// | (type parameter) A in type MixinCtor<A>
+// | ----------------------------------------------------------------------
+// type MixinCtor<A> = new () => A & { constructor: { constructor: MixinCtor<A> } };
+//                                                                           ^
+// | ----------------------------------------------------------------------
+// | (type parameter) A in type MixinCtor<A>
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInFunctionLikeInTypeAlias.ts",
-      "position": 30
+      "position": 30,
+      "name": "0"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -69,16 +87,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInFunctionLikeInTypeAlias.ts",
-      "position": 59
+      "position": 59,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -143,16 +161,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsTypeParameterInFunctionLikeInTypeAlias.ts",
-      "position": 139
+      "position": 139,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "type parameter",
       "kindModifiers": "",
       "textSpan": {
@@ -217,8 +235,7 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

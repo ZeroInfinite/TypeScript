@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/constructorDeclarations/classWithTwoConstructorDefinitions.ts] ////
+
 //// [classWithTwoConstructorDefinitions.ts]
 class C {
     constructor() { } // error
@@ -10,12 +12,12 @@ class D<T> {
 }
 
 //// [classWithTwoConstructorDefinitions.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     } // error
     return C;
 }());
-var D = (function () {
+var D = /** @class */ (function () {
     function D(x) {
     } // error
     return D;

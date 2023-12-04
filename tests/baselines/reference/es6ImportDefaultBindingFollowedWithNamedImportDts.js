@@ -25,38 +25,39 @@ export var x6 = new m();
 
 //// [server.js]
 "use strict";
-exports.__esModule = true;
-var a = (function () {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.x11 = exports.a12 = exports.a11 = exports.m = exports.x = exports.a = void 0;
+var a = /** @class */ (function () {
     function a() {
     }
     return a;
 }());
 exports.a = a;
-var x = (function () {
+var x = /** @class */ (function () {
     function x() {
     }
     return x;
 }());
 exports.x = x;
-var m = (function () {
+var m = /** @class */ (function () {
     function m() {
     }
     return m;
 }());
 exports.m = m;
-var a11 = (function () {
+var a11 = /** @class */ (function () {
     function a11() {
     }
     return a11;
 }());
 exports.a11 = a11;
-var a12 = (function () {
+var a12 = /** @class */ (function () {
     function a12() {
     }
     return a12;
 }());
 exports.a12 = a12;
-var x11 = (function () {
+var x11 = /** @class */ (function () {
     function x11() {
     }
     return x11;
@@ -64,7 +65,8 @@ var x11 = (function () {
 exports.x11 = x11;
 //// [client.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.x6 = exports.x3 = exports.x5 = exports.x4 = exports.x2 = exports.x1 = void 0;
 var server_1 = require("./server");
 exports.x1 = new server_1.a();
 var server_2 = require("./server");

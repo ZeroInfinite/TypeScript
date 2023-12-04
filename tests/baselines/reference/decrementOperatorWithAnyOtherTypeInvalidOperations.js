@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/decrementOperator/decrementOperatorWithAnyOtherTypeInvalidOperations.ts] ////
+
 //// [decrementOperatorWithAnyOtherTypeInvalidOperations.ts]
 // -- operator on any type
 var ANY1: any;
@@ -82,7 +84,7 @@ function foo() {
     var a;
     return a;
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () {

@@ -5,12 +5,12 @@ sourceRoot:
 sources: sourceMapValidationExportAssignment.ts
 ===================================================================
 -------------------------------------------------------------------
-emittedFile:tests/cases/compiler/sourceMapValidationExportAssignment.js
+emittedFile:sourceMapValidationExportAssignment.js
 sourceFile:sourceMapValidationExportAssignment.ts
 -------------------------------------------------------------------
 >>>define(["require", "exports"], function (require, exports) {
 >>>    "use strict";
->>>    var a = (function () {
+>>>    var a = /** @class */ (function () {
 1 >^^^^
 2 >    ^^^^^^^^^^^^^^^^^^^->
 1 >

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericFunctionsWithOptionalParameters3.ts] ////
+
 //// [genericFunctionsWithOptionalParameters3.ts]
 class Collection<T> {
     public add(x: T) { }
@@ -16,7 +18,7 @@ var r5 = utils.mapReduce(c, f1, f2);
 
 
 //// [genericFunctionsWithOptionalParameters3.js]
-var Collection = (function () {
+var Collection = /** @class */ (function () {
     function Collection() {
     }
     Collection.prototype.add = function (x) { };

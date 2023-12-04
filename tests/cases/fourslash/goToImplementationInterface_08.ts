@@ -11,11 +11,11 @@
 //// interface C extends B, A {}
 ////
 //// class X implements B {
-////     [|hello() {}|]
+////     [|hello|]() {}
 //// }
 ////
 //// function someFunction(d : A) {
 ////     d.he/*function_call*/llo();
 //// }
 
-verify.allRangesAppearInImplementationList("function_call");
+verify.baselineGoToImplementation("function_call");

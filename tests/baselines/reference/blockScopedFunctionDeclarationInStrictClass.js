@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/blockScopedFunctionDeclarationInStrictClass.ts] ////
+
 //// [blockScopedFunctionDeclarationInStrictClass.ts]
 class c {
     method() {
@@ -10,7 +12,7 @@ class c {
 }
 
 //// [blockScopedFunctionDeclarationInStrictClass.js]
-var c = (function () {
+var c = /** @class */ (function () {
     function c() {
     }
     c.prototype.method = function () {

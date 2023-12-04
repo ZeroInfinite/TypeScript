@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesWithOptionalParameters2.ts ===
+//// [tests/cases/conformance/types/objectTypeLiteral/callSignatures/callSignaturesWithOptionalParameters2.ts] ////
+
+=== callSignaturesWithOptionalParameters2.ts ===
 // Optional parameters should be valid in all the below casts
 
 function foo(x?: number);
@@ -71,7 +73,6 @@ class C {
 
 var c: C;
 >c : C
->C : C
 
 c.foo();
 >c.foo() : any
@@ -102,8 +103,6 @@ c.foo2(1, 2);
 >2 : 2
 
 interface I {
->I : I
-
     (x?: number);
 >x : number
 
@@ -125,7 +124,6 @@ interface I {
 
 var i: I;
 >i : I
->I : I
 
 i();
 >i() : any

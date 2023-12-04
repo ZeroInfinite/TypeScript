@@ -39,19 +39,21 @@ export {}
 //// [other.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.x = void 0;
 exports.x = 1;
 //// [external.js]
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.B = exports.A = void 0;
 var tslib_1 = require("tslib");
 tslib_1.__exportStar(require("./other"), exports);
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
 exports.A = A;
-var B = (function (_super) {
+var B = /** @class */ (function (_super) {
     tslib_1.__extends(B, _super);
     function B() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -59,7 +61,7 @@ var B = (function (_super) {
     return B;
 }(A));
 exports.B = B;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.method = function (x) {
@@ -80,10 +82,15 @@ var y = tslib_1.__assign({}, o);
 var x = tslib_1.__rest(y, []);
 //// [script.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -101,19 +108,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
-var B = (function (_super) {
+var B = /** @class */ (function (_super) {
     __extends(B, _super);
     function B() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     return B;
 }(A));
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.method = function (x) {

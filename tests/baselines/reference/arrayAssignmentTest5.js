@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/arrayAssignmentTest5.ts] ////
+
 //// [arrayAssignmentTest5.ts]
 module Test {
     interface IState {
@@ -36,7 +38,7 @@ module Test {
 //// [arrayAssignmentTest5.js]
 var Test;
 (function (Test) {
-    var Bug = (function () {
+    var Bug = /** @class */ (function () {
         function Bug() {
         }
         Bug.prototype.onEnter = function (line, state, offset) {

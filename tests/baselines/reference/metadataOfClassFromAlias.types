@@ -1,4 +1,6 @@
-=== tests/cases/compiler/auxiliry.ts ===
+//// [tests/cases/compiler/metadataOfClassFromAlias.ts] ////
+
+=== auxiliry.ts ===
 export class SomeClass {
 >SomeClass : SomeClass
 
@@ -6,13 +8,12 @@ export class SomeClass {
 >field : string
 }
 
-=== tests/cases/compiler/test.ts ===
+=== test.ts ===
 import { SomeClass } from './auxiliry';
 >SomeClass : typeof SomeClass
 
 function annotation(): PropertyDecorator {
 >annotation : () => PropertyDecorator
->PropertyDecorator : PropertyDecorator
 
     return (target: any): void => { };
 >(target: any): void => { } : (target: any) => void
@@ -25,6 +26,4 @@ export class ClassA {
 >annotation() : PropertyDecorator
 >annotation : () => PropertyDecorator
 >array : SomeClass
->SomeClass : SomeClass
->null : null
 }

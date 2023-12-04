@@ -3,11 +3,11 @@
 // Global class reference.
 
 // @Filename: referencesForGlobals_1.ts
-////class [|{| "isWriteAccess": true, "isDefinition": true |}globalClass|] {
+/////*1*/class /*2*/globalClass {
 ////    public f() { }
 ////}
 
 // @Filename: referencesForGlobals_2.ts
-////var c = [|globalClass|]();
+////var c = /*3*/globalClass();
 
-verify.singleReferenceGroup("class globalClass");
+verify.baselineFindAllReferences('1', '2', '3');

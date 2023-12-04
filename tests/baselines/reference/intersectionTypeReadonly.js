@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/intersection/intersectionTypeReadonly.ts] ////
+
 //// [intersectionTypeReadonly.ts]
 interface Base {
     readonly value: number;
@@ -19,7 +21,7 @@ base.value = 12 // error, lhs can't be a readonly property
 let identical: Base & Identical;
 identical.value = 12; // error, lhs can't be a readonly property
 let mutable: Base & Mutable;
-mutable.value = 12; // error, lhs can't be a readonly property
+mutable.value = 12;
 let differentType: Base & DifferentType;
 differentType.value = 12; // error, lhs can't be a readonly property
 let differentName: Base & DifferentName;
@@ -32,7 +34,7 @@ base.value = 12; // error, lhs can't be a readonly property
 var identical;
 identical.value = 12; // error, lhs can't be a readonly property
 var mutable;
-mutable.value = 12; // error, lhs can't be a readonly property
+mutable.value = 12;
 var differentType;
 differentType.value = 12; // error, lhs can't be a readonly property
 var differentName;

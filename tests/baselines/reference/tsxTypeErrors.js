@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/jsx/tsxTypeErrors.tsx] ////
+
 //// [tsxTypeErrors.tsx]
 // A built-in element (OK)
 var a1 = <div id="foo" />;
@@ -44,7 +46,7 @@ var a3 = <div id={thing}/>;
 // Mistyped html name (error)
 var e1 = <imag src="bar.jpg"/>;
 // A custom type
-var MyClass = (function () {
+var MyClass = /** @class */ (function () {
     function MyClass() {
     }
     return MyClass;

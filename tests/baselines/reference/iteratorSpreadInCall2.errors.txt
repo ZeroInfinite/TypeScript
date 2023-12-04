@@ -1,7 +1,7 @@
-tests/cases/conformance/es6/spread/iteratorSpreadInCall2.ts(15,1): error TS2556: Expected 1 arguments, but got a minimum of 0.
+iteratorSpreadInCall2.ts(15,5): error TS2556: A spread argument must either have a tuple type or be passed to a rest parameter.
 
 
-==== tests/cases/conformance/es6/spread/iteratorSpreadInCall2.ts (1 errors) ====
+==== iteratorSpreadInCall2.ts (1 errors) ====
     function foo(s: symbol[]) { }
     class SymbolIterator {
         next() {
@@ -17,5 +17,5 @@ tests/cases/conformance/es6/spread/iteratorSpreadInCall2.ts(15,1): error TS2556:
     }
     
     foo(...new SymbolIterator);
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-!!! error TS2556: Expected 1 arguments, but got a minimum of 0.
+        ~~~~~~~~~~~~~~~~~~~~~
+!!! error TS2556: A spread argument must either have a tuple type or be passed to a rest parameter.

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/incrementOperator/incrementOperatorWithAnyOtherType.ts] ////
+
 //// [incrementOperatorWithAnyOtherType.ts]
 // ++ operator on any type
 
@@ -54,7 +56,7 @@ var ANY;
 var ANY1;
 var ANY2 = ["", ""];
 var obj = { x: 1, y: null };
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;

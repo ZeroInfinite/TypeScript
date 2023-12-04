@@ -1,11 +1,14 @@
-=== tests/cases/conformance/es6/for-ofStatements/for-of27.ts ===
+//// [tests/cases/conformance/es6/for-ofStatements/for-of27.ts] ////
+
+=== for-of27.ts ===
 class StringIterator {
 >StringIterator : StringIterator
 
     [Symbol.iterator]: any;
->Symbol.iterator : symbol
+>[Symbol.iterator] : any
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 }
 
 for (var v of new StringIterator) { }

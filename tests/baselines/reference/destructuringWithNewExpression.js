@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/destructuringWithNewExpression.ts] ////
+
 //// [destructuringWithNewExpression.ts]
 class C {
     x = 0;
@@ -6,7 +8,7 @@ class C {
 var { x } = new C;
 
 //// [destructuringWithNewExpression.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = 0;
     }

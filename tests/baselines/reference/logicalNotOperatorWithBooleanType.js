@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/logicalNotOperator/logicalNotOperatorWithBooleanType.ts] ////
+
 //// [logicalNotOperatorWithBooleanType.ts]
 // ! operator on boolean type
 var BOOLEAN: boolean;
@@ -42,7 +44,7 @@ var ResultIsBoolean = !!BOOLEAN;
 // ! operator on boolean type
 var BOOLEAN;
 function foo() { return true; }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () { return false; };

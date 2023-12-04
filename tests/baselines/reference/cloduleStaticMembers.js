@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/cloduleStaticMembers.ts] ////
+
 //// [cloduleStaticMembers.ts]
 class Clod {
     private static x = 10;
@@ -13,7 +15,7 @@ module Clod {
 
 
 //// [cloduleStaticMembers.js]
-var Clod = (function () {
+var Clod = /** @class */ (function () {
     function Clod() {
     }
     Clod.x = 10;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/collisionRestParameterUnderscoreIUsage.ts] ////
+
 //// [collisionRestParameterUnderscoreIUsage.ts]
 declare var console: { log(msg?: string): void; };
 var _i = "This is what I'd expect to see";
@@ -10,7 +12,7 @@ new Foo();
 
 //// [collisionRestParameterUnderscoreIUsage.js]
 var _i = "This is what I'd expect to see";
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         var args = [];
         for (var _a = 0; _a < arguments.length; _a++) {

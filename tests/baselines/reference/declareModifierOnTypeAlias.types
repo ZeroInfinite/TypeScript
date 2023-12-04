@@ -1,4 +1,6 @@
-=== tests/cases/compiler/declareModifierOnTypeAlias.ts ===
+//// [tests/cases/compiler/declareModifierOnTypeAlias.ts] ////
+
+=== declareModifierOnTypeAlias.ts ===
 declare type Foo = string;
 >Foo : string
 
@@ -7,5 +9,4 @@ type Bar = number;
 
 declare type Baz = Bar;
 >Baz : number
->Bar : number
 

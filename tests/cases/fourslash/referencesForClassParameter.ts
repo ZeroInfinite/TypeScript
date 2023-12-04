@@ -7,22 +7,16 @@
 ////class p { }
 ////
 ////class foo {
-////    constructor (public [|{| "isWriteAccess": true, "isDefinition": true |}p|]: any) {
+////    constructor (/*1*/public /*2*/p: any) {
 ////    }
 ////
 ////    public f(p) {
-////        this.[|p|] = p;
+////        this./*3*/p = p;
 ////    }
 ////
 ////}
 ////
 ////var n = new foo(undefined);
-////n.[|p|] = null;
+////n./*4*/p = null;
 
-const ranges = test.ranges();
-const [r0, r1, r2] = ranges;
-verify.referenceGroups([r0, r1], [{ definition: "(property) foo.p: any", ranges }]);
-verify.referenceGroups(r2, [
-    { definition: "(property) foo.p: any", ranges: [r0, r1] },
-    { definition: "(property) foo.p: any", ranges: [r2] }
-]);
+verify.baselineFindAllReferences('1', '2', '3', '4');

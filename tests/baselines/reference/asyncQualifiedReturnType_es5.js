@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/async/es5/asyncQualifiedReturnType_es5.ts] ////
+
 //// [asyncQualifiedReturnType_es5.ts]
 namespace X {
     export class MyPromise<T> extends Promise<T> {
@@ -10,7 +12,7 @@ async function f(): X.MyPromise<void> {
 //// [asyncQualifiedReturnType_es5.js]
 var X;
 (function (X) {
-    var MyPromise = (function (_super) {
+    var MyPromise = /** @class */ (function (_super) {
         __extends(MyPromise, _super);
         function MyPromise() {
             return _super !== null && _super.apply(this, arguments) || this;

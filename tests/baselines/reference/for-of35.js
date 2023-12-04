@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/for-ofStatements/for-of35.ts] ////
+
 //// [for-of35.ts]
 class StringIterator {
     next() {
@@ -6,7 +8,7 @@ class StringIterator {
             value: v
         }
     }
-    
+
     [Symbol.iterator]() {
         return this;
     }

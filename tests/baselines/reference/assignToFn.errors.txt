@@ -1,7 +1,7 @@
-tests/cases/compiler/assignToFn.ts(8,5): error TS2322: Type '"hello"' is not assignable to type '(n: number) => boolean'.
+assignToFn.ts(8,5): error TS2322: Type 'string' is not assignable to type '(n: number) => boolean'.
 
 
-==== tests/cases/compiler/assignToFn.ts (1 errors) ====
+==== assignToFn.ts (1 errors) ====
     module M {
         interface I {
     	f(n:number):boolean;
@@ -11,6 +11,6 @@ tests/cases/compiler/assignToFn.ts(8,5): error TS2322: Type '"hello"' is not ass
     
         x.f="hello";
         ~~~
-!!! error TS2322: Type '"hello"' is not assignable to type '(n: number) => boolean'.
+!!! error TS2322: Type 'string' is not assignable to type '(n: number) => boolean'.
     }
     

@@ -1,10 +1,10 @@
-=== tests/cases/conformance/jsx/file.tsx ===
+//// [tests/cases/conformance/jsx/checkJsxChildrenProperty12.tsx] ////
+
+=== file.tsx ===
 import React = require('react');
 >React : typeof React
 
 interface ButtonProp {
->ButtonProp : ButtonProp
-
     a: number,
 >a : number
 
@@ -13,7 +13,6 @@ interface ButtonProp {
 
     children: Button;
 >children : Button
->Button : Button
 }
 
 class Button extends React.Component<ButtonProp, any> {
@@ -21,7 +20,6 @@ class Button extends React.Component<ButtonProp, any> {
 >React.Component : React.Component<ButtonProp, any>
 >React : typeof React
 >Component : typeof React.Component
->ButtonProp : ButtonProp
 
     render() {
 >render : () => JSX.Element
@@ -60,8 +58,6 @@ class Button extends React.Component<ButtonProp, any> {
 }
 
 interface InnerButtonProp {
->InnerButtonProp : InnerButtonProp
-
 	a: number
 >a : number
 }
@@ -71,7 +67,6 @@ class InnerButton extends React.Component<InnerButtonProp, any> {
 >React.Component : React.Component<InnerButtonProp, any>
 >React : typeof React
 >Component : typeof React.Component
->InnerButtonProp : InnerButtonProp
 
 	render() {
 >render : () => JSX.Element

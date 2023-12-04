@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericGetter.ts] ////
+
 //// [genericGetter.ts]
 class C<T> {
     data: T;
@@ -10,14 +12,14 @@ var c = new C<number>();
 var r: string = c.x;
 
 //// [genericGetter.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "x", {
         get: function () {
             return this.data;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

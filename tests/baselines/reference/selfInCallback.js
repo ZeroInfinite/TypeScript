@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/selfInCallback.ts] ////
+
 //// [selfInCallback.ts]
 class C {
 	public p1 = 0;
@@ -8,7 +10,7 @@ class C {
 }
 
 //// [selfInCallback.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.p1 = 0;
     }

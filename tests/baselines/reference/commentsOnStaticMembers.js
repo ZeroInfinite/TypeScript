@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/commentsOnStaticMembers.ts] ////
+
 //// [commentsOnStaticMembers.ts]
 class test {
     /**
@@ -20,7 +22,7 @@ class test {
 }
 
 //// [commentsOnStaticMembers.js]
-var test = (function () {
+var test = /** @class */ (function () {
     function test() {
     }
     /**

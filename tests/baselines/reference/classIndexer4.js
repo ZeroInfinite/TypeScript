@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classIndexer4.ts] ////
+
 //// [classIndexer4.ts]
 class C123 {
     [s: string]: number;
@@ -11,7 +13,7 @@ interface D123 extends C123 {
 }
 
 //// [classIndexer4.js]
-var C123 = (function () {
+var C123 = /** @class */ (function () {
     function C123() {
     }
     return C123;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/anonterface.ts] ////
+
 //// [anonterface.ts]
 module M {
     export class C {
@@ -17,7 +19,7 @@ c.m(function(n) { return "hello: "+n; },18);
 //// [anonterface.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         C.prototype.m = function (fn, n2) {

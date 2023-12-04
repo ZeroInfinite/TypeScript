@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/stringIndexerAndConstructor.ts] ////
+
 //// [stringIndexerAndConstructor.ts]
 class C {
     [s: string]: number;
@@ -14,7 +16,7 @@ interface I {
 }
 
 //// [stringIndexerAndConstructor.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.v = function () { };

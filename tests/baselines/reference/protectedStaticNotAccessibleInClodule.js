@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/classes/members/accessibility/protectedStaticNotAccessibleInClodule.ts] ////
+
 //// [protectedStaticNotAccessibleInClodule.ts]
 // Any attempt to access a private property member outside the class body that contains its declaration results in a compile-time error.
 
@@ -13,7 +15,7 @@ module C {
 
 //// [protectedStaticNotAccessibleInClodule.js]
 // Any attempt to access a private property member outside the class body that contains its declaration results in a compile-time error.
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

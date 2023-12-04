@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/privateVisibles.ts] ////
+
 //// [privateVisibles.ts]
 class Foo {
 	private pvar = 0;
@@ -10,7 +12,7 @@ class Foo {
 
 
 //// [privateVisibles.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.pvar = 0;
         var n = this.pvar;

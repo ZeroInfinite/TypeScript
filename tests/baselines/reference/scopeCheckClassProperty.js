@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/scopeCheckClassProperty.ts] ////
+
 //// [scopeCheckClassProperty.ts]
 class C {
   constructor() {
@@ -11,14 +13,14 @@ class A {
 
 
 //// [scopeCheckClassProperty.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
         this.x = new A().p; // should also be ok
         new A().p; // ok
     }
     return C;
 }());
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
         this.p = '';
     }

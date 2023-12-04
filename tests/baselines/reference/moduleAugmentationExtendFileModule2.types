@@ -1,4 +1,6 @@
-=== tests/cases/compiler/map.ts ===
+//// [tests/cases/compiler/moduleAugmentationExtendFileModule2.ts] ////
+
+=== map.ts ===
 import { Observable } from "./observable"
 >Observable : typeof Observable
 
@@ -14,19 +16,13 @@ import { Observable } from "./observable"
 >function() { } : () => void
 
 declare module "./observable" {
-    interface Observable<T> {
->Observable : Observable<T>
->T : T
+>"./observable" : typeof import("observable")
 
+    interface Observable<T> {
         map<U>(proj: (e:T) => U): Observable<U>
 >map : <U>(proj: (e: T) => U) => Observable<U>
->U : U
 >proj : (e: T) => U
 >e : T
->T : T
->U : U
->Observable : Observable<T>
->U : U
     }
     namespace Observable {
 >Observable : typeof Observable
@@ -36,18 +32,14 @@ declare module "./observable" {
     }
 }
 
-=== tests/cases/compiler/observable.ts ===
+=== observable.ts ===
 export declare class Observable<T> {
 >Observable : Observable<T>
->T : T
 
     filter(pred: (e:T) => boolean): Observable<T>;
 >filter : (pred: (e: T) => boolean) => Observable<T>
 >pred : (e: T) => boolean
 >e : T
->T : T
->Observable : Observable<T>
->T : T
 }
 
 export namespace Observable {
@@ -58,7 +50,7 @@ export namespace Observable {
 }
 
 
-=== tests/cases/compiler/main.ts ===
+=== main.ts ===
 import { Observable } from "./observable"
 >Observable : typeof Observable
 
@@ -66,7 +58,6 @@ import "./map";
 
 let x: Observable<number>;
 >x : Observable<number>
->Observable : Observable<T>
 
 let y = x.map(x => x + 1);
 >y : Observable<number>

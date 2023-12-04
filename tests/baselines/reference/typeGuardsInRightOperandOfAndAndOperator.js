@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardsInRightOperandOfAndAndOperator.ts] ////
+
 //// [typeGuardsInRightOperandOfAndAndOperator.ts]
 // In the right operand of a && operation, 
 // the type of a variable or parameter is narrowed by any type guard in the left operand when true.
@@ -85,6 +87,8 @@ function foo7(x) {
     return typeof x !== "string"
         && ((z = x) // number | boolean
             && (typeof x === "number"
+                // change value of x
                 ? ((x = 10) && x.toString()) // x is number
+                // do not change value
                 : ((y = x) && x.toString()))); // x is boolean
 }

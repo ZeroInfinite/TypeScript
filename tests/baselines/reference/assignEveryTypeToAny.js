@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/any/assignEveryTypeToAny.ts] ////
+
 //// [assignEveryTypeToAny.ts]
 // all of these are valid
 
@@ -82,7 +84,7 @@ var f = E.A;
 x = f;
 var g;
 x = g;
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

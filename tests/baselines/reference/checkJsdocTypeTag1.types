@@ -1,4 +1,6 @@
-=== tests/cases/conformance/jsdoc/0.js ===
+//// [tests/cases/conformance/jsdoc/checkJsdocTypeTag1.ts] ////
+
+=== 0.js ===
 // @ts-check
 /** @type {String} */
 var S = "hello world";
@@ -61,7 +63,7 @@ y(1);
 /** @type {function (number)} */
 const x1 = (a) => a + 1;
 >x1 : (arg0: number) => any
->(a) => a + 1 : (a: number) => number
+>(a) => a + 1 : (a: number) => any
 >a : number
 >a + 1 : number
 >a : number

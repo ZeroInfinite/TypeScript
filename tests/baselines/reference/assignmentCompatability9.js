@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/assignmentCompatability9.ts] ////
+
 //// [assignmentCompatability9.ts]
 module __test1__ {
     export interface interfaceWithPublicAndOptional<T,U> { one: T; two?: U; };  var obj4: interfaceWithPublicAndOptional<number,string> = { one: 1 };;
@@ -19,7 +21,7 @@ var __test1__;
 })(__test1__ || (__test1__ = {}));
 var __test2__;
 (function (__test2__) {
-    var classWithOptional = (function () {
+    var classWithOptional = /** @class */ (function () {
         function classWithOptional(one) {
             this.one = one;
         }

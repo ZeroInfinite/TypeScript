@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/members/objectTypeWithNumericProperty.ts] ////
+
 //// [objectTypeWithNumericProperty.ts]
 // no errors here
 
@@ -45,7 +47,7 @@ var r4 = b['1.1'];
 
 //// [objectTypeWithNumericProperty.js]
 // no errors here
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

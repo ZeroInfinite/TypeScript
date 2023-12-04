@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/decoratorCallGeneric.ts] ////
+
 //// [decoratorCallGeneric.ts]
 interface I<T> {
     prototype: T,
@@ -20,7 +22,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 function dec(c) { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.m = function () { };

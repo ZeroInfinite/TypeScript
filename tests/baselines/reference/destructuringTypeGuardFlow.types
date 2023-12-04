@@ -1,10 +1,11 @@
-=== tests/cases/compiler/destructuringTypeGuardFlow.ts ===
+//// [tests/cases/compiler/destructuringTypeGuardFlow.ts] ////
+
+=== destructuringTypeGuardFlow.ts ===
 type foo = {
->foo : foo
+>foo : { bar: number | null; baz: string; nested: {    a: number;    b: string | null;}; }
 
   bar: number | null;
 >bar : number | null
->null : null
 
   baz: string;
 >baz : string
@@ -17,13 +18,11 @@ type foo = {
 
     b: string | null;
 >b : string | null
->null : null
   }
 };
 
 const aFoo: foo = { bar: 3, baz: "b", nested: { a: 1, b: "y" } };
 >aFoo : foo
->foo : foo
 >{ bar: 3, baz: "b", nested: { a: 1, b: "y" } } : { bar: number; baz: string; nested: { a: number; b: string; }; }
 >bar : number
 >3 : 3
@@ -80,16 +79,13 @@ if (aFoo.bar && aFoo.nested.b) {
 }
 
 type bar = {
->bar : bar
+>bar : { elem1: number | null; elem2: foo | null; }
 
   elem1: number | null;
 >elem1 : number | null
->null : null
 
   elem2: foo | null;
 >elem2 : foo | null
->foo : foo
->null : null
 
 };
 

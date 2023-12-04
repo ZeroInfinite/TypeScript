@@ -1,9 +1,9 @@
-=== tests/cases/conformance/types/members/typesWithOptionalProperty.ts ===
+//// [tests/cases/conformance/types/members/typesWithOptionalProperty.ts] ////
+
+=== typesWithOptionalProperty.ts ===
 // basic uses of optional properties without errors
 
 interface I {
->I : I
-
     foo: string;
 >foo : string
 
@@ -55,7 +55,6 @@ var d = { foo: '', bar: 3, baz: () => '' };
 
 var i: I;
 >i : I
->I : I
 
 i = b;
 >i = b : { foo: string; }

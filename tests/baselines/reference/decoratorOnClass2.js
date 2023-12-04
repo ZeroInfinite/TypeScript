@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/class/decoratorOnClass2.ts] ////
+
 //// [decoratorOnClass2.ts]
 declare function dec<T>(target: T): T;
 
@@ -14,7 +16,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var C = (function () {
+exports.C = void 0;
+var C = /** @class */ (function () {
     function C() {
     }
     C = __decorate([

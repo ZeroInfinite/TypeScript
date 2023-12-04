@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/innerTypeParameterShadowingOuterOne.ts] ////
+
 //// [innerTypeParameterShadowingOuterOne.ts]
 // inner type parameters shadow outer ones of the same name
 // no errors expected
@@ -54,4 +56,4 @@ function f2() {
 //    }
 //    var x: U;
 //    x.getDate();
-//} 
+//}

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/badThisBinding.ts] ////
+
 //// [badThisBinding.ts]
 declare function foo(a:any): any;
 declare function bar(a:any): any;
@@ -14,7 +16,7 @@ class Greeter {
 } 
 
 //// [badThisBinding.js]
-var Greeter = (function () {
+var Greeter = /** @class */ (function () {
     function Greeter() {
         var _this = this;
         foo(function () {

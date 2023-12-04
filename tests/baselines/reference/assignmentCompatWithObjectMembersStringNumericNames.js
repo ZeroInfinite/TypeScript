@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/assignmentCompatWithObjectMembersStringNumericNames.ts] ////
+
 //// [assignmentCompatWithObjectMembersStringNumericNames.ts]
 // members N and M of types S and T have the same name, same accessibility, same optionality, and N is assignable M
 // string named numeric properties work correctly, errors below unless otherwise noted
@@ -90,12 +92,12 @@ module NumbersAndStrings {
 // string named numeric properties work correctly, errors below unless otherwise noted
 var JustStrings;
 (function (JustStrings) {
-    var S = (function () {
+    var S = /** @class */ (function () {
         function S() {
         }
         return S;
     }());
-    var T = (function () {
+    var T = /** @class */ (function () {
         function T() {
         }
         return T;
@@ -130,12 +132,12 @@ var JustStrings;
 })(JustStrings || (JustStrings = {}));
 var NumbersAndStrings;
 (function (NumbersAndStrings) {
-    var S = (function () {
+    var S = /** @class */ (function () {
         function S() {
         }
         return S;
     }());
-    var T = (function () {
+    var T = /** @class */ (function () {
         function T() {
         }
         return T;

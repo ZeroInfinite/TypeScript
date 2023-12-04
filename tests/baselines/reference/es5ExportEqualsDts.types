@@ -1,4 +1,6 @@
-=== tests/cases/compiler/es5ExportEqualsDts.ts ===
+//// [tests/cases/compiler/es5ExportEqualsDts.ts] ////
+
+=== es5ExportEqualsDts.ts ===
 class A {
 >A : A
 
@@ -8,7 +10,6 @@ class A {
         var aVal: A.B;
 >aVal : A.B
 >A : any
->B : A.B
 
         return aVal;
 >aVal : A.B
@@ -16,10 +17,7 @@ class A {
 }
 
 module A {
->A : typeof A
-
     export interface B { }
->B : B
 }
 
 export = A

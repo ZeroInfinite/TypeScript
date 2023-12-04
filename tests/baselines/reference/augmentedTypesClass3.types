@@ -1,11 +1,12 @@
-=== tests/cases/compiler/augmentedTypesClass3.ts ===
+//// [tests/cases/compiler/augmentedTypesClass3.ts] ////
+
+=== augmentedTypesClass3.ts ===
 // class then module
 class c5 { public foo() { } }
 >c5 : c5
 >foo : () => void
 
 module c5 { } // should be ok
->c5 : typeof c5
 
 class c5a { public foo() { } }
 >c5a : c5a

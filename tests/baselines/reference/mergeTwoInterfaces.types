@@ -1,24 +1,21 @@
-=== tests/cases/conformance/interfaces/declarationMerging/mergeTwoInterfaces.ts ===
+//// [tests/cases/conformance/interfaces/declarationMerging/mergeTwoInterfaces.ts] ////
+
+=== mergeTwoInterfaces.ts ===
 // two interfaces with the same root module should merge
 
 // basic case
 interface A {
->A : A
-
     foo: string;
 >foo : string
 }
 
 interface A {
->A : A
-
     bar: number;
 >bar : number
 }
 
 var a: A;
 >a : A
->A : A
 
 var r1 = a.foo
 >r1 : string
@@ -34,29 +31,20 @@ var r2 = a.bar;
 
 // basic generic case
 interface B<T> {
->B : B<T>
->T : T
-
     baz: string;
 >baz : string
 
     foo: T;
 >foo : T
->T : T
 }
 
 interface B<T> {
->B : B<T>
->T : T
-
     bar: T;
 >bar : T
->T : T
 }
 
 var b: B<string>;
 >b : B<string>
->B : B<T>
 
 var r3 = b.foo
 >r3 : string
@@ -75,22 +63,17 @@ module M {
 >M : typeof M
 
     interface A {
->A : A
-
         foo: string;
 >foo : string
     }
 
     interface A {
->A : A
-
         bar: number;
 >bar : number
     }
 
     var a: A;
 >a : A
->A : A
 
     var r1 = a.foo;
 >r1 : string
@@ -106,26 +89,17 @@ module M {
 >bar : number
 
     interface B<T> {
->B : B<T>
->T : T
-
         foo: T;
 >foo : T
->T : T
     }
 
     interface B<T> {
->B : B<T>
->T : T
-
         bar: T;
 >bar : T
->T : T
     }
 
     var b: B<string>;
 >b : B<string>
->B : B<T>
 
     var r3 = b.foo
 >r3 : string

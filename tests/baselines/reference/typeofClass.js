@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeofClass.ts] ////
+
 //// [typeofClass.ts]
 class K {
     foo: number;
@@ -12,7 +14,7 @@ k2.foo;
 k2.bar;
 
 //// [typeofClass.js]
-var K = (function () {
+var K = /** @class */ (function () {
     function K() {
     }
     return K;

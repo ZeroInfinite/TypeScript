@@ -1,3 +1,4 @@
+// @allowUnreachableCode: false
 var xx: any;
 var yy: any;
 
@@ -39,6 +40,7 @@ xx = (!xx, 10);
 xx = (~xx, 10);
 xx = (-xx, 10);
 xx = (+xx, 10);
+xx = (0, xx)();
 
 // OK cases
 xx = (xx ? x++ : 4, 10);
@@ -50,3 +52,6 @@ xx = ((xx+= 4), xx);
 xx = (Math.pow(3, 2), 4);
 xx = (void xx, 10);
 xx = (xx as any, 100);
+xx = (0, xx.fn)();
+xx = (0, xx['fn'])();
+xx = (0, xx.fn)``;

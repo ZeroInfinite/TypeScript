@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticOffOfInstance1.ts] ////
+
 //// [staticOffOfInstance1.ts]
 class List {
   public Blah() {
@@ -7,7 +9,7 @@ class List {
 }
 
 //// [staticOffOfInstance1.js]
-var List = (function () {
+var List = /** @class */ (function () {
     function List() {
     }
     List.prototype.Blah = function () {

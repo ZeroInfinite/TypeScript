@@ -3,9 +3,9 @@
 // Should handle property access expressions on namespaces
 
 //// module Foo {
-////     [|export function hello() {}|]
+////     export function [|hello|]() {}
 //// }
 ////
 //// Foo.hell/*reference*/o();
 
-verify.allRangesAppearInImplementationList("reference");
+verify.baselineGoToImplementation("reference");

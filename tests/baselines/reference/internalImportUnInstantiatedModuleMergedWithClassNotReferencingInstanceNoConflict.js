@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/internalImportUnInstantiatedModuleMergedWithClassNotReferencingInstanceNoConflict.ts] ////
+
 //// [internalImportUnInstantiatedModuleMergedWithClassNotReferencingInstanceNoConflict.ts]
 class A {
     aProp: string;
@@ -12,7 +14,7 @@ module B {
 
 
 //// [internalImportUnInstantiatedModuleMergedWithClassNotReferencingInstanceNoConflict.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;

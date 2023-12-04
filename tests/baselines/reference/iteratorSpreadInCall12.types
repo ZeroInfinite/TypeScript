@@ -1,11 +1,11 @@
-=== tests/cases/conformance/es6/spread/iteratorSpreadInCall12.ts ===
+//// [tests/cases/conformance/es6/spread/iteratorSpreadInCall12.ts] ////
+
+=== iteratorSpreadInCall12.ts ===
 class Foo<T> {
 >Foo : Foo<T>
->T : T
 
     constructor(...s: T[]) { }
 >s : T[]
->T : T
 }
 
 class SymbolIterator {
@@ -30,17 +30,18 @@ class SymbolIterator {
     }
 
     [Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => this
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
         return this;
 >this : this
     }
 }
 
-class StringIterator {
->StringIterator : StringIterator
+class _StringIterator {
+>_StringIterator : _StringIterator
 
     next() {
 >next : () => { value: string; done: boolean; }
@@ -60,26 +61,27 @@ class StringIterator {
     }
 
     [Symbol.iterator]() {
->Symbol.iterator : symbol
+>[Symbol.iterator] : () => this
+>Symbol.iterator : unique symbol
 >Symbol : SymbolConstructor
->iterator : symbol
+>iterator : unique symbol
 
         return this;
 >this : this
     }
 }
 
-new Foo(...[...new SymbolIterator, ...[...new StringIterator]]);
->new Foo(...[...new SymbolIterator, ...[...new StringIterator]]) : Foo<string | symbol>
+new Foo(...[...new SymbolIterator, ...[...new _StringIterator]]);
+>new Foo(...[...new SymbolIterator, ...[...new _StringIterator]]) : Foo<string | symbol>
 >Foo : typeof Foo
->...[...new SymbolIterator, ...[...new StringIterator]] : string | symbol
->[...new SymbolIterator, ...[...new StringIterator]] : (string | symbol)[]
+>...[...new SymbolIterator, ...[...new _StringIterator]] : string | symbol
+>[...new SymbolIterator, ...[...new _StringIterator]] : (string | symbol)[]
 >...new SymbolIterator : symbol
 >new SymbolIterator : SymbolIterator
 >SymbolIterator : typeof SymbolIterator
->...[...new StringIterator] : string
->[...new StringIterator] : string[]
->...new StringIterator : string
->new StringIterator : StringIterator
->StringIterator : typeof StringIterator
+>...[...new _StringIterator] : string
+>[...new _StringIterator] : string[]
+>...new _StringIterator : string
+>new _StringIterator : _StringIterator
+>_StringIterator : typeof _StringIterator
 

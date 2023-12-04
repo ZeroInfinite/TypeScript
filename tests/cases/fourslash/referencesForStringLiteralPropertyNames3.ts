@@ -1,17 +1,11 @@
 /// <reference path='fourslash.ts'/>
 
 ////class Foo2 {
-////    get "[|{| "isWriteAccess": true, "isDefinition": true |}42|]"() { return 0; }
-////    set [|{| "isWriteAccess": true, "isDefinition": true |}42|](n) { }
+////    /*1*/get "/*2*/42"() { return 0; }
+////    /*3*/set /*4*/42(n) { }
 ////}
 ////
 ////var y: Foo2;
-////y[[|42|]];
+////y[/*5*/42];
 
-const ranges = test.ranges();
-const [r0, r1, r2] = ranges;
-verify.referenceGroups([r0, r1], [{ definition: '(property) Foo2["42"]: number', ranges }]);
-verify.referenceGroups(r2, [
-    { definition: '(property) Foo2["42"]: number', ranges: [r0, r1] },
-    { definition: '(property) Foo2["42"]: number', ranges: [r2] },
-]);
+verify.baselineFindAllReferences('1', '2', '3', '4', '5');

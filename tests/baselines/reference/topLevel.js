@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/topLevel.ts] ////
+
 //// [topLevel.ts]
 interface IPoint {
     x:number;
@@ -28,7 +30,7 @@ result+=(M.origin.move(1,1));
 
 
 //// [topLevel.js]
-var Point = (function () {
+var Point = /** @class */ (function () {
     function Point(x, y) {
         this.x = x;
         this.y = y;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/autoLift2.ts] ////
+
 //// [autoLift2.ts]
 class A
 
@@ -32,7 +34,7 @@ a.baz();
 
 
 //// [autoLift2.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
         this.foo;
         any;

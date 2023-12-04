@@ -1,8 +1,7 @@
-=== tests/cases/conformance/jsx/test.tsx ===
-declare module JSX { interface Element { } }
->JSX : any
->Element : Element
+//// [tests/cases/conformance/jsx/tsxReactEmit3.tsx] ////
 
+=== test.tsx ===
+declare module JSX { interface Element { } }
 declare var React: any;
 >React : any
 

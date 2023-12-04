@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/staticGetter2.ts] ////
+
 //// [staticGetter2.ts]
 // once caused stack overflow
 class C {
@@ -9,7 +11,7 @@ class C {
 
 //// [staticGetter2.js]
 // once caused stack overflow
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.x = function () {

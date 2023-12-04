@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleCrashBug1.ts] ////
+
 //// [moduleCrashBug1.ts]
 module _modes {
  export interface IMode {
@@ -24,7 +26,7 @@ var m : _modes;
 //// [moduleCrashBug1.js]
 var _modes;
 (function (_modes) {
-    var Mode = (function () {
+    var Mode = /** @class */ (function () {
         function Mode() {
         }
         return Mode;

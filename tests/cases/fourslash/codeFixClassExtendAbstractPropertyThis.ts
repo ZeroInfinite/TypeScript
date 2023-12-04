@@ -1,11 +1,20 @@
 /// <reference path='fourslash.ts' />
 
-//// abstract class A {
+// @noImplicitOverride: true
+////abstract class A {
 ////    abstract x: this;
-//// }
+////}
 ////
-//// class C extends A {[| |]}
+////class C extends A {[| |]}
 
-verify.rangeAfterCodeFix(`
-    x: this;
-`);
+verify.codeFix({
+    description: "Implement inherited abstract class",
+    newFileContent:
+`abstract class A {
+    abstract x: this;
+}
+
+class C extends A {
+    override x: this;
+}`,
+});

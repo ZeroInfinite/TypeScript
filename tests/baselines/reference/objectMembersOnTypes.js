@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/objectMembersOnTypes.ts] ////
+
 //// [objectMembersOnTypes.ts]
 interface I {}
 class AAA implements I { }
@@ -10,7 +12,7 @@ c.toString(); // used to be an error
 
 
 //// [objectMembersOnTypes.js]
-var AAA = (function () {
+var AAA = /** @class */ (function () {
     function AAA() {
     }
     return AAA;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationVisibilityErrorTypeAlias.ts] ////
+
 //// [declFileTypeAnnotationVisibilityErrorTypeAlias.ts]
 interface Window {
     someMethod();
@@ -45,7 +47,7 @@ var M;
 (function (M) {
     var N;
     (function (N) {
-        var Window = (function () {
+        var Window = /** @class */ (function () {
             function Window() {
             }
             return Window;
@@ -57,7 +59,7 @@ var M1;
 (function (M1) {
     var N;
     (function (N) {
-        var Window = (function () {
+        var Window = /** @class */ (function () {
             function Window() {
             }
             return Window;
@@ -67,19 +69,19 @@ var M1;
 })(M1 || (M1 = {}));
 var M2;
 (function (M2) {
-    var private1 = (function () {
+    var private1 = /** @class */ (function () {
         function private1() {
         }
         return private1;
     }());
-    var public1 = (function () {
+    var public1 = /** @class */ (function () {
         function public1() {
         }
         return public1;
     }());
     var m3;
     (function (m3) {
-        var public1 = (function () {
+        var public1 = /** @class */ (function () {
             function public1() {
             }
             return public1;
@@ -87,3 +89,40 @@ var M2;
         m3.public1 = public1;
     })(m3 || (m3 = {}));
 })(M2 || (M2 = {}));
+
+
+//// [declFileTypeAnnotationVisibilityErrorTypeAlias.d.ts]
+interface Window {
+    someMethod(): any;
+}
+declare namespace M {
+    type W = Window | string;
+    export namespace N {
+        class Window {
+        }
+        var p: W;
+    }
+    export {};
+}
+declare namespace M1 {
+    type W = Window | string;
+    namespace N {
+        class Window {
+        }
+        var p: W;
+    }
+}
+declare namespace M2 {
+    class private1 {
+    }
+    class public1 {
+    }
+    namespace m3 {
+        class public1 {
+        }
+    }
+    export type t2 = private1;
+    export type t12 = public1;
+    export type t112 = m3.public1;
+    export {};
+}

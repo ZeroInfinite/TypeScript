@@ -1,17 +1,17 @@
-tests/cases/compiler/requiredInitializedParameter2.ts(5,7): error TS2420: Class 'C1' incorrectly implements interface 'I1'.
-  Types of property 'method' are incompatible.
-    Type '(a: number, b: any) => void' is not assignable to type '() => any'.
+requiredInitializedParameter2.ts(6,5): error TS2416: Property 'method' in type 'C1' is not assignable to the same property in base type 'I1'.
+  Type '(a: number, b: any) => void' is not assignable to type '() => any'.
+    Target signature provides too few arguments. Expected 2 or more, but got 0.
 
 
-==== tests/cases/compiler/requiredInitializedParameter2.ts (1 errors) ====
+==== requiredInitializedParameter2.ts (1 errors) ====
     interface I1 {
         method();
     }
     
     class C1 implements I1 {
-          ~~
-!!! error TS2420: Class 'C1' incorrectly implements interface 'I1'.
-!!! error TS2420:   Types of property 'method' are incompatible.
-!!! error TS2420:     Type '(a: number, b: any) => void' is not assignable to type '() => any'.
         method(a = 0, b) { }
+        ~~~~~~
+!!! error TS2416: Property 'method' in type 'C1' is not assignable to the same property in base type 'I1'.
+!!! error TS2416:   Type '(a: number, b: any) => void' is not assignable to type '() => any'.
+!!! error TS2416:     Target signature provides too few arguments. Expected 2 or more, but got 0.
     }

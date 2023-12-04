@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/resolvingClassDeclarationWhenInBaseTypeResolution.ts] ////
+
 //// [resolvingClassDeclarationWhenInBaseTypeResolution.ts]
 module rionegrensis {
   export class caniventer extends Lanthanum.nitidus<petrophilus.minutilla, julianae.sumatrana> {
@@ -1021,10 +1023,15 @@ module caurinus {
 
 //// [resolvingClassDeclarationWhenInBaseTypeResolution.js]
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -1032,7 +1039,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var rionegrensis;
 (function (rionegrensis) {
-    var caniventer = (function (_super) {
+    var caniventer = /** @class */ (function (_super) {
         __extends(caniventer, _super);
         function caniventer() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1070,7 +1077,7 @@ var rionegrensis;
         return caniventer;
     }(Lanthanum.nitidus));
     rionegrensis.caniventer = caniventer;
-    var veraecrucis = (function (_super) {
+    var veraecrucis = /** @class */ (function (_super) {
         __extends(veraecrucis, _super);
         function veraecrucis() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1111,13 +1118,13 @@ var rionegrensis;
 })(rionegrensis || (rionegrensis = {}));
 var julianae;
 (function (julianae) {
-    var steerii = (function () {
+    var steerii = /** @class */ (function () {
         function steerii() {
         }
         return steerii;
     }());
     julianae.steerii = steerii;
-    var nudicaudus = (function () {
+    var nudicaudus = /** @class */ (function () {
         function nudicaudus() {
         }
         nudicaudus.prototype.brandtii = function () {
@@ -1153,7 +1160,7 @@ var julianae;
         return nudicaudus;
     }());
     julianae.nudicaudus = nudicaudus;
-    var galapagoensis = (function () {
+    var galapagoensis = /** @class */ (function () {
         function galapagoensis() {
         }
         galapagoensis.prototype.isabellae = function () {
@@ -1201,7 +1208,7 @@ var julianae;
         return galapagoensis;
     }());
     julianae.galapagoensis = galapagoensis;
-    var albidens = (function () {
+    var albidens = /** @class */ (function () {
         function albidens() {
         }
         albidens.prototype.mattheyi = function () {
@@ -1249,7 +1256,7 @@ var julianae;
         return albidens;
     }());
     julianae.albidens = albidens;
-    var oralis = (function (_super) {
+    var oralis = /** @class */ (function (_super) {
         __extends(oralis, _super);
         function oralis() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1335,7 +1342,7 @@ var julianae;
         return oralis;
     }(caurinus.psilurus));
     julianae.oralis = oralis;
-    var sumatrana = (function (_super) {
+    var sumatrana = /** @class */ (function (_super) {
         __extends(sumatrana, _super);
         function sumatrana() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1385,7 +1392,7 @@ var julianae;
         return sumatrana;
     }(Lanthanum.jugularis));
     julianae.sumatrana = sumatrana;
-    var gerbillus = (function () {
+    var gerbillus = /** @class */ (function () {
         function gerbillus() {
         }
         gerbillus.prototype.pundti = function () {
@@ -1457,7 +1464,7 @@ var julianae;
         return gerbillus;
     }());
     julianae.gerbillus = gerbillus;
-    var acariensis = (function () {
+    var acariensis = /** @class */ (function () {
         function acariensis() {
         }
         acariensis.prototype.levicula = function () {
@@ -1535,7 +1542,7 @@ var julianae;
         return acariensis;
     }());
     julianae.acariensis = acariensis;
-    var durangae = (function (_super) {
+    var durangae = /** @class */ (function (_super) {
         __extends(durangae, _super);
         function durangae() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1564,7 +1571,7 @@ var julianae;
 })(julianae || (julianae = {}));
 var ruatanica;
 (function (ruatanica) {
-    var hector = (function () {
+    var hector = /** @class */ (function () {
         function hector() {
         }
         hector.prototype.humulis = function () {
@@ -1585,7 +1592,7 @@ var ruatanica;
 })(ruatanica || (ruatanica = {}));
 var Lanthanum;
 (function (Lanthanum) {
-    var suillus = (function () {
+    var suillus = /** @class */ (function () {
         function suillus() {
         }
         suillus.prototype.spilosoma = function () {
@@ -1609,7 +1616,7 @@ var Lanthanum;
         return suillus;
     }());
     Lanthanum.suillus = suillus;
-    var nitidus = (function (_super) {
+    var nitidus = /** @class */ (function (_super) {
         __extends(nitidus, _super);
         function nitidus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1677,7 +1684,7 @@ var Lanthanum;
         return nitidus;
     }(argurus.gilbertii));
     Lanthanum.nitidus = nitidus;
-    var megalonyx = (function (_super) {
+    var megalonyx = /** @class */ (function (_super) {
         __extends(megalonyx, _super);
         function megalonyx() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1733,7 +1740,7 @@ var Lanthanum;
         return megalonyx;
     }(caurinus.johorensis));
     Lanthanum.megalonyx = megalonyx;
-    var jugularis = (function () {
+    var jugularis = /** @class */ (function () {
         function jugularis() {
         }
         jugularis.prototype.torrei = function () {
@@ -1826,7 +1833,7 @@ var Lanthanum;
 })(Lanthanum || (Lanthanum = {}));
 var rendalli;
 (function (rendalli) {
-    var zuluensis = (function (_super) {
+    var zuluensis = /** @class */ (function (_super) {
         __extends(zuluensis, _super);
         function zuluensis() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -1918,7 +1925,7 @@ var rendalli;
         return zuluensis;
     }(julianae.steerii));
     rendalli.zuluensis = zuluensis;
-    var moojeni = (function () {
+    var moojeni = /** @class */ (function () {
         function moojeni() {
         }
         moojeni.prototype.floweri = function () {
@@ -1984,7 +1991,7 @@ var rendalli;
         return moojeni;
     }());
     rendalli.moojeni = moojeni;
-    var crenulata = (function (_super) {
+    var crenulata = /** @class */ (function (_super) {
         __extends(crenulata, _super);
         function crenulata() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2013,7 +2020,7 @@ var rendalli;
 })(rendalli || (rendalli = {}));
 var trivirgatus;
 (function (trivirgatus) {
-    var tumidifrons = (function () {
+    var tumidifrons = /** @class */ (function () {
         function tumidifrons() {
         }
         tumidifrons.prototype.nivalis = function () {
@@ -2067,7 +2074,7 @@ var trivirgatus;
         return tumidifrons;
     }());
     trivirgatus.tumidifrons = tumidifrons;
-    var mixtus = (function (_super) {
+    var mixtus = /** @class */ (function (_super) {
         __extends(mixtus, _super);
         function mixtus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2117,7 +2124,7 @@ var trivirgatus;
         return mixtus;
     }(argurus.pygmaea));
     trivirgatus.mixtus = mixtus;
-    var lotor = (function () {
+    var lotor = /** @class */ (function () {
         function lotor() {
         }
         lotor.prototype.balensis = function () {
@@ -2135,7 +2142,7 @@ var trivirgatus;
         return lotor;
     }());
     trivirgatus.lotor = lotor;
-    var falconeri = (function () {
+    var falconeri = /** @class */ (function () {
         function falconeri() {
         }
         falconeri.prototype.cabrali = function () {
@@ -2183,7 +2190,7 @@ var trivirgatus;
         return falconeri;
     }());
     trivirgatus.falconeri = falconeri;
-    var oconnelli = (function () {
+    var oconnelli = /** @class */ (function () {
         function oconnelli() {
         }
         oconnelli.prototype.youngsoni = function () {
@@ -2276,7 +2283,7 @@ var trivirgatus;
 })(trivirgatus || (trivirgatus = {}));
 var quasiater;
 (function (quasiater) {
-    var bobrinskoi = (function () {
+    var bobrinskoi = /** @class */ (function () {
         function bobrinskoi() {
         }
         bobrinskoi.prototype.crassicaudatus = function () {
@@ -2308,7 +2315,7 @@ var quasiater;
     quasiater.bobrinskoi = bobrinskoi;
 })(quasiater || (quasiater = {}));
 (function (ruatanica) {
-    var americanus = (function (_super) {
+    var americanus = /** @class */ (function (_super) {
         __extends(americanus, _super);
         function americanus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2343,7 +2350,7 @@ var quasiater;
 })(ruatanica || (ruatanica = {}));
 var lavali;
 (function (lavali) {
-    var wilsoni = (function (_super) {
+    var wilsoni = /** @class */ (function (_super) {
         __extends(wilsoni, _super);
         function wilsoni() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2429,13 +2436,13 @@ var lavali;
         return wilsoni;
     }(Lanthanum.nitidus));
     lavali.wilsoni = wilsoni;
-    var beisa = (function () {
+    var beisa = /** @class */ (function () {
         function beisa() {
         }
         return beisa;
     }());
     lavali.beisa = beisa;
-    var otion = (function (_super) {
+    var otion = /** @class */ (function (_super) {
         __extends(otion, _super);
         function otion() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2521,7 +2528,7 @@ var lavali;
         return otion;
     }(howi.coludo));
     lavali.otion = otion;
-    var xanthognathus = (function () {
+    var xanthognathus = /** @class */ (function () {
         function xanthognathus() {
         }
         xanthognathus.prototype.nanulus = function () {
@@ -2599,7 +2606,7 @@ var lavali;
         return xanthognathus;
     }());
     lavali.xanthognathus = xanthognathus;
-    var thaeleri = (function (_super) {
+    var thaeleri = /** @class */ (function (_super) {
         __extends(thaeleri, _super);
         function thaeleri() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2655,7 +2662,7 @@ var lavali;
         return thaeleri;
     }(argurus.oreas));
     lavali.thaeleri = thaeleri;
-    var lepturus = (function (_super) {
+    var lepturus = /** @class */ (function (_super) {
         __extends(lepturus, _super);
         function lepturus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2678,7 +2685,7 @@ var lavali;
 })(lavali || (lavali = {}));
 var dogramacii;
 (function (dogramacii) {
-    var robustulus = (function (_super) {
+    var robustulus = /** @class */ (function (_super) {
         __extends(robustulus, _super);
         function robustulus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2740,7 +2747,7 @@ var dogramacii;
         return robustulus;
     }(lavali.wilsoni));
     dogramacii.robustulus = robustulus;
-    var koepckeae = (function () {
+    var koepckeae = /** @class */ (function () {
         function koepckeae() {
         }
         koepckeae.prototype.culturatus = function () {
@@ -2752,7 +2759,7 @@ var dogramacii;
         return koepckeae;
     }());
     dogramacii.koepckeae = koepckeae;
-    var kaiseri = (function () {
+    var kaiseri = /** @class */ (function () {
         function kaiseri() {
         }
         kaiseri.prototype.bedfordiae = function () {
@@ -2836,7 +2843,7 @@ var dogramacii;
         return kaiseri;
     }());
     dogramacii.kaiseri = kaiseri;
-    var aurata = (function () {
+    var aurata = /** @class */ (function () {
         function aurata() {
         }
         aurata.prototype.grunniens = function () {
@@ -2893,7 +2900,7 @@ var dogramacii;
 })(dogramacii || (dogramacii = {}));
 var lutreolus;
 (function (lutreolus) {
-    var schlegeli = (function (_super) {
+    var schlegeli = /** @class */ (function (_super) {
         __extends(schlegeli, _super);
         function schlegeli() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -2988,7 +2995,7 @@ var lutreolus;
 })(lutreolus || (lutreolus = {}));
 var argurus;
 (function (argurus) {
-    var dauricus = (function () {
+    var dauricus = /** @class */ (function () {
         function dauricus() {
         }
         dauricus.prototype.chinensis = function () {
@@ -3063,7 +3070,7 @@ var argurus;
 })(argurus || (argurus = {}));
 var nigra;
 (function (nigra) {
-    var dolichurus = (function () {
+    var dolichurus = /** @class */ (function () {
         function dolichurus() {
         }
         dolichurus.prototype.solomonis = function () {
@@ -3120,7 +3127,7 @@ var nigra;
 })(nigra || (nigra = {}));
 var panglima;
 (function (panglima) {
-    var amphibius = (function (_super) {
+    var amphibius = /** @class */ (function (_super) {
         __extends(amphibius, _super);
         function amphibius() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3164,7 +3171,7 @@ var panglima;
         return amphibius;
     }(caurinus.johorensis));
     panglima.amphibius = amphibius;
-    var fundatus = (function (_super) {
+    var fundatus = /** @class */ (function (_super) {
         __extends(fundatus, _super);
         function fundatus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3190,7 +3197,7 @@ var panglima;
         return fundatus;
     }(lutreolus.schlegeli));
     panglima.fundatus = fundatus;
-    var abidi = (function (_super) {
+    var abidi = /** @class */ (function (_super) {
         __extends(abidi, _super);
         function abidi() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3230,7 +3237,7 @@ var panglima;
     panglima.abidi = abidi;
 })(panglima || (panglima = {}));
 (function (quasiater) {
-    var carolinensis = (function () {
+    var carolinensis = /** @class */ (function () {
         function carolinensis() {
         }
         carolinensis.prototype.concinna = function () {
@@ -3281,7 +3288,7 @@ var panglima;
 })(quasiater || (quasiater = {}));
 var minutus;
 (function (minutus) {
-    var himalayana = (function (_super) {
+    var himalayana = /** @class */ (function (_super) {
         __extends(himalayana, _super);
         function himalayana() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3364,7 +3371,7 @@ var minutus;
 })(minutus || (minutus = {}));
 var caurinus;
 (function (caurinus) {
-    var mahaganus = (function (_super) {
+    var mahaganus = /** @class */ (function (_super) {
         __extends(mahaganus, _super);
         function mahaganus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3423,7 +3430,7 @@ var caurinus;
 })(caurinus || (caurinus = {}));
 var macrorhinos;
 (function (macrorhinos) {
-    var marmosurus = (function () {
+    var marmosurus = /** @class */ (function () {
         function marmosurus() {
         }
         marmosurus.prototype.tansaniana = function () {
@@ -3438,7 +3445,7 @@ var macrorhinos;
 })(macrorhinos || (macrorhinos = {}));
 var howi;
 (function (howi) {
-    var angulatus = (function (_super) {
+    var angulatus = /** @class */ (function (_super) {
         __extends(angulatus, _super);
         function angulatus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3455,7 +3462,7 @@ var howi;
 })(howi || (howi = {}));
 var daubentonii;
 (function (daubentonii) {
-    var nesiotes = (function () {
+    var nesiotes = /** @class */ (function () {
         function nesiotes() {
         }
         return nesiotes;
@@ -3463,7 +3470,7 @@ var daubentonii;
     daubentonii.nesiotes = nesiotes;
 })(daubentonii || (daubentonii = {}));
 (function (nigra) {
-    var thalia = (function () {
+    var thalia = /** @class */ (function () {
         function thalia() {
         }
         thalia.prototype.dichotomus = function () {
@@ -3520,7 +3527,7 @@ var daubentonii;
 })(nigra || (nigra = {}));
 var sagitta;
 (function (sagitta) {
-    var walkeri = (function (_super) {
+    var walkeri = /** @class */ (function (_super) {
         __extends(walkeri, _super);
         function walkeri() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3536,7 +3543,7 @@ var sagitta;
     sagitta.walkeri = walkeri;
 })(sagitta || (sagitta = {}));
 (function (minutus) {
-    var inez = (function (_super) {
+    var inez = /** @class */ (function (_super) {
         __extends(inez, _super);
         function inez() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3552,7 +3559,7 @@ var sagitta;
     minutus.inez = inez;
 })(minutus || (minutus = {}));
 (function (macrorhinos) {
-    var konganensis = (function (_super) {
+    var konganensis = /** @class */ (function (_super) {
         __extends(konganensis, _super);
         function konganensis() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3563,7 +3570,7 @@ var sagitta;
 })(macrorhinos || (macrorhinos = {}));
 var panamensis;
 (function (panamensis) {
-    var linulus = (function (_super) {
+    var linulus = /** @class */ (function (_super) {
         __extends(linulus, _super);
         function linulus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3627,7 +3634,7 @@ var panamensis;
     panamensis.linulus = linulus;
 })(panamensis || (panamensis = {}));
 (function (nigra) {
-    var gracilis = (function () {
+    var gracilis = /** @class */ (function () {
         function gracilis() {
         }
         gracilis.prototype.weddellii = function () {
@@ -3714,7 +3721,7 @@ var panamensis;
 })(nigra || (nigra = {}));
 var samarensis;
 (function (samarensis) {
-    var pelurus = (function (_super) {
+    var pelurus = /** @class */ (function (_super) {
         __extends(pelurus, _super);
         function pelurus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3800,7 +3807,7 @@ var samarensis;
         return pelurus;
     }(sagitta.stolzmanni));
     samarensis.pelurus = pelurus;
-    var fuscus = (function (_super) {
+    var fuscus = /** @class */ (function (_super) {
         __extends(fuscus, _super);
         function fuscus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -3892,7 +3899,7 @@ var samarensis;
         return fuscus;
     }(macrorhinos.daphaenodon));
     samarensis.fuscus = fuscus;
-    var pallidus = (function () {
+    var pallidus = /** @class */ (function () {
         function pallidus() {
         }
         pallidus.prototype.oblativa = function () {
@@ -3922,7 +3929,7 @@ var samarensis;
         return pallidus;
     }());
     samarensis.pallidus = pallidus;
-    var cahirinus = (function () {
+    var cahirinus = /** @class */ (function () {
         function cahirinus() {
         }
         cahirinus.prototype.alashanicus = function () {
@@ -3960,7 +3967,7 @@ var samarensis;
     samarensis.cahirinus = cahirinus;
 })(samarensis || (samarensis = {}));
 (function (sagitta) {
-    var leptoceros = (function (_super) {
+    var leptoceros = /** @class */ (function (_super) {
         __extends(leptoceros, _super);
         function leptoceros() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4000,7 +4007,7 @@ var samarensis;
     sagitta.leptoceros = leptoceros;
 })(sagitta || (sagitta = {}));
 (function (daubentonii) {
-    var nigricans = (function (_super) {
+    var nigricans = /** @class */ (function (_super) {
         __extends(nigricans, _super);
         function nigricans() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4017,7 +4024,7 @@ var samarensis;
 })(daubentonii || (daubentonii = {}));
 var dammermani;
 (function (dammermani) {
-    var siberu = (function () {
+    var siberu = /** @class */ (function () {
         function siberu() {
         }
         return siberu;
@@ -4025,7 +4032,7 @@ var dammermani;
     dammermani.siberu = siberu;
 })(dammermani || (dammermani = {}));
 (function (argurus) {
-    var pygmaea = (function (_super) {
+    var pygmaea = /** @class */ (function (_super) {
         __extends(pygmaea, _super);
         function pygmaea() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4054,7 +4061,7 @@ var dammermani;
 })(argurus || (argurus = {}));
 var chrysaeolus;
 (function (chrysaeolus) {
-    var sarasinorum = (function (_super) {
+    var sarasinorum = /** @class */ (function (_super) {
         __extends(sarasinorum, _super);
         function sarasinorum() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4106,7 +4113,7 @@ var chrysaeolus;
     chrysaeolus.sarasinorum = sarasinorum;
 })(chrysaeolus || (chrysaeolus = {}));
 (function (argurus) {
-    var wetmorei = (function () {
+    var wetmorei = /** @class */ (function () {
         function wetmorei() {
         }
         wetmorei.prototype.leucoptera = function () {
@@ -4156,7 +4163,7 @@ var chrysaeolus;
     argurus.wetmorei = wetmorei;
 })(argurus || (argurus = {}));
 (function (argurus) {
-    var oreas = (function (_super) {
+    var oreas = /** @class */ (function (_super) {
         __extends(oreas, _super);
         function oreas() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4214,7 +4221,7 @@ var chrysaeolus;
     argurus.oreas = oreas;
 })(argurus || (argurus = {}));
 (function (daubentonii) {
-    var arboreus = (function () {
+    var arboreus = /** @class */ (function () {
         function arboreus() {
         }
         arboreus.prototype.capreolus = function () {
@@ -4295,7 +4302,7 @@ var chrysaeolus;
 })(daubentonii || (daubentonii = {}));
 var patas;
 (function (patas) {
-    var uralensis = (function () {
+    var uralensis = /** @class */ (function () {
         function uralensis() {
         }
         uralensis.prototype.cartilagonodus = function () {
@@ -4382,7 +4389,7 @@ var patas;
 })(patas || (patas = {}));
 var provocax;
 (function (provocax) {
-    var melanoleuca = (function (_super) {
+    var melanoleuca = /** @class */ (function (_super) {
         __extends(melanoleuca, _super);
         function melanoleuca() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4404,7 +4411,7 @@ var provocax;
     provocax.melanoleuca = melanoleuca;
 })(provocax || (provocax = {}));
 (function (sagitta) {
-    var sicarius = (function () {
+    var sicarius = /** @class */ (function () {
         function sicarius() {
         }
         sicarius.prototype.Chlorine = function () {
@@ -4424,7 +4431,7 @@ var provocax;
     sagitta.sicarius = sicarius;
 })(sagitta || (sagitta = {}));
 (function (howi) {
-    var marcanoi = (function (_super) {
+    var marcanoi = /** @class */ (function (_super) {
         __extends(marcanoi, _super);
         function marcanoi() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4518,7 +4525,7 @@ var provocax;
     howi.marcanoi = marcanoi;
 })(howi || (howi = {}));
 (function (argurus) {
-    var gilbertii = (function () {
+    var gilbertii = /** @class */ (function () {
         function gilbertii() {
         }
         gilbertii.prototype.nasutus = function () {
@@ -4599,7 +4606,7 @@ var provocax;
 })(argurus || (argurus = {}));
 var petrophilus;
 (function (petrophilus) {
-    var minutilla = (function () {
+    var minutilla = /** @class */ (function () {
         function minutilla() {
         }
         return minutilla;
@@ -4607,7 +4614,7 @@ var petrophilus;
     petrophilus.minutilla = minutilla;
 })(petrophilus || (petrophilus = {}));
 (function (lutreolus) {
-    var punicus = (function () {
+    var punicus = /** @class */ (function () {
         function punicus() {
         }
         punicus.prototype.strandi = function () {
@@ -4693,7 +4700,7 @@ var petrophilus;
     lutreolus.punicus = punicus;
 })(lutreolus || (lutreolus = {}));
 (function (macrorhinos) {
-    var daphaenodon = (function () {
+    var daphaenodon = /** @class */ (function () {
         function daphaenodon() {
         }
         daphaenodon.prototype.bredanensis = function () {
@@ -4737,7 +4744,7 @@ var petrophilus;
     macrorhinos.daphaenodon = daphaenodon;
 })(macrorhinos || (macrorhinos = {}));
 (function (sagitta) {
-    var cinereus = (function () {
+    var cinereus = /** @class */ (function () {
         function cinereus() {
         }
         cinereus.prototype.zunigae = function () {
@@ -4817,7 +4824,7 @@ var petrophilus;
     sagitta.cinereus = cinereus;
 })(sagitta || (sagitta = {}));
 (function (nigra) {
-    var caucasica = (function () {
+    var caucasica = /** @class */ (function () {
         function caucasica() {
         }
         return caucasica;
@@ -4826,7 +4833,7 @@ var petrophilus;
 })(nigra || (nigra = {}));
 var gabriellae;
 (function (gabriellae) {
-    var klossii = (function (_super) {
+    var klossii = /** @class */ (function (_super) {
         __extends(klossii, _super);
         function klossii() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -4834,7 +4841,7 @@ var gabriellae;
         return klossii;
     }(imperfecta.lasiurus));
     gabriellae.klossii = klossii;
-    var amicus = (function () {
+    var amicus = /** @class */ (function () {
         function amicus() {
         }
         amicus.prototype.pirrensis = function () {
@@ -4900,7 +4907,7 @@ var gabriellae;
         return amicus;
     }());
     gabriellae.amicus = amicus;
-    var echinatus = (function () {
+    var echinatus = /** @class */ (function () {
         function echinatus() {
         }
         echinatus.prototype.tenuipes = function () {
@@ -4915,7 +4922,7 @@ var gabriellae;
 })(gabriellae || (gabriellae = {}));
 var imperfecta;
 (function (imperfecta) {
-    var lasiurus = (function () {
+    var lasiurus = /** @class */ (function () {
         function lasiurus() {
         }
         lasiurus.prototype.marisae = function () {
@@ -4957,7 +4964,7 @@ var imperfecta;
         return lasiurus;
     }());
     imperfecta.lasiurus = lasiurus;
-    var subspinosus = (function () {
+    var subspinosus = /** @class */ (function () {
         function subspinosus() {
         }
         subspinosus.prototype.monticularis = function () {
@@ -5029,7 +5036,7 @@ var imperfecta;
         return subspinosus;
     }());
     imperfecta.subspinosus = subspinosus;
-    var ciliolabrum = (function (_super) {
+    var ciliolabrum = /** @class */ (function (_super) {
         __extends(ciliolabrum, _super);
         function ciliolabrum() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5057,7 +5064,7 @@ var imperfecta;
     imperfecta.ciliolabrum = ciliolabrum;
 })(imperfecta || (imperfecta = {}));
 (function (quasiater) {
-    var wattsi = (function () {
+    var wattsi = /** @class */ (function () {
         function wattsi() {
         }
         wattsi.prototype.lagotis = function () {
@@ -5089,7 +5096,7 @@ var imperfecta;
     quasiater.wattsi = wattsi;
 })(quasiater || (quasiater = {}));
 (function (petrophilus) {
-    var sodyi = (function (_super) {
+    var sodyi = /** @class */ (function (_super) {
         __extends(sodyi, _super);
         function sodyi() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5153,7 +5160,7 @@ var imperfecta;
     petrophilus.sodyi = sodyi;
 })(petrophilus || (petrophilus = {}));
 (function (caurinus) {
-    var megaphyllus = (function (_super) {
+    var megaphyllus = /** @class */ (function (_super) {
         __extends(megaphyllus, _super);
         function megaphyllus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5211,7 +5218,7 @@ var imperfecta;
     caurinus.megaphyllus = megaphyllus;
 })(caurinus || (caurinus = {}));
 (function (minutus) {
-    var portoricensis = (function () {
+    var portoricensis = /** @class */ (function () {
         function portoricensis() {
         }
         portoricensis.prototype.relictus = function () {
@@ -5237,7 +5244,7 @@ var imperfecta;
     minutus.portoricensis = portoricensis;
 })(minutus || (minutus = {}));
 (function (lutreolus) {
-    var foina = (function () {
+    var foina = /** @class */ (function () {
         function foina() {
         }
         foina.prototype.tarfayensis = function () {
@@ -5323,7 +5330,7 @@ var imperfecta;
     lutreolus.foina = foina;
 })(lutreolus || (lutreolus = {}));
 (function (lutreolus) {
-    var cor = (function (_super) {
+    var cor = /** @class */ (function (_super) {
         __extends(cor, _super);
         function cor() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5393,7 +5400,7 @@ var imperfecta;
     lutreolus.cor = cor;
 })(lutreolus || (lutreolus = {}));
 (function (howi) {
-    var coludo = (function () {
+    var coludo = /** @class */ (function () {
         function coludo() {
         }
         coludo.prototype.bernhardi = function () {
@@ -5413,7 +5420,7 @@ var imperfecta;
     howi.coludo = coludo;
 })(howi || (howi = {}));
 (function (argurus) {
-    var germaini = (function (_super) {
+    var germaini = /** @class */ (function (_super) {
         __extends(germaini, _super);
         function germaini() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5435,7 +5442,7 @@ var imperfecta;
     argurus.germaini = germaini;
 })(argurus || (argurus = {}));
 (function (sagitta) {
-    var stolzmanni = (function () {
+    var stolzmanni = /** @class */ (function () {
         function stolzmanni() {
         }
         stolzmanni.prototype.riparius = function () {
@@ -5509,7 +5516,7 @@ var imperfecta;
     sagitta.stolzmanni = stolzmanni;
 })(sagitta || (sagitta = {}));
 (function (dammermani) {
-    var melanops = (function (_super) {
+    var melanops = /** @class */ (function (_super) {
         __extends(melanops, _super);
         function melanops() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5597,7 +5604,7 @@ var imperfecta;
     dammermani.melanops = melanops;
 })(dammermani || (dammermani = {}));
 (function (argurus) {
-    var peninsulae = (function (_super) {
+    var peninsulae = /** @class */ (function (_super) {
         __extends(peninsulae, _super);
         function peninsulae() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5655,7 +5662,7 @@ var imperfecta;
     argurus.peninsulae = peninsulae;
 })(argurus || (argurus = {}));
 (function (argurus) {
-    var netscheri = (function () {
+    var netscheri = /** @class */ (function () {
         function netscheri() {
         }
         netscheri.prototype.gravis = function () {
@@ -5741,7 +5748,7 @@ var imperfecta;
     argurus.netscheri = netscheri;
 })(argurus || (argurus = {}));
 (function (ruatanica) {
-    var Praseodymium = (function (_super) {
+    var Praseodymium = /** @class */ (function (_super) {
         __extends(Praseodymium, _super);
         function Praseodymium() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5829,7 +5836,7 @@ var imperfecta;
     ruatanica.Praseodymium = Praseodymium;
 })(ruatanica || (ruatanica = {}));
 (function (caurinus) {
-    var johorensis = (function (_super) {
+    var johorensis = /** @class */ (function (_super) {
         __extends(johorensis, _super);
         function johorensis() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -5845,7 +5852,7 @@ var imperfecta;
     caurinus.johorensis = johorensis;
 })(caurinus || (caurinus = {}));
 (function (argurus) {
-    var luctuosa = (function () {
+    var luctuosa = /** @class */ (function () {
         function luctuosa() {
         }
         luctuosa.prototype.loriae = function () {
@@ -5859,7 +5866,7 @@ var imperfecta;
     argurus.luctuosa = luctuosa;
 })(argurus || (argurus = {}));
 (function (panamensis) {
-    var setulosus = (function () {
+    var setulosus = /** @class */ (function () {
         function setulosus() {
         }
         setulosus.prototype.duthieae = function () {
@@ -5915,7 +5922,7 @@ var imperfecta;
     panamensis.setulosus = setulosus;
 })(panamensis || (panamensis = {}));
 (function (petrophilus) {
-    var rosalia = (function () {
+    var rosalia = /** @class */ (function () {
         function rosalia() {
         }
         rosalia.prototype.palmeri = function () {
@@ -5953,7 +5960,7 @@ var imperfecta;
     petrophilus.rosalia = rosalia;
 })(petrophilus || (petrophilus = {}));
 (function (caurinus) {
-    var psilurus = (function (_super) {
+    var psilurus = /** @class */ (function (_super) {
         __extends(psilurus, _super);
         function psilurus() {
             return _super !== null && _super.apply(this, arguments) || this;
@@ -6001,7 +6008,7 @@ var imperfecta;
 
 
 //// [resolvingClassDeclarationWhenInBaseTypeResolution.d.ts]
-declare module rionegrensis {
+declare namespace rionegrensis {
     class caniventer extends Lanthanum.nitidus<petrophilus.minutilla, julianae.sumatrana> {
         salomonseni(): caniventer;
         uchidai(): lavali.xanthognathus;
@@ -6017,7 +6024,7 @@ declare module rionegrensis {
         nivicola(): samarensis.pallidus;
     }
 }
-declare module julianae {
+declare namespace julianae {
     class steerii {
     }
     class nudicaudus {
@@ -6102,13 +6109,13 @@ declare module julianae {
         phrudus(): sagitta.stolzmanni;
     }
 }
-declare module ruatanica {
+declare namespace ruatanica {
     class hector<T0, T1> {
         humulis(): julianae.steerii;
         eurycerus(): panamensis.linulus<ruatanica.Praseodymium<Lanthanum.jugularis, dammermani.melanops>, lavali.wilsoni>;
     }
 }
-declare module Lanthanum {
+declare namespace Lanthanum {
     class suillus<T0, T1> {
         spilosoma(): quasiater.carolinensis;
         tumbalensis(): caurinus.megaphyllus;
@@ -6153,7 +6160,7 @@ declare module Lanthanum {
         ileile(): quasiater.carolinensis;
     }
 }
-declare module rendalli {
+declare namespace rendalli {
     class zuluensis extends julianae.steerii {
         telfairi(): argurus.wetmorei<Lanthanum.megalonyx, provocax.melanoleuca>;
         keyensis(): quasiater.wattsi<quasiater.carolinensis, lavali.lepturus>;
@@ -6188,7 +6195,7 @@ declare module rendalli {
         edax(): lutreolus.cor<imperfecta.lasiurus<howi.marcanoi, imperfecta.ciliolabrum<Lanthanum.megalonyx, petrophilus.minutilla>>, rionegrensis.caniventer>;
     }
 }
-declare module trivirgatus {
+declare namespace trivirgatus {
     class tumidifrons<T0, T1> {
         nivalis(): dogramacii.kaiseri;
         vestitus(): lavali.xanthognathus;
@@ -6238,7 +6245,7 @@ declare module trivirgatus {
         ralli(): lavali.xanthognathus;
     }
 }
-declare module quasiater {
+declare namespace quasiater {
     class bobrinskoi {
         crassicaudatus(): samarensis.cahirinus<macrorhinos.daphaenodon, argurus.luctuosa>;
         mulatta(): argurus.oreas;
@@ -6246,7 +6253,7 @@ declare module quasiater {
         Copper(): argurus.netscheri<quasiater.carolinensis, dogramacii.kaiseri>;
     }
 }
-declare module ruatanica {
+declare namespace ruatanica {
     class americanus extends imperfecta.ciliolabrum<argurus.germaini, lutreolus.foina> {
         nasoloi(): macrorhinos.konganensis;
         mystacalis(): howi.angulatus<quasiater.carolinensis, sagitta.stolzmanni>;
@@ -6254,7 +6261,7 @@ declare module ruatanica {
         tumidus(): gabriellae.amicus;
     }
 }
-declare module lavali {
+declare namespace lavali {
     class wilsoni extends Lanthanum.nitidus<rionegrensis.caniventer, Lanthanum.jugularis> {
         setiger(): nigra.thalia<patas.uralensis, wilsoni>;
         lorentzii(): imperfecta.subspinosus;
@@ -6316,7 +6323,7 @@ declare module lavali {
         aequalis(): sagitta.cinereus<petrophilus.sodyi<quasiater.wattsi<julianae.galapagoensis, panamensis.linulus<xanthognathus, macrorhinos.konganensis>>, petrophilus.minutilla>, Lanthanum.jugularis>;
     }
 }
-declare module dogramacii {
+declare namespace dogramacii {
     class robustulus extends lavali.wilsoni {
         fossor(): minutus.inez<argurus.peninsulae, julianae.nudicaudus>;
         humboldti(): sagitta.cinereus<lavali.xanthognathus, argurus.oreas>;
@@ -6357,7 +6364,7 @@ declare module dogramacii {
         erythromos(): caurinus.johorensis<panglima.fundatus<samarensis.pallidus, sagitta.stolzmanni>, nigra.dolichurus<lavali.lepturus, samarensis.pallidus>>;
     }
 }
-declare module lutreolus {
+declare namespace lutreolus {
     class schlegeli extends lavali.beisa {
         mittendorfi(): rionegrensis.caniventer;
         blicki(): dogramacii.robustulus;
@@ -6375,7 +6382,7 @@ declare module lutreolus {
         dispar(): panamensis.linulus<dogramacii.kaiseri, minutus.portoricensis>;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class dauricus<T0, T1> {
         chinensis(): Lanthanum.jugularis;
         duodecimcostatus(): lavali.xanthognathus;
@@ -6390,7 +6397,7 @@ declare module argurus {
         misionensis(): macrorhinos.marmosurus<daubentonii.arboreus<quasiater.carolinensis, rionegrensis.caniventer>, gabriellae.echinatus>;
     }
 }
-declare module nigra {
+declare namespace nigra {
     class dolichurus<T0, T1> {
         solomonis(): panglima.abidi<quasiater.carolinensis, rendalli.crenulata<gabriellae.klossii<julianae.nudicaudus, dogramacii.aurata>, argurus.netscheri<minutus.inez<argurus.peninsulae, julianae.nudicaudus>, julianae.oralis<lavali.xanthognathus, argurus.oreas>>>>;
         alfredi(): caurinus.psilurus;
@@ -6402,7 +6409,7 @@ declare module nigra {
         sagei(): howi.marcanoi;
     }
 }
-declare module panglima {
+declare namespace panglima {
     class amphibius<T0, T1> extends caurinus.johorensis<Lanthanum.nitidus<petrophilus.minutilla, julianae.sumatrana>, Lanthanum.jugularis> {
         bottegi(): macrorhinos.marmosurus<rendalli.moojeni<amphibius<trivirgatus.falconeri, caurinus.psilurus>, gabriellae.echinatus>, sagitta.stolzmanni>;
         jerdoni(): macrorhinos.daphaenodon;
@@ -6424,7 +6431,7 @@ declare module panglima {
         ega(): imperfecta.lasiurus<julianae.acariensis, howi.coludo<argurus.oreas, howi.marcanoi>>;
     }
 }
-declare module quasiater {
+declare namespace quasiater {
     class carolinensis {
         concinna(): rendalli.zuluensis;
         aeneus(): howi.marcanoi;
@@ -6435,7 +6442,7 @@ declare module quasiater {
         patrizii(): Lanthanum.megalonyx;
     }
 }
-declare module minutus {
+declare namespace minutus {
     class himalayana<T0, T1> extends lutreolus.punicus {
         simoni(): argurus.netscheri<lavali.lepturus, argurus.dauricus<argurus.oreas, quasiater.carolinensis>>;
         lobata(): samarensis.pallidus;
@@ -6451,7 +6458,7 @@ declare module minutus {
         olympus(): Lanthanum.megalonyx;
     }
 }
-declare module caurinus {
+declare namespace caurinus {
     class mahaganus<T0, T1> extends panglima.fundatus<quasiater.carolinensis, macrorhinos.daphaenodon> {
         martiniquensis(): ruatanica.hector<julianae.sumatrana, macrorhinos.marmosurus<dammermani.melanops, caurinus.mahaganus<julianae.nudicaudus, lavali.otion>>>;
         devius(): samarensis.pelurus<dogramacii.aurata, minutus.inez<minutus.inez<sagitta.stolzmanni, dammermani.melanops>, trivirgatus.falconeri>>;
@@ -6463,21 +6470,21 @@ declare module caurinus {
         acticola(): argurus.luctuosa;
     }
 }
-declare module macrorhinos {
+declare namespace macrorhinos {
     class marmosurus<T0, T1> {
         tansaniana(): lutreolus.punicus;
     }
 }
-declare module howi {
+declare namespace howi {
     class angulatus<T0, T1> extends sagitta.stolzmanni {
         pennatus(): howi.marcanoi;
     }
 }
-declare module daubentonii {
+declare namespace daubentonii {
     class nesiotes<T0, T1> {
     }
 }
-declare module nigra {
+declare namespace nigra {
     class thalia<T0, T1> {
         dichotomus(): quasiater.carolinensis;
         arnuxii(): panamensis.linulus<trivirgatus.lotor<argurus.luctuosa, lavali.wilsoni>, lavali.beisa>;
@@ -6489,21 +6496,21 @@ declare module nigra {
         brucei(): chrysaeolus.sarasinorum<julianae.steerii, ruatanica.americanus>;
     }
 }
-declare module sagitta {
+declare namespace sagitta {
     class walkeri extends minutus.portoricensis {
         maracajuensis(): samarensis.cahirinus<Lanthanum.jugularis, ruatanica.americanus>;
     }
 }
-declare module minutus {
+declare namespace minutus {
     class inez<T0, T1> extends samarensis.pelurus<argurus.germaini, julianae.durangae> {
         vexillaris(): samarensis.cahirinus<lavali.lepturus, lavali.wilsoni>;
     }
 }
-declare module macrorhinos {
+declare namespace macrorhinos {
     class konganensis extends imperfecta.lasiurus<caurinus.psilurus, caurinus.psilurus> {
     }
 }
-declare module panamensis {
+declare namespace panamensis {
     class linulus<T0, T1> extends ruatanica.hector<julianae.sumatrana, samarensis.pelurus<Lanthanum.jugularis, sagitta.walkeri>> {
         goslingi(): daubentonii.arboreus<gabriellae.amicus, dogramacii.kaiseri>;
         taki(): patas.uralensis;
@@ -6516,7 +6523,7 @@ declare module panamensis {
         gomantongensis(): rionegrensis.veraecrucis<caurinus.psilurus, minutus.inez<rendalli.zuluensis, rionegrensis.caniventer>>;
     }
 }
-declare module nigra {
+declare namespace nigra {
     class gracilis<T0, T1> {
         weddellii(): nigra.dolichurus<dogramacii.aurata, julianae.steerii>;
         echinothrix(): Lanthanum.nitidus<panglima.amphibius<caurinus.megaphyllus, lavali.lepturus>, argurus.oreas>;
@@ -6533,7 +6540,7 @@ declare module nigra {
         ramirohitra(): panglima.amphibius<trivirgatus.falconeri, gabriellae.echinatus>;
     }
 }
-declare module samarensis {
+declare namespace samarensis {
     class pelurus<T0, T1> extends sagitta.stolzmanni {
         Palladium(): panamensis.linulus<macrorhinos.konganensis, rionegrensis.caniventer>;
         castanea(): argurus.netscheri<minutus.inez<argurus.peninsulae, julianae.nudicaudus>, julianae.oralis<lavali.xanthognathus, argurus.oreas>>;
@@ -6579,7 +6586,7 @@ declare module samarensis {
         saussurei(): rendalli.crenulata<gabriellae.klossii<julianae.nudicaudus, dogramacii.aurata>, argurus.netscheri<minutus.inez<argurus.peninsulae, julianae.nudicaudus>, julianae.oralis<lavali.xanthognathus, argurus.oreas>>>;
     }
 }
-declare module sagitta {
+declare namespace sagitta {
     class leptoceros<T0, T1> extends caurinus.johorensis<argurus.peninsulae, daubentonii.arboreus<argurus.germaini, sagitta.stolzmanni>> {
         victus(): rionegrensis.caniventer;
         hoplomyoides(): panglima.fundatus<julianae.gerbillus<imperfecta.subspinosus, julianae.durangae>, nigra.gracilis<argurus.luctuosa, imperfecta.subspinosus>>;
@@ -6588,23 +6595,23 @@ declare module sagitta {
         bolami(): trivirgatus.tumidifrons<lutreolus.schlegeli, ruatanica.americanus>;
     }
 }
-declare module daubentonii {
+declare namespace daubentonii {
     class nigricans<T0, T1> extends sagitta.stolzmanni {
         woosnami(): dogramacii.robustulus;
     }
 }
-declare module dammermani {
+declare namespace dammermani {
     class siberu<T0, T1> {
     }
 }
-declare module argurus {
+declare namespace argurus {
     class pygmaea<T0, T1> extends rendalli.moojeni<macrorhinos.konganensis, gabriellae.echinatus> {
         pajeros(): gabriellae.echinatus;
         capucinus(): rendalli.zuluensis;
         cuvieri(): rionegrensis.caniventer;
     }
 }
-declare module chrysaeolus {
+declare namespace chrysaeolus {
     class sarasinorum<T0, T1> extends caurinus.psilurus {
         belzebul(): samarensis.pallidus;
         hinpoon(): nigra.caucasica<julianae.sumatrana, trivirgatus.oconnelli>;
@@ -6615,7 +6622,7 @@ declare module chrysaeolus {
         princeps(): minutus.portoricensis;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class wetmorei<T0, T1> {
         leucoptera(): petrophilus.rosalia<dogramacii.koepckeae, lutreolus.foina>;
         ochraventer(): sagitta.walkeri;
@@ -6626,7 +6633,7 @@ declare module argurus {
         mayori(): sagitta.stolzmanni;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class oreas extends lavali.wilsoni {
         salamonis(): lavali.xanthognathus;
         paniscus(): ruatanica.Praseodymium<caurinus.psilurus, lavali.xanthognathus>;
@@ -6638,7 +6645,7 @@ declare module argurus {
         univittatus(): argurus.peninsulae;
     }
 }
-declare module daubentonii {
+declare namespace daubentonii {
     class arboreus<T0, T1> {
         capreolus(): rendalli.crenulata<samarensis.pelurus<Lanthanum.jugularis, ruatanica.americanus>, lavali.wilsoni>;
         moreni(): panglima.abidi<julianae.galapagoensis, dogramacii.koepckeae>;
@@ -6654,7 +6661,7 @@ declare module daubentonii {
         tianshanica(): howi.marcanoi;
     }
 }
-declare module patas {
+declare namespace patas {
     class uralensis {
         cartilagonodus(): Lanthanum.nitidus<rionegrensis.caniventer, Lanthanum.jugularis>;
         pyrrhinus(): lavali.beisa;
@@ -6671,19 +6678,19 @@ declare module patas {
         albiventer(): rendalli.crenulata<rendalli.zuluensis, dogramacii.robustulus>;
     }
 }
-declare module provocax {
+declare namespace provocax {
     class melanoleuca extends lavali.wilsoni {
         Neodymium(): macrorhinos.marmosurus<petrophilus.sodyi<trivirgatus.falconeri, quasiater.bobrinskoi>, lutreolus.foina>;
         baeri(): imperfecta.lasiurus<lavali.lepturus, ruatanica.americanus>;
     }
 }
-declare module sagitta {
+declare namespace sagitta {
     class sicarius<T0, T1> {
         Chlorine(): samarensis.cahirinus<nigra.gracilis<argurus.luctuosa, imperfecta.subspinosus>, dogramacii.robustulus>;
         simulator(): macrorhinos.marmosurus<Lanthanum.nitidus<dammermani.melanops, lavali.lepturus>, macrorhinos.marmosurus<rendalli.moojeni<panglima.amphibius<trivirgatus.falconeri, caurinus.psilurus>, gabriellae.echinatus>, sagitta.stolzmanni>>;
     }
 }
-declare module howi {
+declare namespace howi {
     class marcanoi extends Lanthanum.megalonyx {
         formosae(): Lanthanum.megalonyx;
         dudui(): lutreolus.punicus;
@@ -6701,7 +6708,7 @@ declare module howi {
         hyaena(): julianae.oralis<lavali.beisa, argurus.oreas>;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class gilbertii<T0, T1> {
         nasutus(): lavali.lepturus;
         poecilops(): julianae.steerii;
@@ -6717,11 +6724,11 @@ declare module argurus {
         amurensis(): daubentonii.arboreus<lavali.otion, macrorhinos.konganensis>;
     }
 }
-declare module petrophilus {
+declare namespace petrophilus {
     class minutilla {
     }
 }
-declare module lutreolus {
+declare namespace lutreolus {
     class punicus {
         strandi(): gabriellae.klossii<Lanthanum.jugularis, Lanthanum.jugularis>;
         lar(): caurinus.mahaganus<julianae.nudicaudus, lavali.otion>;
@@ -6738,7 +6745,7 @@ declare module lutreolus {
         Helium(): julianae.acariensis;
     }
 }
-declare module macrorhinos {
+declare namespace macrorhinos {
     class daphaenodon {
         bredanensis(): julianae.sumatrana;
         othus(): howi.coludo<argurus.oreas, howi.marcanoi>;
@@ -6748,7 +6755,7 @@ declare module macrorhinos {
         callosus(): trivirgatus.lotor<lutreolus.foina, dogramacii.robustulus>;
     }
 }
-declare module sagitta {
+declare namespace sagitta {
     class cinereus<T0, T1> {
         zunigae(): rendalli.crenulata<macrorhinos.konganensis, nigra.dolichurus<lavali.lepturus, samarensis.pallidus>>;
         microps(): daubentonii.nigricans<caurinus.megaphyllus, quasiater.wattsi<Lanthanum.jugularis, julianae.sumatrana>>;
@@ -6764,11 +6771,11 @@ declare module sagitta {
         pittieri(): samarensis.fuscus<quasiater.carolinensis, sagitta.stolzmanni>;
     }
 }
-declare module nigra {
+declare namespace nigra {
     class caucasica<T0, T1> {
     }
 }
-declare module gabriellae {
+declare namespace gabriellae {
     class klossii<T0, T1> extends imperfecta.lasiurus<dogramacii.robustulus, caurinus.psilurus> {
     }
     class amicus {
@@ -6787,7 +6794,7 @@ declare module gabriellae {
         tenuipes(): howi.coludo<macrorhinos.daphaenodon, panglima.amphibius<macrorhinos.daphaenodon, patas.uralensis>>;
     }
 }
-declare module imperfecta {
+declare namespace imperfecta {
     class lasiurus<T0, T1> {
         marisae(): lavali.thaeleri;
         fulvus(): argurus.germaini;
@@ -6815,7 +6822,7 @@ declare module imperfecta {
         sinicus(): macrorhinos.marmosurus<macrorhinos.daphaenodon, gabriellae.amicus>;
     }
 }
-declare module quasiater {
+declare namespace quasiater {
     class wattsi<T0, T1> {
         lagotis(): lavali.xanthognathus;
         hussoni(): lavali.wilsoni;
@@ -6823,9 +6830,9 @@ declare module quasiater {
         cabrerae(): lavali.lepturus;
     }
 }
-declare module butleri {
+declare namespace butleri {
 }
-declare module petrophilus {
+declare namespace petrophilus {
     class sodyi<T0, T1> extends quasiater.bobrinskoi {
         saundersiae(): samarensis.pallidus;
         imberbis(): quasiater.carolinensis;
@@ -6838,7 +6845,7 @@ declare module petrophilus {
         bairdii(): lavali.beisa;
     }
 }
-declare module caurinus {
+declare namespace caurinus {
     class megaphyllus extends imperfecta.lasiurus<julianae.acariensis, howi.coludo<argurus.oreas, howi.marcanoi>> {
         montana(): argurus.oreas;
         amatus(): lutreolus.schlegeli;
@@ -6850,14 +6857,14 @@ declare module caurinus {
         cirrhosus(): quasiater.carolinensis;
     }
 }
-declare module minutus {
+declare namespace minutus {
     class portoricensis {
         relictus(): quasiater.carolinensis;
         aequatorianus(): gabriellae.klossii<julianae.nudicaudus, dogramacii.aurata>;
         rhinogradoides(): samarensis.cahirinus<quasiater.carolinensis, julianae.durangae>;
     }
 }
-declare module lutreolus {
+declare namespace lutreolus {
     class foina {
         tarfayensis(): lutreolus.punicus;
         Promethium(): samarensis.pelurus<argurus.germaini, julianae.durangae>;
@@ -6874,7 +6881,7 @@ declare module lutreolus {
         argentiventer(): trivirgatus.mixtus<gabriellae.amicus, lutreolus.punicus>;
     }
 }
-declare module lutreolus {
+declare namespace lutreolus {
     class cor<T0, T1> extends panglima.fundatus<panamensis.linulus<trivirgatus.lotor<argurus.luctuosa, lavali.wilsoni>, lavali.beisa>, dammermani.melanops> {
         antinorii(): petrophilus.sodyi<quasiater.carolinensis, argurus.germaini>;
         voi(): caurinus.johorensis<dammermani.melanops, macrorhinos.konganensis>;
@@ -6888,19 +6895,19 @@ declare module lutreolus {
         castroviejoi(): Lanthanum.jugularis;
     }
 }
-declare module howi {
+declare namespace howi {
     class coludo<T0, T1> {
         bernhardi(): lutreolus.punicus;
         isseli(): argurus.germaini;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class germaini extends gabriellae.amicus {
         sharpei(): lavali.wilsoni;
         palmarum(): macrorhinos.marmosurus<Lanthanum.megalonyx, lavali.thaeleri>;
     }
 }
-declare module sagitta {
+declare namespace sagitta {
     class stolzmanni {
         riparius(): nigra.dolichurus<dogramacii.koepckeae, caurinus.psilurus>;
         dhofarensis(): lutreolus.foina;
@@ -6915,7 +6922,7 @@ declare module sagitta {
         florium(): rendalli.zuluensis;
     }
 }
-declare module dammermani {
+declare namespace dammermani {
     class melanops extends minutus.inez<sagitta.stolzmanni, dammermani.melanops> {
         blarina(): dammermani.melanops;
         harwoodi(): rionegrensis.veraecrucis<nigra.dolichurus<lavali.lepturus, samarensis.pallidus>, lavali.wilsoni>;
@@ -6932,7 +6939,7 @@ declare module dammermani {
         bocagei(): julianae.albidens<lavali.wilsoni, lavali.thaeleri>;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class peninsulae extends patas.uralensis {
         aitkeni(): trivirgatus.mixtus<argurus.dauricus<dogramacii.aurata, dammermani.melanops>, panglima.amphibius<lavali.lepturus, quasiater.carolinensis>>;
         novaeangliae(): lavali.xanthognathus;
@@ -6944,7 +6951,7 @@ declare module argurus {
         cavernarum(): minutus.inez<gabriellae.echinatus, argurus.luctuosa>;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class netscheri<T0, T1> {
         gravis(): nigra.caucasica<rendalli.crenulata<trivirgatus.falconeri, howi.marcanoi>, dogramacii.kaiseri>;
         ruschii(): imperfecta.lasiurus<howi.marcanoi, imperfecta.ciliolabrum<Lanthanum.megalonyx, petrophilus.minutilla>>;
@@ -6961,7 +6968,7 @@ declare module argurus {
         ruemmleri(): panglima.amphibius<minutus.inez<rendalli.moojeni<panglima.amphibius<trivirgatus.falconeri, caurinus.psilurus>, gabriellae.echinatus>, dogramacii.aurata>, imperfecta.ciliolabrum<quasiater.carolinensis, lavali.beisa>>;
     }
 }
-declare module ruatanica {
+declare namespace ruatanica {
     class Praseodymium<T0, T1> extends ruatanica.hector<lutreolus.punicus, gabriellae.amicus> {
         clara(): panglima.amphibius<imperfecta.ciliolabrum<quasiater.carolinensis, lavali.beisa>, argurus.dauricus<ruatanica.americanus, rionegrensis.caniventer>>;
         spectabilis(): petrophilus.sodyi<rionegrensis.caniventer, quasiater.carolinensis>;
@@ -6978,17 +6985,17 @@ declare module ruatanica {
         soricinus(): quasiater.carolinensis;
     }
 }
-declare module caurinus {
+declare namespace caurinus {
     class johorensis<T0, T1> extends lutreolus.punicus {
         maini(): ruatanica.Praseodymium<lavali.thaeleri, julianae.acariensis>;
     }
 }
-declare module argurus {
+declare namespace argurus {
     class luctuosa {
         loriae(): rendalli.moojeni<macrorhinos.marmosurus<rendalli.moojeni<panglima.amphibius<trivirgatus.falconeri, caurinus.psilurus>, gabriellae.echinatus>, sagitta.stolzmanni>, lutreolus.punicus>;
     }
 }
-declare module panamensis {
+declare namespace panamensis {
     class setulosus<T0, T1> {
         duthieae(): caurinus.mahaganus<howi.coludo<argurus.oreas, howi.marcanoi>, dogramacii.aurata>;
         guereza(): howi.coludo<sagitta.stolzmanni, quasiater.carolinensis>;
@@ -7000,7 +7007,7 @@ declare module panamensis {
         vampyrus(): julianae.oralis<lutreolus.foina, provocax.melanoleuca>;
     }
 }
-declare module petrophilus {
+declare namespace petrophilus {
     class rosalia<T0, T1> {
         palmeri(): panglima.amphibius<howi.coludo<macrorhinos.daphaenodon, panglima.amphibius<macrorhinos.daphaenodon, patas.uralensis>>, trivirgatus.mixtus<argurus.dauricus<dogramacii.aurata, dammermani.melanops>, panglima.amphibius<lavali.lepturus, quasiater.carolinensis>>>;
         baeops(): Lanthanum.nitidus<lavali.thaeleri, lavali.lepturus>;
@@ -7009,7 +7016,7 @@ declare module petrophilus {
         montivaga(): panamensis.setulosus<lavali.beisa, panamensis.linulus<caurinus.megaphyllus, caurinus.megaphyllus>>;
     }
 }
-declare module caurinus {
+declare namespace caurinus {
     class psilurus extends lutreolus.punicus {
         socialis(): panglima.amphibius<trivirgatus.falconeri, caurinus.psilurus>;
         lundi(): petrophilus.sodyi<trivirgatus.falconeri, quasiater.bobrinskoi>;

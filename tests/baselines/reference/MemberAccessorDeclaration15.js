@@ -1,15 +1,17 @@
+//// [tests/cases/compiler/MemberAccessorDeclaration15.ts] ////
+
 //// [MemberAccessorDeclaration15.ts]
 class C {
    set Foo(public a: number) { }
 }
 
 //// [MemberAccessorDeclaration15.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     Object.defineProperty(C.prototype, "Foo", {
         set: function (a) { },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

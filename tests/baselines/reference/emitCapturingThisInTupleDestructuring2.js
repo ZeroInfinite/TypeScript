@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/emitCapturingThisInTupleDestructuring2.ts] ////
+
 //// [emitCapturingThisInTupleDestructuring2.ts]
 var array1: [number, number] = [1, 2];
 
@@ -12,7 +14,7 @@ class B {
 
 //// [emitCapturingThisInTupleDestructuring2.js]
 var array1 = [1, 2];
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.method = function () {

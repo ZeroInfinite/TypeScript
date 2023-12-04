@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/objectTypeLiteral/indexSignatures/numericIndexerConstrainsPropertyDeclarations.ts] ////
+
 //// [numericIndexerConstrainsPropertyDeclarations.ts]
 // String indexer types constrain the types of named properties in their containing type
 
@@ -99,7 +101,7 @@ var b: { [x: number]: string; } = {
 
 //// [numericIndexerConstrainsPropertyDeclarations.js]
 // String indexer types constrain the types of named properties in their containing type
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     } // ok
     Object.defineProperty(C.prototype, "X", {
@@ -108,7 +110,7 @@ var C = (function () {
         },
         set: function (v) { } // ok
         ,
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     C.prototype.foo = function () {
@@ -119,7 +121,7 @@ var C = (function () {
         get: function () {
             return 1;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return C;

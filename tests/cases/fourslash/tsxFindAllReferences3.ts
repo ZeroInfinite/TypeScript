@@ -9,11 +9,11 @@
 //// }
 //// class MyClass {
 ////   props: {
-////     [|name|]?: string;
+////     /*1*/name?: string;
 ////     size?: number;
 //// }
-//// 
-//// 
-//// var x = <MyClass [|name|]='hello'/>;
+////
+////
+//// var x = <MyClass name='hello'/>;
 
-verify.rangesReferenceEachOther();
+verify.baselineFindAllReferences('1')

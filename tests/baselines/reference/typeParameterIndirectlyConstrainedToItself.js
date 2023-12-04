@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/typeParameterIndirectlyConstrainedToItself.ts] ////
+
 //// [typeParameterIndirectlyConstrainedToItself.ts]
 class C<U extends T, T extends U> { }
 class C2<T extends U, U extends V, V extends T> { }
@@ -18,13 +20,19 @@ var b2 = <T extends U, U extends V, V extends T>() => { }
 
 class D<U extends T, T extends V, V extends T> { }
 
+// Repro from #25740
+
+type Foo<T> = [T] extends [number] ? {} : {};
+function foo<S extends Foo<S>>() {}
+
+
 //// [typeParameterIndirectlyConstrainedToItself.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;
@@ -34,8 +42,9 @@ function f2() { }
 var a;
 var b = function () { };
 var b2 = function () { };
-var D = (function () {
+var D = /** @class */ (function () {
     function D() {
     }
     return D;
 }());
+function foo() { }

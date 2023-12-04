@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implementsInClassExpression.ts] ////
+
 //// [implementsInClassExpression.ts]
 interface Foo {
     doThing(): void;
@@ -8,7 +10,7 @@ let cls = class implements Foo {
 }
 
 //// [implementsInClassExpression.js]
-var cls = (function () {
+var cls = /** @class */ (function () {
     function class_1() {
     }
     class_1.prototype.doThing = function () { };

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/decorators/class/constructor/parameter/decoratorOnClassConstructorParameter4.ts] ////
+
 //// [decoratorOnClassConstructorParameter4.ts]
 declare function dec(target: Function, propertyKey: string | symbol, parameterIndex: number): void;
 
@@ -15,7 +17,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var C = (function () {
+var C = /** @class */ (function () {
     function C(public, p) {
     }
     C = __decorate([

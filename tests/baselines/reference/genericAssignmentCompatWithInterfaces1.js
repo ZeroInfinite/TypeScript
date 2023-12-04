@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericAssignmentCompatWithInterfaces1.ts] ////
+
 //// [genericAssignmentCompatWithInterfaces1.ts]
 interface Comparable<T> {
    compareTo(other: T): number;
@@ -20,7 +22,7 @@ var a4: I<string> = <K<number>>z;
 
 
 //// [genericAssignmentCompatWithInterfaces1.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.compareTo = function (other) { return 1; };

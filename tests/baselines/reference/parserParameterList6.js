@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ParameterLists/parserParameterList6.ts] ////
+
 //// [parserParameterList6.ts]
 class C {
   constructor(C: (public A) => any) {
@@ -5,7 +7,7 @@ class C {
 }
 
 //// [parserParameterList6.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C(C) {
     }
     return C;

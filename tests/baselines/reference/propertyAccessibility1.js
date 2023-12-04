@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/propertyAccessibility1.ts] ////
+
 //// [propertyAccessibility1.ts]
 class Foo {
   private privProp = 0;
@@ -7,7 +9,7 @@ f.privProp;
 
 
 //// [propertyAccessibility1.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
         this.privProp = 0;
     }

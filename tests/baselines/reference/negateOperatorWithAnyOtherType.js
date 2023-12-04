@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/unaryOperators/negateOperator/negateOperatorWithAnyOtherType.ts] ////
+
 //// [negateOperatorWithAnyOtherType.ts]
 // - operator on any type
 
@@ -64,7 +66,7 @@ function foo() {
     var a;
     return a;
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.foo = function () {

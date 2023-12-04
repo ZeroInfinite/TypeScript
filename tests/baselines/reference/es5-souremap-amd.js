@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/es5-souremap-amd.ts] ////
+
 //// [es5-souremap-amd.ts]
 class A
 {
@@ -13,7 +15,7 @@ class A
 }
 
 //// [es5-souremap-amd.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.B = function () {

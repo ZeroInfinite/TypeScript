@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/ErrorRecovery/ClassElements/parserErrorRecovery_ClassElement2.ts] ////
+
 //// [parserErrorRecovery_ClassElement2.ts]
 module M {
   class C {
@@ -9,7 +11,7 @@ module M {
 //// [parserErrorRecovery_ClassElement2.js]
 var M;
 (function (M) {
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C() {
         }
         return C;

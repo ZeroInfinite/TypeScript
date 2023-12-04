@@ -1,4 +1,6 @@
-=== tests/cases/compiler/genericDefaults.ts ===
+//// [tests/cases/compiler/genericDefaults.ts] ////
+
+=== genericDefaults.ts ===
 interface A { a: number; }
 >A : Symbol(A, Decl(genericDefaults.ts, 0, 0))
 >a : Symbol(A.a, Decl(genericDefaults.ts, 0, 13))
@@ -2290,4 +2292,10 @@ const t03c04 = (<t03<number, 1>>x).a;
 >t03 : Symbol(t03, Decl(genericDefaults.ts, 481, 37))
 >x : Symbol(x, Decl(genericDefaults.ts, 13, 13))
 >a : Symbol(a, Decl(genericDefaults.ts, 483, 47))
+
+// https://github.com/Microsoft/TypeScript/issues/16221
+interface SelfReference<T = SelfReference<string>> {}
+>SelfReference : Symbol(SelfReference, Decl(genericDefaults.ts, 488, 37))
+>T : Symbol(T, Decl(genericDefaults.ts, 491, 24))
+>SelfReference : Symbol(SelfReference, Decl(genericDefaults.ts, 488, 37))
 

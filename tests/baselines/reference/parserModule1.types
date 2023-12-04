@@ -1,4 +1,6 @@
-=== tests/cases/conformance/parser/ecmascript5/ModuleDeclarations/parserModule1.ts ===
+//// [tests/cases/conformance/parser/ecmascript5/ModuleDeclarations/parserModule1.ts] ////
+
+=== parserModule1.ts ===
     export module CompilerDiagnostics {
 >CompilerDiagnostics : typeof CompilerDiagnostics
 
@@ -7,8 +9,6 @@
 >false : false
 
         export interface IDiagnosticWriter {
->IDiagnosticWriter : IDiagnosticWriter
-
             Alert(output: string): void;
 >Alert : (output: string) => void
 >output : string
@@ -16,8 +16,6 @@
 
         export var diagnosticWriter: IDiagnosticWriter = null;
 >diagnosticWriter : IDiagnosticWriter
->IDiagnosticWriter : IDiagnosticWriter
->null : null
 
         export var analysisPass: number = 0;
 >analysisPass : number

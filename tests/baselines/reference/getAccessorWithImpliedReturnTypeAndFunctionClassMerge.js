@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/getAccessorWithImpliedReturnTypeAndFunctionClassMerge.ts] ////
+
 //// [getAccessorWithImpliedReturnTypeAndFunctionClassMerge.ts]
 declare function _<T>(value: Array<T>): _<T>;
 declare function _<T>(value: T): _<T>;
@@ -30,7 +32,7 @@ module MyModule {
 //// [getAccessorWithImpliedReturnTypeAndFunctionClassMerge.js]
 var MyModule;
 (function (MyModule) {
-    var MyClass = (function () {
+    var MyClass = /** @class */ (function () {
         function MyClass() {
         }
         Object.defineProperty(MyClass.prototype, "myGetter", {
@@ -38,7 +40,7 @@ var MyModule;
                 var obj = {};
                 return obj;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return MyClass;

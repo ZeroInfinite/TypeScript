@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/innerExtern.ts] ////
+
 //// [innerExtern.ts]
 module A {
     export declare module BB {
@@ -18,7 +20,7 @@ var A;
 (function (A) {
     var B;
     (function (B) {
-        var C = (function () {
+        var C = /** @class */ (function () {
             function C() {
                 this.x = BB.Elephant.X;
             }

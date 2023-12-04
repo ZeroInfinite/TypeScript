@@ -1,4 +1,6 @@
-=== tests/cases/conformance/expressions/typeGuards/typeGuardNesting.ts ===
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardNesting.ts] ////
+
+=== typeGuardNesting.ts ===
 let strOrBool: string|boolean;
 >strOrBool : string | boolean
 
@@ -7,13 +9,13 @@ if ((typeof strOrBool === 'boolean' && !strOrBool) || typeof strOrBool === 'stri
 >(typeof strOrBool === 'boolean' && !strOrBool) : boolean
 >typeof strOrBool === 'boolean' && !strOrBool : boolean
 >typeof strOrBool === 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'boolean' : "boolean"
 >!strOrBool : boolean
 >strOrBool : boolean
 >typeof strOrBool === 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | true
 >'string' : "string"
 
@@ -22,7 +24,7 @@ if ((typeof strOrBool === 'boolean' && !strOrBool) || typeof strOrBool === 'stri
 >(typeof strOrBool === 'string') ? strOrBool : "string" : string
 >(typeof strOrBool === 'string') : boolean
 >typeof strOrBool === 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'string' : "string"
 >strOrBool : string
@@ -33,7 +35,7 @@ if ((typeof strOrBool === 'boolean' && !strOrBool) || typeof strOrBool === 'stri
 >(typeof strOrBool === 'boolean') ? strOrBool : false : boolean
 >(typeof strOrBool === 'boolean') : boolean
 >typeof strOrBool === 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'boolean' : "boolean"
 >strOrBool : boolean
@@ -44,7 +46,7 @@ if ((typeof strOrBool === 'boolean' && !strOrBool) || typeof strOrBool === 'stri
 >(typeof strOrBool !== 'boolean') ? strOrBool : "string" : string
 >(typeof strOrBool !== 'boolean') : boolean
 >typeof strOrBool !== 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'boolean' : "boolean"
 >strOrBool : string
@@ -55,7 +57,7 @@ if ((typeof strOrBool === 'boolean' && !strOrBool) || typeof strOrBool === 'stri
 >(typeof strOrBool !== 'string') ? strOrBool : false : boolean
 >(typeof strOrBool !== 'string') : boolean
 >typeof strOrBool !== 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'string' : "string"
 >strOrBool : boolean
@@ -67,13 +69,13 @@ if ((typeof strOrBool !== 'string' && !strOrBool) || typeof strOrBool !== 'boole
 >(typeof strOrBool !== 'string' && !strOrBool) : boolean
 >typeof strOrBool !== 'string' && !strOrBool : boolean
 >typeof strOrBool !== 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'string' : "string"
 >!strOrBool : boolean
 >strOrBool : boolean
 >typeof strOrBool !== 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | true
 >'boolean' : "boolean"
 
@@ -82,7 +84,7 @@ if ((typeof strOrBool !== 'string' && !strOrBool) || typeof strOrBool !== 'boole
 >(typeof strOrBool === 'string') ? strOrBool : "string" : string
 >(typeof strOrBool === 'string') : boolean
 >typeof strOrBool === 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'string' : "string"
 >strOrBool : string
@@ -93,7 +95,7 @@ if ((typeof strOrBool !== 'string' && !strOrBool) || typeof strOrBool !== 'boole
 >(typeof strOrBool === 'boolean') ? strOrBool : false : boolean
 >(typeof strOrBool === 'boolean') : boolean
 >typeof strOrBool === 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'boolean' : "boolean"
 >strOrBool : boolean
@@ -104,7 +106,7 @@ if ((typeof strOrBool !== 'string' && !strOrBool) || typeof strOrBool !== 'boole
 >(typeof strOrBool !== 'boolean') ? strOrBool : "string" : string
 >(typeof strOrBool !== 'boolean') : boolean
 >typeof strOrBool !== 'boolean' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'boolean' : "boolean"
 >strOrBool : string
@@ -115,7 +117,7 @@ if ((typeof strOrBool !== 'string' && !strOrBool) || typeof strOrBool !== 'boole
 >(typeof strOrBool !== 'string') ? strOrBool : false : boolean
 >(typeof strOrBool !== 'string') : boolean
 >typeof strOrBool !== 'string' : boolean
->typeof strOrBool : "string" | "number" | "boolean" | "symbol" | "undefined" | "object" | "function"
+>typeof strOrBool : "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 >strOrBool : string | boolean
 >'string' : "string"
 >strOrBool : boolean

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declFileTypeAnnotationVisibilityErrorAccessors.ts] ////
+
 //// [declFileTypeAnnotationVisibilityErrorAccessors.ts]
 module m {
     class private1 {
@@ -10,7 +12,7 @@ module m {
         export class public2 {
         }
     }
-    
+
     export class c {
         // getter with annotation
         get foo1(): private1 {
@@ -39,7 +41,7 @@ module m {
         }
         set foo5(param: private1) {
         }
-    
+
         // getter with annotation
         get foo11(): public1 {
             return;
@@ -102,12 +104,12 @@ module m {
 //// [declFileTypeAnnotationVisibilityErrorAccessors.js]
 var m;
 (function (m) {
-    var private1 = (function () {
+    var private1 = /** @class */ (function () {
         function private1() {
         }
         return private1;
     }());
-    var public1 = (function () {
+    var public1 = /** @class */ (function () {
         function public1() {
         }
         return public1;
@@ -115,14 +117,14 @@ var m;
     m.public1 = public1;
     var m2;
     (function (m2) {
-        var public2 = (function () {
+        var public2 = /** @class */ (function () {
             function public2() {
             }
             return public2;
         }());
         m2.public2 = public2;
     })(m2 || (m2 = {}));
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         Object.defineProperty(c.prototype, "foo1", {
@@ -130,7 +132,7 @@ var m;
             get: function () {
                 return;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo2", {
@@ -138,14 +140,14 @@ var m;
             get: function () {
                 return new private1();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo3", {
             // setter with annotation
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo4", {
@@ -155,7 +157,7 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo5", {
@@ -165,7 +167,7 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo11", {
@@ -173,7 +175,7 @@ var m;
             get: function () {
                 return;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo12", {
@@ -181,14 +183,14 @@ var m;
             get: function () {
                 return new public1();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo13", {
             // setter with annotation
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo14", {
@@ -198,7 +200,7 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo15", {
@@ -208,7 +210,7 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo111", {
@@ -216,7 +218,7 @@ var m;
             get: function () {
                 return;
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo112", {
@@ -224,14 +226,14 @@ var m;
             get: function () {
                 return new m2.public2();
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo113", {
             // setter with annotation
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo114", {
@@ -241,7 +243,7 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         Object.defineProperty(c.prototype, "foo115", {
@@ -251,10 +253,47 @@ var m;
             },
             set: function (param) {
             },
-            enumerable: true,
+            enumerable: false,
             configurable: true
         });
         return c;
     }());
     m.c = c;
 })(m || (m = {}));
+
+
+//// [declFileTypeAnnotationVisibilityErrorAccessors.d.ts]
+declare namespace m {
+    class private1 {
+    }
+    export class public1 {
+    }
+    namespace m2 {
+        class public2 {
+        }
+    }
+    export class c {
+        get foo1(): private1;
+        get foo2(): private1;
+        set foo3(param: private1);
+        get foo4(): private1;
+        set foo4(param: private1);
+        get foo5(): private1;
+        set foo5(param: private1);
+        get foo11(): public1;
+        get foo12(): public1;
+        set foo13(param: public1);
+        get foo14(): public1;
+        set foo14(param: public1);
+        get foo15(): public1;
+        set foo15(param: public1);
+        get foo111(): m2.public2;
+        get foo112(): m2.public2;
+        set foo113(param: m2.public2);
+        get foo114(): m2.public2;
+        set foo114(param: m2.public2);
+        get foo115(): m2.public2;
+        set foo115(param: m2.public2);
+    }
+    export {};
+}

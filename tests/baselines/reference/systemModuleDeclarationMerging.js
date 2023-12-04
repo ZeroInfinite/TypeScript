@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/systemModuleDeclarationMerging.ts] ////
+
 //// [systemModuleDeclarationMerging.ts]
 export function F() {}
 export module F { var x; }
@@ -11,18 +13,17 @@ export module E { var x; }
 //// [systemModuleDeclarationMerging.js]
 System.register([], function (exports_1, context_1) {
     "use strict";
+    var C, E;
     var __moduleName = context_1 && context_1.id;
     function F() { }
     exports_1("F", F);
-    var C, E;
     return {
         setters: [],
         execute: function () {
             (function (F) {
                 var x;
-            })(F || (F = {}));
-            exports_1("F", F);
-            C = (function () {
+            })(F || (exports_1("F", F = {})));
+            C = /** @class */ (function () {
                 function C() {
                 }
                 return C;
@@ -30,15 +31,12 @@ System.register([], function (exports_1, context_1) {
             exports_1("C", C);
             (function (C) {
                 var x;
-            })(C || (C = {}));
-            exports_1("C", C);
+            })(C || (exports_1("C", C = {})));
             (function (E) {
-            })(E || (E = {}));
-            exports_1("E", E);
+            })(E || (exports_1("E", E = {})));
             (function (E) {
                 var x;
-            })(E || (E = {}));
-            exports_1("E", E);
+            })(E || (exports_1("E", E = {})));
         }
     };
 });

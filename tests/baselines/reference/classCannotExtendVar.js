@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/classCannotExtendVar.ts] ////
+
 //// [classCannotExtendVar.ts]
 var Markup;
 
@@ -9,7 +11,7 @@ class Markup {
 
 //// [classCannotExtendVar.js]
 var Markup;
-var Markup = (function () {
+var Markup = /** @class */ (function () {
     function Markup() {
     }
     return Markup;

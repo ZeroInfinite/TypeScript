@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript6/ComputedPropertyNames/parserComputedPropertyName33.ts] ////
+
 //// [parserComputedPropertyName33.ts]
 class C {
     // No ASI
@@ -6,10 +8,12 @@ class C {
 }
 
 //// [parserComputedPropertyName33.js]
+var _a;
 class C {
     constructor() {
         // No ASI
-        this[e] = 0[e2]();
+        this[_a] = 0[e2]();
     }
 }
+_a = e;
 { }

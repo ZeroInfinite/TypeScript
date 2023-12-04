@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource1.ts] ////
+
 //// [parserRealSource1.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -186,7 +188,7 @@ var TypeScript;
         }
         CompilerDiagnostics.assert = assert;
     })(CompilerDiagnostics = TypeScript.CompilerDiagnostics || (TypeScript.CompilerDiagnostics = {}));
-    var NullLogger = (function () {
+    var NullLogger = /** @class */ (function () {
         function NullLogger() {
         }
         NullLogger.prototype.information = function () { return false; };
@@ -199,7 +201,7 @@ var TypeScript;
         return NullLogger;
     }());
     TypeScript.NullLogger = NullLogger;
-    var LoggerAdapter = (function () {
+    var LoggerAdapter = /** @class */ (function () {
         function LoggerAdapter(logger) {
             this.logger = logger;
             this._information = this.logger.information();
@@ -219,7 +221,7 @@ var TypeScript;
         return LoggerAdapter;
     }());
     TypeScript.LoggerAdapter = LoggerAdapter;
-    var BufferedLogger = (function () {
+    var BufferedLogger = /** @class */ (function () {
         function BufferedLogger() {
             this.logContents = [];
         }
@@ -247,28 +249,28 @@ var TypeScript;
         var addChar = function (index) {
             var ch = value.charCodeAt(index);
             switch (ch) {
-                case 0x09:// tab
+                case 0x09: // tab
                     result += "\\t";
                     break;
-                case 0x0a:// line feed
+                case 0x0a: // line feed
                     result += "\\n";
                     break;
-                case 0x0b:// vertical tab
+                case 0x0b: // vertical tab
                     result += "\\v";
                     break;
-                case 0x0c:// form feed
+                case 0x0c: // form feed
                     result += "\\f";
                     break;
-                case 0x0d:// carriage return
+                case 0x0d: // carriage return
                     result += "\\r";
                     break;
-                case 0x22:// double quote
+                case 0x22: // double quote
                     result += "\\\"";
                     break;
-                case 0x27:// single quote
+                case 0x27: // single quote
                     result += "\\\'";
                     break;
-                case 0x5c:// Backslash
+                case 0x5c: // Backslash
                     result += "\\";
                     break;
                 default:

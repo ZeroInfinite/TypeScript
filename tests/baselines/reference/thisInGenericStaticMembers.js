@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/thisInGenericStaticMembers.ts] ////
+
 //// [thisInGenericStaticMembers.ts]
 // this.call in static generic method not resolved correctly
 
@@ -28,7 +30,7 @@ class B {
 
 //// [thisInGenericStaticMembers.js]
 // this.call in static generic method not resolved correctly
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.one = function (source, value) {
@@ -39,7 +41,7 @@ var A = (function () {
     };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.one = function (source, value) {

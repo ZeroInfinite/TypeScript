@@ -1,6 +1,6 @@
 /// <reference path='fourslash.ts'/>
 
-////var [|{| "isWriteAccess": true, "isDefinition": true |}x|] = 10;
-////var y = `${ [|x|] } ${ [|x|] }`
+/////*1*/var /*2*/x = 10;
+////var y = `${ /*3*/x } ${ /*4*/x }`
 
-verify.singleReferenceGroup("var x: number");
+verify.baselineFindAllReferences('1', '2', '3', '4');

@@ -13,16 +13,17 @@ export = x;
 
 //// [es6ImportNamedImportInIndirectExportAssignment_0.js]
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.a = void 0;
 var a;
 (function (a) {
-    var c = (function () {
+    var c = /** @class */ (function () {
         function c() {
         }
         return c;
     }());
     a.c = c;
-})(a = exports.a || (exports.a = {}));
+})(a || (exports.a = a = {}));
 //// [es6ImportNamedImportInIndirectExportAssignment_1.js]
 "use strict";
 var es6ImportNamedImportInIndirectExportAssignment_0_1 = require("./es6ImportNamedImportInIndirectExportAssignment_0");
@@ -31,7 +32,7 @@ module.exports = x;
 
 
 //// [es6ImportNamedImportInIndirectExportAssignment_0.d.ts]
-export declare module a {
+export declare namespace a {
     class c {
     }
 }

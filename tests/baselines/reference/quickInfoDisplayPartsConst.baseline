@@ -1,10 +1,108 @@
+// === QuickInfo ===
+=== /tests/cases/fourslash/quickInfoDisplayPartsConst.ts ===
+// const a = 10;
+//       ^
+// | ----------------------------------------------------------------------
+// | const a: 10
+// | ----------------------------------------------------------------------
+// function foo() {
+//     const b = a;
+//           ^
+// | ----------------------------------------------------------------------
+// | const b: 10
+// | ----------------------------------------------------------------------
+//               ^
+// | ----------------------------------------------------------------------
+// | const a: 10
+// | ----------------------------------------------------------------------
+//     if (b) {
+//         const b1 = 10;
+//               ^^
+// | ----------------------------------------------------------------------
+// | const b1: 10
+// | ----------------------------------------------------------------------
+//     }
+// }
+// module m {
+//     const c = 10;
+//           ^
+// | ----------------------------------------------------------------------
+// | const c: 10
+// | ----------------------------------------------------------------------
+//     export const d = 10;
+//                  ^
+// | ----------------------------------------------------------------------
+// | const m.d: 10
+// | ----------------------------------------------------------------------
+//     if (c) {
+//         const e = 10;
+//               ^
+// | ----------------------------------------------------------------------
+// | const e: 10
+// | ----------------------------------------------------------------------
+//     }
+// }
+// const f: () => number = () => 10;
+//       ^
+// | ----------------------------------------------------------------------
+// | const f: () => number
+// | ----------------------------------------------------------------------
+// const g = f;
+//       ^
+// | ----------------------------------------------------------------------
+// | const g: () => number
+// | ----------------------------------------------------------------------
+//           ^
+// | ----------------------------------------------------------------------
+// | const f: () => number
+// | ----------------------------------------------------------------------
+// f();
+// ^
+// | ----------------------------------------------------------------------
+// | const f: () => number
+// | ----------------------------------------------------------------------
+// const h: { (a: string): number; (a: number): string; } = a => a;
+//       ^
+// | ----------------------------------------------------------------------
+// | const h: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+// const i = h;
+//       ^
+// | ----------------------------------------------------------------------
+// | const i: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+//           ^
+// | ----------------------------------------------------------------------
+// | const h: {
+// |     (a: string): number;
+// |     (a: number): string;
+// | }
+// | ----------------------------------------------------------------------
+// h(10);
+// ^
+// | ----------------------------------------------------------------------
+// | const h: (a: number) => string (+1 overload)
+// | ----------------------------------------------------------------------
+// h("hello");
+// ^
+// | ----------------------------------------------------------------------
+// | const h: (a: string) => number (+1 overload)
+// | ----------------------------------------------------------------------
+
 [
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 6
+      "position": 6,
+      "name": "1"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -37,16 +135,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 41
+      "position": 41,
+      "name": "2"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -79,16 +177,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 45
+      "position": 45,
+      "name": "3"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -121,16 +219,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 75
+      "position": 75,
+      "name": "4"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -163,16 +261,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 113
+      "position": 113,
+      "name": "5"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -205,16 +303,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 138
+      "position": 138,
+      "name": "6"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "export",
       "textSpan": {
@@ -255,16 +353,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 173
+      "position": 173,
+      "name": "7"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -297,16 +395,16 @@
           "kind": "stringLiteral"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 195
+      "position": 195,
+      "name": "8"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -359,16 +457,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 229
+      "position": 229,
+      "name": "9"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -421,16 +519,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 233
+      "position": 233,
+      "name": "10"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -483,16 +581,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 236
+      "position": 236,
+      "name": "11"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -545,16 +643,16 @@
           "kind": "keyword"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 247
+      "position": 247,
+      "name": "12"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -691,16 +789,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 312
+      "position": 312,
+      "name": "13"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -837,16 +935,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 316
+      "position": 316,
+      "name": "14"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -983,16 +1081,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 319
+      "position": 319,
+      "name": "15"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -1089,16 +1187,16 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   },
   {
     "marker": {
       "fileName": "/tests/cases/fourslash/quickInfoDisplayPartsConst.ts",
-      "position": 326
+      "position": 326,
+      "name": "16"
     },
-    "quickInfo": {
+    "item": {
       "kind": "const",
       "kindModifiers": "",
       "textSpan": {
@@ -1195,8 +1293,7 @@
           "kind": "punctuation"
         }
       ],
-      "documentation": [],
-      "tags": []
+      "documentation": []
     }
   }
 ]

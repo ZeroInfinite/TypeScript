@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/assignmentCompatibility/anyAssignabilityInInheritance.ts] ////
+
 //// [anyAssignabilityInInheritance.ts]
 // any is not a subtype of any other types, errors expected on all the below derived classes unless otherwise noted
 
@@ -99,13 +101,13 @@ var r3 = foo3(a); // any
 var r3 = foo3(a); // any
 var r3 = foo3(a); // any
 var r3 = foo3(a); // any
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     return A;
 }());
 var r3 = foo3(a); // any
-var A2 = (function () {
+var A2 = /** @class */ (function () {
     function A2() {
     }
     return A2;
@@ -123,7 +125,7 @@ function f() { }
     f.bar = 1;
 })(f || (f = {}));
 var r3 = foo3(a); // any
-var CC = (function () {
+var CC = /** @class */ (function () {
     function CC() {
     }
     return CC;

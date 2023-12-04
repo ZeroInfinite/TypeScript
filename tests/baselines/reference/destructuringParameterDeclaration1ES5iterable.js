@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringParameterDeclaration1ES5iterable.ts] ////
+
 //// [destructuringParameterDeclaration1ES5iterable.ts]
 // A parameter declaration may specify either an identifier or a binding pattern.
 // The identifiers specified in parameter declarations and binding patterns
@@ -143,13 +145,13 @@ function b2(z, o) {
     if (o === void 0) { o = { x: 0, y: undefined }; }
 }
 function b3(_a) {
-    var _b = (_a === void 0 ? { z: { x: "hi", y: { j: 1 } } } : _a).z, x = _b.x, j = _b.y.j;
+    var _b = _a === void 0 ? { z: { x: "hi", y: { j: 1 } } } : _a, _c = _b.z, x = _c.x, j = _c.y.j;
 }
 function b6(_a) {
-    var _b = __read(_a === void 0 ? [undefined, null, undefined] : _a, 3), a = _b[0], z = _b[1], y = _b[2];
+    var _b = _a === void 0 ? [undefined, null, undefined] : _a, _c = __read(_b, 3), a = _c[0], z = _c[1], y = _c[2];
 }
 function b7(_a) {
-    var _b = __read(_a === void 0 ? [[undefined], undefined, [[undefined, undefined]]] : _a, 3), _c = __read(_b[0], 1), a = _c[0], b = _b[1], _d = __read(_b[2], 1), _e = __read(_d[0], 2), c = _e[0], d = _e[1];
+    var _b = _a === void 0 ? [[undefined], undefined, [[undefined, undefined]]] : _a, _c = __read(_b, 3), _d = __read(_c[0], 1), a = _d[0], b = _c[1], _e = __read(_c[2], 1), _f = __read(_e[0], 2), c = _f[0], d = _f[1];
 }
 b1([1, 2, 3]); // z is widen to the type any[]
 b2("string", { x: 200, y: "string" });
@@ -165,13 +167,13 @@ function c0(_a) {
     var _b = _a.z, x = _b.x, j = _b.y.j;
 }
 function c1(_a) {
-    var z = (_a === void 0 ? { z: 10 } : _a).z;
+    var _b = _a === void 0 ? { z: 10 } : _a, z = _b.z;
 }
 function c2(_a) {
     var _b = _a.z, z = _b === void 0 ? 10 : _b;
 }
 function c3(_a) {
-    var b = (_a === void 0 ? { b: "hello" } : _a).b;
+    var _b = _a === void 0 ? { b: "hello" } : _a, b = _b.b;
 }
 function c5(_a) {
     var _b = __read(_a, 3), a = _b[0], b = _b[1], _c = __read(_b[2], 1), _d = __read(_c[0], 1), c = _d[0];
@@ -194,7 +196,7 @@ function d0(x) { }
 function d0(x) {
     if (x === void 0) { x = 10; }
 }
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     C2.prototype.d3 = function () { };
@@ -204,7 +206,7 @@ var C2 = (function () {
     };
     return C2;
 }());
-var C3 = (function () {
+var C3 = /** @class */ (function () {
     function C3() {
     }
     C3.prototype.d3 = function (_a) {

@@ -1,4 +1,6 @@
-=== tests/cases/compiler/es5-asyncFunctionTryStatements.ts ===
+//// [tests/cases/compiler/es5-asyncFunctionTryStatements.ts] ////
+
+=== es5-asyncFunctionTryStatements.ts ===
 declare var x: any, y: any, z: any, a: any, b: any, c: any;
 >x : any
 >y : any
@@ -68,8 +70,6 @@ async function tryCatch2() {
 
 async function tryCatch3(): Promise<Function> {
 >tryCatch3 : () => Promise<Function>
->Promise : Promise<T>
->Function : Function
 
     var x: any, y: any;
 >x : any

@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/destructuring/destructuringParameterDeclaration3ES5iterable.ts] ////
+
 //// [destructuringParameterDeclaration3ES5iterable.ts]
 // If the parameter is a rest parameter, the parameter type is any[]
 // A type annotation for a rest parameter must denote an array type.
@@ -64,9 +66,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spread = (this && this.__spread) || function () {
-    for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
-    return ar;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 function a1() {
     var x = [];
@@ -109,8 +116,8 @@ function a11(_a) {
 }
 var array = [1, 2, 3];
 var array2 = [true, false, "hello"];
-a2(__spread(array));
-a1.apply(void 0, __spread(array));
+a2(__spreadArray([], __read(array), false));
+a1.apply(void 0, __spreadArray([], __read(array), false));
 a9([1, 2, [["string"]], false, true]); // Parameter type is [any, any, [[any]]]
 a10([1, 2, [["string"]], false, true]); // Parameter type is any[]
 a10([1, 2, 3, false, true]); // Parameter type is any[]
@@ -137,4 +144,4 @@ function foo1() {
     }
 }
 foo1(1, 2, 3, E.a);
-foo1(1, 2, 3, 0 /* a */, E.b);
+foo1(1, 2, 3, 0 /* E1.a */, E.b);

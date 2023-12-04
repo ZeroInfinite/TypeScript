@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/moduleIdentifiers.ts] ////
+
 //// [moduleIdentifiers.ts]
 module M {
     interface P { x: number; y: number; }
@@ -19,4 +21,4 @@ var M;
 //var m: M = M;
 var x1 = M.a;
 //var x2 = m.a;
-//var q: m.P; 
+//var q: m.P;

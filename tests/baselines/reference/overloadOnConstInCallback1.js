@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/overloadOnConstInCallback1.ts] ////
+
 //// [overloadOnConstInCallback1.ts]
 class C {
     x1(a: number, callback: (x: 'hi') => number); // error
@@ -10,7 +12,7 @@ class C {
 }
 
 //// [overloadOnConstInCallback1.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.x1 = function (a, callback) {

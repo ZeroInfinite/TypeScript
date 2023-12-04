@@ -11,19 +11,19 @@
 //// }
 ////
 //// class Bar implements Foo {
-////      [|hello() {}|]
+////      [|hello|]() {}
 ////      someOtherFunction() {}
 //// }
 ////
 //// function createFoo(): Foo {
 ////     return {
-////         [|hello() {}|],
+////         [|hello|]() {},
 ////         someOtherFunction() {}
 ////     };
 //// }
 ////
 //// var y: Foo = {
-////     [|hello() {}|],
+////     [|hello|]() {},
 ////     someOtherFunction() {}
 //// };
 ////
@@ -45,4 +45,4 @@
 ////     x.he/*function_call*/llo()
 //// }
 
-verify.allRangesAppearInImplementationList("function_call");
+verify.baselineGoToImplementation("function_call");

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/declarationEmitDestructuring4.ts] ////
+
 //// [declarationEmitDestructuring4.ts]
 // For an array binding pattern with empty elements,
 // we will not make any modification and will emit
@@ -20,7 +22,7 @@ function baz1(_a) {
     _a = [1, 2, 3];
 }
 function baz2(_a) {
-    var _b = (_a === void 0 ? [[1, 2, 3]] : _a)[0];
+    var _b = _a === void 0 ? [[1, 2, 3]] : _a, _c = _b[0];
 }
 function baz3(_a) { }
 function baz4(_a) {

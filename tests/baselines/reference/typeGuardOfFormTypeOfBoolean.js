@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/expressions/typeGuards/typeGuardOfFormTypeOfBoolean.ts] ////
+
 //// [typeGuardOfFormTypeOfBoolean.ts]
 class C { private p: string };
 
@@ -87,7 +89,7 @@ else {
 
 
 //// [typeGuardOfFormTypeOfBoolean.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

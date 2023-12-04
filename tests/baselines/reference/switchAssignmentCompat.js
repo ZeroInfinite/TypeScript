@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/switchAssignmentCompat.ts] ////
+
 //// [switchAssignmentCompat.ts]
 class Foo { }
 
@@ -7,7 +9,7 @@ switch (0) {
 
 
 //// [switchAssignmentCompat.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;

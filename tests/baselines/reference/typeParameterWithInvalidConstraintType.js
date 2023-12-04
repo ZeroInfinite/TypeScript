@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/typeParameterWithInvalidConstraintType.ts] ////
+
 //// [typeParameterWithInvalidConstraintType.ts]
 class A<T extends T> {
     foo() {
@@ -10,7 +12,7 @@ class A<T extends T> {
 }
 
 //// [typeParameterWithInvalidConstraintType.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () {

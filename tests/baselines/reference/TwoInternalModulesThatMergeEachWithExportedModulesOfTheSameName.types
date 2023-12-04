@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/DeclarationMerging/TwoInternalModulesThatMergeEachWithExportedModulesOfTheSameName.ts ===
+//// [tests/cases/conformance/internalModules/DeclarationMerging/TwoInternalModulesThatMergeEachWithExportedModulesOfTheSameName.ts] ////
+
+=== TwoInternalModulesThatMergeEachWithExportedModulesOfTheSameName.ts ===
 module A.B {
 >A : typeof A
 >B : typeof B
@@ -72,5 +74,4 @@ var l: X.Y.Z.Line;
 >X : any
 >Y : any
 >Z : any
->Line : X.Y.Z.Line
 

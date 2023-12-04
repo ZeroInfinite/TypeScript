@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/inferSetterParamType.ts] ////
+
 //// [inferSetterParamType.ts]
 class Foo {
 
@@ -19,7 +21,7 @@ class Foo2 {
 
 
 //// [inferSetterParamType.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     Object.defineProperty(Foo.prototype, "bar", {
@@ -28,12 +30,12 @@ var Foo = (function () {
         },
         set: function (n) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Foo;
 }());
-var Foo2 = (function () {
+var Foo2 = /** @class */ (function () {
     function Foo2() {
     }
     Object.defineProperty(Foo2.prototype, "bar", {
@@ -42,7 +44,7 @@ var Foo2 = (function () {
         },
         set: function (n) {
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     return Foo2;

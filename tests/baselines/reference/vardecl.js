@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/vardecl.ts] ////
+
 //// [vardecl.ts]
 var simpleVar;
 
@@ -134,13 +136,13 @@ var m2;
     var m1;
     var a2, b22 = 10, b222;
     var m3;
-    var C = (function () {
+    var C = /** @class */ (function () {
         function C(b) {
             this.b = b;
         }
         return C;
     }());
-    var C2 = (function () {
+    var C2 = /** @class */ (function () {
         function C2(b) {
             this.b = b;
         }
@@ -225,7 +227,7 @@ declare var d4: {
         y: number;
     };
 };
-declare module m2 {
+declare namespace m2 {
     var a: any, b2: number, b: any;
     class C2 {
         b: any;

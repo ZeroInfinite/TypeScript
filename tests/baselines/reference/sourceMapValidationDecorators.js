@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sourceMapValidationDecorators.ts] ////
+
 //// [sourceMapValidationDecorators.ts]
 declare function ClassDecorator1(target: Function): void;
 declare function ClassDecorator2(x: number): (target: Function) => void;
@@ -64,7 +66,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var Greeter = (function () {
+var Greeter = /** @class */ (function () {
     function Greeter(greeting) {
         var b = [];
         for (var _i = 1; _i < arguments.length; _i++) {
@@ -85,7 +87,7 @@ var Greeter = (function () {
         set: function (greetings) {
             this.greeting = greetings;
         },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
     Greeter.x1 = 10;

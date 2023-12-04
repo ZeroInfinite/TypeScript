@@ -1,11 +1,11 @@
-=== tests/cases/compiler/typeofInterface.ts ===
+//// [tests/cases/compiler/typeofInterface.ts] ////
+
+=== typeofInterface.ts ===
 var I: { a: string};
 >I : { a: string; }
 >a : string
 
 interface I {
->I : I
-
     I: number;
 >I : number
 
@@ -16,7 +16,6 @@ interface I {
 
 var k: I;
 >k : I
->I : I
 
 var j: typeof k.foo = { a: "hello" };
 >j : { a: string; }

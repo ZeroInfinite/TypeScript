@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/genericReversingTypeParameters.ts] ////
+
 //// [genericReversingTypeParameters.ts]
 class BiMap<K, V> {
     private inverseBiMap: BiMap<V, K>;
@@ -11,7 +13,7 @@ var i = b.inverse(); // used to get the type wrong here.
 var r2b = i.get(1); 
 
 //// [genericReversingTypeParameters.js]
-var BiMap = (function () {
+var BiMap = /** @class */ (function () {
     function BiMap() {
     }
     BiMap.prototype.get = function (key) { return null; };

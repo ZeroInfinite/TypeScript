@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/thisType/thisTypeAndConstraints.ts] ////
+
 //// [thisTypeAndConstraints.ts]
 class A {
     self() {
@@ -23,7 +25,7 @@ class B<T extends A> {
 
 
 //// [thisTypeAndConstraints.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.self = function () {
@@ -37,7 +39,7 @@ function f(x) {
     }
     x = x.self();
 }
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.foo = function (x) {

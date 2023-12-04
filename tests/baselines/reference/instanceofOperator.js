@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/instanceofOperator.ts] ////
+
 //// [instanceofOperator.ts]
 // Spec:
 // The instanceof operator requires the left operand to be of type Any or an object type, and the right 
@@ -31,7 +33,7 @@ module test {
 // Boolean primitive type.
 var test;
 (function (test) {
-    var Object = (function () {
+    var Object = /** @class */ (function () {
         function Object() {
         }
         return Object;

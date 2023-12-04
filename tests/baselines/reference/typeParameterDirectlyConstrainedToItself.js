@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeParameters/typeParameterLists/typeParameterDirectlyConstrainedToItself.ts] ////
+
 //// [typeParameterDirectlyConstrainedToItself.ts]
 // all of the below should be errors
 
@@ -20,12 +22,12 @@ var b2 = <T, U extends U>() => { }
 
 //// [typeParameterDirectlyConstrainedToItself.js]
 // all of the below should be errors
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;
 }());
-var C2 = (function () {
+var C2 = /** @class */ (function () {
     function C2() {
     }
     return C2;

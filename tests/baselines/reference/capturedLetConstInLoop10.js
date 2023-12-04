@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/capturedLetConstInLoop10.ts] ////
+
 //// [capturedLetConstInLoop10.ts]
 class A {
     foo() {
@@ -46,7 +48,7 @@ class B {
 }
 
 //// [capturedLetConstInLoop10.js]
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.foo = function () {
@@ -69,8 +71,8 @@ var A = (function () {
                 var b = function () { return y; };
                 this_2.bar(b());
             };
-            for (var _i = 0, _a = [1]; _i < _a.length; _i++) {
-                var y = _a[_i];
+            for (var _b = 0, _c = [1]; _b < _c.length; _b++) {
+                var y = _c[_b];
                 _loop_3(y);
             }
             this_2.bar(a());
@@ -89,8 +91,8 @@ var A = (function () {
                 var b = function () { return y; };
                 this_3.bar(b());
             };
-            for (var _i = 0, _a = [1]; _i < _a.length; _i++) {
-                var y = _a[_i];
+            for (var _b = 0, _c = [1]; _b < _c.length; _b++) {
+                var y = _c[_b];
                 _loop_5(y);
             }
         };
@@ -102,7 +104,7 @@ var A = (function () {
     };
     return A;
 }());
-var B = (function () {
+var B = /** @class */ (function () {
     function B() {
     }
     B.prototype.foo = function () {

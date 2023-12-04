@@ -1,5 +1,7 @@
-=== tests/cases/conformance/jsx/tsxNoJsx.tsx ===
+//// [tests/cases/conformance/jsx/tsxNoJsx.tsx] ////
+
+=== tsxNoJsx.tsx ===
 <nope />;
-><nope /> : any
+><nope /> : error
 >nope : any
 

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/sourceMapValidationWithComments.ts] ////
+
 //// [sourceMapValidationWithComments.ts]
 class DebugClass {
 
@@ -22,7 +24,7 @@ class DebugClass {
 }
 
 //// [sourceMapValidationWithComments.js]
-var DebugClass = (function () {
+var DebugClass = /** @class */ (function () {
     function DebugClass() {
     }
     DebugClass.debugFunc = function () {

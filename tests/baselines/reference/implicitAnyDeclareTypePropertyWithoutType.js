@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/implicitAnyDeclareTypePropertyWithoutType.ts] ////
+
 //// [implicitAnyDeclareTypePropertyWithoutType.ts]
 class C {
     constructor() { }
@@ -18,7 +20,7 @@ var x5: () => any;
 
 
 //// [implicitAnyDeclareTypePropertyWithoutType.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     return C;

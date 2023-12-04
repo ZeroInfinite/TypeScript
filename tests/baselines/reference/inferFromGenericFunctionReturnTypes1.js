@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/inferFromGenericFunctionReturnTypes1.ts] ////
+
 //// [inferFromGenericFunctionReturnTypes1.ts]
 // Repro from #15680
 
@@ -74,7 +76,7 @@ testSet.transform(
 //// [inferFromGenericFunctionReturnTypes1.js]
 // Repro from #15680
 // This is a contrived class. We could do the same thing with Observables, etc.
-var SetOf = (function () {
+var SetOf = /** @class */ (function () {
     function SetOf() {
     }
     SetOf.prototype.add = function (a) {

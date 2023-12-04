@@ -1,4 +1,6 @@
-=== tests/cases/conformance/types/objectTypeLiteral/propertySignatures/propertyNamesOfReservedWords.ts ===
+//// [tests/cases/conformance/types/objectTypeLiteral/propertySignatures/propertyNamesOfReservedWords.ts] ////
+
+=== propertyNamesOfReservedWords.ts ===
 class C {
 >C : C
 
@@ -193,7 +195,6 @@ class C {
 }
 var c: C;
 >c : C
->C : C
 
 var r1 = c.abstract;
 >r1 : any
@@ -208,8 +209,6 @@ var r2 = c.as;
 >as : any
 
 interface I {
->I : I
-
     abstract;
 >abstract : any
 
@@ -402,7 +401,6 @@ interface I {
 
 var i: I;
 >i : I
->I : I
 
 var r3 = i.abstract;
 >r3 : any

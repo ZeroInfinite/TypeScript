@@ -1,7 +1,7 @@
-=== tests/cases/compiler/sourceMapValidationDestructuringParameterObjectBindingPattern.ts ===
-interface Robot {
->Robot : Robot
+//// [tests/cases/compiler/sourceMapValidationDestructuringParameterObjectBindingPattern.ts] ////
 
+=== sourceMapValidationDestructuringParameterObjectBindingPattern.ts ===
+interface Robot {
     name: string;
 >name : string
 
@@ -21,7 +21,6 @@ var hello = "hello";
 
 var robotA: Robot = { name: "mower", skill: "mowing" };
 >robotA : Robot
->Robot : Robot
 >{ name: "mower", skill: "mowing" } : { name: string; skill: string; }
 >name : string
 >"mower" : "mower"
@@ -32,7 +31,6 @@ function foo1({ name: nameA }: Robot) {
 >foo1 : ({ name: nameA }: Robot) => void
 >name : any
 >nameA : string
->Robot : Robot
 
     console.log(nameA);
 >console.log(nameA) : void
@@ -47,7 +45,6 @@ function foo2({ name: nameB, skill: skillB }: Robot) {
 >nameB : string
 >skill : any
 >skillB : string
->Robot : Robot
 
     console.log(nameB);
 >console.log(nameB) : void
@@ -59,7 +56,6 @@ function foo2({ name: nameB, skill: skillB }: Robot) {
 function foo3({ name }: Robot) {
 >foo3 : ({ name }: Robot) => void
 >name : string
->Robot : Robot
 
     console.log(name);
 >console.log(name) : void

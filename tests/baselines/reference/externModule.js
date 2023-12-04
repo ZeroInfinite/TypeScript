@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/externModule.ts] ////
+
 //// [externModule.ts]
 declare module {
     export class XDate {
@@ -43,7 +45,7 @@ n=XDate.UTC(1964,2,1);
 declare;
 module;
 {
-    var XDate = (function () {
+    var XDate = /** @class */ (function () {
         function XDate() {
         }
         return XDate;

@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/ClassDeclaration25.ts] ////
+
 //// [ClassDeclaration25.ts]
 interface IList<T> {
     data(): T;
@@ -10,7 +12,7 @@ class List<U> implements IList<U> {
 
 
 //// [ClassDeclaration25.js]
-var List = (function () {
+var List = /** @class */ (function () {
     function List() {
     }
     return List;

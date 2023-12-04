@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeAliases/typeAliases.ts] ////
+
 //// [typeAliases.ts]
 // Writing a reference to a type alias has exactly the same effect as writing the aliased type itself.
 
@@ -94,7 +96,7 @@ var x5;
 var x5;
 var x6;
 var x6;
-var C7 = (function () {
+var C7 = /** @class */ (function () {
     function C7() {
     }
     return C7;

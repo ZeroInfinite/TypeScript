@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/mergedModuleDeclarationCodeGen5.ts] ////
+
 //// [mergedModuleDeclarationCodeGen5.ts]
 module M.buz.plop {
     export function doom() { }
@@ -39,7 +41,7 @@ var M;
         (function (plop_1) {
             function gunk() { }
             function buz() { }
-            var fudge = (function () {
+            var fudge = /** @class */ (function () {
                 function fudge() {
                 }
                 return fudge;

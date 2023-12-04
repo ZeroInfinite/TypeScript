@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource14.ts] ////
+
 //// [parserRealSource14.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -597,7 +599,7 @@ var TypeScript;
     // Helper class representing a path from a root ast node to a (grand)child ast node.
     // This is helpful as our tree don't have parents.
     //
-    var AstPath = (function () {
+    var AstPath = /** @class */ (function () {
         function AstPath() {
             this.asts = [];
             this.top = -1;
@@ -950,7 +952,7 @@ var TypeScript;
         return true;
     }
     TypeScript.isValidAstNode = isValidAstNode;
-    var AstPathContext = (function () {
+    var AstPathContext = /** @class */ (function () {
         function AstPathContext() {
             this.path = new TypeScript.AstPath();
         }

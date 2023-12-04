@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/exportDeclarations/ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.ts] ////
+
 //// [ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.ts]
 module A {
     class B {
@@ -11,7 +13,7 @@ module A {
 //// [ExportVariableOfGenericTypeWithInaccessibleTypeAsTypeArgument.js]
 var A;
 (function (A) {
-    var B = (function () {
+    var B = /** @class */ (function () {
         function B() {
         }
         return B;

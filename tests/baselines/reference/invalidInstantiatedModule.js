@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/moduleDeclarations/invalidInstantiatedModule.ts] ////
+
 //// [invalidInstantiatedModule.ts]
 module M {
     export class Point { x: number; y: number }
@@ -18,7 +20,7 @@ var p: m.Point; // Error
 //// [invalidInstantiatedModule.js]
 var M;
 (function (M) {
-    var Point = (function () {
+    var Point = /** @class */ (function () {
         function Point() {
         }
         return Point;

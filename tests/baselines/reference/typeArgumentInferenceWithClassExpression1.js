@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/es6/classExpressions/typeArgumentInferenceWithClassExpression1.ts] ////
+
 //// [typeArgumentInferenceWithClassExpression1.ts]
 function foo<T>(x = class { static prop: T }): T {
     return undefined;
@@ -6,19 +8,19 @@ function foo<T>(x = class { static prop: T }): T {
 foo(class { static prop = "hello" }).length;
 
 //// [typeArgumentInferenceWithClassExpression1.js]
+var _a;
 function foo(x) {
-    if (x === void 0) { x = (function () {
+    if (x === void 0) { x = /** @class */ (function () {
         function class_1() {
         }
         return class_1;
     }()); }
     return undefined;
 }
-foo((_a = (function () {
+foo((_a = /** @class */ (function () {
         function class_2() {
         }
         return class_2;
     }()),
     _a.prop = "hello",
     _a)).length;
-var _a;

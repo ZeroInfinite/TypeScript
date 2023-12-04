@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/internalModules/moduleDeclarations/nonInstantiatedModule.ts] ////
+
 //// [nonInstantiatedModule.ts]
 module M {
     export interface Point { x: number; y: number }
@@ -73,7 +75,7 @@ var p2;
 var p2;
 var M3;
 (function (M3) {
-    var Utils = (function () {
+    var Utils = /** @class */ (function () {
         function Utils() {
         }
         return Utils;

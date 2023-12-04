@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/intTypeCheck.ts] ////
+
 //// [intTypeCheck.ts]
 interface i1 {
     //Property Signatures
@@ -206,7 +208,7 @@ var obj86: i8 = new <i8> anyVar;
 var obj87: i8 = new {};
 
 //// [intTypeCheck.js]
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base() {
     }
     Base.prototype.foo = function () { };

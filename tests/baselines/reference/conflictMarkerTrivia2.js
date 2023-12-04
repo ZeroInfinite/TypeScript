@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/conflictMarkerTrivia2.ts] ////
+
 //// [conflictMarkerTrivia2.ts]
 class C {
   foo() {
@@ -14,7 +16,7 @@ class C {
 
 
 //// [conflictMarkerTrivia2.js]
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.foo = function () {

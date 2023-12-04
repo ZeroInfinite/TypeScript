@@ -1,4 +1,6 @@
-=== tests/cases/compiler/switchComparableCompatForBrands.ts ===
+//// [tests/cases/compiler/switchComparableCompatForBrands.ts] ////
+
+=== switchComparableCompatForBrands.ts ===
 class MyBrand
 >MyBrand : MyBrand
 {
@@ -9,7 +11,6 @@ class MyBrand
 function test(strInput: string & MyBrand) {
 >test : (strInput: string & MyBrand) => 1 | 0
 >strInput : string & MyBrand
->MyBrand : MyBrand
 
     switch(strInput)
 >strInput : string & MyBrand

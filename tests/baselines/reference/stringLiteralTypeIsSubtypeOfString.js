@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/typeRelationships/subtypesAndSuperTypes/stringLiteralTypeIsSubtypeOfString.ts] ////
+
 //// [stringLiteralTypeIsSubtypeOfString.ts]
 // string literal types are subtypes of string, any
 
@@ -48,7 +50,7 @@ class C implements String {
     indexOf(searchString: string, position?: number): number { return null; }
     lastIndexOf(searchString: string, position?: number): number { return null; }
     localeCompare(that: string): number { return null; }
-    match(regexp: any): string[] { return null; }
+    match(regexp: any): RegExpMatchArray { return null; }
     replace(searchValue: any, replaceValue: any): string { return null; }
     search(regexp: any): number { return null; }
     slice(start?: number, end?: number): string { return null; }
@@ -64,7 +66,7 @@ class C implements String {
     valueOf(): string { return null; }
     [index: number]: string;
 }
- 
+
 // BUG 831846
 function f10(x: 'a');
 function f10(x: C);
@@ -100,6 +102,7 @@ function f16<T extends String, U extends T>(x: 'a');
 function f16<T extends String, U extends T>(x: U);
 function f16<T extends String, U extends T>(x: any) { }
 
+
 //// [stringLiteralTypeIsSubtypeOfString.js]
 // string literal types are subtypes of string, any
 function f1(x) { }
@@ -111,7 +114,7 @@ function f6(x) { }
 function f7(x) { }
 function f8(x) { }
 function f9(x) { }
-var C = (function () {
+var C = /** @class */ (function () {
     function C() {
     }
     C.prototype.toString = function () { return null; };

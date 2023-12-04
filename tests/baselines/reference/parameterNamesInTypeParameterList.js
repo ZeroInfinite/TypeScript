@@ -1,3 +1,5 @@
+//// [tests/cases/compiler/parameterNamesInTypeParameterList.ts] ////
+
 //// [parameterNamesInTypeParameterList.ts]
 function f0<T extends typeof a>(a: T) {
 	a.b;
@@ -35,7 +37,7 @@ function f2(_a) {
     var a = _a[0];
     a.b;
 }
-var A = (function () {
+var A = /** @class */ (function () {
     function A() {
     }
     A.prototype.m0 = function (a) {

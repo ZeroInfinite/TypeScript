@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/types/thisType/thisTypeErrors2.ts] ////
+
 //// [thisTypeErrors2.ts]
 class Base {
     constructor(a: this) {
@@ -15,17 +17,17 @@ class Derived {
 
 
 //// [thisTypeErrors2.js]
-var Base = (function () {
+var Base = /** @class */ (function () {
     function Base(a) {
     }
     return Base;
 }());
-var Generic = (function () {
+var Generic = /** @class */ (function () {
     function Generic() {
     }
     return Generic;
 }());
-var Derived = (function () {
+var Derived = /** @class */ (function () {
     function Derived(host) {
         this.host = host;
         var self = this;

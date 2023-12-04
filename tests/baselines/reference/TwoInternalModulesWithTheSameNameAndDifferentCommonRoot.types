@@ -1,4 +1,6 @@
-=== tests/cases/conformance/internalModules/DeclarationMerging/part1.ts ===
+//// [tests/cases/conformance/internalModules/DeclarationMerging/TwoInternalModulesWithTheSameNameAndDifferentCommonRoot.ts] ////
+
+=== part1.ts ===
 module Root {
 >Root : typeof Root
 
@@ -6,8 +8,6 @@ module Root {
 >A : typeof A
 
         export interface Point {
->Point : Point
-
             x: number;
 >x : number
 
@@ -20,10 +20,7 @@ module Root {
 
             export function mirror<T extends Point>(p: T) {
 >mirror : <T extends Point>(p: T) => { x: number; y: number; }
->T : T
->Point : Point
 >p : T
->T : T
 
                 return { x: p.y, y: p.x };
 >{ x: p.y, y: p.x } : { x: number; y: number; }
@@ -40,7 +37,7 @@ module Root {
     }
 }
 
-=== tests/cases/conformance/internalModules/DeclarationMerging/part2.ts ===
+=== part2.ts ===
 module otherRoot {
 >otherRoot : typeof otherRoot
 
@@ -52,7 +49,6 @@ module otherRoot {
 >Origin : Root.A.Point
 >Root : any
 >A : any
->Point : Root.A.Point
 >{ x: 0, y: 0 } : { x: number; y: number; }
 >x : number
 >0 : 0
@@ -69,11 +65,9 @@ module otherRoot {
 >tl : Root.A.Point
 >Root : any
 >A : any
->Point : Root.A.Point
 >br : Root.A.Point
 >Root : any
 >A : any
->Point : Root.A.Point
             }
         }
     }

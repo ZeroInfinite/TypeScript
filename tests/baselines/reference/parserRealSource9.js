@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/parser/ecmascript5/parserRealSource9.ts] ////
+
 //// [parserRealSource9.ts]
 // Copyright (c) Microsoft. All rights reserved. Licensed under the Apache License, Version 2.0. 
 // See LICENSE.txt in the project root for complete license information.
@@ -215,7 +217,7 @@ module TypeScript {
 ///<reference path='typescript.ts' />
 var TypeScript;
 (function (TypeScript) {
-    var Binder = (function () {
+    var Binder = /** @class */ (function () {
         function Binder(checker) {
             this.checker = checker;
         }

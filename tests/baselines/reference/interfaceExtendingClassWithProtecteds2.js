@@ -1,3 +1,5 @@
+//// [tests/cases/conformance/interfaces/interfacesExtendingClasses/interfaceExtendingClassWithProtecteds2.ts] ////
+
 //// [interfaceExtendingClassWithProtecteds2.ts]
 class Foo {
     protected x: string;
@@ -28,17 +30,17 @@ var r2 = i.x; // error
 var r3 = i.y; // error
 
 //// [interfaceExtendingClassWithProtecteds2.js]
-var Foo = (function () {
+var Foo = /** @class */ (function () {
     function Foo() {
     }
     return Foo;
 }());
-var Bar = (function () {
+var Bar = /** @class */ (function () {
     function Bar() {
     }
     return Bar;
 }());
-var Baz = (function () {
+var Baz = /** @class */ (function () {
     function Baz() {
     }
     return Baz;

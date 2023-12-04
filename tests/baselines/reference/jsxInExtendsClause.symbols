@@ -1,4 +1,6 @@
-=== tests/cases/compiler/jsxInExtendsClause.tsx ===
+//// [tests/cases/compiler/jsxInExtendsClause.tsx] ////
+
+=== jsxInExtendsClause.tsx ===
 // https://github.com/Microsoft/TypeScript/issues/13157
 declare namespace React {
 >React : Symbol(React, Decl(jsxInExtendsClause.tsx, 0, 0))
@@ -36,7 +38,5 @@ class Foo extends createComponentClass(() => class extends React.Component<{}, {
 >render : Symbol((Anonymous class).render, Decl(jsxInExtendsClause.tsx, 6, 84))
 
     return <span>Hello, world!</span>;
->span : Symbol(unknown)
->span : Symbol(unknown)
   }
 }) {}
